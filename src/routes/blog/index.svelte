@@ -32,7 +32,6 @@
   }
 
   a {
-    margin: 1rem;
     color: #333;
     text-decoration: none;
     background: #fff;
@@ -64,10 +63,12 @@
 				tell Sapper to load the data for the page as soon as
 				the user hovers over the link or taps it, instead of
 				waiting for the 'click' event -->
-    <li>
-      <a rel="prefetch" href="blog/{post.slug}">
+    <a rel="prefetch" href="blog/{post.slug}">
+      <li>
+
         <h2>{post.title}</h2>
-      </a>
-    </li>
+
+      </li>
+    </a>
   {/each}
 </ul>
