@@ -53,7 +53,6 @@
   }
 
   div {
-    border-bottom: 1px solid rgba(12, 12, 12, 0.1);
     font-weight: 300;
   }
 </style>
@@ -62,6 +61,7 @@
   <a rel="prefetch" href="blog">go back</a>
   <br />
   <br />
+  <hr />
 </div>
 
 <svelte:head>
