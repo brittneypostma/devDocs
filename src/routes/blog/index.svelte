@@ -52,10 +52,10 @@
 </style>
 
 <svelte:head>
-  <title>devDocs</title>
+  <title>Logs</title>
 </svelte:head>
 
-<h1>devDocs</h1>
+<h1>Logs</h1>
 
 <ul>
   {#each posts as post}

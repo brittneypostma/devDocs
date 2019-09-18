@@ -81,7 +81,7 @@ const posts = [
 				<li><code>\< abbr \> \< /abbr \></code> is an abbreviation or acronym and has an optional title attribut than can a description for the abbreviation.</li>
 				<li><code>\< br /\></code> adds a line break into the document.</li>
 				<li><code>\< code \> \< /code \></code> styles the content in a way that indicates it is machine or computer code.</li>
-				<li><code>\< i \> \< /i \></code> italic text typically text that is set off from the normal text.</li>
+				<li><code>\< em \> \< /em \></code> is an emphasis tag that give the text extra importance and is usually italic.</li>
 				<li><code>\< kbd \> \< /kbd \></code> Keyboard Input element is a span of inline text indicating user input from a keyboard, voice input, or other text entry device.</li>
 				<li><code>\< mark \> \< /mark \></code> marked or highlighted text.</li>
 				<li><code>\< q \> \< /q \></code> short inline quote, usually styled with quotes surrounding the text.</li>

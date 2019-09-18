@@ -61,7 +61,7 @@
         rel="prefetch"
         class={segment === 'blog' ? 'selected' : ''}
         href="blog">
-        docs
+        logs
       </a>
     </li>
   </ul>

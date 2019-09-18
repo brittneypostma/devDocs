@@ -35,13 +35,13 @@
 </style>
 
 <svelte:head>
-  <title>devDocs</title>
+  <title>Console Logs</title>
 </svelte:head>
 
-<h1>Welcome to devDocs!</h1>
-<p>A site for all developer related notes and documentation.</p>
+<h1>Welcome to console logs!</h1>
+<p>A site for all my bytes of programming related knowledge.</p>
 
 <figure>
   <img alt="Borat" src="great-success.png" />
-  <figcaption>HIGH FIVE!</figcaption>
+  <figcaption>GREAT SUCCESS!</figcaption>
 </figure>
