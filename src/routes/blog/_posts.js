@@ -10,7 +10,7 @@
 const posts = [
 	{
 		title: 'HTML',
-		slug: 'what-is-sapper',
+		slug: 'html',
 		html: `
 			<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" rel="noopener noreferrer" target="_blank">MDN HTML Tags</a>
 			<br/>
@@ -19,7 +19,6 @@ const posts = [
 			
 			<h2>Getting started with a HTML document</h2>
 			<a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics" rel="noopener noreferrer" target="_blank">MDN HTML Document</a>
-			<p>HTML tags are surrounded by angle brackets (\< tag \>) and closed with (\< \/tag \>), some tags are self closing.</p>
 		
 			<p>In Visual Studio Code, you can press ! and enter to get a boilerplate HTML template to start with.</p>
 			
