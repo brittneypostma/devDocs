@@ -22,7 +22,6 @@ const posts = [
 		
 			<p>In Visual Studio Code, you can press ! and enter to get a boilerplate HTML template to start with.</p>
 			
-			<p>To add a comment you can use less than, exclamation point, 2 dashes, your comment, then 2 dashes, and a greater than symbol to close it (\< !-- comment --\>) and everything inside that will not be shown in the browser.</p>
 			<hr/>
 
 			<iframe height="464" style="width: 100%;" scrolling="no" title="yLBxMNg" src="//codepen.io/sballgirl11/embed/yLBxMNg/?height=464&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
