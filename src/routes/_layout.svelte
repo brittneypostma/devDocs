@@ -7,15 +7,17 @@
 <style>
   main {
     position: relative;
-    background-color: white;
+    background-color: var(--bg-color);
     padding: 2em;
     margin: 0 auto;
     box-sizing: border-box;
+    width: 100%;
+    color: var(--font-color);
   }
 
   footer {
-    position: fixed;
-    bottom: 0;
+    grid-row-start: 3;
+    grid-row-end: 4;
     font-size: 14px;
     text-align: center;
     width: 100%;

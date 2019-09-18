@@ -26,6 +26,7 @@
   li {
     list-style-type: none;
     padding: 1rem;
+    background: #fff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;

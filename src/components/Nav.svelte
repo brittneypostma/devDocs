@@ -1,50 +1,120 @@
 <script>
   export let segment;
+
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    const toggleSwitch = document.querySelector(
+      '.theme-switch input[type="checkbox"]'
+    );
+
+    function switchTheme(e) {
+      if (e.target.checked) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      } else {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    }
+
+    toggleSwitch.addEventListener("change", switchTheme, false);
+  });
 </script>
 
 <style>
   nav {
-    border-bottom: 1px solid rgba(255, 62, 0, 0.1);
+    border-bottom: 1px solid rgb(155, 50, 43, 0.5);
     font-weight: 300;
-    padding: 0 1em;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: space-between;
   }
 
   ul {
     margin: 0;
     padding: 0;
+    display: flex;
+    list-style-type: none;
   }
 
   /* clearfix */
   ul::after {
     content: "";
-    display: block;
-    clear: both;
   }
 
   li {
-    display: block;
-    float: left;
+    line-height: 1.5em;
+  }
+
+  li:hover {
+    position: relative;
+    border-bottom: 2px solid #aaa;
   }
 
   .selected {
     position: relative;
-    display: inline-block;
-  }
-
-  .selected::after {
-    position: absolute;
-    content: "";
-    width: calc(100% - 1em);
-    height: 2px;
-    background-color: rgb(255, 62, 0);
-    display: block;
-    bottom: -1px;
+    background-color: rgb(155, 50, 43);
+    padding: 0.5em;
+    color: white;
   }
 
   a {
     text-decoration: none;
     padding: 1em 0.5em;
-    display: block;
+  }
+
+  .theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+  }
+
+  .theme-switch input {
+    display: none;
+  }
+
+  .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.4s;
+  }
+
+  .slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: 0.4s;
+    width: 26px;
+  }
+
+  input:checked + .slider {
+    background-color: #7a7a7a;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
   }
 </style>
 
@@ -65,4 +135,10 @@
       </a>
     </li>
   </ul>
+  <div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider round" />
+    </label>
+  </div>
 </nav>
