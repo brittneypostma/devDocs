@@ -63,6 +63,11 @@
     padding: 1em 0.5em;
   }
 
+  img {
+    width: 30px;
+    height: 30px;
+  }
+
   .theme-switch-wrapper {
     display: flex;
     align-items: center;
@@ -136,9 +141,11 @@
     </li>
   </ul>
   <div class="theme-switch-wrapper">
+    <img src="sun.png" alt="light-mode" style="margin-right: 0.5em;" />
     <label class="theme-switch" for="checkbox">
       <input type="checkbox" id="checkbox" />
       <div class="slider round" />
     </label>
+    <img src="moon.png" alt="dark-mode" style="margin-left: 0.5em;" />
   </div>
 </nav>
