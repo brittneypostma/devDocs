@@ -30,7 +30,7 @@ const posts = [
 </iframe>
 <h2>Basic Tags</h2>
 			<ul>
-				<li><pre><code>< !DOCTYPE html ></code></pre> <def>is required at the beginning of every HTML document.</<li>
+				<li><pre><code>< !DOCTYPE html ></code></pre> is required at the beginning of every HTML document.</<li>
 				<li><pre><code>< html > < /html ></code></pre> wraps all of the content on the entire page and can be referred to as the root element.</li>
 				<li><pre><code>< head > < /head ></code></pre> is a container for metadata on the site used for SEO, title, styling tags, any script tags that are needed to run the page, and others.</li>
 				<li><pre><code>< link rel="" href="" ></code></pre> specifies the relationship between the current HTML document and an external resource, like a stylesheet or icon. The rel attribute takes the type of link you are importing, such as stylesheet, and the href attribute is the location of the link relative to the current file.</li>
