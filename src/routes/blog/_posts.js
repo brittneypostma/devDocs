@@ -12,6 +12,10 @@ const posts = [
 		title: 'HTML',
 		slug: 'html',
 		html: `
+		<iframe height="450" style="width: 100%;" scrolling="no" title="yLBxMNg" src="//codepen.io/sballgirl11/embed/yLBxMNg/?height=464&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/sballgirl11/pen/yLBxMNg/'>yLBxMNg</a> by Brittney
+  (<a href='https://codepen.io/sballgirl11'>@sballgirl11</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 			<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" rel="noopener noreferrer" target="_blank">MDN HTML Tags</a>
 			<br/>
 			<a href="https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf" rel="noopener noreferrer" target="_blank">HTML Cheat 	sheet by Stanford University</a>
@@ -24,10 +28,7 @@ const posts = [
 			
 			<hr/>
 
-			<iframe height="450" style="width: 100%;" scrolling="no" title="yLBxMNg" src="//codepen.io/sballgirl11/embed/yLBxMNg/?height=464&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/sballgirl11/pen/yLBxMNg/'>yLBxMNg</a> by Brittney
-  (<a href='https://codepen.io/sballgirl11'>@sballgirl11</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+			
 <h2>Basic Tags</h2>
 			<ul>
 				<li><pre><code>&lt;!DOCTYPE html&gt;</code></pre> is required at the beginning of every HTML document.</li>
@@ -126,15 +127,77 @@ const posts = [
 		title: 'CSS',
 		slug: 'css',
 		html: `
+		<iframe height="450" style="width: 100%;" scrolling="no" title="CSS" src="//codepen.io/sballgirl11/embed/GRKYPpw/?height=265&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/sballgirl11/pen/GRKYPpw/'>CSS</a> by Brittney
+  (<a href='https://codepen.io/sballgirl11'>@sballgirl11</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 		<a href="https://developer.mozilla.org/en-US/docs/Web/CSS" rel="noopener noreferrer" target="_blank">MDN CSS</a>
 		<br/>
 		<a href="https://css-tricks.com/" rel="noopener noreferrer" target="_blank">CSS Tricks</a>
 		<p>CSS, Cascading Style Sheet, is used to describe how elements should be rendered to users.</p>
 		<p>CSS can be implemented in several ways.  Inline styling, inside the style tag of an HTML document, or in an external stylesheet.</p>
-		<iframe height="450" style="width: 100%;" scrolling="no" title="CSS" src="//codepen.io/sballgirl11/embed/GRKYPpw/?height=265&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/sballgirl11/pen/GRKYPpw/'>CSS</a> by Brittney
-  (<a href='https://codepen.io/sballgirl11'>@sballgirl11</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<div>
+<hr/>
+<h2>Identify Elements</h2>
+<p>There are multiple ways to tell the browser how to "find" the elements you want to style.</p>
+<p>Here are some examples.</p>
+<div style="position: relative; left: 5em; width: 90%;">
+	<div>
+		<h3>Element Names</h3>
+		<p>
+			Just using an HTML elements tag name is one of the simplest ways to add styling to an element. An
+			example is:
+		</p>
+		<pre><code>div { *<em>styles for all div tags go here</em>* } 
+p {*<em>styles for paragraph tags go here</em>* }</code></pre>
+	</div>
+	<div>
+		<h3 style="margin-top: .5em">Class Selector</h3>
+		<p>
+			Classes are probably the most common selector given to elements, because they are reusable. <br/>You can have one css style for a certain class and give it to as many elements as you want.
+		</p>
+		<pre><code>&lt;div class="my-div"&gt;Style the div tag by applying the class "my-div" to it.&lt;/div></code></pre>
+		<p>Then, in the css styles to use a class, you start it with a period and then the name of the class:</p>
+		<pre><code>.my-div { *<em>styles for class my-div go here</em>* }</code></pre>
+	</div>
+	<div>
+	<h3 style="margin-top: .5em">ID Selector</h3>
+		<p>
+			IDs should only be given to a single element in the HTML and are the most specific of the simple selectors.
+		</p>
+		<pre><code>&lt;div id="this-div"&gt;Style the div tag by applying the id "this-div" to it.&lt;/div&gt;</code></pre>
+		<p>Then, in the css styles to use an id, you start it with a hash (#) and then the name of the id:</p>
+		<pre><code>#this-div { *<em>styles for class my-div go here</em>* }</code></pre>
+	</div>
+</div>
+</div>
+<hr/>
+	<div>
+		<h2>Selectors</h2>
+			<p>CSS selectors tell the browser which HTML element you want to style.</p>
+			<p>There are 5 types of selectors.</p>
+			<ol>
+			<li>1. Simple selectors (element name, class, or id)
+			<li>2. Combination selectors (relationship between multiple elements)</li>
+			<li>3. Pseudo-class selectors (state of an element)</li>
+			<li>4. Pseudo-elements selectors (a piece of an element)</li>
+			<li>5. Attribute selectors (an element with an attribute)</li>
+		</ol>
+	</div>
+	<div>
+	<hr/>
+		<h2>Specificity</h2>
+			<p>If there are conflicting selectors in your CSS, the browser follows some standards to choose which rule to use.  This is called <strong><em>specifity</em></strong>.</p>
+			<p>There are 4 categories that define the level of specificity for selectors ranging from most specific to least specific.</p>
+			<ol>
+			<li>1. Inline styles</li>
+			<li>2. IDs</li>
+			<li>3. Classes, attributes, and psuedo-classes</li>
+			<li>4. Elements and pseudo-elements</li>
+		</ol>
+	</div>
+
 		`,
 	},
 

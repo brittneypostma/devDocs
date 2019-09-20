@@ -26,6 +26,19 @@
 		so we have to use the :global(...) modifier to target
 		all elements inside .content
   */
+  .post-header {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .content {
+    width: 75%;
+    margin: 0 auto;
+  }
 
   .content :global(h2) {
     font-size: 1.4em;
@@ -33,17 +46,18 @@
   }
 
   .content :global(pre) {
-    background-color: #333333;
+    background-color: #f0f8ff;
     box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
     padding: 0.5em;
     border-radius: 2px;
     display: inline-block;
+    margin: 0;
   }
 
   .content :global(pre) :global(code) {
     background-color: transparent;
     padding: 0;
-    color: #dddddd;
+    color: #333333;
   }
 
   .content :global(ul) {
@@ -60,18 +74,14 @@
   }
 </style>
 
-<div>
-  <a rel="prefetch" href="blog">go back</a>
-  <br />
-  <br />
-  <hr />
-</div>
-
 <svelte:head>
   <title>{post.title}</title>
 </svelte:head>
 
-<h1>{post.title}</h1>
+<div class="post-header">
+  <a rel="prefetch" href="blog">go back</a>
+  <h1>{post.title}</h1>
+</div>
 
 <div class="content">
   {@html post.html}
