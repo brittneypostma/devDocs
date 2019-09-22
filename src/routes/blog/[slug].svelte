@@ -26,6 +26,7 @@
 		so we have to use the :global(...) modifier to target
 		all elements inside .content
   */
+
   .post-header {
     width: 75%;
     margin: 0 auto;
@@ -71,6 +72,16 @@
 
   div {
     font-weight: 300;
+  }
+
+  @media only screen and (max-width: 900px) {
+    .content {
+      width: 100%;
+    }
+
+    .post-header {
+      width: 100%;
+    }
   }
 </style>
 

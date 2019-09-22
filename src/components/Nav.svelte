@@ -48,7 +48,7 @@
 
   li:hover {
     position: relative;
-    border-bottom: 2px solid #aaa;
+    border-bottom: 5px solid #aaaaaa;
   }
 
   .selected {

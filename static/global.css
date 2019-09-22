@@ -43,6 +43,10 @@ body {
 	display: grid;
 	grid-template-rows: 55px 1fr auto;
 	min-height: 100vh;
+	max-width: 100vw;
+	word-break: break-word;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 h1,
@@ -63,6 +67,15 @@ h1 {
 
 a {
 	color: var(--primary-color);
+}
+
+pre {
+	overflow-x: auto;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
 }
 
 code {
