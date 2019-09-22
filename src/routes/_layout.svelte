@@ -1,7 +1,12 @@
 <script>
+  import { onMount } from "svelte";
   import Nav from "../components/Nav.svelte";
 
   export let segment;
+
+  onMount(() => {
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+  });
 </script>
 
 <style>
@@ -43,4 +48,6 @@
   <img alt="svelte" src="svelte-logo.png" />
   and
   <img alt="sapper" src="sapper.png" />
+  &copy;
+  <span id="year" />
 </footer>

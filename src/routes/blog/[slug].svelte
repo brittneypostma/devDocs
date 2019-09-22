@@ -64,10 +64,19 @@
   .content :global(ul) {
     line-height: 1.5;
     padding: 0;
+    margin: 0 0 16px;
   }
 
   .content :global(li) {
     list-style-type: none;
+  }
+
+  .content :global(dfn) {
+    border-radius: 2px;
+    position: relative;
+    top: -0.9em;
+    line-height: 2em;
+    font-style: normal;
   }
 
   div {
