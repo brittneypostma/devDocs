@@ -263,47 +263,46 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 	
 	<p>JavaScript is the verb of the internet, it powers anything that is an action.</p>
 	<p>
-		The easiest way to start with JavaScript is to open the console in your browser, in most browsers Ctrl+Shift+I will
+		The easiest way to start using JavaScript is to open the console in your browser, in most browsers Ctrl+Shift+I will
 		open it up and you can navigate to the console tab.
 	</p>
+	<p>In JavaScript, the \\ (backslash) character is reserved as an escape character.  If you use the backslash key, the key typed after that will be ignored.  This is useful when typing strings with multiple ' or ".
 	
 	<hr />
 	<div style="display: grid; grid-template-columns: repeat (auto-fit, minmax(400px, 1fr));">
-		<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+		<div style="display: grid;">
 			<div>
-				<div style="text-align: center;">
-					<h2>Types</h2>
-				</div>
+				<h2>Types</h2>
 				<h3>Primitive Data Types</h3>
 				<div style="display: grid; margin-left: 2em;">
 				<ul>
 					<li style="list-style-type: decimal;">
-					Boolean - true or false<br/>
+					<strong>Boolean</strong> - true or false<br/>
 					<pre><code>const bool1 = true;<br/>const bool2 = false;</code></pre>
 					</li>
 					<li style="list-style-type: decimal;"> 
-					Null - explicitly nothing<br/>
+					<strong>Null</strong> - explicitly nothing<br/>
 					<pre><code>const nothing = null;</code></pre>
 					</li>
 					<li style="list-style-type: decimal;"> 
-					Undefined - a variable that has no value.<br/>
+					<strong>Undefined</strong> - a variable that has no value.<br/>
 					<pre><code>const undVar;<br/>console.log(undVar);<br/>//<em>undefined</em></code></pre>
 					</li>
 					<li style="list-style-type: decimal;"> 
-					Number - numbers in JavaScript can be written with of without a decimal point and can also be Infinity or NaN (not a number).<br/>
+					<strong>Number</strong> - numbers in JavaScript can be written with of without a decimal point and can also be Infinity or NaN (not a number).<br/>
 					<pre><code>const num1 = 11;<br/>const num2 = 0.42;</code></pre>
 					</li>
 					<li style="list-style-type: decimal;"> 
-					String - stores text inside double or single quotes or in template literals (\`).<br/>
+					<strong>String</strong> - stores text inside double or single quotes or in template literals (\`).<br/>
 					<pre><code>const str1 = 'I am string 1.';<br/>const str2 = "I am string 2."<br/>const str3 = \`I am string 3.\`;</code></pre>
 					</li>
 					<li style="list-style-type: decimal;"> 
-					Symbol - an immutable primitive value that is unique, created by invoking the function Symbol. Symbols are guaranteed to be unique.
+					<strong>Symbol</strong> - an immutable primitive value that is unique, created by invoking the function Symbol. Symbols are guaranteed to be unique.
 					Even if we create many symbols with the same description, they are different values.<br/>
 					<pre><code>// here are two symbols with the same description,<br/>let Sym1 = Symbol("Sym");<br/>let Sym2 = Symbol("Sym");<br/>console.log(Sym1 == Sym2); // <em>returns "false"</em></code></pre>
 					</li>
 					<li style="list-style-type: decimal;"> 
-					BigInt - a numeric data type that can represent integers in the arbitrary precision format.<br/>
+					<strong>BigInt</strong> - a numeric data type that can represent integers in the arbitrary precision format.<br/>
 					<pre><code>const x = 2n ** 53n;<br/>//<em>9007199254740992n</em></code></pre>
 					</li>
 				</ul>
@@ -313,25 +312,82 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 				<div style="margin-left: 2em;">
 					<ul>
 						<li style="list-style-type: square;">
-							Booleans can be objects (if defined with the new keyword)
+							Booleans defined with the new keyword.
 						</li>
 						<li style="list-style-type: square;">
-							Numbers can be objects (if defined with the new keyword)
+							Numbers defined with the new keyword.
 						</li>
 						<li style="list-style-type: square;">
-							Strings can be objects (if defined with the new keyword)
+							Strings defined with the new keyword.
 						</li>
-						<li style="list-style-type: square;">Dates are always objects</li>
-						<li style="list-style-type: square;">Maths are always objects</li>
-						<li style="list-style-type: square;">Regular expressions are always objects</li>
-						<li style="list-style-type: square;">Arrays are always objects</li>
-						<li style="list-style-type: square;">Functions are always objects</li>
-						<li style="list-style-type: square;">Objects are always objects</li>
+						<li style="list-style-type: square;">
+							Dates are always objects.
+						</li>
+						<li style="list-style-type: square;">
+							Math is always an object.
+						</li>
+						<li style="list-style-type: square;">
+							Regular expressions are always objects.
+						</li>
+						<li style="list-style-type: square;">
+							Arrays are always objects.
+						</li>
+						<li style="list-style-type: square;">
+							Functions are always objects.
+						</li>
+						<li style="list-style-type: square;">
+							Objects are always objects.
+						</li>
 					</ul>
 				</div>
 	
 				<hr />
 			</div>
+
+			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+			<div>
+				<h2>Comparisons</h2>
+				<p>
+					In JavaScript a single = sign is for assigning values, so there are other ways to check for
+					equality.
+				</p>
+				<div style="display: grid; margin-left: 2em;">
+					<ul>
+						<li style="list-style-type: square;">
+							<pre><code>//=== or !==<br/>3 === '3'; //;<em>false</em><br/>3 === 3; //;<em>true</em><br/>3 !== 4; //;<em>true</em><br/>3 !== 3; //;<em>false</em></code></pre>
+							<dfn>
+								- The strict equality and inequality operators with no type conversion by JavaScript.  This is the correct way to compare values.</dfn
+							>
+						</li>
+						<li style="list-style-type: square;">
+							<pre><code>&gt;=</code></pre>
+							<dfn> - is true if the left side is greater than or equal to the value or the right side.</dfn>
+						</li>
+						<li style="list-style-type: square;">
+							<pre><code>&lt;=</code></pre>
+							<dfn> - is true if the left side is less than or equal to the value or the right side. </dfn>
+						</li>
+						<li style="list-style-type: square;">
+							<pre><code>&gt;</code></pre>
+							<dfn> - is true if the left side is greater than the value or the right side.</dfn>
+						</li>
+						<li style="list-style-type: square;">
+							<pre><code>&lt;</code></pre>
+							<dfn> - is true if the left side is less than the value or the right side.</dfn>
+						</li>
+						<li style="list-style-type: square;">
+							<pre><code>== or !=</code></pre>
+							<dfn>
+								- The equality and inequality operators convert the operands if they are not of the same
+								type, then applies a strict comparison. Using these should be avoided, because JavaScript "guesses" what you want and changes the type of the input.
+							</dfn>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
 		</div>
 	</div>
 	

@@ -18,9 +18,13 @@
     line-height: 1.5;
     padding-inline-start: 0;
     text-align: center;
+  }
+
+  .grid-logs {
     display: grid;
-    grid-template-columns: 33fr 33fr 33fr;
-    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1em;
+    margin: 0 1em;
   }
 
   li {
@@ -59,17 +63,22 @@
 <h1>Logs</h1>
 
 <ul>
-  {#each posts as post}
-    <!-- we're using the non-standard `rel=prefetch` attribute to
+  <div class="grid-logs">
+    {#each posts as post}
+      <!-- we're using the non-standard `rel=prefetch` attribute to
 				tell Sapper to load the data for the page as soon as
 				the user hovers over the link or taps it, instead of
 				waiting for the 'click' event -->
-    <a rel="prefetch" href="blog/{post.slug}">
-      <li>
 
-        <h2>{post.title}</h2>
+      <div>
+        <a rel="prefetch" href="blog/{post.slug}">
+          <li>
 
-      </li>
-    </a>
-  {/each}
+            <h2>{post.title}</h2>
+
+          </li>
+        </a>
+      </div>
+    {/each}
+  </div>
 </ul>

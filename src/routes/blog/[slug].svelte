@@ -42,12 +42,14 @@
   }
 
   .content :global(h2) {
-    font-size: 1.4em;
+    font-size: 1.5em;
     font-weight: 500;
+    text-align: center;
   }
 
   .content :global(pre) {
-    background-color: #f0f8ff;
+    background-color: #a8a8a8ee;
+    color: #333333;
     box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
     padding: 0.5em;
     border-radius: 2px;
@@ -58,7 +60,6 @@
   .content :global(pre) :global(code) {
     background-color: transparent;
     padding: 0;
-    color: #333333;
   }
 
   .content :global(ul) {
