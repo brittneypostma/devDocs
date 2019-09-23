@@ -8,10 +8,10 @@
 // underscore tells Sapper not to do that.
 
 const posts = [
-  {
-    title: "HTML",
-    slug: "html",
-    html: `
+	{
+		title: 'HTML',
+		slug: 'html',
+		html: `
 		<iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="yLBxMNg" src="//codepen.io/sballgirl11/embed/yLBxMNg/?height=464&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/sballgirl11/pen/yLBxMNg/'>yLBxMNg</a> by Brittney
   (<a href='https://codepen.io/sballgirl11'>@sballgirl11</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -117,13 +117,13 @@ const posts = [
 				<pre><code>&lt;textarea&gt; &lt;/textarea&gt;</code></pre><dfn> is a multi-line, resizable text box that allows users to write a sizable amount of text like a comment.</dfn><br/>
 			
 			<hr/>
-		`
-  },
+		`,
+	},
 
-  {
-    title: "CSS",
-    slug: "css",
-    html: `
+	{
+		title: 'CSS',
+		slug: 'css',
+		html: `
 		<div>
 		<iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="CSS" src="//codepen.io/sballgirl11/embed/GRKYPpw/?height=265&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/sballgirl11/pen/GRKYPpw/'>CSS</a> by Brittney
@@ -237,13 +237,13 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 	</div>
 </div>
 
-		`
-  },
+		`,
+	},
 
-  {
-    title: "JavaScript",
-    slug: "javascript",
-    html: `
+	{
+		title: 'JavaScript',
+		slug: 'javascript',
+		html: `
 		<iframe
 		height="450"
 		style="width: 100%; resize: both;"
@@ -285,7 +285,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					<pre><code>const nothing = null;</code></pre>
 					</li>
 					<li style="list-style-type: decimal;"> 
-					<strong>Undefined</strong> - a variable that has no value.<br/>
+					<strong>Undefined</strong> - a variable that has no value or has yet to be assigned.<br/>
 					<pre><code>const undVar;<br/>console.log(undVar);<br/>//<em>undefined</em></code></pre>
 					</li>
 					<li style="list-style-type: decimal;"> 
@@ -431,7 +431,54 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 				</div>
 			</div>
 		</div>
+		<hr/>
 
+		<div style="display: grid;">
+			<div>
+				<h2>Conditionals</h2>
+				<p>
+					Conditional statements are used when you want to perform different actions depending on different conditions.
+				</p>
+					<div style="display: grid; margin-left: 2em;">
+					<ul>
+						<li style="list-style-type: decimal;">
+						<strong>if</strong> - used when you want to check if a condition is true before executing code.<br/>
+						<pre><code>var name = "Brittney";<br/>if (name === "Brittney) {<br/>  alert("Hi Brittney!);<br/>}</code></pre>
+						</li>
+						<li style="list-style-type: decimal;"> 
+						<strong>else</strong> - used to specify a block of code to be executed when the <em>if</em> block is false.<br/>
+						<pre><code>if (name === "Brittney) {<br/>  alert("Hi Brittney!);<br/>}  else {<br/>  alert("Hi!");<br/>}</code></pre>
+						</li>
+						<li style="list-style-type: decimal;"> 
+						<strong>else if</strong> - used to specify another condition when the <em>if</em> statement is false and before the else block.<br/>
+						<pre><code>if (name === "Brittney) {<br/>  alert("Hi Brittney!);<br/>}  else if (name === "Joe") {<br/>  alert("Hi Joe!");<br/>}  else {<br/>  alert("Hi!");<br/>}</code></pre>
+						</li>
+						<li style="list-style-type: decimal;"> 
+						<strong>ternary operator</strong> - is frequently used as a shortcut for the if statement. Multiple conditions can be wrapped in () to seperate them.<br/>
+						<pre><code>//Syntax for ternary:<br/><em>(condition) ? executeIfTrue : executeIfFalse<br/>(condition) ? executeIfTrue : (secondCondition) ? executeIfSecondIsTrue : exucuteIfAllAreFalse</em><br/>var age = 37;<br/>var beverage = (age >= 21) ? "Here's a beer!" : "Have some juice!";<br/>console.log(beverage); //<em>"Here's a beer!"</em><br/>var num = 0;<br/>(num > 0) ? "positive" : (num < 0) ? "negative" : "zero"; //<em>"zero"</em></code></pre>
+						</li>
+						<li style="list-style-type: decimal;"> 
+						<strong>switch</strong> - used to specify multiple "cases" to be used if they are true. The switch expression is evauluated once and compared with the values of each case, if there is a match, that block of code is executed.<br/>
+						<pre><code>switch (new Date().getDay()) {<br/>  case 6:<br/>    day = "Today is Saturday!";<br/>    break;<br/>  case 0:<br/>    day = "Today is Sunday!";<br/>    break;<br/>  default:<br/>    day = "Ready for the weekend!";<br/>}</code></pre>
+						</li>
+					</ul>
+				</div>
+				<h3>Logical Operators</h3>
+				<ul>
+					<li style="list-style-type: square;">
+					<strong>||</strong> - the OR operator checks until it finds a "truthy" value.<br/>
+					<pre><code>if (age < 16 || age > 100) {<br/>  alert("You should not drive a car.");<br/>}</code></pre>
+					</li>
+					<li style="list-style-type: square;">
+					<strong>&&</strong> - the AND operator checks both sides to be a "truthy" value before executing.<br/>
+					<pre><code>if (firstName === "Brittney" && lastName === "Postma") {<br/>  alert("Your name is Brittney Postma.");<br/>}</code></pre>
+					</li>
+					<li style="list-style-type: square;">
+					<strong>!</strong> - the NOT or BANG operator means the opposite of when used alone and means not when used with other operators.<br/>
+					<pre><code>!true //<em>false</em><br/>!false //<em>true</em><br/>var guess = prompt("Guess my number");<br/>var myNum = 11;<br/>if (guess !== myNum) {<br/>  alert("Sorry, you're wrong");<br/>}</code></pre>
+					</li>
+				</ul>
+				<hr/>
 
 		</div>
 	</div>
@@ -439,39 +486,39 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 
 	
 
-		`
-    // },
-    // {
-    // 	title: 'Svelte',
-    // 	slug: 'why-the-name',
-    // 	html: `
-    // 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+		`,
+		// },
+		// {
+		// 	title: 'Svelte',
+		// 	slug: 'why-the-name',
+		// 	html: `
+		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
-    // 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-    // 	`,
-    // },
-    // {
-    // 	title: 'React',
-    // 	slug: 'why-the-name',
-    // 	html: `
-    // 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+		// 	`,
+		// },
+		// {
+		// 	title: 'React',
+		// 	slug: 'why-the-name',
+		// 	html: `
+		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
-    // 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-    // 	`,
-    // },
-    // {
-    // 	title: 'Gatsby',
-    // 	slug: 'why-the-name',
-    // 	html: `
-    // 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+		// 	`,
+		// },
+		// {
+		// 	title: 'Gatsby',
+		// 	slug: 'why-the-name',
+		// 	html: `
+		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
-    // 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-    // 	`,
-  }
+		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+		// 	`,
+	},
 ];
 
 posts.forEach(post => {
-  post.html = post.html.replace(/^\t{3}/gm, "");
+	post.html = post.html.replace(/^\t{3}/gm, '');
 });
 
 export default posts;
