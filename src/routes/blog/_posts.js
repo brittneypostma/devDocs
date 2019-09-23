@@ -455,7 +455,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 						</li>
 						<li style="list-style-type: decimal;"> 
 						<strong>ternary operator</strong> - is frequently used as a shortcut for the if statement. Multiple conditions can be wrapped in () to seperate them.<br/>
-						<pre><code>//Syntax for ternary:<br/><em>(condition) ? executeIfTrue : executeIfFalse<br/>(condition) ? executeIfTrue : (secondCondition) ? executeIfSecondIsTrue : exucuteIfAllAreFalse</em><br/>var age = 37;<br/>var beverage = (age >= 21) ? "Here's a beer!" : "Have some juice!";<br/>console.log(beverage); //<em>"Here's a beer!"</em><br/>var num = 0;<br/>(num > 0) ? "positive" : (num < 0) ? "negative" : "zero"; //<em>"zero"</em></code></pre>
+						<pre><code>//Syntax for ternary:<br/><em>(condition) ? executeIfTrue : executeIfFalse<br/>(condition) ? executeIfTrue : (secondCondition) ? executeIfSecondIsTrue : exucuteIfAllAreFalse</em><br/>var age = 37;<br/>var beverage = (age &gt;= 21) ? "Here's a beer!" : "Have some juice!";<br/>console.log(beverage); //<em>"Here's a beer!"</em><br/>var num = 0;<br/>(num &gt; 0) ? "positive" : (num &lt; 0) ? "negative" : "zero"; //<em>"zero"</em></code></pre>
 						</li>
 						<li style="list-style-type: decimal;"> 
 						<strong>switch</strong> - used to specify multiple "cases" to be used if they are true. The switch expression is evauluated once and compared with the values of each case, if there is a match, that block of code is executed.<br/>
@@ -467,7 +467,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 				<ul>
 					<li style="list-style-type: square;">
 					<strong>||</strong> - the OR operator checks until it finds a "truthy" value.<br/>
-					<pre><code>if (age < 16 || age > 100) {<br/>  alert("You should not drive a car.");<br/>}</code></pre>
+					<pre><code>if (age &lt; 16 || age &gt; 100) {<br/>  alert("You should not drive a car.");<br/>}</code></pre>
 					</li>
 					<li style="list-style-type: square;">
 					<strong>&&</strong> - the AND operator checks both sides to be a "truthy" value before executing.<br/>
