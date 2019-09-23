@@ -48,7 +48,7 @@
   }
 
   .content :global(pre) {
-    background-color: #a8a8a8ee;
+    background-color: #cccccc;
     color: #333333;
     box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
     padding: 0.5em;

@@ -8,10 +8,10 @@
 // underscore tells Sapper not to do that.
 
 const posts = [
-	{
-		title: 'HTML',
-		slug: 'html',
-		html: `
+  {
+    title: "HTML",
+    slug: "html",
+    html: `
 		<iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="yLBxMNg" src="//codepen.io/sballgirl11/embed/yLBxMNg/?height=464&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/sballgirl11/pen/yLBxMNg/'>yLBxMNg</a> by Brittney
   (<a href='https://codepen.io/sballgirl11'>@sballgirl11</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -117,13 +117,13 @@ const posts = [
 				<pre><code>&lt;textarea&gt; &lt;/textarea&gt;</code></pre><dfn> is a multi-line, resizable text box that allows users to write a sizable amount of text like a comment.</dfn><br/>
 			
 			<hr/>
-		`,
-	},
+		`
+  },
 
-	{
-		title: 'CSS',
-		slug: 'css',
-		html: `
+  {
+    title: "CSS",
+    slug: "css",
+    html: `
 		<div>
 		<iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="CSS" src="//codepen.io/sballgirl11/embed/GRKYPpw/?height=265&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/sballgirl11/pen/GRKYPpw/'>CSS</a> by Brittney
@@ -216,7 +216,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 			</ol>
 			<div>
 			<h3 style="text-align: center;">Where to learn and practice Flexbox and Grid</h3>
-			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); justify-content: space-around; align-content: center;">
+			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); justify-items: center; align-content: center;">
 			<div>
 				<ol><h4>Flexbox</h4>
 					<li><a href="https://flexbox.io/">What the FLEXBOX?! by Wes Bos</a></li>
@@ -237,13 +237,13 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 	</div>
 </div>
 
-		`,
-	},
+		`
+  },
 
-	{
-		title: 'JavaScript',
-		slug: 'javascript',
-		html: `
+  {
+    title: "JavaScript",
+    slug: "javascript",
+    html: `
 		<iframe
 		height="450"
 		style="width: 100%; resize: both;"
@@ -354,12 +354,6 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 				<div style="display: grid; margin-left: 2em;">
 					<ul>
 						<li style="list-style-type: square;">
-							<pre><code>//=== or !==<br/>3 === '3'; //;<em>false</em><br/>3 === 3; //;<em>true</em><br/>3 !== 4; //;<em>true</em><br/>3 !== 3; //;<em>false</em></code></pre>
-							<dfn>
-								- The strict equality and inequality operators with no type conversion by JavaScript.  This is the correct way to compare values.</dfn
-							>
-						</li>
-						<li style="list-style-type: square;">
 							<pre><code>&gt;=</code></pre>
 							<dfn> - is true if the left side is greater than or equal to the value or the right side.</dfn>
 						</li>
@@ -382,6 +376,57 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 								type, then applies a strict comparison. Using these should be avoided, because JavaScript "guesses" what you want and changes the type of the input.
 							</dfn>
 						</li>
+						<li style="list-style-type: square;">
+							<pre><code>//=== or !==<br/>3 === '3'; //;<em>false</em><br/>3 === 3; //;<em>true</em><br/>3 !== 4; //;<em>true</em><br/>3 !== 3; //;<em>false</em></code></pre>
+							<dfn>
+								- The strict equality and inequality operators with no type conversion by JavaScript.  This is the correct way to compare values.
+							</dfn>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<hr/>
+
+		<div style="display: grid;">
+			<div>
+				<h2>Variables</h2>
+				<p>
+					In JavaScript variables can be assigned with 3 different types: var, let, and const, var and let values can be changed, but const values are constant and unchangeable. They can all be assigned to any of the JavaScript types.
+				</p>
+					<div style="display: grid; margin-left: 2em;">
+					<ul>
+						<li style="list-style-type: decimal;">
+						<strong>var</strong> - declares a variable, optionally initializing it to a value and is function scoped (more on this later).<br/>
+						<pre><code>var x;<br/>x = 11;<br/>var y = "this is a string named y"</code></pre>
+						</li>
+						<li style="list-style-type: decimal;"> 
+						<strong>let</strong> - similar to var, except that it is scoped to the block ( { } ) that it is declared inside of, or block scoped.<br/>
+						<pre><code>const nothing = null;</code></pre>
+						</li>
+						<li style="list-style-type: decimal;"> 
+						<strong>const</strong> - declares a variable that cannot be changed and must be initialed to a value, it is also block scoped.<br/>
+						<pre><code>const z = 'always the same';<br/>const a; //<em>Syntax error: missing initializer</em><br/>const name = 'Brittney';<br/>name = 'Mary' //<em>Uncaught TypeError: Assignment to constant variable.</em></code></pre>
+						</li>
+					</ul>
+				</div>
+				<h3>Naming Variables</h3>
+				<p>All JavaScript variables must be identified with unique names. These unique names are called <strong>identifiers</strong>. Variables can be named anything, with a few contraints, but it is best practice to name the variables as descriptive to what they are as possible. Using something called camelCase is also best practice. The first word is lowercased and any word after the first letter would be uppercased (myName or numberOfTimes).</p>
+				<p>The general rules for constructing names for variables (unique identifiers) are:</p>
+				<div style="margin-left: 2em;">
+					<ul>
+						<li style="list-style-type: square;">
+							Names must begin with a letter, an underscore (_) or a dollar sign ($).
+						</li>
+						<li style="list-style-type: square;">
+							Names can only contain letters, numbers, underscores, or dollar signs.
+						</li>
+						<li style="list-style-type: square;">
+							Names cannot contain spaces.
+						</li>
+						<li style="list-style-type: square;">
+							Names are case sensitive ( y is not Y).
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -394,39 +439,39 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 
 	
 
-		`,
-		// },
-		// {
-		// 	title: 'Svelte',
-		// 	slug: 'why-the-name',
-		// 	html: `
-		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+		`
+    // },
+    // {
+    // 	title: 'Svelte',
+    // 	slug: 'why-the-name',
+    // 	html: `
+    // 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
-		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-		// 	`,
-		// },
-		// {
-		// 	title: 'React',
-		// 	slug: 'why-the-name',
-		// 	html: `
-		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+    // 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+    // 	`,
+    // },
+    // {
+    // 	title: 'React',
+    // 	slug: 'why-the-name',
+    // 	html: `
+    // 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
-		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-		// 	`,
-		// },
-		// {
-		// 	title: 'Gatsby',
-		// 	slug: 'why-the-name',
-		// 	html: `
-		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+    // 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+    // 	`,
+    // },
+    // {
+    // 	title: 'Gatsby',
+    // 	slug: 'why-the-name',
+    // 	html: `
+    // 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
-		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-		// 	`,
-	},
+    // 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+    // 	`,
+  }
 ];
 
 posts.forEach(post => {
-	post.html = post.html.replace(/^\t{3}/gm, '');
+  post.html = post.html.replace(/^\t{3}/gm, "");
 });
 
 export default posts;
