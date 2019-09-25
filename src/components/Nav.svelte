@@ -22,12 +22,17 @@
 
 <style>
   nav {
-    border-bottom: 1px solid rgb(155, 50, 43, 0.5);
+    border-bottom: 1px solid rgb(155, 50, 43);
+  }
+  .nav-wrapper {
+    height: 50px;
     font-weight: 300;
     padding: 1em;
     display: grid;
     grid-template-columns: 1fr auto;
     justify-content: space-between;
+    font-size: 16px;
+    margin-bottom: 2em;
   }
 
   ul {
@@ -35,6 +40,7 @@
     padding: 0;
     display: flex;
     list-style-type: none;
+    height: 2.2em;
   }
 
   /* clearfix */
@@ -71,6 +77,7 @@
   .theme-switch-wrapper {
     display: flex;
     align-items: center;
+    margin-bottom: 2em;
   }
 
   .theme-switch {
@@ -124,28 +131,32 @@
 </style>
 
 <nav>
-  <ul>
-    <li>
-      <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
-    </li>
+  <div class="nav-wrapper">
+    <ul>
+      <li>
+        <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
+      </li>
 
-    <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
+      <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
 		     the blog data when we hover over the link or tap it on a touchscreen -->
-    <li>
-      <a
-        rel="prefetch"
-        class={segment === 'blog' ? 'selected' : ''}
-        href="blog">
-        logs
-      </a>
-    </li>
-  </ul>
-  <div class="theme-switch-wrapper">
-    <img src="sun.png" alt="light-mode" style="margin-right: 0.5em;" />
-    <label class="theme-switch" for="checkbox">
-      <input type="checkbox" id="checkbox" />
-      <div class="slider round" />
-    </label>
-    <img src="moon.png" alt="dark-mode" style="margin-left: 0.5em;" />
+      <li>
+        <a
+          rel="prefetch"
+          class={segment === 'blog' ? 'selected' : ''}
+          href="blog">
+          logs
+        </a>
+      </li>
+    </ul>
+    <div class="theme-switch-wrapper">
+      <img src="sun.png" alt="light-mode" style="margin-right: 0.5em;" />
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round" />
+      </label>
+      <img src="moon.png" alt="dark-mode" style="margin-left: 0.5em;" />
+    </div>
+
   </div>
+
 </nav>

@@ -80,6 +80,27 @@
     font-style: normal;
   }
 
+  .content :global(table) {
+    width: 100%;
+  }
+
+  .content :global(table tr:nth-child(even)) {
+    background-color: #eeeeee;
+  }
+  .content :global(table tr:nth-child(odd)) {
+    background-color: #ffffff;
+  }
+
+  .content :global(table, th, td) {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  .content :global(th, td) {
+    padding: 15px;
+    text-align: left;
+  }
+
   div {
     font-weight: 300;
   }

@@ -266,8 +266,16 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 		The easiest way to start using JavaScript is to open the console in your browser, in most browsers Ctrl+Shift+I will
 		open it up and you can navigate to the console tab.
 	</p>
-	<p>In JavaScript, the \\ (backslash) character is reserved as an escape character.  If you use the backslash key, the key typed after that will be ignored.  This is useful when typing strings with multiple ' or ".
-	
+
+	<p>In JavaScript, the \\ (backslash) character is reserved as an escape character.  If you use the backslash key, the key typed after that will be ignored.  This is useful when typing strings with multiple ' or ".</p>
+
+	<div style="display: grid; grid-gap: 0.5em; justify-content: space-around; align-content: center; align-items: center;">
+		<p>JavaScript can either be put inside of a tag in the HTML file or can be linked to an external file where the src is the location of the file relative to the HTML file you are in.</p>
+		<div style="align-self: center; display: grid; grid-template-columns: 1fr 1fr; grid-gap: 0.5em; justify-items: center; align-content: center; align-items: center;"><div><pre><code>&lt;script&gt; *<em>JavaScript goes here</em>* &lt;/script&gt;</code></pre></div><div><pre><code>&lt;script&gt; type="text/javascript" src="script.js" &lt;/script&gt;</code></pre></div></div>
+	</div>
+
+	<p>Because HTML is read synchronously, from top to bottom, it is best practice to put your script tags at the bottom of the HTML file just before the closing body (&lt;/body&gt;) tag.
+
 	<hr />
 	<div style="display: grid; grid-template-columns: repeat (auto-fit, minmax(400px, 1fr));">
 		<div style="display: grid;">
@@ -479,6 +487,48 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					</li>
 				</ul>
 				<hr/>
+
+				<div style="display: grid;">
+					<div>
+						<h2>The Console</h2>
+						<p>
+							The console object provides access to the browser's debugging console. There are different ways to use the console (Ctrl + Shift + I) in JavaScript and it is a great way to debug your code.
+						</p>
+						<h3>A few of the most used console objects:</h3>
+						<ul>
+							<li style="list-style-type: square;">
+								<strong>console.log</strong> - outputs whatever you specify to the console.<br />
+								<pre><code>console.log("Hi Brittney!!") //<em>Hi Brittney!!</em><br/>var num = 11;<br/>console.log(num) //<em>11</em></code></pre>
+							</li>
+							<li style="list-style-type: square;">
+								<strong>console.error</strong> - usually has a red color and outputs an error message to the console.<br />
+								<pre><code>console.error(err) //<em style="color: red;">this might be found in a promise catch statement (more on this later).</em></code></pre>
+							</li>
+							<li style="list-style-type: square;">
+								<strong>console.clear</strong> - clears everything inside the console window and leaves a fresh window.
+								used with other operators.<br />
+								<pre><code>console.clear();</code></pre>
+							</li>
+							<li style="list-style-type: square;">
+								<strong>console.count</strong> - Log the number of times this line has been called with the given label.<br />
+								<pre><code>console.count( [label] )</code></pre>
+							</li>
+							<li style="list-style-type: square;">
+								<strong>console.group, console.groupCollapsed, console.groupEnd</strong> - Console.group() creates a new inline group, indenting all following output by another level. To move back out a level, call groupEnd(). To have a group be collapsed instead of expanded by default call console.groupCollapsed().
+								used with other operators.<br />
+								<pre><code>console.log("Hello world!");<br/>console.group();<br/>console.log("Hello from inside the group!");<br/>console.groupEnd();<br/>console.log("and outside again!");<br/>//<em>Hello world!</em><br/>//<em>&#9660; console.group</em><br/>//  <em>Hello from inside the group!</em><br/>//<em>and outside again!</em></code></pre>
+							</li>
+							<li style="list-style-type: square;">
+								<strong>console.table</strong> - displays data in a table format.<br />
+								<pre><code>console.table(["apples", "oranges", "bananas"]); //<table><tr><th>(index)</th><th>Values</th></tr><tr><td>0</td><td>"apples"</td></tr><tr><td>1</td><td>"oranges"</td></tr><tr><td>2</td><td>"bananas"</td></tr></table></code></pre>
+							</li>
+							<li style="list-style-type: square;">
+								<strong>console.time</strong> - Starts a timer with a name specified as an input parameter. Up to 10,000 simultaneous timers can run on a given page.<br />
+								<pre><code>console.time();</code></pre>
+							</li>
+						</ul>
+					</div>
+				</div>
 
 		</div>
 	</div>
