@@ -245,7 +245,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 		slug: 'javascript',
 		html: `
 		<iframe
-		height="450"
+		height="525"
 		style="width: 100%; resize: both;"
 		scrolling="no"
 		title="Javascript"
@@ -566,8 +566,9 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 							<li style="list-style-type: square;">
 								<h4><strong>Multiply 2 numbers with parameters</strong></h4>
 								<div style="style="display: grid;>
-								<pre style="margin-right: 0.5em;"><code>//ES6 arrow function, to invoke it use <em>multiply(5, 10)</em><br/>const multiply =  (a, b) => {<br/>return a * b<br/>}</code></pre>
-								<pre><code>//regular named function<br/>function multiply (a, b) {<br/>return a * b<br/>}</code></pre>
+								<pre style="margin-right: 0.5em;"><code>//ES6 arrow function<br/>//to invoke it use <em>multiply(argument, argument)</em> or <em>multiply(5, 10)</em><br/>const multiply =  (a, b) => a * b
+								</code></pre>
+								<pre><code>//regular named function<br/>function multiply (a, b) {<br/>  return a * b<br/>}</code></pre>
 								</div>
 							</li>
 					</ul>
