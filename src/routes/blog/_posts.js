@@ -529,6 +529,51 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 						</ul>
 					</div>
 				</div>
+				<hr/>
+
+
+				<div style="display: grid;">
+					<div>
+						<h2>Functions</h2>
+						<p>
+							Functions in JavaScript are reusable blocks of code that perform a task to can be executed later.  Functions perform the actions inside of them when they are <strong><em>invoked</em></strong> or <strong><em>called</em></strong>. To access a value inside of a function a <strong><em>return statement</em></strong>  must be added, this also immediately exits the function.
+						</p>
+						<p>
+							Functions can be declared a few different ways and are either anonymous (no name), or given a name just like a variable. Function <strong><em>parameters</em></strong>, placed inside the parentheses (), are the names given when defining the function Function <strong><em>arguments</em></strong> are the actual values that are passed to and received by the function.
+						</p>	
+						<p>
+							You can write functions in the function syntax or by using an <strong><em>arrow function</em></strong>.  Arrow functions usually have a shorter syntax than typical functions and there is no binding of <strong><em>this</em></strong> (more on "this" later).
+						</p>
+						<ul>
+							<li style="list-style-type: square;">
+								<h4><strong>Anonymous function</strong></h4>
+								<pre><code>function(<em>parameters</em>) {*<em>statements to be executed when called</em>*}<br/>() => {*<em>statements</em>*}<br/><em>parameter</em> => {*<em>statements</em>*}</code></pre>
+							</li>
+							<li style="list-style-type: square;">
+								<h4><strong>Named function</strong></h4>
+								<pre><code>function fnName (<em>parameters</em>) {*<em>statements to be executed when called</em>*}<br/>const fnName = (<em>parameters</em>) => {*<em>statements</em>*}<br/>//same as<br/>const variableName = fnName(<em>parameters</em>) {*<em>statements</em>*}</code></pre>
+							</li>
+						</ul>
+						<h3>Function examples</h3>
+						<ul>
+							<li style="list-style-type: square;">
+								<h4><strong>Add 2 numbers</strong></h4>
+								<div style="style="display: grid;>
+								<pre style="margin-right: 0.5em;"><code>//ES6 arrow function, to invoke it use <em>add()</em><br/>const add =  () => {<br/>var firstNum = parseInt(window.prompt("What is the first number?"), 10);<br/>var secondNum = parseInt(window.prompt("What is the second number?"), 10);<br/>var sum = firstNum + secondNum;<br/>alert("The sum is " + sum)<br/>}</code></pre>
+								<pre><code>//regular named function<br/>function add () {<br/>var firstNum = parseInt(window.prompt("What is the first number?"), 10);<br/>var secondNum = parseInt(window.prompt("What is the second number?"), 10);<br/>var sum = firstNum + secondNum;<br/>alert("The sum is " + sum)<br/>}</code></pre>
+								</div>
+							</li>
+							<li style="list-style-type: square;">
+								<h4><strong>Multiply 2 numbers with parameters</strong></h4>
+								<div style="style="display: grid;>
+								<pre style="margin-right: 0.5em;"><code>//ES6 arrow function, to invoke it use <em>multiply(5, 10)</em><br/>const multiply =  (a, b) => {<br/>return a * b<br/>}</code></pre>
+								<pre><code>//regular named function<br/>function multiply (a, b) {<br/>return a * b<br/>}</code></pre>
+								</div>
+							</li>
+					</ul>
+					</div>
+				</div>
+				<hr/>
 
 		</div>
 	</div>
