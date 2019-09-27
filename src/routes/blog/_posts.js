@@ -590,17 +590,8 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 				<ul>
 					<li style="list-style-type: square;">
 					<strong>length</strong> - sets or returns the number of elements in an array.<br/>
-					<pre><code>var numbers = [1, 2, 3, 4, 5];<br/>var length = numbers.length;<br/>for (var i = 0; i < length; i++) {<br/>  numbers[i] *= 2;<br/>}<br/>//<em>numbers is now [2, 4, 6, 8, 10]</em><br/></code></pre>
+					<pre><code>var numbers = [1, 2, 3, 4, 5];<br/>var length = numbers.length;<br/>for (var i = 0; i &lt; length; i++) {<br/>  numbers[i] *= 2;<br/>}<br/>//<em>numbers is now [2, 4, 6, 8, 10]</em><br/></code></pre>
 					
-					</li>
-					<li style="list-style-type: square;">
-					<strong>&&</strong> - the AND operator checks both sides to be a "truthy" value before executing.<br/>
-					<pre><code>if (firstName === "Brittney" && lastName === "Postma") {<br/>  alert("Your name is Brittney Postma.");<br/>}</code></pre>
-					</li>
-					<li style="list-style-type: square;">
-					<strong>!</strong> - the NOT or BANG operator means the opposite of when used alone and means not when used with other operators.<br/>
-					<pre><code>!true //<em>false</em><br/>!false //<em>true</em><br/>var guess = prompt("Guess my number");<br/>var myNum = 11;<br/>if (guess !== myNum) {<br/>  alert("Sorry, you're wrong");<br/>}</code></pre>
-					</li>
 				</ul>
 				<hr/>
 
