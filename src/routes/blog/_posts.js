@@ -589,9 +589,21 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 				<h3>Array Properties and Methods</h3>
 				<ul>
 					<li style="list-style-type: square;">
-					<strong>length</strong> - sets or returns the number of elements in an array.<br/>
-					<pre><code>var numbers = [1, 2, 3, 4, 5];<br/>var length = numbers.length;<br/>for (var i = 0; i &lt; length; i++) {<br/>  numbers[i] *= 2;<br/>}<br/>//<em>numbers is now [2, 4, 6, 8, 10]</em><br/></code></pre>
-					
+						<strong>length</strong> - sets or returns the number of elements in an array.<br/>
+						<pre><code>var numbers = [1, 2, 3, 4, 5];<br/>console.log(numbers.length) //<em>5</em><br/>numbers.length = 3<br/>console.log(numbers.length) //<em>3 - numbers is now [1, 2, 3]</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>concat()</strong> - joins 2 or more arrays together and returns a copy of the arrays.  Does not change the original array.<br/>
+						<pre><code>var numArr1 = [1, 2, 3];<br/>var numArr2 = [4, 5, 6]<br/>var allTheNumbers = numArr1.concat(numArr2)<br/>console.log(allTheNumbers, numArr1, numArr2)<br/>//<em>[1, 2, 3, 4, 5, 6], [1, 2, 3], [4, 5, 6]</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>copyWithin()</strong> - *(index position to copy to, optional starting index, optional ending index)* - copies array values to another position in the array, overwriting the original value. Modifies the original array.<br/>
+						<pre><code>var fruits = ["peach", "orange", "apple", "banana"]<br/>fruits.copyWithin(2, 0)<br/>console.log(fruits) //<em>["peach", "orange", "peach", "orange"]</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>entries()</strong> - returns an Array Iterator object (gives access to the .next() and .value method) with key/value pairs.  For each item in the original array, the new object will contain an array with the index as the key and the item as the value<br/>
+						<pre><code>var array1 = ['a', 'b', 'c'];<br/>var iterator1 = array1.entries();<br/>console.log(iterator1.next().value);<br/>//<em>expected output: Array [0, "a"]</em><br/>console.log(iterator1.next().value);<br/>//<em>expected output: Array [1, "b"]</em></code></pre>
+					</li>
 				</ul>
 				<hr/>
 
