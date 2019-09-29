@@ -614,7 +614,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>forEach()</strong> - is similar to a for loop and runs the callback function over every element in an array. he syntax is <code>ogArr.forEach((element, index, array) => callback function)</code> Modifies the original array.<br/>
-						<pre><code>var ogArr = [5, 10, 15, 20];<br/>ogArr.forEach((element, index, arr) => (arr[index] = element * 10))<br/>console.log(ogArr)<br/>//<em>[50, 100, 150, 200]</em></code></pre>
+						<pre><code>var ogArr = [5, 10, 15, 20]<br/>ogArr.forEach((element, index, arr) => (arr[index] = element * 10))<br/>console.log(ogArr)<br/>//<em>[50, 100, 150, 200]</em></code></pre>
 					</li>
 				</ul>
 				<hr/>
