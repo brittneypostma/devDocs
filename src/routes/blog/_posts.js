@@ -8,10 +8,10 @@
 // underscore tells Sapper not to do that.
 
 const posts = [
-	{
-		title: 'HTML',
-		slug: 'html',
-		html: `
+  {
+    title: "HTML",
+    slug: "html",
+    html: `
 		<iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="yLBxMNg" src="//codepen.io/sballgirl11/embed/yLBxMNg/?height=464&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/sballgirl11/pen/yLBxMNg/'>yLBxMNg</a> by Brittney
   (<a href='https://codepen.io/sballgirl11'>@sballgirl11</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -117,13 +117,13 @@ const posts = [
 				<pre><code>&lt;textarea&gt; &lt;/textarea&gt;</code></pre><dfn> is a multi-line, resizable text box that allows users to write a sizable amount of text like a comment.</dfn><br/>
 			
 			<hr/>
-		`,
-	},
+		`
+  },
 
-	{
-		title: 'CSS',
-		slug: 'css',
-		html: `
+  {
+    title: "CSS",
+    slug: "css",
+    html: `
 		<div>
 		<iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="CSS" src="//codepen.io/sballgirl11/embed/GRKYPpw/?height=265&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/sballgirl11/pen/GRKYPpw/'>CSS</a> by Brittney
@@ -237,13 +237,13 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 	</div>
 </div>
 
-		`,
-	},
+		`
+  },
 
-	{
-		title: 'JavaScript',
-		slug: 'javascript',
-		html: `
+  {
+    title: "JavaScript",
+    slug: "javascript",
+    html: `
 		<iframe
 		height="525"
 		style="width: 100%; resize: both;"
@@ -419,7 +419,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					</ul>
 				</div>
 				<h3>Naming Variables</h3>
-				<p>All JavaScript variables must be identified with unique names. These unique names are called <strong>identifiers</strong>. Variables can be named anything, with a few contraints, but it is best practice to name the variables as descriptive to what they are as possible. Using something called camelCase is also best practice. The first word is lowercased and any word after the first letter would be uppercased (myName or numberOfTimes).</p>
+				<p>All JavaScript variables must be identified with unique names. These unique names are called <strong>identifiers</strong>. Variables can be named anything, with a few constraints, but it is best practice to name the variables as descriptive to what they are as possible. Using something called camelCase is also best practice. The first word is lowercase and any word after the first letter would be uppercase (myName or numberOfTimes).</p>
 				<p>The general rules for constructing names for variables (unique identifiers) are:</p>
 				<div style="margin-left: 2em;">
 					<ul>
@@ -462,11 +462,11 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 						<pre><code>if (name === "Brittney) {<br/>  alert("Hi Brittney!);<br/>}  else if (name === "Joe") {<br/>  alert("Hi Joe!");<br/>}  else {<br/>  alert("Hi!");<br/>}</code></pre>
 						</li>
 						<li style="list-style-type: decimal;"> 
-						<strong>ternary operator</strong> - is frequently used as a shortcut for the if statement. Multiple conditions can be wrapped in () to seperate them.<br/>
-						<pre><code>//Syntax for ternary:<br/><em>(condition) ? executeIfTrue : executeIfFalse<br/>(condition) ? executeIfTrue : (secondCondition) ? executeIfSecondIsTrue : exucuteIfAllAreFalse</em><br/>var age = 37;<br/>var beverage = (age &gt;= 21) ? "Here's a beer!" : "Have some juice!";<br/>console.log(beverage); //<em>"Here's a beer!"</em><br/>var num = 0;<br/>(num &gt; 0) ? "positive" : (num &lt; 0) ? "negative" : "zero"; //<em>"zero"</em></code></pre>
+						<strong>ternary operator</strong> - is frequently used as a shortcut for the if statement. Multiple conditions can be wrapped in () to separate them.<br/>
+						<pre><code>//Syntax for ternary:<br/><em>(condition) ? executeIfTrue : executeIfFalse<br/>(condition) ? executeIfTrue : (secondCondition) ? executeIfSecondIsTrue : executeIfAllAreFalse</em><br/>var age = 37;<br/>var beverage = (age &gt;= 21) ? "Here's a beer!" : "Have some juice!";<br/>console.log(beverage); //<em>"Here's a beer!"</em><br/>var num = 0;<br/>(num &gt; 0) ? "positive" : (num &lt; 0) ? "negative" : "zero"; //<em>"zero"</em></code></pre>
 						</li>
 						<li style="list-style-type: decimal;"> 
-						<strong>switch</strong> - used to specify multiple "cases" to be used if they are true. The switch expression is evauluated once and compared with the values of each case, if there is a match, that block of code is executed.<br/>
+						<strong>switch</strong> - used to specify multiple "cases" to be used if they are true. The switch expression is evaluated once and compared with the values of each case, if there is a match, that block of code is executed.<br/>
 						<pre><code>switch (new Date().getDay()) {<br/>  case 6:<br/>    day = "Today is Saturday!";<br/>    break;<br/>  case 0:<br/>    day = "Today is Sunday!";<br/>    break;<br/>  default:<br/>    day = "Ready for the weekend!";<br/>}</code></pre>
 						</li>
 					</ul>
@@ -616,44 +616,88 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 						<strong>forEach()</strong> - is similar to a for loop and runs the callback function over every element in an array. he syntax is <code>ogArr.forEach((element, index, array) => callback function)</code> Modifies the original array.<br/>
 						<pre><code>var ogArr = [5, 10, 15, 20]<br/>ogArr.forEach((element, index, arr) => (arr[index] = element * 10))<br/>console.log(ogArr)<br/>//<em>[50, 100, 150, 200]</em></code></pre>
 					</li>
+					<li style="list-style-type: square;">
+						<strong>from()</strong> - returns a new array from anything with a length property or iterable object (basically other arrays).<br/>
+						<pre><code>var myArr = Array.from("ABCDEFG")<br/>console.log(myArr)<br/>//&#9658;<em>(7) ["A", "B", "C", "D", "E", "F", "G"]</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>from()</strong> - returns a new array from anything with a length property or iterable object (basically other arrays).<br/>
+						<pre><code>var myArr = Array.from("ABCDEFG")<br/>console.log(myArr)<br/>//&#9658;<em>(7) ["A", "B", "C", "D", "E", "F", "G"]</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>includes()</strong> - checks if an array includes an element, the fromIndex is an optional argument.<br/>
+						<pre><code>var arr = ['a', 'b', 'c']<br/>arr.includes('c')<br/>//<em>true</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>indexOf() lastIndexOf()</strong> - checks if an array includes an element and returns the first position/index where it can be found. The fromIndex is an optional argument. lastIndexOf() starts at the end and returns the first index where it is found.<br/>
+						<pre><code>var shopList = ['milk', 'bread', 'eggs']<br/>const addToList = (shopList, item) =&gt; shopList.indexOf(item) === -1 ? shopList.push(item) : null<br/>addToList(shopList, 'cheese')<br/>console.log(shopList, shopList.indexOf('cheese')<br/>//<em>['milk', 'bread', 'eggs', 'cheese'], 4</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>join()</strong> - joins all elements of an array together in a string. A seperator can optionally be called as well, if no seperator is specified, a comma is used.<br/>
+						<pre><code>var names = ["Brittney", "Joe"]<br/>console.log(names.join(), names.join(" and "))<br/>//<em>(Brittney, Joe), (Brittney and Joe)</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>map()</strong> - creates a new array with the results of a callback function on every element in the original array.<br/>
+						<pre><code>var ogArr = [1, 4, 9, 16]<br/>const doubleArr = ogArr.map(x => x * 2)<br/>console.log(ogArr, doubleArr)<br/>//<em>[1, 4, 9, 16], [2, 8, 18, 32]</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>pop()</strong> - modifies an array by taking off the last element, returns the element it removed.<br/>
+						<pre><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>var popped = myFish.pop()<br/>console.log(myFish, popped)<br/>//<em>['angel', 'clown', 'mandarin'], 'sturgeon'</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>push()</strong> - modifies an array by adding an element specified to the end of the original array and returns the new length.<br/>
+						<pre><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>myFish.push('sword')<br/>console.log(myFish)<br/>//<em>['angel', 'clown', 'mandarin', 'sturgeon', 'sword']</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>shift()</strong> - modifies an array by taking off the first element, returns the element it removed.<br/>
+						<pre><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>var shifted = myFish.shift()<br/>console.log(myFish, shifted)<br/>//<em>['clown', 'mandarin', 'sturgeon'], 'angel'</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>unshift()</strong> - modifies an array by adding an element specified to the beginning of the original array and returns the new length.<br/>
+						<pre><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>myFish.unshift('sword')<br/>console.log(myFish)<br/>//<em>['sword', 'angel', 'clown', 'mandarin', 'sturgeon']</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>reduce() reduceRight()</strong> - executes a reducer function on an array left to right, reduceRight() goes right to left. The syntax is <code>reduce((accumulator, currentValue) => accumulator + currentValue)</code> .<br/>
+						<pre><code>const array1 = [1, 2, 3, 4]<br/>const reducedArr = array1.reduce((acc, val) => acc + val))<br/>console.log(reducedArr)<br/>//<em>10 (1 + 2 + 3 + 4)</em></code></pre>
+					</li>
 				</ul>
 				<hr/>
 
 	
 
-		`,
-		// },
-		// {
-		// 	title: 'Svelte',
-		// 	slug: 'why-the-name',
-		// 	html: `
-		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+		`
+    // },
+    // {
+    // 	title: 'Svelte',
+    // 	slug: 'why-the-name',
+    // 	html: `
+    // 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
-		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-		// 	`,
-		// },
-		// {
-		// 	title: 'React',
-		// 	slug: 'why-the-name',
-		// 	html: `
-		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+    // 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+    // 	`,
+    // },
+    // {
+    // 	title: 'React',
+    // 	slug: 'why-the-name',
+    // 	html: `
+    // 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
-		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-		// 	`,
-		// },
-		// {
-		// 	title: 'Gatsby',
-		// 	slug: 'why-the-name',
-		// 	html: `
-		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+    // 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+    // 	`,
+    // },
+    // {
+    // 	title: 'Gatsby',
+    // 	slug: 'why-the-name',
+    // 	html: `
+    // 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
-		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-		// 	`,
-	},
+    // 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+    // 	`,
+  }
 ];
 
 posts.forEach(post => {
-	post.html = post.html.replace(/^\t{3}/gm, '');
+  post.html = post.html.replace(/^\t{3}/gm, "");
 });
 
 export default posts;
