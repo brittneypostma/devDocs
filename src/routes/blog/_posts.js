@@ -638,7 +638,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>map()</strong> - creates a new array with the results of a callback function on every element in the original array.<br/>
-						<pre><code>var ogArr = [1, 4, 9, 16]<br/>const doubleArr = ogArr.map(x => x * 2)<br/>console.log(ogArr, doubleArr)<br/>//<em>[1, 4, 9, 16], [2, 8, 18, 32]</em></code></pre>
+						<pre><code>var ogArr = [1, 4, 9, 16]<br/>const doubleArr = ogArr.map(x =&gt; x * 2)<br/>console.log(ogArr, doubleArr)<br/>//<em>[1, 4, 9, 16], [2, 8, 18, 32]</em></code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>pop()</strong> - modifies an array by taking off the last element, returns the element it removed.<br/>
@@ -658,7 +658,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>reduce() reduceRight()</strong> - executes a reducer function on an array left to right, reduceRight() goes right to left. The syntax is <code>reduce((accumulator, currentValue) => accumulator + currentValue)</code> .<br/>
-						<pre><code>const array1 = [1, 2, 3, 4]<br/>const reducedArr = array1.reduce((acc, val) => acc + val))<br/>console.log(reducedArr)<br/>//<em>10 (1 + 2 + 3 + 4)</em></code></pre>
+						<pre><code>const array1 = [1, 2, 3, 4]<br/>const reducedArr = array1.reduce((acc, val) =&gt; acc + val))<br/>console.log(reducedArr)<br/>//<em>10 (1 + 2 + 3 + 4)</em></code></pre>
 					</li>
 				</ul>
 				<hr/>
