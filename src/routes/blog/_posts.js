@@ -8,10 +8,10 @@
 // underscore tells Sapper not to do that.
 
 const posts = [
-  {
-    title: "HTML",
-    slug: "html",
-    html: `
+	{
+		title: 'HTML',
+		slug: 'html',
+		html: `
 		<iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="yLBxMNg" src="//codepen.io/sballgirl11/embed/yLBxMNg/?height=464&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/sballgirl11/pen/yLBxMNg/'>yLBxMNg</a> by Brittney
   (<a href='https://codepen.io/sballgirl11'>@sballgirl11</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -117,13 +117,13 @@ const posts = [
 				<pre><code>&lt;textarea&gt; &lt;/textarea&gt;</code></pre><dfn> is a multi-line, resizable text box that allows users to write a sizable amount of text like a comment.</dfn><br/>
 			
 			<hr/>
-		`
-  },
+		`,
+	},
 
-  {
-    title: "CSS",
-    slug: "css",
-    html: `
+	{
+		title: 'CSS',
+		slug: 'css',
+		html: `
 		<div>
 		<iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="CSS" src="//codepen.io/sballgirl11/embed/GRKYPpw/?height=265&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/sballgirl11/pen/GRKYPpw/'>CSS</a> by Brittney
@@ -237,13 +237,13 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 	</div>
 </div>
 
-		`
-  },
+		`,
+	},
 
-  {
-    title: "JavaScript",
-    slug: "javascript",
-    html: `
+	{
+		title: 'JavaScript',
+		slug: 'javascript',
+		html: `
 		<iframe
 		height="525"
 		style="width: 100%; resize: both;"
@@ -583,6 +583,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 	<div style="display: grid;">
 			<div>
 				<h2>Arrays</h2>
+				<a href="https://www.w3schools.com/jsref/jsref_obj_array.asp" rel="noopener noreferrer" target="_blank">w3schools JavaScript Array Reference Sheet</a>
 				<p>
 					The Array object is used to store multiple values in a single variable with the [] (bracket) syntax. Arrays use numbers to access the elements inside of them. The indexes are zero-based, so <code>arrayName[0]</code> returns the first item, then <code>[1]</code> returns the second, then <code>[2]</code> returns the third, and so on.
 				</p>
@@ -610,11 +611,11 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>find() findIndex()</strong> - returns the first value that passes the test. The syntax is <code>let found = ogArr.find(callbackFunction)</code> The callback function is used to test each element in the ogArr until a truthy value is found and returns a single value. findIndex() returns the index of the value.<br/>
-						<pre><code>var ogArr = [10, 20, 30, 40];<br/>var found = ogArr.find(element => (element > 10))<br/>console.log(found)<br/>//<em>20</em></code></pre>
+						<pre><code>var ogArr = [10, 20, 30, 40];<br/>var found = ogArr.find(element =&gt; (element > 10))<br/>console.log(found)<br/>//<em>20</em></code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>forEach()</strong> - is similar to a for loop and runs the callback function over every element in an array. he syntax is <code>ogArr.forEach((element, index, array) => callback function)</code> Modifies the original array.<br/>
-						<pre><code>var ogArr = [5, 10, 15, 20]<br/>ogArr.forEach((element, index, arr) => (arr[index] = element * 10))<br/>console.log(ogArr)<br/>//<em>[50, 100, 150, 200]</em></code></pre>
+						<pre><code>var ogArr = [5, 10, 15, 20]<br/>ogArr.forEach((element, index, arr) =&gt; (arr[index] = element * 10))<br/>console.log(ogArr)<br/>//<em>[50, 100, 150, 200]</em></code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>from()</strong> - returns a new array from anything with a length property or iterable object (basically other arrays).<br/>
@@ -630,7 +631,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>indexOf() lastIndexOf()</strong> - checks if an array includes an element and returns the first position/index where it can be found. The fromIndex is an optional argument. lastIndexOf() starts at the end and returns the first index where it is found.<br/>
-						<pre><code>var shopList = ['milk', 'bread', 'eggs']<br/>const addToList = (shopList, item) =&gt; shopList.indexOf(item) === -1 ? shopList.push(item) : null<br/>addToList(shopList, 'cheese')<br/>console.log(shopList, shopList.indexOf('cheese')<br/>//<em>['milk', 'bread', 'eggs', 'cheese'], 4</em></code></pre>
+						<pre><code>var shopList = ['milk', 'bread', 'eggs']<br/>const addToList = (shopList, item) =&gt; shopList.indexOf(item) === -1 ? shopList.push(item) : null<br/>addToList(shopList, 'cheese')<br/>console.log(shopList, shopList.indexOf('cheese')<br/>//&#9658;<em>['milk', 'bread', 'eggs', 'cheese'], 4</em></code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>join()</strong> - joins all elements of an array together in a string. A seperator can optionally be called as well, if no seperator is specified, a comma is used.<br/>
@@ -638,66 +639,95 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>map()</strong> - creates a new array with the results of a callback function on every element in the original array.<br/>
-						<pre><code>var ogArr = [1, 4, 9, 16]<br/>const doubleArr = ogArr.map(x =&gt; x * 2)<br/>console.log(ogArr, doubleArr)<br/>//<em>[1, 4, 9, 16], [2, 8, 18, 32]</em></code></pre>
+						<pre><code>var ogArr = [1, 4, 9, 16]<br/>const doubleArr = ogArr.map(x =&gt; x * 2)<br/>console.log(ogArr, doubleArr)<br/>//&#9658;<em>[1, 4, 9, 16], [2, 8, 18, 32]</em></code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>pop()</strong> - modifies an array by taking off the last element, returns the element it removed.<br/>
-						<pre><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>var popped = myFish.pop()<br/>console.log(myFish, popped)<br/>//<em>['angel', 'clown', 'mandarin'], 'sturgeon'</em></code></pre>
+						<pre><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>var popped = myFish.pop()<br/>console.log(myFish, popped)<br/>//&#9658;<em>['angel', 'clown', 'mandarin'], 'sturgeon'</em></code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>push()</strong> - modifies an array by adding an element specified to the end of the original array and returns the new length.<br/>
-						<pre><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>myFish.push('sword')<br/>console.log(myFish)<br/>//<em>['angel', 'clown', 'mandarin', 'sturgeon', 'sword']</em></code></pre>
+						<pre><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>myFish.push('sword')<br/>console.log(myFish)<br/>//&#9658;<em>['angel', 'clown', 'mandarin', 'sturgeon', 'sword']</em></code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>shift()</strong> - modifies an array by taking off the first element, returns the element it removed.<br/>
-						<pre><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>var shifted = myFish.shift()<br/>console.log(myFish, shifted)<br/>//<em>['clown', 'mandarin', 'sturgeon'], 'angel'</em></code></pre>
+						<pre><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>var shifted = myFish.shift()<br/>console.log(myFish, shifted)<br/>//&#9658;<em>['clown', 'mandarin', 'sturgeon'], 'angel'</em></code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>unshift()</strong> - modifies an array by adding an element specified to the beginning of the original array and returns the new length.<br/>
-						<pre><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>myFish.unshift('sword')<br/>console.log(myFish)<br/>//<em>['sword', 'angel', 'clown', 'mandarin', 'sturgeon']</em></code></pre>
+						<pre><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>myFish.unshift('sword')<br/>console.log(myFish)<br/>//&#9658;<em>['sword', 'angel', 'clown', 'mandarin', 'sturgeon']</em></code></pre>
 					</li>
 					<li style="list-style-type: square;">
-						<strong>reduce() reduceRight()</strong> - executes a reducer function on an array left to right, reduceRight() goes right to left. The syntax is <code>reduce((accumulator, currentValue) => accumulator + currentValue)</code> .<br/>
-						<pre><code>const array1 = [1, 2, 3, 4]<br/>const reducedArr = array1.reduce((acc, val) =&gt; acc + val))<br/>console.log(reducedArr)<br/>//<em>10 (1 + 2 + 3 + 4)</em></code></pre>
+						<strong>reduce() reduceRight()</strong> - executes a reducer function on an array left to right, reduceRight() goes right to left. The syntax is <code>reduce((accumulator, currentValue) => accumulator + currentValue)</code><br/>
+						<pre><code>const array1 = [1, 2, 3, 4]<br/>const reducedArr = array1.reduce((acc, val) =&gt; acc + val))<br/>console.log(reducedArr)<br/>//&#9658;<em>10 (1 + 2 + 3 + 4)</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>reverse()</strong> - reverses the order of the elements in an array.<br/>
+						<pre><code>const array1 = [1, 2, 3, 4]<br/>const revArr = array1.reverse()<br/>console.log(revArr)<br/>//&#9658;<em>[4, 3, 2, 1]</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>slice()</strong> - returns a copy of an array from the specified positions to a new array. The syntax is <code>arr.slice(beginIndex, endIndex),</code><br/>
+						<pre><code>const array1 = [1, 2, 3, 4]<br/>const sliced = array1.slice(2, 4)<br/>console.log(sliced)<br/>//&#9658;<em>(2) [3, 4]</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>splice()</strong> - modifies an existing array by removing/replacing existing elements or adding new ones. The syntax is <code>arr.splice(startIndex, deleteCount(optional), 'item'(optional)),</code><br/>
+						<pre><code>var months = ['Jan', 'March', 'April', 'June']<br/>months.splice(1, 0, 'Feb') //<em>inserts at index 1</em><br/>console.log(months)<br/>//&#9658;<em>['Jan', 'Feb', 'March', 'April', 'June']</em></code></pre>
+						<pre><code>var months = ['Jan', 'March', 'April', 'June']<br/>months.splice(4, 1, 'May') //<em>replaces 1 element at index 4</em><br/>console.log(months)<br/>//&#9658;<em>['Jan', 'Feb', 'March', 'April', 'May']</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>some()</strong> - checks if any elements in an array pass the test by the callback function.<br/>
+						<pre><code>const array1 = [1, 2, 3, 4]<br/>var even = element =&gt; element % 2 === 0<br/>console.log(array1.some(even))<br/>//<em>true</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>toString()</strong> - returns a string of the specified arrays elements.<br/>
+						<pre><code>const array1 = [1, 2, 3, 4]<br/>console.log(array1.toString())<br/>//<em>1,2,3,4</em></code></pre>
 					</li>
 				</ul>
 				<hr/>
 
+	<div style="display: grid;">
+			<div>
+				<h2>Objects</h2>
+				<a href="https://www.w3schools.com/js/js_objects.asp" rel="noopener noreferrer" target="_blank">w3schools JavaScript Objects Reference Sheet</a>
+				<p>
+					Objects are used to store values called properties in name:value pairs with the { } (curly-brace) syntax.  Properties can be accessed or changed by using <code>objName.propName</code> and methods (functions inside of an object) can be called with <code>objName.propName()</code><br/>
+				</p>
+
 	
 
-		`
-    // },
-    // {
-    // 	title: 'Svelte',
-    // 	slug: 'why-the-name',
-    // 	html: `
-    // 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+		`,
+		// },
+		// {
+		// 	title: 'Svelte',
+		// 	slug: 'why-the-name',
+		// 	html: `
+		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
-    // 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-    // 	`,
-    // },
-    // {
-    // 	title: 'React',
-    // 	slug: 'why-the-name',
-    // 	html: `
-    // 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+		// 	`,
+		// },
+		// {
+		// 	title: 'React',
+		// 	slug: 'why-the-name',
+		// 	html: `
+		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
-    // 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-    // 	`,
-    // },
-    // {
-    // 	title: 'Gatsby',
-    // 	slug: 'why-the-name',
-    // 	html: `
-    // 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+		// 	`,
+		// },
+		// {
+		// 	title: 'Gatsby',
+		// 	slug: 'why-the-name',
+		// 	html: `
+		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
-    // 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-    // 	`,
-  }
+		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+		// 	`,
+	},
 ];
 
 posts.forEach(post => {
-  post.html = post.html.replace(/^\t{3}/gm, "");
+	post.html = post.html.replace(/^\t{3}/gm, '');
 });
 
 export default posts;
