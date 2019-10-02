@@ -696,34 +696,264 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 	
 
 		`,
-		// },
-		// {
-		// 	title: 'Svelte',
-		// 	slug: 'why-the-name',
-		// 	html: `
-		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
-
-		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-		// 	`,
-		// },
-		// {
-		// 	title: 'React',
-		// 	slug: 'why-the-name',
-		// 	html: `
-		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
-
-		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-		// 	`,
-		// },
-		// {
-		// 	title: 'Gatsby',
-		// 	slug: 'why-the-name',
-		// 	html: `
-		// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
-
-		// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-		// 	`,
 	},
+	{
+		title: 'Spreadsheets',
+		slug: 'spreadsheets',
+		html: `
+			<div style="display: grid; grid-template-columns: repeat (auto-fit, minmax(400px, 1fr));">
+			
+				<div>
+					<a href="https://support.google.com/docs/table/25273?hl=en" rel="noopener noreferrer" target="_blank">Google Sheets Function List</a>
+					<h3 style="text-align: center;">Abbreviations</h3>
+						<ul>
+							<li style="list-style-type: square;">
+							<strong>Y</strong> - whole years</br>
+							</li>
+							<li style="list-style-type: square;">
+							<strong>M</strong> - whole months</br>
+							</li>
+							<li style="list-style-type: square;">
+							<strong>D</strong> - whole days</br>
+							</li>
+							<li style="list-style-type: square;">
+							<strong>MD</strong> - left over days after subtracting whole months.</br>
+							</li>
+							<li style="list-style-type: square;">
+							<strong>YM</strong> - left over months about subtracting whole years</br>
+							</li>
+							<li style="list-style-type: square;">
+							<strong>YD</strong> - number of days between 2 dates no more than one year apart.</br>
+							</li>
+							<li style="list-style-type: square;">
+							<strong>HH</strong> - whole hours.</br>
+							</li>
+							<li style="list-style-type: square;">
+							<strong>MM</strong> - whole minutes.</br>
+							</li>
+							<li style="list-style-type: square;">
+							<strong>SS</strong> - whole seconds.</br>
+							</li>
+							<li style="list-style-type: square;">
+							<strong>mode</strong> - 1 resizes the image to fit in the cell, 2 stretches or compresses to fit inside cell, 3 leave image at size, 4 allows the specification of a custom size.</br>
+							</li>
+						</ul>
+						<hr/>
+				</div>
+					
+					
+				<div style="display: grid;">
+					<h3 style="text-align: center;">Formulas</h3>
+					<h4>Date & Time Formulas</h4>
+					<ul>
+						<li style="list-style-type: square;">
+							<strong>DATE</strong> - converts a provided year, month, and day into a date.</br>
+							<pre><code>DATE(year, month, day)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>DATEDIF</strong> - calculates the number of days, months, or years between 2 dates. Units are (Y, M, D, MD, YM, and YD).</br>
+							<pre><code>DATEDIF(start_date, end_date, unit)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>DATEVALUE</strong> - converts a given date string to a date value.</br>
+							<pre><code>DATEVALUE(date_string)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>DAY</strong> - returns the day that a given date falls on, in numeric format.</br>
+							<pre><code>DAY(date)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>DAYS</strong> - returns the number of days between two dates.</br>
+							<pre><code>DAYS(end_date, start_date)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>EDATE</strong> - returns a date a given number of months before or after another date.</br>
+							<pre><code>EDATE(start_date, months)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>HOUR</strong> - returns the hour of a given time, in numeric format.</br>
+							<pre><code>HOUR(time)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>MINUTE</strong> - returns the minute of a given time, in numeric format.</br>
+							<pre><code>MINUTE(time)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>MONTH</strong> - returns the month of the year a given date falls in, in numeric format.</br>
+							<pre><code>MONTH(date)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>NOW</strong> - returns the current date and time as a date value.</br>
+							<pre><code>NOW()</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>TIME</strong> - converts a given hour, minute, and second into a time.</br>
+							<pre><code>TIME(hour, minute, second)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>TIMEVALUE</strong> - returns the fraction of a 24-hour day the time represents.</br>
+							<pre><code>TIMEVALUE(time_string)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>TODAY</strong> - returns the current date as a date value.</br>
+							<pre><code>TODAY()</code></pre>
+						</li>
+					</ul>
+					<hr/>
+					<h4>Filter & Sort Formulas</h4>
+					<ul>
+						<li style="list-style-type: square;">
+							<strong>FILTER</strong> - returns only rows or columns that meet the given conditions. Range is data to be filtered, condition1 is a column or row containing boolean values to the range, condition2 and on are optional. FILTER can only be used to filter rows or columns at one time. In order to filter both rows and columns, use the return value of one FILTER function as range in another.</br>
+							<pre><code>FILTER(range, condition1, [condition2, ...])<br/>FILTER(A2, A2="Guest Visitor")</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>SORT</strong> - sorts the rows of a given range by values in one or more columns.</br>
+							<pre><code>SORT(range, sort_column, is_ascending, [sort_column2], [is_ascending2])<br/>SORT(A:B, 1, TRUE)</code></pre>
+						</li>
+					</ul>
+					<hr/>
+					<h4>Google Formulas</h4>
+					<ul>
+						<li style="list-style-type: square;">
+							<strong>ARRAYFORMULA</strong> - displays values returned from an array formula into multiple rows and/or columns and allows non-array functions to be used with arrays.</br>
+							<pre><code>ARRAYFORMULA(array_formula)<br/>ARRAYFORMULA(B * C)<br/>ARRAYFORMULA(SUMPRODUCT(B, C))</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>IMAGE</strong> - inserts an image into a cell, mode is optional but must be set to 4 to use height and width.</br>
+							<pre><code>IMAGE(url, [mode], [height], [width])</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>QUERY</strong> - run an API Query across data. Data is the range of cells to perform the query on, query is the query to perform and must be enclosed in "" (quotation marks) or be a cell containing the text, and headers is the number of header rows and is optional.</br>
+							<a href="https://www.seerinteractive.com/blog/how-to-query-data-in-google-sheets/" rel="noopener noreferrer" target="_blank">How to Query Data</a><br/>
+							<pre><code>QUERY(data, query, [headers])<br/>QUERY(MonthlyData!A2:B, "select B, A where todate(A) &gt;= date '"&text(A1, "yyyy-mm-dd")&"'")</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>SPARKLINE</strong> - creates a mini chart contained within a single cell, options are optional and are a range of setting used to customize the chart, see link for more info.<br/><a href="https://support.google.com/docs/answer/3093289" rel="noopener noreferrer" target="_blank">SPARKLINE Google Docs</a></br>
+							<pre><code>SPARKLINE(data, [options])</code></pre>
+						</li>
+					</ul>
+					<hr/>
+					<h4>Logical Formulas</h4>
+					<ul>
+						<li style="list-style-type: square;">
+							<strong>AND</strong> - returns boolean value after evaluating expression given.</br>
+							<pre><code>AND(logical_expression1, [logical_expression2, ...])<br/>AND(A2 = "foo", B2  = "bar")</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>OR</strong> - returns boolean value after evaluating expression give.</br>
+							<pre><code>OR(logical_expression1, [logical_expression2, ...])</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>IF</strong> - retuns a single value if the expression evaluates to true.</br>
+							<pre><code>IF(logical_expression, value_if_true, value_if_false)<br/>IF(A2,"A2 was true","A2 was false")</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>IFS</strong> - evaluates multiple conditions and returns a value that corresponds to the first true condition.</br>
+							<pre><code>IFS(condition1, value1, [condition2, value2], …)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>NOT</strong> - returns opposite of a boolean expression. Zero is the only numberic value that is false.</br>
+							<pre><code>NOT(logical_expression)<br/>NOT(ISERR(A2))<br/>NOT(true) //false<br/>NOT(false) //true</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>SWITCH</strong> - tests an expressiong against a list of cases and returns the value of the first matching case with optional default case.</br>
+							<pre><code>SWITCH(expression, case1, value1, [default or case2, value2], ...)<br/>SWITCH(B2:B, "Guest Visitor", "", INDEX(E2:E))</code></pre>
+						</li>
+					</ul>
+					<hr/>
+					<h4>Lookup Formulas</h4>
+					<ul>
+						<li style="list-style-type: square;">
+							<strong>INDEX</strong> - returns contents of a cell, specified by row and column offset. Row and column are optional.</br>
+							<pre><code>INDEX(reference, [row], [column])<br/>INDEX(E2:E)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>OFFSET</strong> - returns a range reference shifted a specified number of rows and columns from a starting cell reference.</br>
+							<pre><code>	OFFSET(cell_reference, offset_rows, offset_columns, [height], [width])</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>VLOOKUP</strong> - vertical lookup. Searches down the first column of a range for a key and returns the value of a specified cell in the row found.</br>
+							<pre><code>VLOOKUP(search_key, range, index, [is_sorted])</code></pre>
+						</li>
+					</ul>	
+					<hr/>
+					<h4>Math & Operator Formulas</h4>
+					<ul>
+						<li style="list-style-type: square;">
+							<strong>FLOOR</strong> - rounds a number down to the nearest integer.</br>
+							<pre><code>	FLOOR(value, [factor])</code></pre>
+						</li>
+						<li style="list-style-type: square;"> r
+							<strong>INT</strong> - rounds a number down to the nearest integer that is less than or equal to it.</br>
+							<pre><code>INT(value)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>PRODUCT</strong> - returns the result of multiplying a series of numbers together.</br>
+							<pre><code>PRODUCT(factor1, [factor2, ...])</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>QUOTIENT</strong> - returns one number divided by another.</br>
+							<pre><code>QUOTIENT(dividend, divisor)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>ROUND</strong> - rounds a number to a certain number of decimal places.</br>
+							<pre><code>ROUND(value, [places])</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>SUM</strong> - returns the sum of a series of numbers.</br>
+							<pre><code>SUM(value1, [value2, ...])</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>SUMIF</strong> - returns a conditional sum across a range.</br>
+							<pre><code>SUMIF(range, criterion, [sum_range])</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>SUMIFS</strong> - returns the sum of a range depending on specified criteria.</br>
+							<pre><code>SUMIFS(sum_range, criteria_range1, criterion1, [criteria_range2, criterion2, ...])</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>ADD</strong> - 	returns the sum of two numbers. Equivalent to the '+' operator.</br>
+							<pre><code>ADD(value1, value2)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>CONCAT</strong> - returns the concatenation of 2 values. Equivalent to the '&' operator.</br>
+							<pre><code>CONCAT(value1, value2)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>DIVIDE</strong> - returns one number divided by another. Equivalent to the '/' operator.</br>
+							<pre><code>DIVIDE(dividend, divisor)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+							<strong>MINUS</strong> - returns the difference of 2 numbers. Equivalent to the '-' operator.</br>
+							<pre><code>MINUS(value1, value2)</code></pre>
+						</li>
+						<li style="list-style-type: square;"> 
+						<strong>MULTIPLY</strong> - returns the product of 2 numbers. Equivalent to the '*' operator.</br>
+						<pre><code>MULTIPLY(value1, value2)</code></pre>
+					</li>
+					</ul>	
+				</div>
+			</div>
+				`,
+	},
+	// {
+	// 	title: 'React',
+	// 	slug: 'why-the-name',
+	// 	html: `
+	// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+
+	// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+	// 	`,
+	// },
+	// {
+	// 	title: 'Gatsby',
+	// 	slug: 'why-the-name',
+	// 	html: `
+	// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+
+	// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+	// 	`,
+	// },
 ];
 
 posts.forEach(post => {
