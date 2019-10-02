@@ -881,7 +881,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					<ul>
 						<li style="list-style-type: square;">
 							<strong>FLOOR</strong> - rounds a number down to the nearest integer.</br>
-							<pre><code>	FLOOR(value, [factor])</code></pre>
+							<pre><code>FLOOR(value, [factor])</code></pre>
 						</li>
 						<li style="list-style-type: square;"> r
 							<strong>INT</strong> - rounds a number down to the nearest integer that is less than or equal to it.</br>
