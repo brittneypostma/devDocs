@@ -869,7 +869,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 						</li>
 						<li style="list-style-type: square;"> 
 							<strong>OFFSET</strong> - returns a range reference shifted a specified number of rows and columns from a starting cell reference.</br>
-							<pre><code>	OFFSET(cell_reference, offset_rows, offset_columns, [height], [width])</code></pre>
+							<pre><code>OFFSET(cell_reference, offset_rows, offset_columns, [height], [width])</code></pre>
 						</li>
 						<li style="list-style-type: square;"> 
 							<strong>VLOOKUP</strong> - vertical lookup. Searches down the first column of a range for a key and returns the value of a specified cell in the row found.</br>
@@ -883,7 +883,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 							<strong>FLOOR</strong> - rounds a number down to the nearest integer.</br>
 							<pre><code>FLOOR(value, [factor])</code></pre>
 						</li>
-						<li style="list-style-type: square;"> r
+						<li style="list-style-type: square;">
 							<strong>INT</strong> - rounds a number down to the nearest integer that is less than or equal to it.</br>
 							<pre><code>INT(value)</code></pre>
 						</li>
