@@ -692,6 +692,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 				<p>
 					Objects are used to store values called properties in name:value pairs with the { } (curly-brace) syntax.  Properties can be accessed or changed by using <code>objName.propName</code> and methods (functions inside of an object) can be called with <code>objName.propName()</code><br/>
 				</p>
+				<pre><code>var objName = {<br/>color: "blue",<br/>shape: "circle",<br/>price: 5,<br/>otherColors: ["yellow", "red", "green"]<br/>}</code></pre>
 
 	
 
