@@ -684,8 +684,9 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					</li>
 				</ul>
 				<hr/>
-
-	<div style="display: grid;">
+			</div>
+		</div>
+		<div style="display: grid;">
 			<div>
 				<h2>Objects</h2>
 				<a href="https://www.w3schools.com/js/js_objects.asp" rel="noopener noreferrer" target="_blank">w3schools JavaScript Objects Reference Sheet</a>
@@ -693,7 +694,10 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					Objects are used to store values called properties in name:value pairs with the { } (curly-brace) syntax.  Properties can be accessed or changed by using <code>objName.propName</code> and methods (functions inside of an object) can be called with <code>objName.propName()</code><br/>
 				</p>
 				<pre><code>var objName = {<br/>color: "blue",<br/>shape: "circle",<br/>price: 5,<br/>otherColors: ["yellow", "red", "green"]<br/>}</code></pre>
-
+			</div>
+		</div>
+		<hr/>
+			
 	
 
 		`,
