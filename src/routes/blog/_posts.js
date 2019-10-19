@@ -8,10 +8,10 @@
 // underscore tells Sapper not to do that.
 
 const posts = [
-	{
-		title: 'HTML',
-		slug: 'html',
-		html: `
+  {
+    title: "HTML",
+    slug: "html",
+    html: `
 		<iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="yLBxMNg" src="//codepen.io/sballgirl11/embed/yLBxMNg/?height=464&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/sballgirl11/pen/yLBxMNg/'>yLBxMNg</a> by Brittney
   (<a href='https://codepen.io/sballgirl11'>@sballgirl11</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -117,13 +117,13 @@ const posts = [
 				<pre><code>&lt;textarea&gt; &lt;/textarea&gt;</code></pre><dfn> is a multi-line, resizable text box that allows users to write a sizable amount of text like a comment.</dfn><br/>
 			
 			<hr/>
-		`,
-	},
+		`
+  },
 
-	{
-		title: 'CSS',
-		slug: 'css',
-		html: `
+  {
+    title: "CSS",
+    slug: "css",
+    html: `
 		<div>
 		<iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="CSS" src="//codepen.io/sballgirl11/embed/GRKYPpw/?height=265&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/sballgirl11/pen/GRKYPpw/'>CSS</a> by Brittney
@@ -237,13 +237,13 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 	</div>
 </div>
 
-		`,
-	},
+		`
+  },
 
-	{
-		title: 'JavaScript',
-		slug: 'javascript',
-		html: `
+  {
+    title: "JavaScript",
+    slug: "javascript",
+    html: `
 		<iframe
 		height="525"
 		style="width: 100%; resize: both;"
@@ -691,7 +691,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 				<h2>Objects</h2>
 				<a href="https://www.w3schools.com/js/js_objects.asp" rel="noopener noreferrer" target="_blank">w3schools JavaScript Objects Reference Sheet</a>
 				<p>
-					Objects are used to store values called properties in name:value pairs with the { } (curly-brace) syntax.  Properties can be accessed or changed by using <code>objName.propName</code> and methods (functions inside of an object) can be called with <code>objName.propName()</code><br/>
+					Objects, collections of properties, are used to store values in property:value pairs with the { } (curly-brace) syntax.  Properties can be accessed or changed by using <code>objName.propName</code> and methods (functions inside of an object) can be called with <code>objName.propName()</code><br/>
 				</p>
 				<pre><code>var objName = {<br/>color: "blue",<br/>shape: "circle",<br/>price: 5,<br/>otherColors: ["yellow", "red", "green"]<br/>}</code></pre>
 			</div>
@@ -700,12 +700,12 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 			
 	
 
-		`,
-	},
-	{
-		title: 'Spreadsheets',
-		slug: 'spreadsheets',
-		html: `
+		`
+  },
+  {
+    title: "Spreadsheets",
+    slug: "spreadsheets",
+    html: `
 			<div style="display: grid; grid-template-columns: repeat (auto-fit, minmax(400px, 1fr));">
 			
 				<div>
@@ -939,30 +939,30 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					</ul>	
 				</div>
 			</div>
-				`,
-	},
-	// {
-	// 	title: 'React',
-	// 	slug: 'why-the-name',
-	// 	html: `
-	// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+				`
+  }
+  // {
+  // 	title: 'React',
+  // 	slug: 'why-the-name',
+  // 	html: `
+  // 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
-	// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-	// 	`,
-	// },
-	// {
-	// 	title: 'Gatsby',
-	// 	slug: 'why-the-name',
-	// 	html: `
-	// 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
+  // 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+  // 	`,
+  // },
+  // {
+  // 	title: 'Gatsby',
+  // 	slug: 'why-the-name',
+  // 	html: `
+  // 		<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
 
-	// 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-	// 	`,
-	// },
+  // 		<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
+  // 	`,
+  // },
 ];
 
 posts.forEach(post => {
-	post.html = post.html.replace(/^\t{3}/gm, '');
+  post.html = post.html.replace(/^\t{3}/gm, "");
 });
 
 export default posts;
