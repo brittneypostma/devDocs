@@ -693,7 +693,42 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 				<p>
 					Objects, collections of properties, are used to store values in property:value pairs with the { } (curly-brace) syntax.  Properties can be accessed or changed by using <code>objName.propName</code> and methods (functions inside of an object) can be called with <code>objName.propName()</code><br/>
 				</p>
-				<pre><code>var objName = {<br/>color: "blue",<br/>shape: "circle",<br/>price: 5,<br/>otherColors: ["yellow", "red", "green"]<br/>}</code></pre>
+				<pre><code>var objName = {<br/>color: "blue",<br/>shape: "circle",<br/>price: 5,<br/>otherColors: ["yellow", "red", "green"]<br/>logShape: function() {<br/>	console.log('I am a' + objName.color + objName.shape + '!')<br/>	}<br/>}<br/>objName.logShape() // <em>I am a blue circle!</em></code></pre>
+			</div>
+		</div>
+		<hr/>
+		<div style="display: grid;">
+			<div>
+				<h2>Loops</h2>
+				<p>
+				Loops offer a quick and easy way to do something repeatedly.</code><br/>
+				</p>
+				<h3>Types of Loops</h3>
+				<ul>
+				<li style="list-style-type: square;">
+						<strong>for</strong> - loops through a block of code a number of times.<br/><code>for (statement 1; statement 2; statement 3) { // code block to be executed }</code>
+						<ul>
+							<li style="list-style-type: square; margin-left: 1em;"><strong>Statement 1</strong> is executed (one time) before the execution of the code block.</li>
+							<li style="list-style-type: square; margin-left: 1em;"><strong>Statement 2</strong> defines the condition for executing the code block.</li>
+							<li style="list-style-type: square; margin-left: 1em;"><strong>Statement 3</strong> is executed (every time) after the code block has been executed.</li>
+						<pre><code>for (i = 0; i < 5; i++) {<br/>  text += "The number is " + i + "!" + &lt;br/&gt;<br/>}<br/>// <em>The number is 0!<br/>The number is 1!<br/>The number is 2!<br/>The number is 3!<br/>The number is 4!</code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>for/in</strong> - loops through the properties of an object.<code>for (variable in object) { // code block to be executed }</code><br/>
+						<pre><code>let arr = [3, 5, 7]<br/>for (let i in arr) {<br/>  console.log(i)<br/>}<br/>// <em>0, 1, 2</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>for/of</strong> - loops through the values of an iterable object.<code>for (variable of object) { // code block to be executed }</code><br/>
+						<pre><code>let arr = [3, 5, 7]<br/>for (let i in arr) {<br/>  console.log(i)<br/>}<br/>// <em>3, 5, 7</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>while</strong> - loops through a block of code while a specified condition is true.<code>while (condition) { // code block to be executed }</code><br/>
+						<pre><code>let i = 0<br/>while (i < 5) {<br/>  i++<br/>  console.log(i)<br/>}<br/>// <em>0, 1, 2, 3, 4</em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>do/while</strong> - also loops through a block of code while a specified condition is true.<code>do { //statement } while (condition)</code><br/>
+						<pre><code>let i = 0<br/>do {<br/>  i++<br/>  console.log(i)<br/>}<br/>while (i < 5)<br/>// <em>0, 1, 2, 3, 4</em></code></pre>
+					</li>
 			</div>
 		</div>
 		<hr/>
