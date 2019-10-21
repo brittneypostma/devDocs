@@ -73,6 +73,7 @@
 
   .content :global(table) {
     width: 100%;
+    color: black;
   }
 
   .content :global(table tr:nth-child(even)) {
