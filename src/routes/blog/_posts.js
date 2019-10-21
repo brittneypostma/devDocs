@@ -824,7 +824,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 							<li style="list-style-type: square; margin-left: 1em;"><strong>Statement 1</strong> is executed (one time) before the execution of the code block.</li>
 							<li style="list-style-type: square; margin-left: 1em;"><strong>Statement 2</strong> defines the condition for executing the code block.</li>
 							<li style="list-style-type: square; margin-left: 1em;"><strong>Statement 3</strong> is executed (every time) after the code block has been executed.</li>
-						<pre><code>for (i = 0; i &lt; 5; i++) {<br/>  text += "The number is " + i + "!" + &lt;br/&gt;<br/>}<br/>// <em>The number is 0!<br/>The number is 1!<br/>The number is 2!<br/>The number is 3!<br/>The number is 4!</code></pre>
+						<pre><code>for (i = 0; i &lt; 5; i++) {<br/>  text += "The number is " + i + "!" + &lt;br/&gt;<br/>}<br/>// <em>The number is 0!<br/>The number is 1!<br/>The number is 2!<br/>The number is 3!<br/>The number is 4!</em></code></pre>
 					</li>
 					<li style="list-style-type: square;">
 						<strong>for/in</strong> - loops through the properties of an object.<code>for (variable in object) { // code block to be executed }</code><br/>
