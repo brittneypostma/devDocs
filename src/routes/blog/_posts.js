@@ -689,10 +689,6 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 				</div>
 				<hr/>
 
-		</div>
-	</div>
-	<hr/>
-
 	<div style="display: grid;">
 			<div>
 				<h2>Arrays</h2>
