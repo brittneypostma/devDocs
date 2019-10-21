@@ -809,21 +809,40 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 				<pre><code>var objName = {<br/>color: "blue",<br/>shape: "circle",<br/>price: 5,<br/>otherColors: ["yellow", "red", "green"]<br/>logShape: function() {<br/>	console.log('I am a' + objName.color + objName.shape + '!')<br/>	}<br/>}<br/>objName.logShape() // <em>I am a blue circle!</em></code></pre>
 			</div>
 		</div>
-		<hr/>
+		
+
+		<h2 style="text-align: center;">Friendbook Example with Array of Objects</h2>
+
+		<iframe
+		height="525"
+		style="width: 100%; resize: both;"
+		scrolling="no"
+		title="Javascript"
+		src="https://codepen.io/sballgirl11/embed/gOOLGdW?height=265&theme-id=0&default-tab=css,result"
+	>
+		See the Pen <a href="https://codepen.io/sballgirl11/pen/GRKYPpw/">Javascript</a> by Brittney (<a
+			href="https://codepen.io/sballgirl11"
+			>@sballgirl11</a
+		>) on <a href="https://codepen.io">CodePen</a>. </iframe
+	><br />
+
+	<hr/>
+
 		<div style="display: grid;">
 			<div>
 				<h2>Loops</h2>
 				<p>
-				Loops offer a quick and easy way to do something repeatedly.</code><br/>
+				Loops offer a quick and easy way to do something repeatedly.<br/>
 				</p>
 				<h3>Types of Loops</h3>
 				<ul>
-				<li style="list-style-type: square;">
+					<li style="list-style-type: square;">
 						<strong>for</strong> - loops through a block of code a number of times.<br/><code>for (statement 1; statement 2; statement 3) { // code block to be executed }</code>
 						<ul>
 							<li style="list-style-type: square; margin-left: 1em;"><strong>Statement 1</strong> is executed (one time) before the execution of the code block.</li>
 							<li style="list-style-type: square; margin-left: 1em;"><strong>Statement 2</strong> defines the condition for executing the code block.</li>
 							<li style="list-style-type: square; margin-left: 1em;"><strong>Statement 3</strong> is executed (every time) after the code block has been executed.</li>
+						</ul>
 						<pre><code>for (i = 0; i &lt; 5; i++) {<br/>  text += "The number is " + i + "!" + &lt;br/&gt;<br/>}<br/>// <em>The number is 0!<br/>The number is 1!<br/>The number is 2!<br/>The number is 3!<br/>The number is 4!</em></code></pre>
 					</li>
 					<li style="list-style-type: square;">
@@ -842,26 +861,42 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 						<strong>do/while</strong> - also loops through a block of code while a specified condition is true.<code>do { //statement } while (condition)</code><br/>
 						<pre><code>let i = 0<br/>do {<br/>  i++<br/>  console.log(i)<br/>}<br/>while (i &lt; 5)<br/>// <em>0, 1, 2, 3, 4</em></code></pre>
 					</li>
+				</ul>
+			</div>
+		</div>
+
+		<hr/>
+			
+		<div style="display: grid;">
+			<div>
+				<h2>Scope</h2>
+				<p>
+				Scope determines the accessibility (visibility) of variables. There are 2 type of scope, local scope and global scope.<br/>
+				</p>
+				
+				<ul>
+					<li style="list-style-type: square;">
+						<strong>Global Scope</strong> - Variables declared outside a function are global scoped and can be accessed anywhere. This is the root scope and lives on the window object.<br/>
+						<pre><code>let name = "Brittney"<br/>// code here CAN use variable name<br/>function myFunction() {<br/>  name = "Joe"<br/>  // code here CAN use variable name</code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>Local Scope</strong> - Variables declared inside a function become locally scoped and are not accessible outside the funtion.<br/>
+						
+						<pre><code>// code here can NOT use variable name<br/>function myFunction() {<br/>  var name = "Brittney"<br/>  // code here CAN use variable name<br/>}</code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>Both Example</strong><br/>
+						
+						<pre><code>// Root Scope (window)<br/>var fun = 5;<br/><br/>function funFunction() {<br/>  // local scope<br/>  var fun = "having fun"<br/>  console.log(1, fun)<br/>}<br/><br/>function funnerFunction() {<br/>  // local scope<br/><br/>  var fun = "having more fun"<br/>  console.log(2, fun)<br/>}<br/><br/>function funnestFunction() {<br/>  var fun = "having the most fun"<br/>  console.log(3, fun)<br/>}<br/><br/>console.log("global", fun)<br/>funFunction()<br/>funnerFunction()<br/>funnestFunction<br/><br/>//<em> window 5<br/>   1 "having fun"<br/>   2 "having more fun"<br/>   3 "having the most fun"</em></code></pre>
+					</li>
+					
+				</ul>
 			</div>
 		</div>
 		<hr/>
-			
 	
 
-		<h2 style="text-align: center;">Friendbook Example with Array of Objects</h2>
-
-		<iframe
-		height="525"
-		style="width: 100%; resize: both;"
-		scrolling="no"
-		title="Javascript"
-		src="https://codepen.io/sballgirl11/embed/gOOLGdW?height=265&theme-id=0&default-tab=css,result"
-	>
-		See the Pen <a href="https://codepen.io/sballgirl11/pen/GRKYPpw/">Javascript</a> by Brittney (<a
-			href="https://codepen.io/sballgirl11"
-			>@sballgirl11</a
-		>) on <a href="https://codepen.io">CodePen</a>. </iframe
-	><br />
+		
 		`,
 	},
 	{
