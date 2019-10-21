@@ -887,7 +887,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					<li style="list-style-type: square;">
 						<strong>Both Example</strong><br/>
 						
-						<pre><code>// Root Scope (window)<br/>var fun = 5;<br/><br/>function funFunction() {<br/>  // local scope<br/>  var fun = "having fun"<br/>  console.log(1, fun)<br/>}<br/><br/>function funnerFunction() {<br/>  // local scope<br/><br/>  var fun = "having more fun"<br/>  console.log(2, fun)<br/>}<br/><br/>function funnestFunction() {<br/>  var fun = "having the most fun"<br/>  console.log(3, fun)<br/>}<br/><br/>console.log("global", fun)<br/>funFunction()<br/>funnerFunction()<br/>funnestFunction<br/><br/>//<em> window 5<br/>   1 "having fun"<br/>   2 "having more fun"<br/>   3 "having the most fun"</em></code></pre>
+						<pre><code>// Root Scope (window)<br/>var fun = 5;<br/><br/>function funFunction() {<br/>  // local scope<br/>  var fun = "having fun"<br/>  console.log(1, fun)<br/>}<br/><br/>function funnerFunction() {<br/>  // local scope<br/><br/>  var fun = "having more fun"<br/>  console.log(2, fun)<br/>}<br/><br/>function funnestFunction() {<br/>  fun = "having the most fun"<br/>  console.log(3, fun)<br/>}<br/><br/>console.log("global", fun)<br/>funFunction()<br/>funnerFunction()<br/>funnestFunction<br/><br/>//<em> window 5<br/>   1 "having fun"<br/>   2 "having more fun"<br/>   3 "having the most fun"</em><br/>console.log(fun) // <em>having the most fun</em></code></pre>
 					</li>
 					
 				</ul>
