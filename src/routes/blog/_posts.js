@@ -868,12 +868,6 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 		title: 'Spreadsheets',
 		slug: 'spreadsheets',
 		html: `
-		`,
-	},
-	{
-		title: 'Spreadsheets',
-		slug: 'spreadsheets',
-		html: `
 			<div style="display: grid; grid-template-columns: repeat (auto-fit, minmax(400px, 1fr));">
 			
 				<div>
