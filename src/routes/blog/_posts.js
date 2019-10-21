@@ -256,7 +256,8 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 			>@sballgirl11</a
 		>) on <a href="https://codepen.io">CodePen</a>. </iframe
 	><br />
-	
+
+
 	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" rel="noopener noreferrer" target="_blank">
 		MDN JavaScript
 	</a>
@@ -269,14 +270,15 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 
 	<p>In JavaScript, the \\ (backslash) character is reserved as an escape character.  If you use the backslash key, the key typed after that will be ignored.  This is useful when typing strings with multiple ' or ".</p>
 
-	<div style="display: grid; grid-gap: 0.5em; justify-content: space-around; align-content: center; align-items: center;">
-		<p>JavaScript can either be put inside of a tag in the HTML file or can be linked to an external file where the src is the location of the file relative to the HTML file you are in.</p>
-		<div style="align-self: center; display: grid; grid-template-columns: 1fr 1fr; grid-gap: 0.5em; justify-items: center; align-content: center; align-items: center;"><div><pre><code>&lt;script&gt; *<em>JavaScript goes here</em>* &lt;/script&gt;</code></pre></div><div><pre><code>&lt;script&gt; type="text/javascript" src="script.js" &lt;/script&gt;</code></pre></div></div>
+	<p>JavaScript can either be put inside of a tag in the HTML file or can be linked to an external file where the src is the location of the file relative to the HTML file you are in.</p>
+	<div style=" display: flex;">
+		<div style="margin-right: 0.5em;"><pre><code>&lt;script&gt; *<em>JavaScript goes here</em>* &lt;/script&gt;</code></pre></div><div><pre><code>&lt;script&gt; type="text/javascript" src="script.js" &lt;/script&gt;</code></pre></div>
 	</div>
 
 	<p>Because HTML is read synchronously, from top to bottom, it is best practice to put your script tags at the bottom of the HTML file just before the closing body (&lt;/body&gt;) tag.
 
 	<hr />
+
 	<div style="display: grid; grid-template-columns: repeat (auto-fit, minmax(400px, 1fr));">
 		<div style="display: grid;">
 			<div>
@@ -351,6 +353,117 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 	
 				<hr />
 			</div>
+
+
+	<div style="display: grid;">
+		<div style="display: grid;">
+			<div>
+				<h2>Keywords</h2>
+				<h3 style="text-align: center;">JavaScript Reserved Words</h3>
+				<div style="display: grid; margin-left: 2em;">
+				<table>
+				<tr>
+				<td>abstract</td>
+				<td>arguments</td>
+				<td>await</td>
+				<td>boolean</td>
+				</tr>
+				<tr>
+				<td>break</td>
+				<td>byte</td>
+				<td>case</td>
+				<td>catch</td>
+				</tr>
+				<tr>
+				<td>char</td>
+				<td>class</td>
+				<td>const</td>
+				<td>continue</td>
+				</tr>
+				<tr>
+				<td>debugger</td>
+				<td>default</td>
+				<td>delete</td>
+				<td>do</td>
+				</tr>
+				<tr>
+				<td>double</td>
+				<td>else</td>
+				<td>enum</td>
+				<td>eval</td>
+				</tr>
+				<tr>
+				<td>export</td>
+				<td>extends</td>
+				<td>false</td>
+				<td>final</td>
+				</tr>
+				<tr>
+				<td>finally</td>
+				<td>float</td>
+				<td>for</td>
+				<td>function</td>
+				</tr>
+				<tr>
+				<td>goto</td>
+				<td>if</td>
+				<td>implements</td>
+				<td>import</td>
+				</tr>
+				<tr>
+				<td>in</td>
+				<td>instanceof</td>
+				<td>int</td>
+				<td>interface</td>
+				</tr>
+				<tr>
+				<td>let</td>
+				<td>long</td>
+				<td>native</td>
+				<td>new</td>
+				</tr>
+				<tr>
+				<td>null</td>
+				<td>package</td>
+				<td>private</td>
+				<td>protected</td>
+				</tr>
+				<tr>
+				<td>public</td>
+				<td>return</td>
+				<td>short</td>
+				<td>static</td>
+				</tr>
+				<tr>
+				<td>super</td>
+				<td>switch</td>
+				<td>synchronized</td>
+				<td>this</td>
+				</tr>
+				<tr>
+				<td>throw</td>
+				<td>throws</td>
+				<td>transient</td>
+				<td>true</td>
+				</tr>
+				<tr>
+				<td>try</td>
+				<td>typeof</td>
+				<td>var</td>
+				<td>void</td>
+				</tr>
+				<tr>
+				<td>volatile</td>
+				<td>while</td>
+				<td>with</td>
+				<td>yield</td>
+				</tr>
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+				<hr />
 
 			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
 			<div>
@@ -700,6 +813,20 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 			
 	
 
+		<h2 style="text-align: center;">Friendbook Example with Array of Objects</h2>
+
+		<iframe
+		height="525"
+		style="width: 100%; resize: both;"
+		scrolling="no"
+		title="Javascript"
+		src="https://codepen.io/sballgirl11/embed/gOOLGdW?height=265&theme-id=0&default-tab=css,result"
+	>
+		See the Pen <a href="https://codepen.io/sballgirl11/pen/GRKYPpw/">Javascript</a> by Brittney (<a
+			href="https://codepen.io/sballgirl11"
+			>@sballgirl11</a
+		>) on <a href="https://codepen.io">CodePen</a>. </iframe
+	><br />
 		`,
 	},
 	{
