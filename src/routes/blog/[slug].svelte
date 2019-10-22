@@ -76,6 +76,10 @@
     color: black;
   }
 
+  .content :global(em) {
+    color: #888;
+  }
+
   .content :global(table tr:nth-child(even)) {
     background-color: #eeeeee;
   }

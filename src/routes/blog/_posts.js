@@ -518,7 +518,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					<div style="display: grid; margin-left: 2em;">
 					<ul>
 						<li style="list-style-type: decimal;">
-						<strong>var</strong> - declares a variable, optionally initializing it to a value and is function scoped (more on this later).<br/>
+						<strong>var</strong> - declares a variable, optionally initializing it to a value and is function or local scoped (more on this later).<br/>
 						<pre><code>var x;<br/>x = 11;<br/>var y = "this is a string named y"</code></pre>
 						</li>
 						<li style="list-style-type: decimal;"> 
@@ -867,10 +867,11 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 			<div>
 				<h2>Scope</h2>
 				<p>
-				Scope determines the accessibility (visibility) of variables. There are 2 type of scope, local scope and global scope.<br/>
+				Scope determines the accessibility (visibility) of variables. JavaScript has 3 types of scope; Global Scope, Function or Local Scope, and Block Scope introduced in 2015 as ES2015 (formally called ES6).<br/>
 				</p>
 				
 				<ul>
+
 					<li style="list-style-type: square;">
 						<strong>Global Scope</strong> - Variables declared outside a function are global scoped and can be accessed anywhere. This is the root scope and lives on the window object.<br/>
 						<pre><code>let name = "Brittney"<br/>// code here CAN use variable name<br/>function myFunction() {<br/>  name = "Joe"<br/>  // code here CAN use variable name</code></pre>
@@ -881,12 +882,19 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 						<pre><code>// code here can NOT use variable name<br/>function myFunction() {<br/>  var name = "Brittney"<br/>  // code here CAN use variable name<br/>}</code></pre>
 					</li>
 					<li style="list-style-type: square;">
-						<strong>Both Example</strong><br/>
+						<strong>Block Scope</strong> - Variables declared with var can NOT have block scope, only let and const variables have access to block scope.<br/>
 						
-						<pre><code>// Root Scope (window)<br/>var fun = 5;<br/><br/>function funFunction() {<br/>  // local scope<br/>  var fun = "having fun"<br/>  console.log(1, fun)<br/>}<br/><br/>function funnerFunction() {<br/>  // local scope<br/><br/>  var fun = "having more fun"<br/>  console.log(2, fun)<br/>}<br/><br/>function funnestFunction() {<br/>  fun = "having the most fun"<br/>  console.log(3, fun)<br/>}<br/><br/>console.log("global", fun)<br/>funFunction()<br/>funnerFunction()<br/>funnestFunction<br/><br/>//<em> window 5<br/>   1 "having fun"<br/>   2 "having more fun"<br/>   3 "having the most fun"</em><br/>console.log(fun) // <em>having the most fun</em></code></pre>
+						<pre><code>// Root Scope (window)<br/>let letVar = "letVar, ";<br/>const constVar = "constVar, "<br/>let newLetVar = "newLetVar, "<br/> const newConstVar = "newConstVar, "<br/><br/>function scopeFunction() {<br/>  // block scope<br/>  let letVar = "block scope letVar, "<br/>  const constVar = "block scope constVar, "<br/>  newLetVar = "changed global newLetVar, "<br/>  console.log("BLOCK SCOPE: ", letVar, constVar, newLetVar, newConstVar)<br/>}<br/>console.log("BEFORE: ", letVar, constVar, newLetVar, newConstVar)<br/>scopeFunction()<br/>console.log("AFTER: ", letVar, constVar, newLetVar, newConstVar)<br/>// <em>BEFORE: letVar, constVar, newLetVar, newConstVar, <br/>   BLOCK SCOPE: block scope letVar, block scope constVar, changed global newLetVar, newConstVar, <br/>   AFTER: letVar, constVar, changed global newLetVar, newConstVar, </em></code></pre>
+					</li>
+					<li style="list-style-type: square;">
+						<strong>All Example</strong><br/>
+						
+						<pre><code>// Root Scope (window)<br/>var varVar = "varVar, "<br/>let letVar = "letVar, ";<br/>const constVar = "constVar, "<br/>let newLetVar = "newLetVar, "<br/><br/>function scopeFunction() {<br/>  // block scope<br/>  var varVar = "local scope varVar, "<br/>  let letVar = "block scope letVar, "<br/>  const constVar = "block scope constVar, "<br/>  newLetVar = "changed global newLetVar, "<br/>  varVar = "only changes local scope varVar, "<br/>  console.log("BLOCK SCOPE: ", varVar, letVar, constVar, newLetVar)<br/>}<br/>console.log("BEFORE: ", varVar, letVar, constVar, newLetVar)<br/>scopeFunction()<br/>console.log("AFTER: ", varVar, letVar, constVar, newLetVar)<br/>// <em>BEFORE: varVar, letVar, constVar, newLetVar, <br/>   BLOCK SCOPE: only changes local scope varVar, block scope letVar, block scope constVar, changed global newLetVar, <br/>   AFTER: varVar, letVar, constVar, changed global newLetVar, </em></code></pre>
 					</li>
 					
 				</ul>
+
+
 			</div>
 		</div>
 		<hr/>
