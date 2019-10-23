@@ -803,6 +803,7 @@ p {*<em>styles for paragraph tags go here</em>* }</code></pre>
 					Objects, collections of properties, are used to store values in property:value pairs with the { } (curly-brace) syntax.  Properties can be accessed or changed by using <code>objName.propName</code> and methods (functions inside of an object) can be called with <code>objName.propName()</code><br/>
 				</p>
 				<pre><code>var objName = {<br/>color: "blue",<br/>shape: "circle",<br/>price: 5,<br/>otherColors: ["yellow", "red", "green"]<br/>logShape: function() {<br/>	console.log('I am a' + objName.color + objName.shape + '!')<br/>	}<br/>}<br/>objName.logShape() // <em>I am a blue circle!</em></code></pre>
+				<h3>Dynamic Properties</h3>
 			</div>
 		</div>
 		
