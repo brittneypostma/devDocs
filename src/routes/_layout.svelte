@@ -26,7 +26,7 @@
     font-size: 14px;
     text-align: center;
     width: 100%;
-    text-transform: uppercase;
+    margin-bottom: 1em;
   }
 
   img {
@@ -34,6 +34,29 @@
     height: 20px;
     position: relative;
     top: 5px;
+  }
+
+  a {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    color: rgb(155, 50, 43);
+  }
+
+  a::before {
+    content: "";
+    position: absolute;
+    transition: transform 0.3s ease;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: rgb(155, 50, 43);
+    transform: scaleX(0);
+  }
+
+  a:hover::before {
+    transform: scaleX(1);
   }
 </style>
 
@@ -44,10 +67,14 @@
 </main>
 
 <footer>
-  Built with
+  &copy;
+  <span id="year" />
+  <a href="https://bdesigned.netlify.com/" rel="noreferrer" target="_blank">
+    b.Designed
+  </a>
+  Powered by
   <img alt="svelte" src="svelte-logo.png" />
   and
   <img alt="sapper" src="sapper.png" />
-  &copy;
-  <span id="year" />
+
 </footer>

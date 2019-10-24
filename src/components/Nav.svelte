@@ -23,10 +23,7 @@
 <style>
   nav {
     border-bottom: 1px solid rgb(155, 50, 43);
-  }
-  .nav-wrapper {
-    height: 50px;
-    font-weight: 300;
+    font-weight: 700;
     padding: 1em;
     display: grid;
     grid-template-columns: 1fr auto;
@@ -35,38 +32,43 @@
     margin-bottom: 2em;
   }
 
-  ul {
-    margin: 0;
-    padding: 0;
+  .links {
     display: flex;
-    list-style-type: none;
-    height: 2.2em;
-  }
-
-  /* clearfix */
-  ul::after {
-    content: "";
-  }
-
-  li {
-    line-height: 1.5em;
-  }
-
-  li:hover {
-    position: relative;
-    border-bottom: 5px solid #aaaaaa;
-  }
-
-  .selected {
-    position: relative;
-    background-color: rgb(155, 50, 43);
-    padding: 0.5em;
-    color: white;
   }
 
   a {
+    color: inherit;
     text-decoration: none;
-    padding: 1em 0.5em;
+    padding: 1em;
+    margin-left: 1em;
+    display: block;
+    position: relative;
+  }
+
+  a:not(.selected) {
+    opacity: 0.7;
+  }
+
+  a::before {
+    content: "";
+    position: absolute;
+    transition: transform 0.3s ease;
+    left: 12%;
+    bottom: 0;
+    top: 40px;
+    width: 75%;
+    height: 2px;
+    background: #aaa;
+    transform: scaleX(0);
+  }
+
+  a:hover::before,
+  .selected::before {
+    transform: scaleX(1);
+  }
+
+  .selected::before {
+    background: rgb(155, 50, 43);
   }
 
   img {
@@ -131,32 +133,21 @@
 </style>
 
 <nav>
-  <div class="nav-wrapper">
-    <ul>
-      <li>
-        <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
-      </li>
 
-      <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-      <li>
-        <a
-          rel="prefetch"
-          class={segment === 'blog' ? 'selected' : ''}
-          href="blog">
-          logs
-        </a>
-      </li>
-    </ul>
-    <div class="theme-switch-wrapper">
-      <img src="sun.png" alt="light-mode" style="margin-right: 0.5em;" />
-      <label class="theme-switch" for="checkbox">
-        <input type="checkbox" id="checkbox" />
-        <div class="slider round" />
-      </label>
-      <img src="moon.png" alt="dark-mode" style="margin-left: 0.5em;" />
-    </div>
+  <div class="links">
+    <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
 
+    <a rel="prefetch" class={segment === 'blog' ? 'selected' : ''} href="blog">
+      logs
+    </a>
+  </div>
+  <div class="theme-switch-wrapper">
+    <img src="sun.png" alt="light-mode" style="margin-right: 0.5em;" />
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider round" />
+    </label>
+    <img src="moon.png" alt="dark-mode" style="margin-left: 0.5em;" />
   </div>
 
 </nav>

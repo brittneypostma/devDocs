@@ -44,7 +44,7 @@ body {
 	min-height: 100%;
 	width: 100%;
 	display: grid;
-	grid-template-rows: 55px 1fr auto;
+	grid-template-rows: 100px 1fr auto;
 	word-break: break-word;
 }
 
