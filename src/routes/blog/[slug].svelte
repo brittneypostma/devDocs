@@ -118,6 +118,7 @@
 
 <div class="post-header">
   <a rel="prefetch" href="blog">go back</a>
+  <p>{post.printDate} ~ {post.printReadingTime}</p>
   <h1>{post.title}</h1>
 </div>
 
