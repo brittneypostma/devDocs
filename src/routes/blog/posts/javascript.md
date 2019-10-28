@@ -597,6 +597,7 @@ The Array object is used to store multiple values in a single variable with the 
 		</li>
 	</ul>								
 </div>
+
 ---
 
 ## Objects

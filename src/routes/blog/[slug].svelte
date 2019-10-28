@@ -45,7 +45,7 @@
     padding: 0.5em;
     border-radius: 2px;
     display: inline-block;
-    margin: 0 0 1em;
+    margin: 0s;
   }
 
   .content :global(pre) :global(code) {
