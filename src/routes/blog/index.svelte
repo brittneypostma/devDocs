@@ -13,27 +13,23 @@
 </script>
 
 <style>
-  ul {
-    margin: 0 0 1em 0;
-    line-height: 1.5;
-    padding-inline-start: 0;
-    text-align: center;
-  }
-
   .grid-logs {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 1em;
-    margin: 0 1em;
+    grid-gap: 2em;
   }
 
-  li {
+  .list {
     list-style-type: none;
     padding: 1rem;
     background: #fff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
+    margin-bottom: 1em;
+    line-height: 1.5;
+    padding-inline-start: 0;
+    text-align: center;
   }
 
   a {
@@ -45,26 +41,14 @@
   a:visited {
     color: #333;
   }
-  li:hover {
+  .list:hover {
     transform: scale(1.05);
   }
-  li:active {
+  .list:active {
     transform: scale(0.95);
   }
   h2 {
     margin: 0;
-  }
-
-  .post-item-footer {
-    font-family: Rubik, sans-serif;
-    font-weight: 700;
-  }
-
-  .post-item-date {
-    color: #aaa;
-    text-align: left;
-    text-transform: uppercase;
-    margin-right: 16px;
   }
 </style>
 
@@ -74,21 +58,14 @@
 
 <h1>Logs</h1>
 
-<ul>
-  <div class="grid-logs">
-    {#each posts as post}
-      <div>
-        <a rel="prefetch" href="blog/{post.slug}">
-          <li>
-
-            <h2>{post.title}</h2>
-            <p>{post.excerpt}</p>
-            <div class="post-item-footer">
-              <span class="post-item-date">— {post.printDate}</span>
-            </div>
-          </li>
-        </a>
-      </div>
-    {/each}
-  </div>
-</ul>
+<div class="grid-logs">
+  {#each posts as post}
+    <div>
+      <a rel="prefetch" href="blog/{post.slug}">
+        <div class="list">
+          <h2>{post.title}</h2>
+        </div>
+      </a>
+    </div>
+  {/each}
+</div>

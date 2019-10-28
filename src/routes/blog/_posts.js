@@ -11,7 +11,7 @@ require('prismjs/components/prism-jsx.min');
 
 const cwd = process.cwd();
 const POSTS_DIR = path.join(cwd, 'src/routes/blog/posts/');
-const EXCERPT_SEPARATOR = '<!-- more -->';
+// const EXCERPT_SEPARATOR = '<!-- more -->';
 const renderer = new marked.Renderer();
 const linkRenderer = renderer.link;
 renderer.link = (href, title, text) => {
@@ -46,38 +46,38 @@ const posts = fs
 		const { title, date } = data;
 		const slug = fileName.split('.')[0];
 		let content = rawContent;
-		let excerpt = '';
+		// let excerpt = '';
 
-		if (rawContent.indexOf(EXCERPT_SEPARATOR) !== -1) {
-			const splittedContent = rawContent.split(EXCERPT_SEPARATOR);
-			excerpt = splittedContent[0];
-			content = splittedContent[1];
-		}
+		// if (rawContent.indexOf(EXCERPT_SEPARATOR) !== -1) {
+		// 	const splittedContent = rawContent.split(EXCERPT_SEPARATOR);
+		// 	excerpt = splittedContent[0];
+		// 	content = splittedContent[1];
+		// }
 
 		const html = marked(content);
-		const readingStats = readingTime(content);
-		const printReadingTime = readingStats.text;
-		const printDate = formatDate(new Date(date), 'MMMM D, YYYY');
+		// const readingStats = readingTime(content);
+		// const printReadingTime = readingStats.text;
+		// const printDate = formatDate(new Date(date), 'MMMM D, YYYY');
 
 		return {
 			title: title || slug,
 			slug,
 			html,
 			date,
-			excerpt,
-			printDate,
-			printReadingTime,
+			// excerpt,
+			// printDate,
+			// printReadingTime,
 		};
 	});
 
-posts.sort((a, b) => {
-	const dateA = new Date(a.date);
-	const dateB = new Date(b.date);
+// posts.sort((a, b) => {
+// 	const dateA = new Date(a.date);
+// 	const dateB = new Date(b.date);
 
-	if (dateA > dateB) return -1;
-	if (dateA < dateB) return 1;
-	return 0;
-});
+// 	if (dateA > dateB) return -1;
+// 	if (dateA < dateB) return 1;
+// 	return 0;
+// });
 
 posts.forEach(post => {
 	post.html = post.html.replace(/^\t{3}/gm, '');

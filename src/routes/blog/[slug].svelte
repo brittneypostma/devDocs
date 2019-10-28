@@ -45,7 +45,7 @@
     padding: 0.5em;
     border-radius: 2px;
     display: inline-block;
-    margin: 0;
+    margin: 0 0 1em;
   }
 
   .content :global(pre) :global(code) {
@@ -118,7 +118,6 @@
 
 <div class="post-header">
   <a rel="prefetch" href="blog">go back</a>
-  <p>{post.printDate} ~ {post.printReadingTime}</p>
   <h1>{post.title}</h1>
 </div>
 
