@@ -18,7 +18,17 @@ title: Markdown
     align-items: center;
     justify-items: center;
 }
+
+.cont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    align-items: center;
+}
 </style>
+
+[Markdown Guide](https://www.markdownguide.org/basic-syntax/)  
+[Markdown Cheetsheet](https://www.code2bits.com/assets/cheat-sheets/cheatsheet-markdown.pdf)
 
 <div class="md">
 
@@ -62,27 +72,32 @@ title: Markdown
 
 <div class="ind">
 
+
 <h3><u>Ordered Lists</u></h3>
+
+<div class="cont">
 
 1.  1\. First item
 2.  2\. Second item
 3.  3\. Third item
 
+<pre>1. First item<br/>2. Second item<br/>3. Third item</pre>
 
-
-<div>
-    <pre>1. First item<br/>2. Second item<br/>3. Third item</pre>
 </div>
 
 <h3><u>Unordered Lists</u></h3>
+
+<div class="cont">
 
 +   First item
 *   Second item
 -   Third item
 
-<div>
-    <pre>+, -, or * adds an unordered list item<br/>+ First item<br/>- Second item<br/>* Third item</pre>
+<pre>+ First item<br/>- Second item<br/>* Third item</pre>
 </div>
++, -, or * adds an unordered list item<br/>
+Can be styled with css list-style-type.
+
 
 </div>
 

@@ -45,7 +45,7 @@
     padding: 0.5em;
     border-radius: 2px;
     display: inline-block;
-    margin: 0s;
+    margin: 0;
   }
 
   .content :global(pre) :global(code) {
@@ -58,6 +58,13 @@
     padding: 0;
     margin: 0 0 16px;
   }
+
+  .content :global(ol) {
+    line-height: 1.5;
+    padding: 0;
+    margin: 0 0 16px;
+  }
+
 
   .content :global(li) {
     list-style-type: none;
