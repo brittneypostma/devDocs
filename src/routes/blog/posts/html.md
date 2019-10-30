@@ -304,4 +304,3 @@ In Visual Studio Code, you can press ! and enter to get a boilerplate HTML templ
 
 <dfn>is a multi-line, resizable text box that allows users to write a sizable amount of text like a comment.</dfn>
 
----

@@ -15,11 +15,10 @@
 }
 
 hr {
-	display: block;
-	height: 1px;
+	height: 2px;
 	border: 0;
-	border-top: 1px solid rgb(155, 50, 43, 0.5);
-	margin: 1em 0;
+	border-top: 2px dotted rgb(155, 50, 43, 0.75);
+	margin: 2em 0 1em;
 	padding: 0;
 }
 

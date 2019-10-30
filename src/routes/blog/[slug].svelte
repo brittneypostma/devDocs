@@ -38,6 +38,13 @@
     text-align: center;
   }
 
+  .content :global(blockquote) {
+    background: #f9f9f9;
+    border-left: 10px solid#ccc;
+    margin: 1.5em 10px;
+    padding: .1em 10px;
+  }
+
   .content :global(pre) {
     background-color: #cccccc;
     color: #333333;

@@ -340,6 +340,8 @@ In JavaScript a single = sign is for assigning values, so there are other ways t
 
 </div>
 
+---
+
 ## Variables
 
 In JavaScript variables can be assigned with 3 different types: var, let, and const, var and let values can be changed, but const values are constant and unchangeable. They can all be assigned to any of the JavaScript types.
@@ -405,7 +407,9 @@ Conditional statements are used when you want to perform different actions depen
 
 </div>
 
-### Logical Operators
+---
+
+## Logical Operators
 
 <div style="display: grid; margin-left: 2em;">
 
@@ -421,7 +425,9 @@ Conditional statements are used when you want to perform different actions depen
 
     !true //false!false //truevar guess = prompt("Guess my number");var myNum = 11;if (guess !== myNum) {  alert("Sorry, you're wrong");}
 
-## </div>
+</div>
+
+---
 
 ## The Console
 
@@ -461,6 +467,8 @@ The console object provides access to the browser's debugging console. There are
 
 </div>
 
+---
+
 ## Functions
 
 Functions in JavaScript are reusable blocks of code that perform a task to can be executed later. Functions perform the actions inside of them when they are **_invoked_** or **_called_**. To access a value inside of a function a **_return statement_** must be added, this also immediately exits the function.
@@ -490,6 +498,8 @@ You can write functions in the function syntax or by using an **_arrow function_
 <pre><code>//ES6 arrow function<br/>//to invoke it use <em>multiply(argument, argument)</em> or <em>multiply(5, 10)</em><br/>const multiply =  (a, b) => a * b</code></pre><br/>
 
 <pre><code>//regular named function<br/>function multiply (a, b) {<br/> return a \* b<br/>}</code></pre>
+
+---
 
 ## Arrays
 
@@ -669,4 +679,4 @@ Scope determines the accessibility (visibility) of variables. JavaScript has 3 t
 
 <pre><code>// Root Scope (window)<br/>var varVar = "varVar, "<br/>let letVar = "letVar, ";<br/>const constVar = "constVar, "<br/>let newLetVar = "newLetVar, "<br/><br/>function scopeFunction() {<br/>  // block scope<br/>  var varVar = "local scope varVar, "<br/>  let letVar = "block scope letVar, "<br/>  const constVar = "block scope constVar, "<br/>  newLetVar = "changed global newLetVar, "<br/>  varVar = "only changes local scope varVar, "<br/>  console.log("BLOCK SCOPE: ", varVar, letVar, constVar, newLetVar)<br/>}<br/>console.log("BEFORE: ", varVar, letVar, constVar, newLetVar)<br/>scopeFunction()<br/>console.log("AFTER: ", varVar, letVar, constVar, newLetVar)<br/>// <em>BEFORE: varVar, letVar, constVar, newLetVar, <br/>   BLOCK SCOPE: only changes local scope varVar, block scope letVar, block scope constVar, changed global newLetVar, <br/>   AFTER: varVar, letVar, constVar, changed global newLetVar, </em></code></pre>
 
----
+

@@ -6,14 +6,14 @@ title: Markdown
 
 .md {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 }
 
 .ind {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     display: grid; 
     padding: 1em;
-    margin-right: 1em;
+    margin: 0 1em 1em;
     justify-content: center;
     align-items: center;
     justify-items: center;
@@ -24,13 +24,54 @@ title: Markdown
     grid-template-columns: 1fr 1fr;
     grid-gap: 1em;
     align-items: center;
+    justify-items: center;
+}
+
+.img {
+    width: 50px;
 }
 </style>
 
-[Markdown Guide](https://www.markdownguide.org/basic-syntax/)  
+[Markdown Guide](https://www.markdownguide.org/basic-syntax/)   
 [Markdown Cheetsheet](https://www.code2bits.com/assets/cheat-sheets/cheatsheet-markdown.pdf)
 
 <div class="md">
+
+<div>
+
+## Links
+
+<div class="ind">
+
+<div class="cont">
+
+[Link Text](#)
+
+    [Link Text]{link URL}
+
+</div>
+
+</div>
+
+</div>
+
+<div>
+
+## Images
+
+<div class="ind">
+
+<div class="cont">
+
+<img src="https://image.flaticon.com/icons/png/512/23/23765.png" alt="image alt text" style="width: 50px;"/>
+
+    ![Image Alt Text]{link to image}
+
+</div>
+
+</div>
+
+</div>
 
 <div>
 
@@ -94,10 +135,28 @@ title: Markdown
 -   Third item
 
 <pre>+ First item<br/>- Second item<br/>* Third item</pre>
+
 </div>
 +, -, or * adds an unordered list item<br/>
 Can be styled with css list-style-type.
 
+
+</div>
+
+
+## Code
+
+<div class="ind">
+
+<div class="cont">
+
+    code
+
+<pre>   indent by one tab</pre>
+
+</div>
+
+</div>
 
 </div>
 
@@ -107,30 +166,73 @@ Can be styled with css list-style-type.
 
 <div class="ind">
 
-    # Heading 1 - <h1>
+<div class="cont">
 
-# h1
+**bold text**<br/>
+*italic text*<br/>
+***bold and italic text***
 
-    ## Heading 2 - <h2>
-
-## h2
-
-    ### Heading 3 - <h3>
-
-### h3
-
-    #### Heading 4 - <h4>
-
-#### h4
-
-    ##### Heading 5 - <h5>
-
-##### h5
-
-    ###### Heading 6 - <h6>
-
-###### h6
+    **bold text** 
+    *ital text*
+    ***bold and ital text***
+    _underscores also work_
 
 </div>
 
 </div>
+
+## Horizontal Rule
+
+<div class="ind">
+<div class="cont">
+
+<div style="border: 0; border-top: 1px solid black; width: 100%; height: auto;"></div>
+
+    ---
+
+</div>
+
+</div>
+
+## URLs and Email Addresses
+
+<div class="ind">
+<div class="cont">
+
+<fake@example.com>
+
+    <fake@example.com>
+
+</div>
+
+</div>
+
+</div>
+
+<div>
+
+## Blockquotes
+
+<div class="ind">
+
+<div class="cont">
+
+> This is a blockquote
+>
+> span multiple paragraphs
+>> blockquote in a blockquote
+
+    > blockquote
+    >
+    > span multiple paragraphs
+    >> blockquote in a blockquote
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
