@@ -24,21 +24,8 @@ In JavaScript, the \\ (backslash) character is reserved as an escape character. 
 
 JavaScript can either be put inside of a tag in the HTML file or can be linked to an external file where the src is the location of the file relative to the HTML file you are in.
 
-<div style=" display: flex;">
-
-<div style="margin-right: 0.5em;">
-
     <script> *JavaScript goes here* </script>
-
-</div>
-
-<div>
-
     <script> type="text/javascript" src="script.js" </script>
-
-</div>
-
-</div>
 
 Because HTML is read synchronously, from top to bottom, it is best practice to put your script tags at the bottom of the HTML file just before the closing body (</body>) tag.
 
@@ -50,31 +37,42 @@ Because HTML is read synchronously, from top to bottom, it is best practice to p
 
 <div style="display: grid; margin-left: 2em;">
 
-&#9632; **Boolean** - true or false
+**Boolean** - true or false
 
-    const bool1 = true;const bool2 = false;
+	const bool1 = true; 
+	const bool2 = false;
 
-&#9632; **Null** - explicitly nothing
+
+**Null** - explicitly nothing
 
     const nothing = null;
 
-&#9632; **Undefined** - a variable that has no value or has yet to be assigned.
+**Undefined** - a variable that has no value or has yet to be assigned.
 
-    const undVar;console.log(undVar);//undefined
+    const undVar;
+	console.log(undVar);
+	//undefined
 
-&#9632; **Number** - numbers in JavaScript can be written with of without a decimal point and can also be Infinity or NaN (not a number).
+**Number** - numbers in JavaScript can be written with of without a decimal point and can also be Infinity or NaN (not a number).
 
-    const num1 = 11;const num2 = 0.42;
+    const num1 = 11;
+	const num2 = 0.42;
 
-&#9632; **String** - stores text inside double or single quotes or in template literals (\`).
+**String** - stores text inside double or single quotes or in template literals (`).
 
-    const str1 = 'I am string 1.';const str2 = "I am string 2."const str3 = \`I am string 3.\`;
+    const str1 = 'I am string 1.'
+	const str2 = "I am string 2."
+	const str3 = `I am string 3.`
 
-&#9632; **Symbol** - an immutable primitive value that is unique, created by invoking the function Symbol. Symbols are guaranteed to be unique. Even if we create many symbols with the same description, they are different values.
+**Symbol** - an immutable primitive value that is unique, created by invoking the function Symbol. Symbols are guaranteed to be unique. Even if we create many symbols with the same description, they are different values.
 
-    // here are two symbols with the same description,let Sym1 = Symbol("Sym");let Sym2 = Symbol("Sym");console.log(Sym1 == Sym2); // returns "false"
+    // here are two symbols with the same description
+	let Sym1 = Symbol("Sym");
+	let Sym2 = Symbol("Sym");
+	console.log(Sym1 == Sym2); 
+	// returns "false"
 
-&#9632; **BigInt** - a numeric data type that can represent integers in the arbitrary precision format.
+**BigInt** - a numeric data type that can represent integers in the arbitrary precision format.
 
     const x = 2n ** 53n;//9007199254740992n
 
@@ -86,23 +84,21 @@ In JavaScript, almost "everything" can be an object.
 
 <div style="margin-left: 2em;">
 
-&#9632; Booleans defined with the new keyword.<br/>
-&#9632; Numbers defined with the new keyword.<br/>
-&#9632; Strings defined with the new keyword.<br/>
-&#9632; Dates are always objects.<br/>
-&#9632; Math is always an object.<br/>
-&#9632; Regular expressions are always objects.<br/>
-&#9632; Arrays are always objects.<br/>
-&#9632; Functions are always objects.<br/>
-&#9632; Objects are always objects.<br/>
+- \- Booleans defined with the new keyword.<br/>
+- \- Numbers defined with the new keyword.<br/>
+- \- Strings defined with the new keyword.<br/>
+- \- Dates are always objects.<br/>
+- \- Math is always an object.<br/>
+- \- Regular expressions are always objects.<br/>
+- \- Arrays are always objects.<br/>
+- \- Functions are always objects.<br/>
+- \- Objects are always objects.<br/>
 
 </div>
 
 ---
 
-## Keywords
-
-### JavaScript Reserved Words
+## JavaScript Reserved Keywords
 
 <table>
 
@@ -304,8 +300,6 @@ In JavaScript, almost "everything" can be an object.
 
 </table>
 
-</div>
-
 ---
 
 ## Comparisons
@@ -314,27 +308,27 @@ In JavaScript a single = sign is for assigning values, so there are other ways t
 
 <div style="margin-left: 2em;">
 
-<pre><code><strong>&gt;=</strong></code></pre>
+<pre class="language-javascript"><code class="language-javascript"><strong>&gt;=</strong></code></pre>
 
 <dfn> - is true if the left side is greater than or equal to the value or the right side.</dfn>
 
-<pre><code><strong>&lt;=</strong></code></pre>
+<pre class="language-javascript"><code class="language-javascript"><strong>&lt;=</strong></code></pre>
 
 <dfn>- is true if the left side is less than or equal to the value or the right side.</dfn>
 
-<pre><code><strong>&gt;</strong></code></pre>
+<pre class="language-javascript"><code class="language-javascript"><strong>&gt;</strong></code></pre>
 
 <dfn>- is true if the left side is greater than the value or the right side.</dfn>
 
-<pre><code><strong>&lt;</strong></code></pre>
+<pre class="language-javascript"><code class="language-javascript"><strong>&lt;</strong></code></pre>
 
 <dfn>- is true if the left side is less than the value or the right side.</dfn>
 
-<pre><code><strong>== or !=</strong></code></pre>
+<pre class="language-javascript"><code class="language-javascript"><strong>== or !=</strong></code></pre>
 
 <dfn>- The equality and inequality operators convert the operands if they are not of the same type, then applies a strict comparison. Using these should be avoided, because JavaScript "guesses" what you want and changes the type of the input.</dfn>
 
-<pre><code><strong>=== or !==</strong></code></pre>
+<pre class="language-javascript"><code class="language-javascript"><strong>=== or !==</strong></code></pre>
 
 <dfn>- The strict equality and inequality operators with no type conversion by JavaScript. This is the correct way to compare values.</dfn>
 
@@ -350,7 +344,9 @@ In JavaScript variables can be assigned with 3 different types: var, let, and co
 
 -   **var** - declares a variable, optionally initializing it to a value and is function or local scoped (more on this later).
 
-        var x;x = 11;var y = "this is a string named y"
+        var x;
+		x = 11;
+		var y = "this is a string named y"
 
 -   **let** - similar to var, except that it is scoped to the block ( { } ) that it is declared inside of, or block scoped.
 
@@ -358,7 +354,10 @@ In JavaScript variables can be assigned with 3 different types: var, let, and co
 
 -   **const** - declares a variable that cannot be changed and must be initialed to a value, it is also block scoped.
 
-        const z = 'always the same';const a; //Syntax error: missing initializerconst name = 'Brittney';name = 'Mary' //Uncaught TypeError: Assignment to constant variable.
+        const z = 'always the same'
+		const a; //Syntax error: missing initializer
+		const name = 'Brittney';
+		name = 'Mary' //Uncaught TypeError: Assignment to constant variable.
 
 </div>
 
@@ -370,10 +369,10 @@ The general rules for constructing names for variables (unique identifiers) are:
 
 <div style="margin-left: 2em;">
 
-&#9632; Names must begin with a letter, an underscore (\_) or a dollar sign (\$).<br/>
-&#9632; Names can only contain letters, numbers, underscores, or dollar signs.<br/>
-&#9632; Names cannot contain spaces.<br/>
-&#9632; Names are case sensitive ( y is not Y).<br/>
+- 1\. Names must begin with a letter, an underscore (\_) or a dollar sign (\$).<br/>
+- 2\. Names can only contain letters, numbers, underscores, or dollar signs.<br/>
+- 3\. Names cannot contain spaces.<br/>
+- 4\. Names are case sensitive ( y is not Y).<br/>
 
 </div>
 
@@ -385,25 +384,52 @@ Conditional statements are used when you want to perform different actions depen
 
 <div style="display: grid; margin-left: 2em;">
 
-&#9632; **if** - used when you want to check if a condition is true before executing code.
+**if** - used when you want to check if a condition is true before executing code.
 
-    var name = "Brittney";if (name === "Brittney) {  alert("Hi Brittney!);}
+    var name = "Brittney";
+	if (name === "Brittney) {  
+		alert("Hi Brittney!);
+		}
 
-&#9632; **else** - used to specify a block of code to be executed when the _if_ block is false.
+**else** - used to specify a block of code to be executed when the _if_ block is false.
 
-    if (name === "Brittney) {  alert("Hi Brittney!);}  else {  alert("Hi!");}
+    if (name === "Brittney) {  
+		alert("Hi Brittney!);
+		}  else {  
+			alert("Hi!");
+			}
 
-&#9632; **else if** - used to specify another condition when the _if_ statement is false and before the else block.
+**else if** - used to specify another condition when the _if_ statement is false and before the else block.
 
-    if (name === "Brittney) {  alert("Hi Brittney!);}  else if (name === "Joe") {  alert("Hi Joe!");}  else {  alert("Hi!");}
+    if (name === "Brittney) {  
+		alert("Hi Brittney!);
+		}  else if (name === "Joe") {  
+			alert("Hi Joe!");
+			}  else {  
+				alert("Hi!");
+				}
 
-&#9632; **ternary operator** - is frequently used as a shortcut for the if statement. Multiple conditions can be wrapped in () to separate them.
+**ternary operator** - is frequently used as a shortcut for the if statement. Multiple conditions can be wrapped in () to separate them.
 
-    //Syntax for ternary:(condition) ? executeIfTrue : executeIfFalse(condition) ? executeIfTrue : (secondCondition) ? executeIfSecondIsTrue : executeIfAllAreFalsevar age = 37;var beverage = (age >= 21) ? "Here's a beer!" : "Have some juice!";console.log(beverage); //"Here's a beer!"var num = 0;(num > 0) ? "positive" : (num < 0) ? "negative" : "zero"; //"zero"
+    //Syntax for ternary:
+	(condition) ? executeIfTrue : executeIfFalse(condition) ? executeIfTrue : (secondCondition) ? executeIfSecondIsTrue : executeIfAllAreFalsevar age = 37;var beverage = (age >= 21) ? "Here's a beer!" : "Have some juice!";
+	console.log(beverage); 
+	//"Here's a beer!"
 
-&#9632; **switch** - used to specify multiple "cases" to be used if they are true. The switch expression is evaluated once and compared with the values of each case, if there is a match, that block of code is executed.
+	var num = 0;
+	(num > 0) ? "positive" : (num < 0) ? "negative" : "zero"; //"zero"
 
-    switch (new Date().getDay()) {  case 6:    day = "Today is Saturday!";    break;  case 0:    day = "Today is Sunday!";    break;  default:    day = "Ready for the weekend!";}
+**switch** - used to specify multiple "cases" to be used if they are true. The switch expression is evaluated once and compared with the values of each case, if there is a match, that block of code is executed.
+
+    switch (new Date().getDay()) {  
+		case 6: 
+			day = "Today is Saturday!";    
+			break;  
+		case 0: 
+			day = "Today is Sunday!";    
+			break;  
+		default: 
+			day = "Ready for the weekend!";}
 
 </div>
 
@@ -413,17 +439,28 @@ Conditional statements are used when you want to perform different actions depen
 
 <div style="display: grid; margin-left: 2em;">
 
-&#9632; **||** - the OR operator checks until it finds a "truthy" value.
+**||** - the OR operator checks until it finds a "truthy" value.
 
-    if (age < 16 || age > 100) {  alert("You should not drive a car.");}
+    if (age < 16 || age > 100) {  
+		alert("You should not drive a car.");
+		}
 
-&#9632; **&&** - the AND operator checks both sides to be a "truthy" value before executing.
+**&&** - the AND operator checks both sides to be a "truthy" value before executing.
 
-    if (firstName === "Brittney" && lastName === "Postma") {  alert("Your name is Brittney Postma.");}
+    if (firstName === "Brittney" && lastName === "Postma") {  
+		alert("Your name is Brittney Postma.");
+		}
 
-&#9632; **!** - the NOT or BANG operator means the opposite of when used alone and means not when used with other operators.
+**!** - the NOT or BANG operator means the opposite of when used alone and means not when used with other operators.
 
-    !true //false!false //truevar guess = prompt("Guess my number");var myNum = 11;if (guess !== myNum) {  alert("Sorry, you're wrong");}
+    !true 
+	//false!false 
+	//true
+	var guess = prompt("Guess my number");
+	var myNum = 11;
+	if (guess !== myNum) {  
+		alert("Sorry, you're wrong");
+		}
 
 </div>
 
@@ -437,31 +474,40 @@ The console object provides access to the browser's debugging console. There are
 
 ### A few of the most used console objects:
 
-&#9632; **console.log** - outputs whatever you specify to the console.
+**console.log** - outputs whatever you specify to the console.
 
-    console.log("Hi Brittney!!") //Hi Brittney!!var num = 11;console.log(num) //11
+    console.log("Hi Brittney!!") 
+	//Hi Brittney!!var age = 37;console.log(num) //37
 
-&#9632; **console.error** - usually has a red color and outputs an error message to the console.
+**console.error** - usually has a red color and outputs an error message to the console.
 
-    console.error(err) //this might be found in a promise catch statement (more on this later).
+    console.error(err) 
+	//this might be found in a promise catch statement (more on this later).
 
-&#9632; **console.clear** - clears everything inside the console window and leaves a fresh window. used with other operators.
+**console.clear** - clears everything inside the console window and leaves a fresh window. used with other operators.
 
     console.clear();
 
-&#9632; **console.count** - Log the number of times this line has been called with the given label.
+**console.count** - Log the number of times this line has been called with the given label.
 
     console.count( [label] )
 
-&#9632; **console.group, console.groupCollapsed, console.groupEnd** - Console.group() creates a new inline group, indenting all following output by another level. To move back out a level, call groupEnd(). To have a group be collapsed instead of expanded by default call console.groupCollapsed(). used with other operators.
+**console.group, console.groupCollapsed, console.groupEnd** - Console.group() creates a new inline group, indenting all following output by another level. To move back out a level, call groupEnd(). To have a group be collapsed instead of expanded by default call console.groupCollapsed(). used with other operators.
 
-    console.log("Hello world!");console.group();console.log("Hello from inside the group!");console.groupEnd();console.log("and outside again!");//Hello world!//▼ console.group//  Hello from inside the group!//and outside again!
+    console.log("Hello world!");
+	console.group();
+	console.log("Hello from inside the group!");
+	console.groupEnd();console.log("and outside again!");
+	//Hello world!
+	//▼ console.group
+	//  Hello from inside the group!//and outside again!
 
-&#9632; **console.table** - displays data in a table format.
+**console.table** - displays data in a table format.
 
-    console.table(["apples", "oranges", "bananas"]); //(index)Values0"apples"1"oranges"2"bananas"
+    console.table(["apples", "oranges", "bananas"]); 
+	//(index)Values0"apples"1"oranges"2"bananas"
 
-&#9632; **console.time** - Starts a timer with a name specified as an input parameter. Up to 10,000 simultaneous timers can run on a given page.
+**console.time** - Starts a timer with a name specified as an input parameter. Up to 10,000 simultaneous timers can run on a given page.
 
     console.time();
 
@@ -477,27 +523,34 @@ Functions can be declared a few different ways and are either anonymous (no name
 
 You can write functions in the function syntax or by using an **_arrow function_**. Arrow functions usually have a shorter syntax than typical functions and there is no binding of **_this_** (more on "this" later).
 
-#### **Anonymous function**
+#### Anonymous function
 
-<pre><code>function(<em>parameters</em>) {*<em>statements to be executed when called</em>*}<br/>() => {*<em>statements</em>*}<br/><em>parameter</em> => {*<em>statements</em>*}</code></pre>
+<pre><code>function(<em>parameters</em>) {*<em>statements to be executed when called</em>*}<br/>
+() => {*<em>statements</em>*}<br/>
+<em>parameter</em> => {*<em>statements</em>*}</code></pre>
 
-#### **Named function**
+#### Named function
 
-<pre><code>function fnName (<em>parameters</em>) {*<em>statements to be executed when called</em>*}<br/>const fnName = (<em>parameters</em>) => {*<em>statements</em>*}<br/>//same as<br/>const variableName = fnName(<em>parameters</em>) {*<em>statements</em>*}</code></pre>
+<pre><code>function fnName (<em>parameters</em>) {*<em>statements to be executed when called</em>*}<br/>
+const fnName = (<em>parameters</em>) => {*<em>statements</em>*}<br/>//same as<br/>
+const variableName = fnName(<em>parameters</em>) {*<em>statements</em>*}</code></pre>
 
 ### Function examples
 
-#### **Add 2 numbers**
+<div style="margin-left: 1em;">
+
+#### Add 2 numbers
 
 <pre><code>//ES6 arrow function, to invoke it use <em>add()</em><br/>const add =  () => {<br/>var firstNum = parseInt(window.prompt("What is the first number?"), 10);<br/>var secondNum = parseInt(window.prompt("What is the second number?"), 10);<br/>var sum = firstNum + secondNum;<br/>alert("The sum is " + sum)<br/>}</code></pre>
 
 <pre><code>//regular named function<br/>function add () {<br/>var firstNum = parseInt(window.prompt("What is the first number?"), 10);<br/>var secondNum = parseInt(window.prompt("What is the second number?"), 10);<br/>var sum = firstNum + secondNum;<br/>alert("The sum is " + sum)<br/>}</code></pre>
+ 
+ #### Multiply 2 numbers with parameters
 
-#### **Multiply 2 numbers with parameters**
+<pre><code>//ES6 arrow function<br/>//to invoke it use <em>multiply(argument, argument)</em> or <em>multiply(5, 10)</em><br/>const multiply =  (a, b) => a * b</code></pre><br/><br/>
 
-<pre><code>//ES6 arrow function<br/>//to invoke it use <em>multiply(argument, argument)</em> or <em>multiply(5, 10)</em><br/>const multiply =  (a, b) => a * b</code></pre><br/>
-
-<pre><code>//regular named function<br/>function multiply (a, b) {<br/> return a \* b<br/>}</code></pre>
+<pre><code>//regular named function<br/>function multiply (a, b) {<br/> return a * b<br/>}</code></pre>
+</div>
 
 ---
 
@@ -593,8 +646,8 @@ The Array object is used to store multiple values in a single variable with the 
 						<pre><code>const array1 = [1, 2, 3, 4]<br/>const sliced = array1.slice(2, 4)<br/>console.log(sliced)<br/>//&#9658;<em>(2) [3, 4]</em></code></pre>
 		</li>
 		<li style="list-style-type: square;">
-						<strong>splice()</strong> - modifies an existing array by removing/replacing existing elements or adding new ones. The syntax is <code>arr.splice(startIndex, deleteCount(optional), 'item'(optional)),</code><br/>
-						<pre><code>var months = ['Jan', 'March', 'April', 'June']<br/>months.splice(1, 0, 'Feb') //<em>inserts at index 1</em><br/>console.log(months)<br/>//&#9658;<em>['Jan', 'Feb', 'March', 'April', 'June']</em></code></pre>
+						<strong>splice()</strong> - modifies an existing array by removing/replacing existing elements or adding new ones. The syntax is <code>arr.splice(startIndex, deleteCount(optional), 'item'(optional))</code><br/>
+						<pre><code>var months = ['Jan', 'March', 'April', 'June']<br/>months.splice(1, 0, 'Feb') //<em>inserts at index 1</em><br/>console.log(months)<br/>//&#9658;<em>['Jan', 'Feb', 'March', 'April', 'June']</em></code></pre><br/><br/>
 						<pre><code>var months = ['Jan', 'March', 'April', 'June']<br/>months.splice(4, 1, 'May') //<em>replaces 1 element at index 4</em><br/>console.log(months)<br/>//&#9658;<em>['Jan', 'Feb', 'March', 'April', 'May']</em></code></pre>
 		</li>
 		<li style="list-style-type: square;">
@@ -614,15 +667,35 @@ The Array object is used to store multiple values in a single variable with the 
 
 [w3schools JavaScript Objects Reference Sheet](https://www.w3schools.com/js/js_objects.asp)
 
-Objects, collections of properties, are used to store values in property:value pairs with the { } (curly-brace) syntax. Properties can be accessed or changed by using `objName.propName` and methods (functions inside of an object) can be called with `objName.propName()`
+Objects, collections of properties, are used to store values in property:value pairs with the { } (curly-brace) syntax. Properties can be accessed or changed by using `objName.propName or obj['propName']` and methods (functions inside of an object) can be called with `objName.propName()`
 
-    var objName = {color: "blue",shape: "circle",price: 5,otherColors: ["yellow", "red", "green"]logShape: function() {	console.log('I am a' + objName.color + objName.shape + '!')	}}objName.logShape() // I am a blue circle!
+    var objName = {
+		color: "blue",
+		shape: "circle",
+		price: 5,
+		otherColors: [
+			"yellow", 
+			"red", 
+			"green"]
+		logShape: function() {	
+			console.log('I am a' + objName.color + objName.shape + '!')	
+			}
+		}
+		
+		objName.logShape() // I am a blue circle!
+
+**Dynamic Property Values** 
+
+	const name = 'Brittney'
+	const obj = {
+		[name]: 'name',
+		[1 + 2]: 3
+	}
+	console.log(obj) // Brittney: 'name', 3: 3
 
 ## Friendbook Example with Array of Objects
 
 <iframe style="width: 100%; resize: both;" scrolling="no" title="Javascript" src="https://codepen.io/sballgirl11/embed/gOOLGdW?height=265&amp;theme-id=0&amp;default-tab=css,result" height="525">See the Pen <a href="https://codepen.io/sballgirl11/pen/GRKYPpw/">Javascript</a> by Brittney (<a href="https://codepen.io/sballgirl11" >@sballgirl11</a >) on <a href="https://codepen.io">CodePen</a>.</iframe>
-
-### Dynamic Properties
 
 ---
 
@@ -679,4 +752,122 @@ Scope determines the accessibility (visibility) of variables. JavaScript has 3 t
 
 <pre><code>// Root Scope (window)<br/>var varVar = "varVar, "<br/>let letVar = "letVar, ";<br/>const constVar = "constVar, "<br/>let newLetVar = "newLetVar, "<br/><br/>function scopeFunction() {<br/>  // block scope<br/>  var varVar = "local scope varVar, "<br/>  let letVar = "block scope letVar, "<br/>  const constVar = "block scope constVar, "<br/>  newLetVar = "changed global newLetVar, "<br/>  varVar = "only changes local scope varVar, "<br/>  console.log("BLOCK SCOPE: ", varVar, letVar, constVar, newLetVar)<br/>}<br/>console.log("BEFORE: ", varVar, letVar, constVar, newLetVar)<br/>scopeFunction()<br/>console.log("AFTER: ", varVar, letVar, constVar, newLetVar)<br/>// <em>BEFORE: varVar, letVar, constVar, newLetVar, <br/>   BLOCK SCOPE: only changes local scope varVar, block scope letVar, block scope constVar, changed global newLetVar, <br/>   AFTER: varVar, letVar, constVar, changed global newLetVar, </em></code></pre>
 
+---
 
+## Destructuring
+
+Destructuring is an expression that allows us to extract values from arrays, objects, maps, or sets into distinct variables.  Destructuring can be used for variable declaration or variable assignment.
+
+**Variable Assignment** - <br/> Assign a variable to values from an object.
+
+	const obj = {
+		name: 'Brittney',
+		age: 37,
+	}
+
+	const { name, age } = obj
+
+		same as
+
+	const name = obj.name
+	const age = obj.age
+
+**Rest assignment** -<br/> Assigning variable names to rest of the values with destructuring.
+
+	let [a, b, ...rest] = [10, 20, 30, 40, 50]
+	console.log(a, b, rest)
+	// 10, 20, [30, 40, 50]
+
+**Default Values** -<br/> Assigning a default value in the case the value is undefined.
+
+	function greet(name='person', age=20, pet='cat') {
+		return `Hello ${name} you seem to be ${age - 10}. What a lovely ${pet}!
+	}
+
+	greet() // Hello person, you seem to be 20. What a lovely cat!
+	greet("Brittney", 37, dolphin) // Hello Brittney, you seem to be 27.  What a lovely dolphin!
+
+**Computed Property Name** -<br/> Naming a value to a variable and changing it in the same expression.
+
+	let key = 'value'
+	let {[key]: val} = { value: 'changedValue' }
+	console.log(val) // changedValue
+
+**Swapping variables** -<br/> Two variables values can be swapped in one destructuring expression.
+
+	let a = 1
+	let b = 3
+	[a, b] = [b, a]
+	console.log(a, b)
+	// 3, 1
+
+**Rest assignment** -<br/> Assign the remaining part to a variable.
+
+	let [a, ...b] = [1, 2, 3]
+	console.log(a, b) 
+	// 1, [2, 3]
+
+**Destructuring values**-<br/> Unpacking fields from objects and pass them as a parameter.
+	
+	const user = {
+    id: 37,
+    displayName: 'bpostma',
+    fullName: {
+        firstName: 'Brittney',
+        lastName: 'Postma'
+    	}
+	}
+
+	const userId = ({ id }) => id
+
+	const whoIs = ({ displayName, fullName: { firstName: name } }) => `${displayName} is ${name}`
+
+	console.log(userId(user)) // 37
+	console.log(whoIs(user)) // "bpostma is Brittney"
+
+---
+
+## Template Literals
+
+Template literals are strings that interpolate variables without concatination. 
+
+	let name = 'Brittney'
+	let age = 37
+	const sentence = `My name is ${name} and I am ${age - 10} 😂 years old.`
+	console.log(sentence)
+	// "My name is Brittney and I am 27 😂 years old.
+
+---
+
+## Closures
+
+A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). 
+
+A function ran, the function executed and will never run again, **BUT** it's going to remember the variables inside the child scope so the parent has access to them.  Parent does not have access to child scope variables.
+
+In other words, a closure gives you access to an outer function's scope from an inner function.
+
+	const first = () => {
+		const greet = 'Hi'
+		const second = () => {
+			const name = "Brittney"
+			console.log(`${greet} ${name}!`)
+		}
+		return second
+	}
+	const newFunc = first()
+	newFunc()
+	// Hi Brittney!
+	// first() ran only once, but remembered the name variable so that newFunc/first had access to it.
+
+---
+
+## Currying
+
+Currying is breaking down a function into a series of functions that each accept a single argument.
+
+	const multiply = (a, b) => a * b
+	const curriedMult = (a) => (b) => a * b
+	console.log(multiply(3, 4)) // 12
+	console.log(curriedMult(3)) // (b) => a * b
+	console.log(curriedMult(3)(4)) // 12
