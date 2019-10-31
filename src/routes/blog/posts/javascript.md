@@ -477,12 +477,15 @@ The console object provides access to the browser's debugging console. There are
 **console.log** - outputs whatever you specify to the console.
 
     console.log("Hi Brittney!!") 
-	//Hi Brittney!!var age = 37;console.log(num) //37
+	// Hi Brittney!!
+	var age = 37;
+	console.log(num) 
+	// 37
 
 **console.error** - usually has a red color and outputs an error message to the console.
 
     console.error(err) 
-	//this might be found in a promise catch statement (more on this later).
+	// this might be found in a promise catch statement (more on this later).
 
 **console.clear** - clears everything inside the console window and leaves a fresh window. used with other operators.
 
@@ -505,7 +508,7 @@ The console object provides access to the browser's debugging console. There are
 **console.table** - displays data in a table format.
 
     console.table(["apples", "oranges", "bananas"]); 
-	//(index)Values0"apples"1"oranges"2"bananas"
+	// (index)Values0"apples"1"oranges"2"bananas"
 
 **console.time** - Starts a timer with a name specified as an input parameter. Up to 10,000 simultaneous timers can run on a given page.
 
