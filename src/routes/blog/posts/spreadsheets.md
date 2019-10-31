@@ -1,6 +1,7 @@
 ---
 title: Spreadsheets
 ---
+<div style="max-width: 86vw">
 
 [Google Sheets Function List](https://support.google.com/docs/table/25273?hl=en)
 
@@ -217,3 +218,5 @@ title: Spreadsheets
 -   **MULTIPLY** - returns the product of 2 numbers. Equivalent to the '\*' operator.
 
         MULTIPLY(value1, value2)
+
+</div>

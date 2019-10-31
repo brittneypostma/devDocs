@@ -1,7 +1,7 @@
 ---
 title: JavaScript
 ---
-
+<div style="max-width: 86vw">
 <iframe
 		height="525"
 		style="width: 100%; resize: both;"
@@ -714,6 +714,7 @@ Objects, collections of properties, are used to store values in property:value p
 		
 		objName.logShape() // I am a blue circle!
 
+
 **Dynamic Property Values** 
 
 	const name = 'Brittney'
@@ -784,19 +785,19 @@ Scope determines the accessibility (visibility) of variables. JavaScript has 3 t
 
 -   **Global Scope** - Variables declared outside a function are global scoped and can be accessed anywhere. This is the root scope and lives on the window object.
 
-<pre><code>let name = "Brittney"<br/>// code here CAN use variable name<br/>function myFunction() {<br/>  name = "Joe"<br/>  // code here CAN use variable name</code></pre>
+<pre class="language-javascript"><code>let name = "Brittney"<br/>// code here CAN use variable name<br/>function myFunction() {<br/>  name = "Joe"<br/>  // code here CAN use variable name</code></pre>
 
 -   **Local Scope** - Variables declared inside a function become locally scoped and are not accessible outside the funtion.
 
-<pre><code>// code here can NOT use variable name<br/>function myFunction() {<br/>  var name = "Brittney"<br/>  // code here CAN use variable name<br/>}</code></pre>
+<pre class="language-javascript"><code>// code here can NOT use variable name<br/>function myFunction() {<br/>  var name = "Brittney"<br/>  // code here CAN use variable name<br/>}</code></pre>
 
 -   **Block Scope** - Variables declared with var can NOT have block scope, only let and const variables have access to block scope.
 
-<pre><code>// Root Scope (window)<br/>let letVar = "letVar, ";<br/>const constVar = "constVar, "<br/>let newLetVar = "newLetVar, "<br/> const newConstVar = "newConstVar, "<br/><br/>function scopeFunction() {<br/>  // block scope<br/>  let letVar = "block scope letVar, "<br/>  const constVar = "block scope constVar, "<br/>  newLetVar = "changed global newLetVar, "<br/>  console.log("BLOCK SCOPE: ", letVar, constVar, newLetVar, newConstVar)<br/>}<br/>console.log("BEFORE: ", letVar, constVar, newLetVar, newConstVar)<br/>scopeFunction()<br/>console.log("AFTER: ", letVar, constVar, newLetVar, newConstVar)<br/>// <em>BEFORE: letVar, constVar, newLetVar, newConstVar, <br/>   BLOCK SCOPE: block scope letVar, block scope constVar, changed global newLetVar, newConstVar, <br/>   AFTER: letVar, constVar, changed global newLetVar, newConstVar, </em></code></pre>
+<pre class="language-javascript"><code>// Root Scope (window)<br/>let letVar = "letVar, ";<br/>const constVar = "constVar, "<br/>let newLetVar = "newLetVar, "<br/> const newConstVar = "newConstVar, "<br/><br/>function scopeFunction() {<br/>  // block scope<br/>  let letVar = "block scope letVar, "<br/>  const constVar = "block scope constVar, "<br/>  newLetVar = "changed global newLetVar, "<br/>  console.log("BLOCK SCOPE: ", letVar, constVar, newLetVar, newConstVar)<br/>}<br/>console.log("BEFORE: ", letVar, constVar, newLetVar, newConstVar)<br/>scopeFunction()<br/>console.log("AFTER: ", letVar, constVar, newLetVar, newConstVar)<br/>// <em>BEFORE: letVar, constVar, newLetVar, newConstVar, <br/>   BLOCK SCOPE: block scope letVar, block scope constVar, changed global newLetVar, newConstVar, <br/>   AFTER: letVar, constVar, changed global newLetVar, newConstVar, </em></code></pre>
 
 -   **All Example**
 
-<pre><code>// Root Scope (window)<br/>var varVar = "varVar, "<br/>let letVar = "letVar, ";<br/>const constVar = "constVar, "<br/>let newLetVar = "newLetVar, "<br/><br/>function scopeFunction() {<br/>  // block scope<br/>  var varVar = "local scope varVar, "<br/>  let letVar = "block scope letVar, "<br/>  const constVar = "block scope constVar, "<br/>  newLetVar = "changed global newLetVar, "<br/>  varVar = "only changes local scope varVar, "<br/>  console.log("BLOCK SCOPE: ", varVar, letVar, constVar, newLetVar)<br/>}<br/>console.log("BEFORE: ", varVar, letVar, constVar, newLetVar)<br/>scopeFunction()<br/>console.log("AFTER: ", varVar, letVar, constVar, newLetVar)<br/>// <em>BEFORE: varVar, letVar, constVar, newLetVar, <br/>   BLOCK SCOPE: only changes local scope varVar, block scope letVar, block scope constVar, changed global newLetVar, <br/>   AFTER: varVar, letVar, constVar, changed global newLetVar, </em></code></pre>
+<pre class="language-javascript"><code>// Root Scope (window)<br/>var varVar = "varVar, "<br/>let letVar = "letVar, ";<br/>const constVar = "constVar, "<br/>let newLetVar = "newLetVar, "<br/><br/>function scopeFunction() {<br/>  // block scope<br/>  var varVar = "local scope varVar, "<br/>  let letVar = "block scope letVar, "<br/>  const constVar = "block scope constVar, "<br/>  newLetVar = "changed global newLetVar, "<br/>  varVar = "only changes local scope varVar, "<br/>  console.log("BLOCK SCOPE: ", varVar, letVar, constVar, newLetVar)<br/>}<br/>console.log("BEFORE: ", varVar, letVar, constVar, newLetVar)<br/>scopeFunction()<br/>console.log("AFTER: ", varVar, letVar, constVar, newLetVar)<br/>// <em>BEFORE: varVar, letVar, constVar, newLetVar, <br/>   BLOCK SCOPE: only changes local scope varVar, block scope letVar, block scope constVar, changed global newLetVar, <br/>   AFTER: varVar, letVar, constVar, changed global newLetVar, </em></code></pre>
 
 ---
 
@@ -917,3 +918,5 @@ Currying is breaking down a function into a series of functions that each accept
 	console.log(multiply(3, 4)) // 12
 	console.log(curriedMult(3)) // (b) => a * b
 	console.log(curriedMult(3)(4)) // 12
+
+</div>

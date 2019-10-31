@@ -79,7 +79,7 @@
   .theme-switch-wrapper {
     display: flex;
     align-items: center;
-    margin: 1em 2em;
+    margin-right:  2em;
   }
 
   .theme-switch {

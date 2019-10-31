@@ -6,7 +6,7 @@ title: Markdown
 
 .md {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
 }
 
 .ind {
@@ -31,6 +31,8 @@ title: Markdown
     width: 50px;
 }
 </style>
+
+<div style="max-width: 86vw">
 
 [Markdown Guide](https://www.markdownguide.org/basic-syntax/)   
 [Markdown Cheetsheet](https://www.code2bits.com/assets/cheat-sheets/cheatsheet-markdown.pdf)
@@ -61,7 +63,7 @@ title: Markdown
 
 <div class="ind">
 
-<div class="cont">
+<div class="cont" style="margin-left: -7em;">
 
 <img src="https://image.flaticon.com/icons/png/512/23/23765.png" alt="image alt text" style="width: 50px;"/>
 
@@ -236,3 +238,5 @@ Can be styled with css list-style-type.
 </div>
 
 
+
+</div>

@@ -1,6 +1,7 @@
 ---
 title: HTML
 ---
+<div style="max-width: 86vw">
 
 <iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="yLBxMNg" src="//codepen.io/sballgirl11/embed/yLBxMNg/?height=464&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/sballgirl11/pen/yLBxMNg/'>yLBxMNg</a> by Brittney
@@ -304,3 +305,5 @@ In Visual Studio Code, you can press ! and enter to get a boilerplate HTML templ
 
 <dfn>is a multi-line, resizable text box that allows users to write a sizable amount of text like a comment.</dfn>
 
+
+</div>

@@ -16,7 +16,7 @@
     padding: 2em;
     margin: 0 auto;
     box-sizing: border-box;
-    max-width: 100vw;
+    width: 100%;
     color: var(--font-color);
   }
 

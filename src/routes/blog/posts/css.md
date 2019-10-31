@@ -3,6 +3,8 @@ title: CSS
 date: 09/15/2019
 ---
 
+<div style="max-width: 86vw">
+
 <iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="CSS" src="//codepen.io/sballgirl11/embed/GRKYPpw/?height=265&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/sballgirl11/pen/GRKYPpw/'>CSS</a> by Brittney <a href='https://codepen.io/sballgirl11'>@sballgirl11</a> on <a href='https://codepen.io'>CodePen</a></iframe>
 
 [MDN CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)  
@@ -140,6 +142,8 @@ CSS Grid Layout is a two-dimensional system, meaning it can handle both columns 
 [CSS Grid Garden](https://cssgridgarden.com/)<br/>
 [Grid by Example by Rachel Andrew](https://gridbyexample.com/)<br/>
 [A Complete Guide to Grid by CSS Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
+
+</div>
 
 </div>
 
