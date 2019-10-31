@@ -29,9 +29,7 @@
 
   .content {
     width: 75%;
-    margin: 1em auto;
-    display: grid;
-
+    margin: 0 auto;
   }
 
   .content :global(h2) {
@@ -46,21 +44,6 @@
     margin: 1.5em 10px;
     padding: .1em 10px;
   }
-
-  /* .content :global(pre) {
-    background-color: #cccccc;
-    color: #333333;
-    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
-    padding: 0.5em;
-    border-radius: 2px;
-    display: inline-block;
-    margin: 0;
-  }
-
-  .content :global(pre) :global(code) {
-    background-color: transparent;
-    padding: 0;
-  } */
 
   .content :global(ul) {
     line-height: 1.5;
