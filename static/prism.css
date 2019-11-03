@@ -36,7 +36,8 @@ pre[class*="language-"] {
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
 	background-color: #333;
-	background:linear-gradient(#333, #111); 
+	background:radial-gradient(at top, #7c7c7c 10%, #333, #000); 
+	border-radius: 0.5em;
 }
 
 /* Inline code */

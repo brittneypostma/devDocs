@@ -34,7 +34,6 @@
 
     .content :global(pre) {
     display: inline-block;
-    padding: 1em;
   }
 
   .content :global(h2) {

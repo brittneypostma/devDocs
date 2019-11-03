@@ -2,90 +2,35 @@
 title: Markdown
 ---
 
-<style>
-
-.md {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-}
-
-.ind {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    display: grid; 
-    padding: 1em;
-    margin: 0 1em 1em;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-}
-
-.cont {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1em;
-    align-items: center;
-    justify-items: center;
-}
-
-.img {
-    width: 50px;
-}
-</style>
-
-<div style="max-width: 86vw">
-
 [Markdown Guide](https://www.markdownguide.org/basic-syntax/)   
 [Markdown Cheetsheet](https://www.code2bits.com/assets/cheat-sheets/cheatsheet-markdown.pdf)
 
-<div class="md">
+---
 
-<div>
-
-## Links
-
-<div class="ind">
-
-<div class="cont">
+#### Links
 
 [Link Text](#)
 
     [Link Text]{link URL}
 
-</div>
+---
 
-</div>
+#### Images
 
-</div>
-
-<div>
-
-## Images
-
-<div class="ind">
-
-<div class="cont" style="margin-left: -7em;">
-
-<img src="https://image.flaticon.com/icons/png/512/23/23765.png" alt="image alt text" style="width: 50px;"/>
+<img src="https://image.flaticon.com/icons/png/512/23/23765.png" alt="image alt text" style="width: 50px;"/><br/>
 
     ![Image Alt Text]{link to image}
+    
+---
 
-</div>
+#### Headers
 
-</div>
-
-</div>
-
-<div>
-
-## Headers
-
-<div class="ind">
 
 # Heading 1
 
     # Heading 1 - <h1>
 
-## Heading 2
+#### Heading 2
 
     ## Heading 2 - <h2>
 
@@ -105,20 +50,11 @@ title: Markdown
 
     ###### Heading 6 - <h6>
 
-</div>
+---
 
-</div>
-
-<div>
-
-## Lists
-
-<div class="ind">
-
+#### Lists
 
 <h3><u>Ordered Lists</u></h3>
-
-<div class="cont">
 
 1.  1\. First item
 2.  2\. Second item
@@ -126,11 +62,9 @@ title: Markdown
 
 <pre>1. First item<br/>2. Second item<br/>3. Third item</pre>
 
-</div>
 
 <h3><u>Unordered Lists</u></h3>
 
-<div class="cont">
 
 +   First item
 *   Second item
@@ -138,37 +72,22 @@ title: Markdown
 
 <pre>+ First item<br/>- Second item<br/>* Third item</pre>
 
-</div>
 +, -, or * adds an unordered list item<br/>
 Can be styled with css list-style-type.
 
+---
 
-</div>
+#### Code
 
 
-## Code
-
-<div class="ind">
-
-<div class="cont">
 
     code
 
 <pre>   indent by one tab</pre>
 
-</div>
+---
 
-</div>
-
-</div>
-
-<div>
-
-## Emphasis
-
-<div class="ind">
-
-<div class="cont">
+#### Emphasis
 
 **bold text**<br/>
 *italic text*<br/>
@@ -179,45 +98,25 @@ Can be styled with css list-style-type.
     ***bold and ital text***
     _underscores also work_
 
-</div>
+---
 
-</div>
-
-## Horizontal Rule
-
-<div class="ind">
-<div class="cont">
-
-<div style="border: 0; border-top: 1px solid black; width: 100%; height: auto;"></div>
+#### Horizontal Rule
 
     ---
 
-</div>
+---
 
-</div>
+#### URLs and Email Addresses
 
-## URLs and Email Addresses
-
-<div class="ind">
-<div class="cont">
 
 <fake@example.com>
 
     <fake@example.com>
 
-</div>
 
-</div>
+---
 
-</div>
-
-<div>
-
-## Blockquotes
-
-<div class="ind">
-
-<div class="cont">
+#### Blockquotes
 
 > This is a blockquote
 >
@@ -228,15 +127,3 @@ Can be styled with css list-style-type.
     >
     > span multiple paragraphs
     >> blockquote in a blockquote
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-</div>
