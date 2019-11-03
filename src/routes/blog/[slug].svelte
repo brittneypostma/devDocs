@@ -32,6 +32,11 @@
     margin: 0 auto;
   }
 
+    .content :global(pre) {
+    display: inline-block;
+    padding: 1em;
+  }
+
   .content :global(h2) {
     font-size: 1.5em;
     font-weight: 500;
@@ -60,6 +65,7 @@
 
   .content :global(li) {
     list-style-type: none;
+    margin-left: 2em;
   }
 
   .content :global(dfn) {

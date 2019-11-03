@@ -36,11 +36,26 @@
     display: flex;
   }
 
+  .logo {
+    width: 50px;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    transition: all 0.5s linear;
+  }
+
+  .logo:hover {
+    transform: scale(1.5) rotate(-360deg);
+  }
+
+    .nav-links {
+    display: flex;
+    margin-left: 4em;
+  }
   a {
     color: inherit;
     text-decoration: none;
     padding: 1em;
-    margin-left: 1em;
     display: block;
     position: relative;
   }
@@ -71,7 +86,7 @@
     background: rgb(155, 50, 43);
   }
 
-  img {
+  .slider-img {
     width: 30px;
     height: 30px;
   }
@@ -101,7 +116,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    transition: 0.4s;
+    transition: all 0.4s linear;
   }
 
   .slider:before {
@@ -111,8 +126,17 @@
     height: 26px;
     left: 4px;
     position: absolute;
-    transition: 0.4s;
+    transition: all 0.4s linear;
     width: 26px;
+  }
+
+  .slider:hover::before {
+    background-color: #ccc;
+    transform: translateX(13px);
+  }
+
+  .slider:hover {
+    background-color: #777;
   }
 
   input:checked + .slider {
@@ -121,6 +145,10 @@
 
   input:checked + .slider:before {
     transform: translateX(26px);
+  }
+
+  input:hover + .slider:before {
+    transform: translateX(13px);
   }
 
   .slider.round {
@@ -133,21 +161,24 @@
 </style>
 
 <nav>
-
+  
   <div class="links">
+  <img src="favicon.png" alt="logo" class="logo"/>
+  <div class="nav-links">
     <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
 
     <a rel="prefetch" class={segment === 'blog' ? 'selected' : ''} href="blog">
       logs
     </a>
+    </div>
   </div>
   <div class="theme-switch-wrapper">
-    <img src="sun.png" alt="light-mode" style="margin-right: 0.5em;" />
+    <img class="slider-img" src="sun.png" alt="light-mode" style="margin-right: 0.5em;" />
     <label class="theme-switch" for="checkbox">
       <input type="checkbox" id="checkbox" />
       <div class="slider round" />
     </label>
-    <img src="moon.png" alt="dark-mode" style="margin-left: 0.5em;" />
+    <img class="slider-img" src="moon.png" alt="dark-mode" style="margin-left: 0.5em;" />
   </div>
 
 </nav>
