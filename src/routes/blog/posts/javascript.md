@@ -456,13 +456,14 @@ console.log(beverage);
 ~~~javascript
 switch (new Date().getDay()) {  
 	case 6: 
-day = "Today is Saturday!";    
-break;  
-case 0: 
-day = "Today is Sunday!";    
-break;  
-default: 
-day = "Ready for the weekend!";}
+		day = "Today is Saturday!";    
+		break;  
+	case 0: 
+		day = "Today is Sunday!";    
+		break;  
+	default: 
+		day = "Ready for the weekend!";
+	}
 ~~~
 
 
@@ -591,9 +592,9 @@ const variableName = fnName(parameters) {*statements*}
 //ES6 arrow function, to invoke it use add()
 const add =  () => {
 	var firstNum = parseInt(window.prompt("What is the first number?"), 10);
-var secondNum = parseInt(window.prompt("What is the second number?"), 10);
-var sum = firstNum + secondNum;
-alert("The sum is " + sum)
+	var secondNum = parseInt(window.prompt("What is the second number?"), 10);
+	var sum = firstNum + secondNum;
+	alert("The sum is " + sum)
 }
 ~~~
 

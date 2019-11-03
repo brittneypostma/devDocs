@@ -56,11 +56,15 @@ title: Markdown
 
 <h3><u>Ordered Lists</u></h3>
 
-1.  1\. First item
-2.  2\. Second item
-3.  3\. Third item
+-   1\. First item
+-   2\. Second item
+-   3\. Third item
 
-<pre>1. First item<br/>2. Second item<br/>3. Third item</pre>
+~~~markdown
+   1. First item
+   2. Second item
+   3. Third item
+~~~
 
 
 <h3><u>Unordered Lists</u></h3>
@@ -70,8 +74,11 @@ title: Markdown
 *   Second item
 -   Third item
 
-<pre>+ First item<br/>- Second item<br/>* Third item</pre>
-
+~~~markdown
+    + First item
+    - Second item
+    * Third item
+~~~
 +, -, or * adds an unordered list item<br/>
 Can be styled with css list-style-type.
 
@@ -79,11 +86,13 @@ Can be styled with css list-style-type.
 
 #### Code
 
-
-
     code
-
-<pre>   indent by one tab</pre>
+    
+<br/> 
+    
+~~~markdown
+    Indent by one tab.
+~~~
 
 ---
 
