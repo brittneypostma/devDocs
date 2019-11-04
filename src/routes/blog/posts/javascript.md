@@ -680,7 +680,7 @@ The Array object is used to store multiple values in a single variable with the 
 		</li>
 		<li style="list-style-type: square;">
 			<strong>indexOf() lastIndexOf()</strong> - checks if an array includes an element and returns the first position/index where it can be found. The fromIndex is an optional argument. lastIndexOf() starts at the end and returns the first index where it is found.<br/>
-			<pre class="language-javascript"><code>var shopList = ['milk', 'bread', 'eggs']<br/>const addToList = (shopList, item) =&gt; shopList.indexOf(item) === -1 ? shopList.push(item) : null<br/>addToList(shopList, 'cheese')<br/>console.log(shopList, shopList.indexOf('cheese')<br/>//&#9658;<em>['milk', 'bread', 'eggs', 'cheese'], 4</em></code></pre>
+			<pre class="language-javascript"><code>var shopList = ['milk', 'bread', 'eggs']<br/>const addToList = (shopList, item) =&gt; <br/>	shopList.indexOf(item) === -1 ? <br/>		shopList.push(item) : null<br/>addToList(shopList, 'cheese')<br/>console.log(shopList, shopList.indexOf('cheese')<br/>//&#9658;<em>['milk', 'bread', 'eggs', 'cheese'], 4</em></code></pre>
 		</li>
 		<li style="list-style-type: square;">
 			<strong>join()</strong> - joins all elements of an array together in a string. A seperator can optionally be called as well, if no seperator is specified, a comma is used.<br/>
@@ -913,6 +913,34 @@ console.log("AFTER: ", varVar, letVar, constVar, newLetVar)
 //  BLOCK SCOPE: only changes local scope varVar, block scope letVar, block scope constVar, changed global newLetVar, 
 // AFTER: varVar, letVar, constVar, changed global newLetVar, 
 ~~~
+
+---
+
+## Context
+
+Context refers to the value of **this**, the keyword which references the object that the code belongs to.
+
+~~~javascript
+const obj = {
+	objThis: function() {
+		return this;
+	}
+}
+
+obj.objThis() // obj
+// this belongs to the obj
+
+const funcThis = () => this 
+// window object
+~~~
+
+---
+
+## Instantiation
+
+A way to create an object using functions. There are several ways to instantiate objects, but with ES6 
+
+
 ---
 
 ## Destructuring
@@ -1049,10 +1077,53 @@ console.log(curriedMult(3)(4)) // 12
 
 ---
 
-## Pipe and Compose
+## Pipe
+
+Combines functions together, like a pipe flowing left to right. The result of a pipe function is a function that is a bundled up version of the sequence of operations.
+
+~~~javascript
+const pipe = (...fns) => (x) => fns.reduce((prev, func) => func(prev), x);
+const inc = num => num + 1
+const dbl = num => num * 2
+const dec = num => num - 2
+const div = num => num / 2
+pipe(
+	inc, 
+	dbl,
+	dec,
+	div
+	)(5) 
+	
+// 5
+// same as writing div(dec(dbl(inc(5)))) but more readable
+~~~
+
+---
+
+## Compose
 
 Function composition is a way of combining multiple simple functions to build a more complicated one.  The result of each function is passed to the next one.
 
+~~~javascript
+const compose = (f,g) => (a) => f(g(a));
+const sum = (num) => num + 1
+compose(sum, sum)(5) // 7
+// compose = (sum, sum) => (5) => sum(sum(5)) 7
+~~~
+
+## Pure Function
+
+A function that accepts an input, has no side effect to anything outside of its scope, and returns a value. Same input results in the same output every single time.
+
+~~~javascript
+// pure function example
+const pureFunc = (a, b) => a + b;
+
+
+// impure function example
+let x = 2
+const impureFunc = (y) => x += y
+~~~
 
 
 </div>
