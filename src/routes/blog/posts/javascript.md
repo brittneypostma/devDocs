@@ -1,7 +1,6 @@
 ---
 title: JavaScript
 ---
-<div style="max-width: 86vw">
 <iframe
 		height="525"
 		style="width: 100%; resize: both;"
@@ -24,22 +23,15 @@ In JavaScript, the \\ (backslash) character is reserved as an escape character. 
 
 JavaScript can either be put inside of a tag in the HTML file or can be linked to an external file where the src is the location of the file relative to the HTML file you are in.
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); justify-content: center;">
-
-<div style="margin-right: 1em; display: flex; justify-content: center;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); grid-gap: 1em;justify-content: center;">
 
 ~~~html
 <script> *JavaScript goes here* </script>
 ~~~
 
-</div>
-<div style="display: flex; justify-content: center;">
-
 ~~~html
 <script> type="text/javascript" src="script.js" </script>
 ~~~
-
-</div>
 
 </div>
 
@@ -366,7 +358,7 @@ In JavaScript a single = sign is for assigning values, so there are other ways t
 
 In JavaScript variables can be assigned with 3 different types: var, let, and const, var and let values can be changed, but const values are constant and unchangeable. They can all be assigned to any of the JavaScript types.
 
--   **var** - declares a variable, optionally initializing it to a value and is function or local scoped (more on this later).
+-   &diams; **var** - declares a variable, optionally initializing it to a value and is function or local scoped (more on this later).
 
 - 
 ~~~javascript
@@ -375,13 +367,13 @@ x = 11;
 var y = "this is a string named y"
 ~~~
 
--   **let** - similar to var, except that it is scoped to the block ( { } ) that it is declared inside of, or block scoped.
+-   &diams; **let** - similar to var, except that it is scoped to the block ( { } ) that it is declared inside of, or block scoped.
 - 
 ~~~javascript
 const nothing = null;
 ~~~
 
--   **const** - declares a variable that cannot be changed and must be initialed to a value, it is also block scoped.
+-   &diams; **const** - declares a variable that cannot be changed and must be initialed to a value, it is also block scoped.
 
 - 
 ~~~javascript
@@ -404,6 +396,91 @@ The general rules for constructing names for variables (unique identifiers) are:
 - 4\. Names are case sensitive ( y is not Y).<br/>
 
 
+
+---
+
+## Assignment Operators
+
+
+<table class="standard-table">
+
+[MDN Source Reference](view-source:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+	
+<thead>
+		<tr>
+			<th>Name</th>
+			<th>Shorthand operator</th>
+			<th>Meaning</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators#Assignment">Assignment</a></td>
+			<td><code>x = y</code></td>
+			<td><code>x = y</code></td>
+		</tr>
+		<tr>
+			<td><a href="/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators#Addition_assignment">Addition assignment</a></td>
+			<td><code>x += y</code></td>
+			<td><code>x = x + y</code></td>
+		</tr>
+		<tr>
+			<td><a href="/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators#Subtraction_assignment">Subtraction assignment</a></td>
+			<td><code>x -= y</code></td>
+			<td><code>x = x - y</code></td>
+		</tr>
+		<tr>
+			<td><a href="/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators#Multiplication_assignment">Multiplication assignment</a></td>
+			<td><code>x *= y</code></td>
+			<td><code>x = x * y</code></td>
+		</tr>
+		<tr>
+			<td><a href="/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators#Division_assignment">Division assignment</a></td>
+			<td><code>x /= y</code></td>
+			<td><code>x = x / y</code></td>
+		</tr>
+		<tr>
+			<td><a href="/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators#Remainder_assignment">Remainder assignment</a></td>
+			<td><code>x %= y</code></td>
+			<td><code>x = x % y</code></td>
+		</tr>
+		<tr>
+			<td><a href="/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators#Exponentiation_assignment">Exponentiation assignment</a><span class="icon-only-inline" title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></td>
+			<td><code>x **= y</code></td>
+			<td><code>x = x ** y</code></td>
+		</tr>
+		<tr>
+			<td><a href="/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators#Left_shift_assignment">Left shift assignment</a></td>
+			<td><code>x &lt;&lt;= y</code></td>
+			<td><code>x = x &lt;&lt; y</code></td>
+		</tr>
+		<tr>
+			<td><a href="/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators#Right_shift_assignment">Right shift assignment</a></td>
+			<td><code>x &gt;&gt;= y</code></td>
+			<td><code>x = x &gt;&gt; y</code></td>
+		</tr>
+		<tr>
+			<td><a href="/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators#Unsigned_right_shift_assignment">Unsigned right shift assignment</a></td>
+			<td><code>x &gt;&gt;&gt;= y</code></td>
+			<td><code>x = x &gt;&gt;&gt; y</code></td>
+		</tr>
+		<tr>
+			<td><a href="/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators#Bitwise_AND_assignment">Bitwise AND assignment</a></td>
+			<td><code>x &amp;= y</code></td>
+			<td><code>x = x &amp; y</code></td>
+		</tr>
+		<tr>
+			<td><a href="/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators#Bitwise_XOR_assignment">Bitwise XOR assignment</a></td>
+			<td><code>x ^= y</code></td>
+			<td><code>x = x ^ y</code></td>
+		</tr>
+		<tr>
+			<td><a href="/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators#Bitwise_OR_assignment">Bitwise OR assignment</a></td>
+			<td><code>x |= y</code></td>
+			<td><code>x = x | y</code></td>
+		</tr>
+	</tbody>
+</table>
 
 ---
 
@@ -508,8 +585,6 @@ if (guess !== myNum) {
 
 The console object provides access to the browser's debugging console. There are different ways to use the console (Ctrl + Shift + I) in JavaScript and it is a great way to debug your code.
 
-<div style="margin-left: 2em;">
-
 ### A few of the most used console objects:
 
 **console.log** - outputs whatever you specify to the console.
@@ -554,7 +629,6 @@ console.table(["apples", "oranges", "bananas"]);
 console.time();
 ~~~
 
-</div>
 
 ---
 
@@ -635,104 +709,102 @@ function multiply (a, b) {
 The Array object is used to store multiple values in a single variable with the [](bracket) syntax. Arrays use numbers to access the elements inside of them. The indexes are zero-based, so `arrayName[0]` returns the first item, then `[1]` returns the second, then `[2]` returns the third, and so on.
 
 ### Array Properties and Methods
-
-<div style="margin-left: 1em;">
-	<ul>
-		<li style="list-style-type: square;">
+	
+<ul>
+	<li style="list-style-type: square;">
 			<strong>length</strong> - sets or returns the number of elements in an array.<br/>
 			<pre class="language-javascript"><code>var numbers = [1, 2, 3, 4, 5];<br/>console.log(numbers.length) //<em>5</em><br/>numbers.length = 3<br/>console.log(numbers.length) //<em>3 - numbers is now [1, 2, 3]</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>concat()</strong> - joins 2 or more arrays together and returns a copy of the arrays.  Does not change the original array.<br/>
 			<pre class="language-javascript"><code>var numArr1 = [1, 2, 3];<br/>var numArr2 = [4, 5, 6]<br/>var allTheNumbers = numArr1.concat(numArr2)<br/>console.log(allTheNumbers, numArr1, numArr2)<br/>//<em>[1, 2, 3, 4, 5, 6], [1, 2, 3], [4, 5, 6]</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>copyWithin()</strong> - *(index position to copy to, optional starting index, optional ending index)* - copies array values to another position in the array, overwriting the original value. Modifies the original array.<br/>
 			<pre class="language-javascript"><code>var fruits = ["peach", "orange", "apple", "banana"]<br/>fruits.copyWithin(2, 0)<br/>console.log(fruits) //<em>["peach", "orange", "peach", "orange"]</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>entries()</strong> - returns an Array Iterator object (gives access to the .next() and .value method) with key/value pairs.  For each item in the original array, the new object will contain an array with the index as the key and the item as the value<br/>
 			<pre class="language-javascript"><code>var array1 = ['a', 'b', 'c'];<br/>var iterator1 = array1.entries();<br/>console.log(iterator1.next().value);<br/>//<em>expected output: Array [0, "a"]</em><br/>console.log(iterator1.next().value);<br/>//<em>expected output: Array [1, "b"]</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>filter()</strong> - creates a new array with only the elements from the original array that pass a test. The syntax is <code>let newArr = ogArr.filter(callbackFunction)</code> The callback function is used to test each element in the ogArr and returns those elements to newArr.<br/>
 			<pre class="language-javascript"><code>var ogArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];<br/>var newArr = ogArr.filter(even => (even % 2 === 0)<br/>console.log(newArr, ogArr)<br/>//<em>[2, 4, 6, 8, 10], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>find() findIndex()</strong> - returns the first value that passes the test. The syntax is <code>let found = ogArr.find(callbackFunction)</code> The callback function is used to test each element in the ogArr until a truthy value is found and returns a single value. findIndex() returns the index of the value.<br/>
 			<pre class="language-javascript"><code>var ogArr = [10, 20, 30, 40];<br/>var found = ogArr.find(element =&gt; (element > 10))<br/>console.log(found)<br/>//<em>20</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>forEach()</strong> - is similar to a for loop and runs the callback function over every element in an array. he syntax is <code>ogArr.forEach((element, index, array) => callback function)</code> Modifies the original array.<br/>
 			<pre class="language-javascript"><code>var ogArr = [5, 10, 15, 20]<br/>ogArr.forEach((element, index, arr) =&gt; (arr[index] = element * 10))<br/>console.log(ogArr)<br/>//<em>[50, 100, 150, 200]</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>from()</strong> - returns a new array from anything with a length property or iterable object (basically other arrays).<br/>
 			<pre class="language-javascript"><code>var myArr = Array.from("ABCDEFG")<br/>console.log(myArr)<br/>//&#9658;<em>(7) ["A", "B", "C", "D", "E", "F", "G"]</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>from()</strong> - returns a new array from anything with a length property or iterable object (basically other arrays).<br/>
 			<pre class="language-javascript"><code>var myArr = Array.from("ABCDEFG")<br/>console.log(myArr)<br/>//&#9658;<em>(7) ["A", "B", "C", "D", "E", "F", "G"]</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>includes()</strong> - checks if an array includes an element, the fromIndex is an optional argument.<br/>
 			<pre class="language-javascript"><code>var arr = ['a', 'b', 'c']<br/>arr.includes('c')<br/>//<em>true</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>indexOf() lastIndexOf()</strong> - checks if an array includes an element and returns the first position/index where it can be found. The fromIndex is an optional argument. lastIndexOf() starts at the end and returns the first index where it is found.<br/>
 			<pre class="language-javascript"><code>var shopList = ['milk', 'bread', 'eggs']<br/>const addToList = (shopList, item) =&gt; <br/>	shopList.indexOf(item) === -1 ? <br/>		shopList.push(item) : null<br/>addToList(shopList, 'cheese')<br/>console.log(shopList, shopList.indexOf('cheese')<br/>//&#9658;<em>['milk', 'bread', 'eggs', 'cheese'], 4</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>join()</strong> - joins all elements of an array together in a string. A seperator can optionally be called as well, if no seperator is specified, a comma is used.<br/>
 			<pre class="language-javascript"><code>var names = ["Brittney", "Joe"]<br/>console.log(names.join(), names.join(" and "))<br/>//<em>(Brittney, Joe), (Brittney and Joe)</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>map()</strong> - creates a new array with the results of a callback function on every element in the original array.<br/>
 			<pre class="language-javascript"><code>var ogArr = [1, 4, 9, 16]<br/>const doubleArr = ogArr.map(x =&gt; x * 2)<br/>console.log(ogArr, doubleArr)<br/>//&#9658;<em>[1, 4, 9, 16], [2, 8, 18, 32]</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>pop()</strong> - modifies an array by taking off the last element, returns the element it removed.<br/>
 			<pre class="language-javascript"><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>var popped = myFish.pop()<br/>console.log(myFish, popped)<br/>//&#9658;<em>['angel', 'clown', 'mandarin'], 'sturgeon'</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>push()</strong> - modifies an array by adding an element specified to the end of the original array and returns the new length.<br/>
 			<pre class="language-javascript"><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>myFish.push('sword')<br/>console.log(myFish)<br/>//&#9658;<em>['angel', 'clown', 'mandarin', 'sturgeon', 'sword']</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>shift()</strong> - modifies an array by taking off the first element, returns the element it removed.<br/>
 			<pre class="language-javascript"><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>var shifted = myFish.shift()<br/>console.log(myFish, shifted)<br/>//&#9658;<em>['clown', 'mandarin', 'sturgeon'], 'angel'</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>unshift()</strong> - modifies an array by adding an element specified to the beginning of the original array and returns the new length.<br/>
 			<pre class="language-javascript"><code>var myFish = ['angel', 'clown', 'mandarin', 'sturgeon']<br/>myFish.unshift('sword')<br/>console.log(myFish)<br/>//&#9658;<em>['sword', 'angel', 'clown', 'mandarin', 'sturgeon']</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>reduce() reduceRight()</strong> - executes a reducer function on an array left to right, reduceRight() goes right to left. The syntax is <code>reduce((accumulator, currentValue) => accumulator + currentValue)</code><br/>
 			<pre class="language-javascript"><code>const array1 = [1, 2, 3, 4]<br/>const reducedArr = array1.reduce((acc, val) =&gt; acc + val))<br/>console.log(reducedArr)<br/>//&#9658;<em>10 (1 + 2 + 3 + 4)</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>reverse()</strong> - reverses the order of the elements in an array.<br/>
 			<pre class="language-javascript"><code>const array1 = [1, 2, 3, 4]<br/>const revArr = array1.reverse()<br/>console.log(revArr)<br/>//&#9658;<em>[4, 3, 2, 1]</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>slice()</strong> - returns a copy of an array from the specified positions to a new array. The syntax is <code>arr.slice(beginIndex, endIndex),</code><br/>
 			<pre class="language-javascript"><code>const array1 = [1, 2, 3, 4]<br/>const sliced = array1.slice(2, 4)<br/>console.log(sliced)<br/>//&#9658;<em>(2) [3, 4]</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>splice()</strong> - modifies an existing array by removing/replacing existing elements or adding new ones. The syntax is <code>arr.splice(startIndex, deleteCount(optional), 'item'(optional))</code><br/>
 			<pre class="language-javascript"><code>var months = ['Jan', 'March', 'April', 'June']<br/>months.splice(1, 0, 'Feb') //<em>inserts at index 1</em><br/>console.log(months)<br/>//&#9658;<em>['Jan', 'Feb', 'March', 'April', 'June']</em></code></pre><br/><br/>
 			<pre class="language-javascript"><code>var months = ['Jan', 'March', 'April', 'June']<br/>months.splice(4, 1, 'May') //<em>replaces 1 element at index 4</em><br/>console.log(months)<br/>//&#9658;<em>['Jan', 'Feb', 'March', 'April', 'May']</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>some()</strong> - checks if any elements in an array pass the test by the callback function.<br/>
 			<pre class="language-javascript"><code>const array1 = [1, 2, 3, 4]<br/>var even = element =&gt; element % 2 === 0<br/>console.log(array1.some(even))<br/>//<em>true</em></code></pre>
-		</li>
-		<li style="list-style-type: square;">
+			</li>
+			<li style="list-style-type: square;">
 			<strong>toString()</strong> - returns a string of the specified arrays elements.<br/>
 			<pre class="language-javascript"><code>const array1 = [1, 2, 3, 4]<br/>console.log(array1.toString())<br/>//<em>1,2,3,4</em></code></pre>
-		</li>
-	</ul>								
-</div>
+	</li>
+</ul>
 
 ---
 
@@ -758,7 +830,202 @@ var objName = {
 objName.logShape() // I am a blue circle!
 ~~~
 
-**Dynamic Property Values** 
+##<u>Object Methods</u>**
+
+&diams; <strong>Object.assign()</strong> - used to copy values from one object to another. Takes a target and a source parameter. Copies the source and modifies the target object.
+
+~~~javascript
+const target = {
+	name: 'Brittney',
+	age: '37'
+}
+
+const source = {
+	location: 'USA',
+	company: 'b.Designed'
+}
+
+const newObj = Object.assign(target, source)
+console.log(newObj)
+// { name: "Brittney", age: "37", company: "b.Designed", location: "USA" }
+console.log(target)
+// { name: "Brittney", age: "37", company: "b.Designed", location: "USA" }
+console.log(source)
+// { location: 'USA', company: 'b.Designed' }
+~~~
+
+&diams; <strong>Object.create()</strong> - used to create a new object and link it to the prototype object and make it extensible.
+
+~~~javascript
+const job = {
+    position: 'cashier',
+    type: 'hourly',
+    isAvailable: true,
+    showDetails() {
+        const accepting = this.isAvailable ? 'is accepting applications' : "is not currently accepting applications";
+
+        console.log(`The ${this.position} position is ${this.type} and ${accepting}.`);
+    }
+};
+
+// Use Object.create to pass properties
+const barista = Object.create(job);
+
+barista.position = "barista";
+barista.showDetails();
+// The barista position is hourly and is accepting applications.
+~~~
+
+&diams; <strong>Object.entries()</strong> - creates a nested array of the key/value pairs of an obj.
+
+~~~javascript
+const person = {
+	name: 'Brittney',
+	age: '37',
+	location: 'USA'
+}
+
+const entries = Object.entries(person)
+console.log(entries)
+
+/* (3) […]
+​
+0: Array [ "name", "Brittney" ]
+​
+1: Array [ "age", "37" ]
+​
+2: Array [ "location", "USA" ]
+​
+length: 3
+
+*/
+~~~
+
+&diams; <strong>Object.freeze()</strong> - prevents properties on an object from being changed, added, or removed.
+
+~~~javascript
+const user = {
+	username: 'Majestix',
+	password: '********'
+}
+
+const newUser = Object.freeze(user)
+
+newUser.password = 'password'
+newUser.online = true
+newUser.username = ''
+
+console.log(newUser)
+// { username: 'Majestix', password: '********' }
+~~~
+
+&diams; <strong>Object.fromEntries()</strong> - transforms a list of key/value pairs into an object.
+
+~~~javascript
+const entries = [
+	['name', 'Brittney'], 
+	['age', '37']
+	]
+
+const obj = Object.fromEntries(entries)
+
+console.log(obj)
+
+// { name: 'Brittney', age: '37' }
+~~~
+
+&diams; <strong>Object.keys()</strong> - creates an array containing the keys (the left side properties) of an object.
+
+~~~javascript
+const user = {
+	name: 'username',
+	password: '********',
+	online: false
+}
+
+const keys = Object.keys(user)
+console.log(keys)
+// ["name", "password", "online"]
+~~~
+
+&diams; <strong>Object.seal()</strong> - prevents new properties from being added to an object, but still allows properties to be changed.
+
+~~~javascript
+const user = {
+	username: 'Majestix',
+	password: '********'
+}
+
+const newUser = Object.freeze(user)
+
+newUser.password = 'password'
+newUser.online = true
+newUser.username = ''
+
+console.log(newUser)
+// { username: '', password: 'password' }
+~~~
+
+&diams; <strong>Object.values()</strong> - creates an array of the values (the right side properties) of an object.)
+
+~~~javascript
+const user = {
+	name: 'username',
+	password: '********',
+	online: false
+}
+
+const values = Object.values(user)
+console.log(values)
+// ["username", "********", "false"]
+~~~
+
+**<u>How to use methods to alter data</u>**
+
+~~~javascript
+const users = {
+	username0: 'Majestix',
+	username1: 'AugusLumos',
+	username2: 'Inferiumbra'
+} 
+
+Object.keys(obj).forEach((key, index) => {
+	console.log(key, obj[key])
+})
+/* 
+username0 Majestix
+username1 AugusLumos
+username2 Inferiumbra
+*/
+
+Object.values(obj).forEach(value => {
+	console.log(value)
+})
+
+/*
+Majestix
+AugusLumos
+Inferiumbra
+*/
+
+Object.entries(obj).forEach(value => {
+	console.log(value)
+})
+
+/*
+["username0", "Majestix"]
+["username1", "AugusLumos"]
+["username2", "Inferiumbra"]
+*/
+
+Object.entries(obj).map(value => {
+	return value[1] + value[0].replace('username', '')
+})
+
+// ["Majestix0", "AugusLumos1", "Inferiumbra2"]
+~~~
+
+**<u>Dynamic Property Values</u>** 
 
 ~~~javascript
 const name = 'Brittney'
@@ -858,7 +1125,13 @@ function myFunction() {
 
 -   **Local Scope** - Variables declared inside a function become locally scoped and are not accessible outside the funtion.
 
-<pre class="language-javascript"><code>// code here can NOT use variable name<br/>function myFunction() {<br/>  var name = "Brittney"<br/>  // code here CAN use variable name<br/>}</code></pre>
+~~~javascript
+// code here can NOT use variable name
+function myFunction() {
+	var name = "Brittney"
+  	// code here CAN use variable name
+}
+~~~
 
 -   **Block Scope** - Variables declared with var can NOT have block scope, only let and const variables have access to block scope.
 
@@ -933,13 +1206,6 @@ obj.objThis() // obj
 const funcThis = () => this 
 // window object
 ~~~
-
----
-
-## Instantiation
-
-A way to create an object using functions. There are several ways to instantiate objects, but with ES6 
-
 
 ---
 
@@ -1111,6 +1377,8 @@ compose(sum, sum)(5) // 7
 // compose = (sum, sum) => (5) => sum(sum(5)) 7
 ~~~
 
+---
+
 ## Pure Function
 
 A function that accepts an input, has no side effect to anything outside of its scope, and returns a value. Same input results in the same output every single time.
@@ -1125,5 +1393,103 @@ let x = 2
 const impureFunc = (y) => x += y
 ~~~
 
+---
 
-</div>
+## Instantiation
+
+A way to create instances or multiple copies of objects using functions. Before ES6, there were other ways to do this, but the class syntax with ES6 is best practice.
+
+~~~javascript
+class Player {
+	constructor(name, type) {
+		this.name = name
+		this.type = type
+	}
+	introduce() {
+		console.log(`Hi, I am ${this.name}.  I'm a ${this.type}!`)
+	}
+}
+
+class Wizard extends Player {
+	constructor(name, type) {
+		super(name, type) // goes to constructor in Player
+	}
+	lightning() {
+		console.log(`${this.name} strikes with lightning.`)
+	}
+	heal() {
+		console.log(`${this.name} heals.`)
+	}
+}
+
+const wizard1 = new Wizard('AugusLumos', 'Healer')
+const wizard2 = new Wizard('Majestix', 'Dark Mage')
+
+wizard1.introduce()
+// Hi, I am AugusLumos. I'm a Healer!
+wizard2.introduce()
+// Hi, I am Majestix.  I'm a Dark Mage!
+
+wizard2.lightning()
+// Majestix strikes with lightning.
+wizard1.heal()
+// AugusLumos heals.
+~~~
+
+---
+
+## Promises
+
+A promise is an object that represents the eventual completion or failure of an asynchronous operation.  It will either resolve a value or a reason (error) that its rejected. 
+
+There are 3 states of promises.
+
+- \- Fulfilled
+- \- Rejected
+- \- Pending
+
+~~~javascript
+const promise = new Promise((resolve, reject) => {
+	let condition = true
+	if (condition === true) {
+		resolve('It worked')
+	} else {
+		reject('Error')
+	}
+})
+
+promise
+	.then(result => result + '!')
+	.then(result2 => console.log(result2))
+
+// It worked!
+
+promise
+	.then(result => {
+		throw Error
+		console.log(result)
+	})
+	.catch(() => console.log('Error'))
+
+// Error
+~~~
+
+
+**<u>Example using promises</u>**
+
+~~~javascript
+const urls = [
+	'https://jsonplaceholder.typicode.com/users',
+	'https://jsonplaceholder.typicode.com/posts',
+	'https://jsonplaceholder.typicode.com/albums'
+]
+
+Promise.all(urls.map(url => {
+	return fetch(url).then(res => res.json())
+})).then(results => {
+	console.log(results.forEach(type => console.log(type)))
+}).catch(() => console.log('Error'))
+
+// Promise state pending (First console.log)
+// Array of users // Array of posts // Array of albums (console log inside forEach)
+~~~

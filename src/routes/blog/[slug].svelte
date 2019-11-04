@@ -18,18 +18,13 @@
 </script>
 
 <style>
-  .post-header {
+  .post-page {
     width: 75%;
     margin: 0 auto;
   }
 
   h1 {
     text-align: center;
-  }
-
-  .content {
-    width: 75%;
-    margin: 0 auto;
   }
 
     .content :global(pre) {
@@ -116,9 +111,13 @@
   }
 </style>
 
+
 <svelte:head>
   <title>{post.title}</title>
 </svelte:head>
+
+
+<div class="post-page">
 
 <div class="post-header">
   <a rel="prefetch" href="blog">go back</a>
@@ -127,4 +126,6 @@
 
 <div class="content">
   {@html post.html}
+</div>
+
 </div>
