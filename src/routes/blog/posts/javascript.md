@@ -736,12 +736,16 @@ The Array object is used to store multiple values in a single variable with the 
 			<pre class="language-javascript"><code>var ogArr = [10, 20, 30, 40];<br/>var found = ogArr.find(element =&gt; (element > 10))<br/>console.log(found)<br/>//<em>20</em></code></pre>
 			</li>
 			<li style="list-style-type: square;">
-			<strong>forEach()</strong> - is similar to a for loop and runs the callback function over every element in an array. he syntax is <code>ogArr.forEach((element, index, array) => callback function)</code> Modifies the original array.<br/>
-			<pre class="language-javascript"><code>var ogArr = [5, 10, 15, 20]<br/>ogArr.forEach((element, index, arr) =&gt; (arr[index] = element * 10))<br/>console.log(ogArr)<br/>//<em>[50, 100, 150, 200]</em></code></pre>
+			<strong>flat()</strong> - creates a new array from an array and unnests it to the specified level. The syntax is <code>let flat = ogArr.flat(1)</code> The default parameter is 1 and will flatten one nested level, but can be changed to increase the amount you want to flatten until it is a single array returned.<br/>
+			<pre class="language-javascript"><code>const ogArray = [1, 2, [3, 4, [5]]]<br/>ogArray.flat() // [1, 2, 3, 4, [5]]<br/>ogArray.flat(2) // [1, 2, 3, 4, 5]</code></pre>
 			</li>
 			<li style="list-style-type: square;">
-			<strong>from()</strong> - returns a new array from anything with a length property or iterable object (basically other arrays).<br/>
-			<pre class="language-javascript"><code>var myArr = Array.from("ABCDEFG")<br/>console.log(myArr)<br/>//&#9658;<em>(7) ["A", "B", "C", "D", "E", "F", "G"]</em></code></pre>
+			<strong>flatMap()</strong> - maps each element using a mapping function, then flattens the result into a new array. The syntax is <code>let flatMap = ogArr.flatMap(callbackFunction)</code> The callback function is used to produce an element of the new array and then flattens the array to a depth of 1.<br/>
+			<pre class="language-javascript"><code>const ogArray = [1, 2, 3, 4, 5]<br/>ogArray.flatMap(num => [num, num * 2]) <br/>// [1, 2, 2, 4, 3, 6, 4, 8, 5, 10]</code></pre>
+			</li>
+			<li style="list-style-type: square;">
+			<strong>forEach()</strong> - is similar to a for loop and runs the callback function over every element in an array. The syntax is <code>ogArr.forEach((element, index, array) => callback function)</code> Modifies the original array.<br/>
+			<pre class="language-javascript"><code>var ogArr = [5, 10, 15, 20]<br/>ogArr.forEach((element, index, arr) =&gt; (arr[index] = element * 10))<br/>console.log(ogArr)<br/>//<em>[50, 100, 150, 200]</em></code></pre>
 			</li>
 			<li style="list-style-type: square;">
 			<strong>from()</strong> - returns a new array from anything with a length property or iterable object (basically other arrays).<br/>
@@ -1442,7 +1446,7 @@ wizard1.heal()
 
 A promise is an object that represents the eventual completion or failure of an asynchronous operation.  It will either resolve a value or a reason (error) that its rejected. 
 
-There are 3 states of promises.
+There are 3 states of a promise.
 
 - \- Fulfilled
 - \- Rejected
@@ -1492,4 +1496,57 @@ Promise.all(urls.map(url => {
 
 // Promise state pending (First console.log)
 // Array of users // Array of posts // Array of albums (console log inside forEach)
+
+.finally(() => console.log('can run something after a promise'))
+~~~
+
+---
+
+## Async await
+
+The keyword **async** is used to make a function asynchronous and allows for the use of the **await** keyword, then it returns a promise.
+
+~~~javascript
+// syntax
+async function myFn() {
+	// await something here
+}
+
+// example
+async function fetchUsers() {
+	const res = await fetch('https://jsonplaceholder.typicode.com/users')
+	const data = await res.json()
+	console.log(data)
+	}
+
+// example from promises section
+const urls = [
+	'https://jsonplaceholder.typicode.com/users',
+	'https://jsonplaceholder.typicode.com/posts',
+	'https://jsonplaceholder.typicode.com/albums'
+]
+
+const getData = async function() {
+	try {
+	const [ users, posts, albums ] = await Promise.all(urls.map(url => 
+		fetch(url).then(res => res.json())
+		))
+	console.log('users', users)
+	console.log('posts', posts)
+	console.log('albums', albums)
+	} 
+	catch (err) {
+		console.log(err)
+	}
+}
+// users, [array of users] // posts, [array of posts] // albums, [array of albums]
+
+// for await of example
+const getData2 = async function() {
+	const arrayOfPromises = urls.map(url => fetch(url))
+	for await (let request of arrayOfPromises) {
+		const data = await request.json()
+		console.log(data)
+	}
+}
 ~~~
