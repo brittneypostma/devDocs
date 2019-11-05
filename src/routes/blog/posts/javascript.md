@@ -1052,7 +1052,9 @@ Loops offer a quick and easy way to do something repeatedly.
 
 ### Types of Loops
 
--   **for** - loops through a block of code a number of times.  
+**Statement 1** is executed (one time) before the execution of the code block<br/>
+**Statement 2** defines the condition for executing the code block.<br/>
+**Statement 3** is executed (every time) after the code block has been executed.
 
 ~~~javascript
 for (statement 1; statement 2; statement 3) { 
@@ -1060,10 +1062,9 @@ for (statement 1; statement 2; statement 3) {
 	}
 ~~~
 
-    -   **Statement 1** is executed (one time) before the execution of the code block.
-    -   **Statement 2** defines the condition for executing the code block.
-    -   **Statement 3** is executed (every time) after the code block has been executed.
+&diams; **for** - loops through a block of code a number of times.  
 
+  
 ~~~javascript
 for (i = 0; i < 5; i++) {
 	text += `The number is ${i}!`
@@ -1071,7 +1072,7 @@ for (i = 0; i < 5; i++) {
 // The number is 0! The number is 1! The number is 2! The number is 3! The number is 4!
 ~~~
 
--   **for/in** - loops through the properties of an object.`for (variable in object) { // code block to be executed }`
+&diams; **for/in** - loops through the properties of an object.`for (variable in object) { // code block to be executed }`
 
 ~~~javascript
 let arr = [3, 5, 7]
@@ -1081,7 +1082,7 @@ for (let i in arr) {
 // 0, 1, 2
 ~~~
 
--   **for/of** - loops through the values of an iterable object.`for (variable of object) { // code block to be executed }`
+&diams; **for/of** - loops through the values of an iterable object.`for (variable of object) { // code block to be executed }`
 
 ~~~javascript
 let arr = [3, 5, 7]
@@ -1091,7 +1092,7 @@ for (let i in arr) {
 // 3, 5, 7
 ~~~
 
--   **while** - loops through a block of code while a specified condition is true.`while (condition) { // code block to be executed }`
+&diams; **while** - loops through a block of code while a specified condition is true.`while (condition) { // code block to be executed }`
 
 ~~~javascript
 let i = 0
@@ -1101,7 +1102,7 @@ while (i < 5) {
 // 0, 1, 2, 3, 4
 ~~~
 
--   **do/while** - also loops through a block of code while a specified condition is true.`do { //statement } while (condition)`
+&diams; **do/while** - also loops through a block of code while a specified condition is true.`do { //statement } while (condition)`
 
 ~~~javascript
 let i = 0
@@ -1109,6 +1110,38 @@ do {
 	i++  console.log(i)}
 while (i < 5)
 // 0, 1, 2, 3, 4
+~~~
+
+&diams; **for of** - iterate over an array or string.
+
+~~~javascript
+const array = [1, 2, 3]
+for (item of array) {
+	console.log(item)
+}
+/* 
+1
+2
+3
+*/
+~~~
+
+&diams; **for in** - enumerate over an objects properties.
+
+~~~javascript
+const object = {
+	apples: 5,
+	oranges: 10,
+	grapes: 100
+}
+for (item in object) {
+	console.log(item)
+}
+/*
+apples
+oranges
+grapes
+*/
 ~~~
 
 ---
@@ -1534,9 +1567,8 @@ const getData = async function() {
 	console.log('users', users)
 	console.log('posts', posts)
 	console.log('albums', albums)
-	} 
-	catch (err) {
-		console.log(err)
+	} catch {
+		console.log('error')
 	}
 }
 // users, [array of users] // posts, [array of posts] // albums, [array of albums]
@@ -1550,3 +1582,17 @@ const getData2 = async function() {
 	}
 }
 ~~~
+
+---
+
+## Debugger
+
+Debugger is a keyword in JavaScript that pauses the program from running and opens a debugging window.  The window allows you to step through the code line by line to see what is happenening.
+
+~~~javascript
+const flattened = [[0,1], [2,3], [4,5]].reduce(
+	(accumulator, array) => {
+		debugger;
+		return accumulator.concat(array)
+	}, [])
+~~~ 
