@@ -2,7 +2,6 @@
 title: JavaScript
 ---
 
-<div>
 <iframe
 		height="525"
 		style="width: 100%; resize: both;"
@@ -37,7 +36,7 @@ JavaScript can either be put inside of a tag in the HTML file or can be linked t
 
 </div>
 
-Because HTML is read synchronously, from top to bottom, it is best practice to put your script tags at the bottom of the HTML file just before the closing body (</body>) tag.
+Because HTML is read synchronously, from top to bottom, it is best practice to put your script tags at the bottom of the HTML file just before the closing body (<\/body>) tag.
 
 ---
 
@@ -1598,5 +1597,3 @@ const flattened = [[0,1], [2,3], [4,5]].reduce(
 		return accumulator.concat(array)
 	}, [])
 ~~~ 
-
-</div>
