@@ -834,7 +834,7 @@ var objName = {
 objName.logShape() // I am a blue circle!
 ~~~
 
-##<u>Object Methods</u>**
+### **<u>Object Methods</u>**
 
 &diams; <strong>Object.assign()</strong> - used to copy values from one object to another. Takes a target and a source parameter. Copies the source and modifies the target object.
 
