@@ -1,6 +1,8 @@
 ---
 title: JavaScript
 ---
+
+<div>
 <iframe
 		height="525"
 		style="width: 100%; resize: both;"
@@ -1596,3 +1598,5 @@ const flattened = [[0,1], [2,3], [4,5]].reduce(
 		return accumulator.concat(array)
 	}, [])
 ~~~ 
+
+</div>
