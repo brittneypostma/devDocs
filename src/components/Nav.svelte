@@ -34,24 +34,29 @@
 
   .links {
     display: flex;
+    margin-left: 10px;
+  }
+
+ 
+  .a-logo {
+    margin: 0;
+    padding: 0;
   }
 
   .logo {
     width: 50px;
-    position: absolute;
-    top: 1em;
-    left: 1em;
     transition: all 0.5s linear;
+    cursor: pointer;
   }
 
   .logo:hover {
-    transform: scale(1.5) rotate(-360deg);
+    transform: scale(1.3);
   }
 
     .nav-links {
     display: flex;
-    margin-left: 4em;
   }
+
   a {
     color: inherit;
     text-decoration: none;
@@ -163,7 +168,7 @@
 <nav>
   
   <div class="links">
-  <img src="favicon.png" alt="logo" class="logo"/>
+  <a class="a-logo" href="."><img src="favicon.png" alt="logo" class="logo"/></a>
   <div class="nav-links">
     <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
 
