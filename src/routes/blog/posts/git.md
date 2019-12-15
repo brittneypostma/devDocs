@@ -156,6 +156,8 @@ To make sure your local copy is the same as the remote repository, it is importa
 
 <br/>
 
-
+<p align="center">
+    <img src="git-cheat-sheet.png" alt="git cheat sheet" width="100%">
+</p>
 
 </div>
