@@ -44,13 +44,13 @@
   }
 
   .logo {
-    width: 50px;
+    width: 40px;
     transition: all 0.5s linear;
     cursor: pointer;
   }
 
   .logo:hover {
-    transform: scale(1.3);
+    transform: scale(1.5);
   }
 
     .nav-links {
@@ -63,10 +63,6 @@
     padding: 1em;
     display: block;
     position: relative;
-  }
-
-  a:not(.selected) {
-    opacity: 0.7;
   }
 
   a::before {
@@ -99,7 +95,7 @@
   .theme-switch-wrapper {
     display: flex;
     align-items: center;
-    margin-right:  2em;
+    margin: 10px 2em auto auto;
   }
 
   .theme-switch {
