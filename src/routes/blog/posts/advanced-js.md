@@ -233,7 +233,7 @@ inception()
 // Maximum call stack size exceeded
 ~~~
 
-## Garbage Collection
+### Garbage Collection
 
 JavaScript is a garbage collected language.  If you allocate memory inside of a function, JavaScript will automatically remove it from the memory heap when the function is done being called.  However, that does not mean you can forget about **memory leaks**. No system is perfect, so it is important to always remember memory management. JavaScript completes garbage collection with a **mark and sweep** method.
 
@@ -250,20 +250,55 @@ person = 'Brittney Postma'
 
 In the example above a **memory leak** is created.  By changing the variable person from an object to a string, it leaves the values of first and last in the memory heap and does not remove it.  This can be avoided by trying to keep variables out of the global namespace, only instantiate variable inside of functions when possible. JavaScript is a **single threaded** language, meaning only one thing can be executed at a time. It only has one call stack and therefore it is a **synchronous** language.
 
----
 
-## Synchronous
+### Synchronous
 
-So, what is the issue with being a single threaded language? Lets's start from the beginning. When you visit a web page, you run a browser to do so (Chrome, Firefox, Safari, Edge). Each browser has its own version of **JavaScript Runtime** and a set of **Web API's**, methods that developers can access from the window object. In a synchronous language, only one thing can be done at a time. Imagine an alert on the page, blocking the user from accessing any part of the page until the OK button is clicked. If everything in JavaScript that took a significant amount of time, blocked the browser, then we would have a pretty bad user experience. This is where **concurrency** and the **event loop** come in.
+So, what is the issue with being a single threaded language? Lets's start from the beginning. When you visit a web page, you run a browser to do so (Chrome, Firefox, Safari, Edge). Each browser has its own version of **JavaScript Runtime** with a set of **Web API's**, methods that developers can access from the window object. In a synchronous language, only one thing can be done at a time. Imagine an alert on the page, blocking the user from accessing any part of the page until the OK button is clicked. If everything in JavaScript that took a significant amount of time, blocked the browser, then we would have a pretty bad user experience. This is where **concurrency** and the **event loop** come in.
 
 ### Event Loop and Callback Queue
 
-When you run some JavaScript code in a browser, the engine starts to parse the code.  Each line is executed and popped on and off the call stack.  But, what about Web API's?  Web API's are not something JavaScript recognizes, so the parser knows to pass it off to the browser for it to handle it. When the browser has finished running its method, it puts what is needed to be ran by JavaScript into the **callback queue**.  The callback queue cannot be ran until the call stack is completely empty.  So, the *event loop* is constantly checking the call stack to see if it is empty so that it can add the callback queue back into the call stack.
+When you run some JavaScript code in a browser, the engine starts to parse the code.  Each line is executed and popped on and off the call stack.  But, what about Web API's?  Web API's are not something JavaScript recognizes, so the parser knows to pass it off to the browser for it to handle. When the browser has finished running its method, it puts what is needed to be ran by JavaScript into the **callback queue**.  The callback queue cannot be ran until the call stack is completely empty.  So, the **event loop** is constantly checking the call stack to see if it is empty so that it can add anything in the callback queue back into the call stack. And finally, once it is back in the call stack, it is ran and then popped off the stack.
+
+~~~javascript
+  console.log('1') 
+  // goes on call stack and runs 1
+  setTimeout(() => {console.log('2'), 1000}) 
+  // gets sent to web api
+  // web api waits 1 sec, runs and sends to callback queue
+  // the javascript engine keeps going
+  console.log('3')
+  // goes on call stack and runs 3
+  // event loop keeps checking and see call stack is empty
+  // event loop sends calback queue into call stack
+  // 2 is now ran
+
+  // 1
+  // 3
+  // 2
+
+  // Example with 0 second timeout
+
+  console.log('1')
+  setTimeout(() => {console.log('2'), 0})
+  console.log('3')
+
+  // 1
+  // 3
+  // 2
+
+  // Still has the same output
+~~~
+
+In the last example, we get the same output.  How does this work if it waits 0 seconds?  The JavaScript engine will still send off the setTimeout() to the Web API to be ran and it will then go into the callback queue and wait until the call stack is empty to be ran. So, we end up with the exact same end point.
 
 [JS Runtime Playground](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gcHJpbnRIZWxsbygpIHsNCiAgICBjb25zb2xlLmxvZygnSGVsbG8gZnJvbSBiYXonKTsNCn0NCg0KZnVuY3Rpb24gYmF6KCkgew0KICAgIHNldFRpbWVvdXQocHJpbnRIZWxsbywgMzAwMCk7DQp9DQoNCmZ1bmN0aW9uIGJhcigpIHsNCiAgICBiYXooKTsNCn0NCg0KZnVuY3Rpb24gZm9vKCkgew0KICAgIGJhcigpOw0KfQ0KDQpmb28oKTs%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
 
 <p align='center'>
-<iframe width="50%" height="315" src="https://www.youtube.com/embed/8aGhZQkoFbQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8aGhZQkoFbQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
+
+> ## Nifty Snippet
+> Until 2009, JavaScript was only ran inside of the browser. That is when Ryan Dahl decided it would be great if we could use JavaScript to build things outside the browser.  He used C and C++ to build an executible (exe) program called Node JS. Node JS is a JavaScript runtime environment built on Chrome's V8 engine that uses C++ to provide the event loop and callback queue needed to run asyncronous operations. 
+> <p align='center'><img src="node_js.png" alt="node js runtime" width="100%"></p>
 
 </div>
