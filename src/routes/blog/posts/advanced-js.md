@@ -237,7 +237,13 @@ inception()
 
 JavaScript is a garbage collected language.  If you allocate memory inside of a function, JavaScript will automatically remove it from the memory heap when the function is done being called.  However, that does not mean you can forget about **memory leaks**. No system is perfect, so it is important to always remember memory management. JavaScript completes garbage collection with a **mark and sweep** method.
 
-![Mark and Sweep Method](mark_and_sweep.gif)
+<a href="https://developers.soundcloud.com/blog/garbage-collection-in-redux-applications" rel="noopener noreferrer" target="_blank" style="display: flex; justify-content: center;">Mark and Sweep Method</a>
+
+<p align='center'>
+<img src="mark_and_sweep.gif" alt="mark and sweep figure"/></iframe>
+</p>
+
+---
 
 ~~~javascript
 var person = {
@@ -291,7 +297,7 @@ When you run some JavaScript code in a browser, the engine starts to parse the c
 
 In the last example, we get the same output.  How does this work if it waits 0 seconds?  The JavaScript engine will still send off the setTimeout() to the Web API to be ran and it will then go into the callback queue and wait until the call stack is empty to be ran. So, we end up with the exact same end point.
 
-[JS Runtime Playground](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gcHJpbnRIZWxsbygpIHsNCiAgICBjb25zb2xlLmxvZygnSGVsbG8gZnJvbSBiYXonKTsNCn0NCg0KZnVuY3Rpb24gYmF6KCkgew0KICAgIHNldFRpbWVvdXQocHJpbnRIZWxsbywgMzAwMCk7DQp9DQoNCmZ1bmN0aW9uIGJhcigpIHsNCiAgICBiYXooKTsNCn0NCg0KZnVuY3Rpb24gZm9vKCkgew0KICAgIGJhcigpOw0KfQ0KDQpmb28oKTs%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
+<a href="http://latentflip.com/loupe/?code=ZnVuY3Rpb24gcHJpbnRIZWxsbygpIHsNCiAgICBjb25zb2xlLmxvZygnSGVsbG8gZnJvbSBiYXonKTsNCn0NCg0KZnVuY3Rpb24gYmF6KCkgew0KICAgIHNldFRpbWVvdXQocHJpbnRIZWxsbywgMzAwMCk7DQp9DQoNCmZ1bmN0aW9uIGJhcigpIHsNCiAgICBiYXooKTsNCn0NCg0KZnVuY3Rpb24gZm9vKCkgew0KICAgIGJhcigpOw0KfQ0KDQpmb28oKTs%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" rel="noopener noreferrer" target="_blank" style="display: flex; justify-content: center;">JS Runtime Playground</a>
 
 <p align='center'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8aGhZQkoFbQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -300,5 +306,96 @@ In the last example, we get the same output.  How does this work if it waits 0 s
 > ## Nifty Snippet
 > Until 2009, JavaScript was only ran inside of the browser. That is when Ryan Dahl decided it would be great if we could use JavaScript to build things outside the browser.  He used C and C++ to build an executible (exe) program called Node JS. Node JS is a JavaScript runtime environment built on Chrome's V8 engine that uses C++ to provide the event loop and callback queue needed to run asyncronous operations. 
 > <p align='center'><img src="node_js.png" alt="node js runtime" width="100%"></p>
+
+---
+
+## Execution Context
+
+Code in JavaScript is always ran inside a type of **execution context**. Execution context is simply the environment within which your code is ran.  There are 2 types of execution context in JavaScript, global or function. There are 2 stages as well to each context, the creation and executing phase. As the JavaScript engine starts to read your code, it creates something called the **Global Execution Context**. 
+
+### Global Execution Context
+
+- #### Creation Phase
+- 1\. global object created
+- 2\. initializes *this* keyword to global
+
+- #### Executing Phase
+- 3\. Variable Environment created - *memory space for var variables and functions created*
+- 4\. initializes all variables to *undefined* (also known as **hoisting**) and places them with any functions into memory
+
+### Function Execution Context
+
+Only when a function is invoked, does a function exectution context get created.
+
+- #### Creation Phase
+- 1\. argument object created with any arguments
+- 2\. initializes *this* keyword to point called or to the global object if not specified
+
+- #### Executing Phase
+- 3\. Variable Environment created - *memory space for variable and functions created*
+- 4\. initializes all variables to *undefined* and places them into memory with any new functions 
+
+---
+
+## Hoisting
+
+Hoisting is the process of putting all variable and function declarations into memory during the compile phase. In JavaScript, functions are fully hoisted, but variables are only partially hoisted. They are given a memory allocation and a value of undefined until they are initialized in line. So if a variable is used in the code before it is initialized, then it will return undefined. However, a function can be called from anywhere in the code base because it is fully hoisted.
+
+~~~javascript
+// function expression gets hoisted as undefined
+var sing = function () {
+  console.log('uhhhh la la la')
+} 
+// function declaration gets fully hoisted
+function sing2() {
+  console.log('ohhhh la la la')
+}
+~~~
+
+~~~javascript
+// function declaration gets hoisted
+function a() {
+  console.log('hi')
+}
+
+// function declaration get rewritten in memory
+function a() {
+  console.log('bye')
+}
+
+console.log(a())
+// bye
+~~~
+
+~~~javascript
+// variable declaration gets hoisted as undefined
+var favoriteFood = 'grapes' 
+
+// function expression gets hoisted as undefined
+var foodThoughts = function () {
+  // new execution context created favoriteFood = undefined
+  console.log(`Original favorite food: ${favoriteFood}`)
+
+  // variable declaration gets hoisted as undefined
+  var favoriteFood = 'sushi'
+
+  console.log(`New favorite food: ${favoriteFood}`)
+}
+
+foodThoughts()
+~~~
+
+> ## Takeaways
+> Avoid hoisting when possible.  It can cause memory leaks and hard to catch bugs in your code. Use *let* and *const* as your go to variables.
+---
+
+## Lexical Environment
+
+A **lexical environment** is basically the *scope* or environment the engine is currently reading code in. A new lexical environment is created when curly brackets {} are used, even nested brackets {{...}} create a new lexical environment. The execution context tells the engine which lexical environment it is currently working in and the lexical scope determines the available variables.
+
+> ## let and const
+> Variable declarations with *let* and *const* work differently from the *var* variable declaration and I wanted to take a minute to explain. When a lexical scope is entered and the execution context is created, the engine allocates memory for any *var* variable in that scope and initializes it to undefined. The *let* and *const* variables only get initialized on the line they are executed on and only get allocated undefined if there is no assignment to the variable.  Trying to access a *let* or *const* variable before it is declared will result in a Reference Error.
+
+---
 
 </div>

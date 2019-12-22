@@ -33,16 +33,16 @@ pre[class*="language-"] {
 	overflow: auto;
 }
 
-:not(pre) > code[class*="language-"],
+:not(pre)>code[class*="language-"],
 pre[class*="language-"] {
 	background-color: #333;
-	background:radial-gradient(at top, #7c7c7c 10%, #333, #000); 
+	background: radial-gradient(at top, #7c7c7c 10%, #333, #000);
 	border-radius: 0.5em;
 	max-width: 70vw;
 }
 
 /* Inline code */
-:not(pre) > code[class*="language-"] {
+:not(pre)>code[class*="language-"] {
 	padding: .1em;
 	border-radius: .3em;
 	white-space: normal;
@@ -110,6 +110,7 @@ pre[class*="language-"] {
 .token.bold {
 	font-weight: bold;
 }
+
 .token.italic {
 	font-style: italic;
 }
@@ -121,4 +122,3 @@ pre[class*="language-"] {
 .token.inserted {
 	color: green;
 }
-

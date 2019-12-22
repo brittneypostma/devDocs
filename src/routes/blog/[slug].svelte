@@ -27,7 +27,7 @@
     text-align: center;
   }
 
-    .content :global(pre) {
+  .content :global(pre) {
     display: inline-block;
   }
 
@@ -41,7 +41,7 @@
     background: #f9f9f9;
     border-left: 10px solid#ccc;
     margin: 1.5em 10px;
-    padding: .1em 10px;
+    padding: 0.1em 10px;
   }
 
   .content :global(ul) {
@@ -55,7 +55,6 @@
     padding: 0;
     margin: 0 0 16px;
   }
-
 
   .content :global(li) {
     list-style-type: none;
@@ -111,21 +110,19 @@
   }
 </style>
 
-
 <svelte:head>
   <title>{post.title}</title>
 </svelte:head>
 
-
 <div class="post-page">
 
-<div class="post-header">
-  <a rel="prefetch" href="blog">go back</a>
-  <h1>{post.title}</h1>
-</div>
+  <div class="post-header">
+    <a rel="prefetch" href="blog">go back</a>
+    <h1>{post.title}</h1>
+  </div>
 
-<div class="content">
-  {@html post.html}
-</div>
+  <div class="content">
+    {@html post.html}
+  </div>
 
 </div>
