@@ -25,7 +25,7 @@
     background: #fff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+    transition: all 0.1s linear;
     margin-bottom: 1em;
     line-height: 1.5;
     padding-inline-start: 0;

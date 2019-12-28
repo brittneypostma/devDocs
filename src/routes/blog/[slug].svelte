@@ -39,6 +39,7 @@
 
   .content :global(blockquote) {
     background: #f9f9f9;
+    color: #111;
     border-left: 10px solid#ccc;
     margin: 1.5em 10px;
     padding: 0.1em 10px;
@@ -106,6 +107,11 @@
 
     .post-header {
       width: 100%;
+    }
+
+    .content :global(pre) {
+      width: 100%;
+      display: grid;
     }
   }
 </style>

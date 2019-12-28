@@ -240,7 +240,7 @@ JavaScript is a garbage collected language.  If you allocate memory inside of a 
 <a href="https://developers.soundcloud.com/blog/garbage-collection-in-redux-applications" rel="noopener noreferrer" target="_blank" style="display: flex; justify-content: center;">Mark and Sweep Method</a>
 
 <p align='center'>
-<img src="mark_and_sweep.gif" alt="mark and sweep figure"/></iframe>
+<img src="mark_and_sweep.gif" alt="mark and sweep figure"/>
 </p>
 
 ---
@@ -323,6 +323,16 @@ Code in JavaScript is always ran inside a type of **execution context**. Executi
 - 3\. Variable Environment created - *memory space for var variables and functions created*
 - 4\. initializes all variables to *undefined* (also known as **hoisting**) and places them with any functions into memory
 
+~~~javascript
+this
+window
+this === window
+
+// Window {...}
+// Window {...}
+// true
+~~~
+
 ### Function Execution Context
 
 Only when a function is invoked, does a function exectution context get created.
@@ -334,6 +344,55 @@ Only when a function is invoked, does a function exectution context get created.
 - #### Executing Phase
 - 3\. Variable Environment created - *memory space for variable and functions created*
 - 4\. initializes all variables to *undefined* and places them into memory with any new functions 
+
+~~~javascript
+// Function Execution Context creates arguments object and points 'this' to the function
+function showArgs(arg1, arg2) {
+  console.log('arguments: ', arguments)
+  return `argument 1 is: ${arg1} and argument 2 is: ${arg2}`
+}
+
+showArgs('hello', 'world')
+
+// arguments: { 0: 'hello', 1: 'world' }
+// argument 1 is hello and argument 2 is world
+
+function noArgs() {
+  console.log('arguments: ', arguments)
+}
+
+noArgs()
+
+// arguments: {}
+// even though there are no arguments, the object is still created
+~~~
+
+The keyword arguments can be dangerous to use in your code as is. In ES6, a few methods were introduced that can help better use arguments.
+
+~~~javascript
+function showArgs(arg1, arg2) {
+  console.log('arguments: ', arguments)
+  console.log(Array.from(arguments))
+
+}
+
+showArgs('hello', 'world')
+
+// arguments: { 0: 'hello', 1: 'world' }
+// [ 'hello', 'world' ]
+
+function showArgs2(...args) {
+  console.log(console.log('arguments: ', args))
+  console.log(Array.from(arguments))
+  return `${args[0]} ${args[1]}`
+}
+
+showArgs2('hello', 'world')
+
+// arguments: [ 'hello', 'world' ]
+// [ 'hello', 'world' ]
+// hello world
+~~~
 
 ---
 
@@ -387,15 +446,97 @@ foodThoughts()
 
 > ## Takeaways
 > Avoid hoisting when possible.  It can cause memory leaks and hard to catch bugs in your code. Use *let* and *const* as your go to variables.
+
 ---
 
 ## Lexical Environment
 
 A **lexical environment** is basically the *scope* or environment the engine is currently reading code in. A new lexical environment is created when curly brackets {} are used, even nested brackets {{...}} create a new lexical environment. The execution context tells the engine which lexical environment it is currently working in and the lexical scope determines the available variables.
 
+~~~javascript
+function one() {
+  var isValid = true // local env
+  two() // new execution context
+}
+
+function two() {
+  var isValid; // undefined
+}
+
+var isValid = false; // global
+one()
+
+/* 
+   two() isValid = undefined
+   one() isValid = true
+   global() isValid = false
+   ------------------------
+   call stack
+*/
+~~~
+
 > ## let and const
 > Variable declarations with *let* and *const* work differently from the *var* variable declaration and I wanted to take a minute to explain. When a lexical scope is entered and the execution context is created, the engine allocates memory for any *var* variable in that scope and initializes it to undefined. The *let* and *const* variables only get initialized on the line they are executed on and only get allocated undefined if there is no assignment to the variable.  Trying to access a *let* or *const* variable before it is declared will result in a Reference Error.
 
 ---
+
+## Scope Chain
+
+Each environment context that is created has a link outside of its lexical environment called the scope chain. The scope chain gives us access to variables in the parent environment.
+
+~~~javascript
+var x = 'x'
+
+function findName() {
+  console.log(x)
+  var b = 'b'
+  return printName()
+}
+
+function printName() {
+  var c = 'c'
+  return 'Brittney Postma'
+}
+
+function sayMyName() {
+  var a = 'a'
+  return findName()
+}
+
+sayMyName()
+
+// sayMyName runs a = 'a'
+// findName runs 
+// x
+// b = 'b'
+// printName runs c = 'c'
+// Brittney Postma
+~~~
+
+In this example, all the functions have access to the global variable **x**, but trying to access a variable from another function would return an error. The example below will show how the scope chain links each function.
+
+~~~javascript
+function sayMyName() {
+  var a = 'a'
+  console.log(b, c) // returns error
+  return function findName() {
+    var b = 'b'
+    console.log(a) // a
+    console.log(c) // returns error
+    return function printName() {
+      var c = 'c'
+      console.log(a, b) // a, b
+    }
+  }
+}
+
+sayMyName()()() //each function is returned and has to be called
+~~~
+
+In this example, you can see that the functions only get access to the variables in their parent container, not a child.  The scope chain only links down the call stack, so you almost have to think of it in reverse.  It goes up to the parent, but down the call stack.
+
+<p align='center'>
+<img src="scope_chain.png" alt="scope chain" width="100%"/>
+</p>
 
 </div>
