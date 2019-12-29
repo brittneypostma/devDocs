@@ -1,6 +1,7 @@
 ---
 title: Advanced JS
 ---
+
 <div style="max-width: 86vw">
 
 ## Advanced Javascript Concepts
@@ -24,36 +25,43 @@ A JavaScript engine is a computer program that you give JavaScript code to and i
 </p>
 
 ### The Parser
-Parsing is the process of analyzing the source code, checking it for errors, and breaking it up into parts. 
+
+Parsing is the process of analyzing the source code, checking it for errors, and breaking it up into parts.
 
 ### The AST
-The parser produces a data structure called the **Abstract Syntax Tree** or **AST**. AST is a tree graph of the source code that does not show every detail of the original syntax, but contains structural or content-related details. Certain things are implicit in the tree and do not need to be shown, hence the title abstract. 
 
-> ## Nifty Snippet 
+The parser produces a data structure called the **Abstract Syntax Tree** or **AST**. AST is a tree graph of the source code that does not show every detail of the original syntax, but contains structural or content-related details. Certain things are implicit in the tree and do not need to be shown, hence the title abstract.
+
+> ## Nifty Snippet
+>
 > 2008 was a pivitol moment for JavaScript when Google created the Chrome V8 Engine. The V8 engine is an open source high-performance JavaScript engine, written in C++ and used in the Chrome browser and powers Node JS. The performance outmatched any engine that came before it mainly because it combines 2 parts of the engine, the interpreter and the compiler. Today, all major engines use this same technique.
 
 ### The Interpreter
 
- An interpreter directly executes each line of code line by line, without requiring them to be compiled into a machine language program. Interpreters can use different strategies to increase performance. They can parse the source code and execute it immediately, translate it into more efficient machine code, execute precompiled code made by a compiler, or some combination of these. In the V8 engine, the interpreter outputs bytecode.
+An interpreter directly executes each line of code line by line, without requiring them to be compiled into a machine language program. Interpreters can use different strategies to increase performance. They can parse the source code and execute it immediately, translate it into more efficient machine code, execute precompiled code made by a compiler, or some combination of these. In the V8 engine, the interpreter outputs bytecode.
 
 > ## Nifty Snippet
+>
 > The first JavaScript engine was written by Brendan Eich, the creator of JavaScript, in 1995 for the Netscape navigator web browser. Originally, the JavaScript engine only consisted of an interpreter. This later evolved into the SpiderMonkey engine, still used by the Firefox browser.
 
 ### The Compiler
 
-The compiler works ahead of time to convert instructions into a machine-code or lower-level form so that they can be read and executed by a computer.  It runs all of the code and tries to figure out what the code does and then compiles it down into another language that is easier for the computer to read. 
+The compiler works ahead of time to convert instructions into a machine-code or lower-level form so that they can be read and executed by a computer. It runs all of the code and tries to figure out what the code does and then compiles it down into another language that is easier for the computer to read.
 
 > ## Nifty Snippet
+>
 > Have you heard of Babel or TypeScript? They are heavily used in the Javascript ecosystem and you should now have a good idea of what they are:<br/><br/>
-Babel is a Javascript compiler that takes your modern JS code and returns  browser compatible JS (older JS code).
-Typescript is a superset of Javascript that compiles down to Javascript.<br/><br/>
-Both of these do exactly what compilers do: Take one language and convert into a different one!
+> Babel is a Javascript compiler that takes your modern JS code and returns browser compatible JS (older JS code).
+> Typescript is a superset of Javascript that compiles down to Javascript.<br/><br/>
+> Both of these do exactly what compilers do: Take one language and convert into a different one!
 
 ### The Combo
-In modern engines, the interpreter starts reading the code line by line while the **profiler** watches for frequently used code and flags then passes is to the compiler to be optimized. In the end, the JavaScript engine takes the bytecode the interpreter outputs and mixes in the optimized code the compiler outputs and then gives that to the computer. This is called "Just in Time" or **JIT** Compiler. 
+
+In modern engines, the interpreter starts reading the code line by line while the **profiler** watches for frequently used code and flags then passes is to the compiler to be optimized. In the end, the JavaScript engine takes the bytecode the interpreter outputs and mixes in the optimized code the compiler outputs and then gives that to the computer. This is called "Just in Time" or **JIT** Compiler.
 
 > ## Nifty Snippet
-> Back in 1995 we had no standard between the browsers for compiling JavaScript.  Compiling code on the browser or even ahead of time was not feasible because all the browsers were competing against each other and could not agree on an executible format.  Even now, different browsers have different approaches on doing things.  Enter **WebAssembly** a standard for binary instruction (executible) format. Keep your eye on WebAssembly to help standardize browsers abilities to exectute JavaScript in the future! [WebAssemby](https://webassembly.org/)
+>
+> Back in 1995 we had no standard between the browsers for compiling JavaScript. Compiling code on the browser or even ahead of time was not feasible because all the browsers were competing against each other and could not agree on an executible format. Even now, different browsers have different approaches on doing things. Enter **WebAssembly** a standard for binary instruction (executible) format. Keep your eye on WebAssembly to help standardize browsers abilities to exectute JavaScript in the future! [WebAssemby](https://webassembly.org/)
 
 ---
 
@@ -74,7 +82,7 @@ There are a few main reasons these should be avoided.
 
 ### 1. Inline Caching
 
-~~~javascript
+```javascript
 function findUser(user) {
   return `found ${user.firstName} ${user.lastName}`
 }
@@ -86,53 +94,55 @@ const userData = {
 
 findUser(userData)
 
-// if this findUser(userData) is called multiple times, 
+// if this findUser(userData) is called multiple times,
 // then it will be optimized (inline cached) to just be 'found Brittney Postma'
-~~~
+```
+
 As you can see, if this code gets optimized to return only 1 name, it could become problamatic down the road.
 
 ### 2. Hidden Classes
 
-~~~javascript
+```javascript
 function Animal(x, y) {
-  this.x = x
-  this.y = y
+  this.x = x;
+  this.y = y;
 }
 
-const obj1 = new Animal(1,2)
-const obj2 = new Animal(3,4)
+const obj1 = new Animal(1, 2);
+const obj2 = new Animal(3, 4);
 
-obj1.a = 30
-obj1.b = 100
-obj2.b = 30
-obj2.a = 100
+obj1.a = 30;
+obj1.b = 100;
+obj2.b = 30;
+obj2.a = 100;
 
-delete obj1.x = 30
-~~~
-By setting these values in a different order than they were instatiated, we are making the compiler slower because of **hidden classes**.  Hidden classes are what the compiler uses under the hood to say that these 2 objects have the same properties.  If values are introduced in a different order than it was set up in, the compiler can get confused and think they don't have a shared hidden class, they are 2 different things, and will slow down the computation.  Also, the reason the delete keyword shouldn't be used is because it would change the hidden class.
+delete obj1.x = 30;
+```
 
-~~~javascript
+By setting these values in a different order than they were instatiated, we are making the compiler slower because of **hidden classes**. Hidden classes are what the compiler uses under the hood to say that these 2 objects have the same properties. If values are introduced in a different order than it was set up in, the compiler can get confused and think they don't have a shared hidden class, they are 2 different things, and will slow down the computation. Also, the reason the delete keyword shouldn't be used is because it would change the hidden class.
+
+```javascript
 // This is the more optimized version of the code.
 
-function Animal(x,y) {
+function Animal(x, y) {
   // instantiating a and b in the constructor
-  this.a = x 
-  this.b = y
+  this.a = x;
+  this.b = y;
 }
 
-const obj1 = new Animal(1,2)
-const obj2 = new Animal(3,4)
+const obj1 = new Animal(1, 2);
+const obj2 = new Animal(3, 4);
 
 // and setting the values in order
-obj1.a = 30
-obj1.b = 100
-obj2.a = 30
-obj2.b = 100
-~~~
+obj1.a = 30;
+obj1.b = 100;
+obj2.a = 30;
+obj2.b = 100;
+```
 
 ### 3. Managing Arguments
 
-There are many ways using **arguments** that can cause a function to be unoptimizable.  Be very careful when using arguments and remember:
+There are many ways using **arguments** that can cause a function to be unoptimizable. Be very careful when using arguments and remember:
 
 - #### Safe Ways to Use **arguments**
 - &#x25FE; arguments.length
@@ -144,98 +154,102 @@ There are many ways using **arguments** that can cause a function to be unoptimi
 
 ## Call Stack and Memory Heap
 
-The JavaScript engine does a lot of work for us, but 2 of the biggest jobs are reading and executing it.  We need a place to store and write our data and a place to keep track line by line of what's executing.  That's where the **call stack** and the **memory heap** come in.
+The JavaScript engine does a lot of work for us, but 2 of the biggest jobs are reading and executing it. We need a place to store and write our data and a place to keep track line by line of what's executing. That's where the **call stack** and the **memory heap** come in.
 
 ### Memory Heap
 
-The memory heap is a place to store and write information so that we can use our memory appropriately. It is a place to allocate, use, and remove memory as needed.  Think of it as a stoarage room of boxes that are unordered.
+The memory heap is a place to store and write information so that we can use our memory appropriately. It is a place to allocate, use, and remove memory as needed. Think of it as a stoarage room of boxes that are unordered.
 
-~~~javascript
+```javascript
 // tell the memory heap to allocate memory for a number
-const number = 11 
+const number = 11;
 // allocate memory for a string
-const string = 'some text'
+const string = "some text";
 // allocate memory for an object and it's values
 const person = {
-  first: 'Brittney',
-  last: 'Postma'
-}
-~~~
+  first: "Brittney",
+  last: "Postma"
+};
+```
 
 ### Call Stack
 
 The call stack keeps track of where we are in the code, so we can run the program in order.
 
-~~~javascript
+```javascript
 function subtractTwo(num) {
-    return num - 2
+  return num - 2;
 }
 
 function calculate() {
-    const sumTotal = 4 + 5
-    return subtractTwo(sumTotal)
+  const sumTotal = 4 + 5;
+  return subtractTwo(sumTotal);
 }
 debugger;
-calculate()
+calculate();
+```
 
-
-~~~
 Things are placed into the call stack on top and removed as they are finished. It runs in a first in last out mode. Each call stack can point to a location inside the memory heap. In the above snippet the call stack looks like this.
-~~~javascript
-(anonymous) // file is being ran
+
+```javascript
+anonymous; // file is being ran
 // CALL STACK
 
 // hits debugger and stops the file
 // step through each line
 
-calculate // steps through calculate() sumTotal = 9
-(anonymous)
+calculate(
+  // steps through calculate() sumTotal = 9
+  anonymous
+);
 // CALL STACK
 
 // steps into subtractTwo(sumTotal) num = 9
 
-subtractTwo // returns 9 - 2 
-calculate
-(anonymous)
+subtractTwo; // returns 9 - 2
+calculate(anonymous);
 // CALL STACK
 
 // subtractTwo() has finished and has been removed
 
-calculate // returns 7
-(anonymous)
-// CALL STACK
+calculate(
+  // returns 7
+  anonymous
+)(
+  // CALL STACK
 
-// calculate() has finished and has been removed
+  // calculate() has finished and has been removed
 
-(anonymous)
+  anonymous
+);
 // CALL STACK
 
 // and finally the file is finished and is removed
 
 // CALL STACK
-~~~
+```
 
 ---
 
 ## Stack Overflow
 
-So what happens if you keep calling functions that are nested inside each other?  When this happens its called a **stack overflow**.
+So what happens if you keep calling functions that are nested inside each other? When this happens its called a **stack overflow**.
 
-~~~javascript
+```javascript
 // When a function calls itself,
 // it is called RECURSION
 function inception() {
-  inception()
+  inception();
 }
 
-inception()
+inception();
 // returns Uncaught RangeError:
 // Maximum call stack size exceeded
-~~~
+```
 
 ### Garbage Collection
 
-JavaScript is a garbage collected language.  If you allocate memory inside of a function, JavaScript will automatically remove it from the memory heap when the function is done being called.  However, that does not mean you can forget about **memory leaks**. No system is perfect, so it is important to always remember memory management. JavaScript completes garbage collection with a **mark and sweep** method.
+JavaScript is a garbage collected language. If you allocate memory inside of a function, JavaScript will automatically remove it from the memory heap when the function is done being called. However, that does not mean you can forget about **memory leaks**. No system is perfect, so it is important to always remember memory management. JavaScript completes garbage collection with a **mark and sweep** method.
 
 <a href="https://developers.soundcloud.com/blog/garbage-collection-in-redux-applications" rel="noopener noreferrer" target="_blank" style="display: flex; justify-content: center;">Mark and Sweep Method</a>
 
@@ -245,17 +259,16 @@ JavaScript is a garbage collected language.  If you allocate memory inside of a 
 
 ---
 
-~~~javascript
+```javascript
 var person = {
-  first: 'Brittney',
-  last: 'Postma'
-}
+  first: "Brittney",
+  last: "Postma"
+};
 
-person = 'Brittney Postma'
-~~~
+person = "Brittney Postma";
+```
 
-In the example above a **memory leak** is created.  By changing the variable person from an object to a string, it leaves the values of first and last in the memory heap and does not remove it.  This can be avoided by trying to keep variables out of the global namespace, only instantiate variable inside of functions when possible. JavaScript is a **single threaded** language, meaning only one thing can be executed at a time. It only has one call stack and therefore it is a **synchronous** language.
-
+In the example above a **memory leak** is created. By changing the variable person from an object to a string, it leaves the values of first and last in the memory heap and does not remove it. This can be avoided by trying to keep variables out of the global namespace, only instantiate variable inside of functions when possible. JavaScript is a **single threaded** language, meaning only one thing can be executed at a time. It only has one call stack and therefore it is a **synchronous** language.
 
 ### Synchronous
 
@@ -263,39 +276,43 @@ So, what is the issue with being a single threaded language? Lets's start from t
 
 ### Event Loop and Callback Queue
 
-When you run some JavaScript code in a browser, the engine starts to parse the code.  Each line is executed and popped on and off the call stack.  But, what about Web API's?  Web API's are not something JavaScript recognizes, so the parser knows to pass it off to the browser for it to handle. When the browser has finished running its method, it puts what is needed to be ran by JavaScript into the **callback queue**.  The callback queue cannot be ran until the call stack is completely empty.  So, the **event loop** is constantly checking the call stack to see if it is empty so that it can add anything in the callback queue back into the call stack. And finally, once it is back in the call stack, it is ran and then popped off the stack.
+When you run some JavaScript code in a browser, the engine starts to parse the code. Each line is executed and popped on and off the call stack. But, what about Web API's? Web API's are not something JavaScript recognizes, so the parser knows to pass it off to the browser for it to handle. When the browser has finished running its method, it puts what is needed to be ran by JavaScript into the **callback queue**. The callback queue cannot be ran until the call stack is completely empty. So, the **event loop** is constantly checking the call stack to see if it is empty so that it can add anything in the callback queue back into the call stack. And finally, once it is back in the call stack, it is ran and then popped off the stack.
 
-~~~javascript
-  console.log('1') 
-  // goes on call stack and runs 1
-  setTimeout(() => {console.log('2'), 1000}) 
-  // gets sent to web api
-  // web api waits 1 sec, runs and sends to callback queue
-  // the javascript engine keeps going
-  console.log('3')
-  // goes on call stack and runs 3
-  // event loop keeps checking and see call stack is empty
-  // event loop sends calback queue into call stack
-  // 2 is now ran
+```javascript
+console.log("1");
+// goes on call stack and runs 1
+setTimeout(() => {
+  console.log("2"), 1000;
+});
+// gets sent to web api
+// web api waits 1 sec, runs and sends to callback queue
+// the javascript engine keeps going
+console.log("3");
+// goes on call stack and runs 3
+// event loop keeps checking and see call stack is empty
+// event loop sends calback queue into call stack
+// 2 is now ran
 
-  // 1
-  // 3
-  // 2
+// 1
+// 3
+// 2
 
-  // Example with 0 second timeout
+// Example with 0 second timeout
 
-  console.log('1')
-  setTimeout(() => {console.log('2'), 0})
-  console.log('3')
+console.log("1");
+setTimeout(() => {
+  console.log("2"), 0;
+});
+console.log("3");
 
-  // 1
-  // 3
-  // 2
+// 1
+// 3
+// 2
 
-  // Still has the same output
-~~~
+// Still has the same output
+```
 
-In the last example, we get the same output.  How does this work if it waits 0 seconds?  The JavaScript engine will still send off the setTimeout() to the Web API to be ran and it will then go into the callback queue and wait until the call stack is empty to be ran. So, we end up with the exact same end point.
+In the last example, we get the same output. How does this work if it waits 0 seconds? The JavaScript engine will still send off the setTimeout() to the Web API to be ran and it will then go into the callback queue and wait until the call stack is empty to be ran. So, we end up with the exact same end point.
 
 <a href="http://latentflip.com/loupe/?code=ZnVuY3Rpb24gcHJpbnRIZWxsbygpIHsNCiAgICBjb25zb2xlLmxvZygnSGVsbG8gZnJvbSBiYXonKTsNCn0NCg0KZnVuY3Rpb24gYmF6KCkgew0KICAgIHNldFRpbWVvdXQocHJpbnRIZWxsbywgMzAwMCk7DQp9DQoNCmZ1bmN0aW9uIGJhcigpIHsNCiAgICBiYXooKTsNCn0NCg0KZnVuY3Rpb24gZm9vKCkgew0KICAgIGJhcigpOw0KfQ0KDQpmb28oKTs%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" rel="noopener noreferrer" target="_blank" style="display: flex; justify-content: center;">JS Runtime Playground</a>
 
@@ -304,95 +321,96 @@ In the last example, we get the same output.  How does this work if it waits 0 s
 </p>
 
 > ## Nifty Snippet
-> Until 2009, JavaScript was only ran inside of the browser. That is when Ryan Dahl decided it would be great if we could use JavaScript to build things outside the browser.  He used C and C++ to build an executible (exe) program called Node JS. Node JS is a JavaScript runtime environment built on Chrome's V8 engine that uses C++ to provide the event loop and callback queue needed to run asyncronous operations. 
+>
+> Until 2009, JavaScript was only ran inside of the browser. That is when Ryan Dahl decided it would be great if we could use JavaScript to build things outside the browser. He used C and C++ to build an executible (exe) program called Node JS. Node JS is a JavaScript runtime environment built on Chrome's V8 engine that uses C++ to provide the event loop and callback queue needed to run asyncronous operations.
+>
 > <p align='center'><img src="node_js.png" alt="node js runtime" width="100%"></p>
 
 ---
 
 ## Execution Context
 
-Code in JavaScript is always ran inside a type of **execution context**. Execution context is simply the environment within which your code is ran.  There are 2 types of execution context in JavaScript, global or function. There are 2 stages as well to each context, the creation and executing phase. As the JavaScript engine starts to read your code, it creates something called the **Global Execution Context**. 
+Code in JavaScript is always ran inside a type of **execution context**. Execution context is simply the environment within which your code is ran. There are 2 types of execution context in JavaScript, global or function. There are 2 stages as well to each context, the creation and executing phase. As the JavaScript engine starts to read your code, it creates something called the **Global Execution Context**.
 
 ### Global Execution Context
 
 - #### Creation Phase
 - 1\. global object created
-- 2\. initializes *this* keyword to global
+- 2\. initializes _this_ keyword to global
 
 - #### Executing Phase
-- 3\. Variable Environment created - *memory space for var variables and functions created*
-- 4\. initializes all variables to *undefined* (also known as **hoisting**) and places them with any functions into memory
+- 3\. Variable Environment created - _memory space for var variables and functions created_
+- 4\. initializes all variables to _undefined_ (also known as **hoisting**) and places them with any functions into memory
 
-~~~javascript
-this
-window
-this === window
+```javascript
+this;
+window;
+this === window;
 
 // Window {...}
 // Window {...}
 // true
-~~~
+```
 
 ### Function Execution Context
 
-Only when a function is invoked, does a function exectution context get created.
+Only when a function is invoked, does a function execution context get created.
 
 - #### Creation Phase
 - 1\. argument object created with any arguments
-- 2\. initializes *this* keyword to point called or to the global object if not specified
+- 2\. initializes _this_ keyword to point called or to the global object if not specified
 
 - #### Executing Phase
-- 3\. Variable Environment created - *memory space for variable and functions created*
-- 4\. initializes all variables to *undefined* and places them into memory with any new functions 
+- 3\. Variable Environment created - _memory space for variable and functions created_
+- 4\. initializes all variables to _undefined_ and places them into memory with any new functions
 
-~~~javascript
+```javascript
 // Function Execution Context creates arguments object and points 'this' to the function
 function showArgs(arg1, arg2) {
-  console.log('arguments: ', arguments)
-  return `argument 1 is: ${arg1} and argument 2 is: ${arg2}`
+  console.log("arguments: ", arguments);
+  return `argument 1 is: ${arg1} and argument 2 is: ${arg2}`;
 }
 
-showArgs('hello', 'world')
+showArgs("hello", "world");
 
 // arguments: { 0: 'hello', 1: 'world' }
 // argument 1 is hello and argument 2 is world
 
 function noArgs() {
-  console.log('arguments: ', arguments)
+  console.log("arguments: ", arguments);
 }
 
-noArgs()
+noArgs();
 
 // arguments: {}
 // even though there are no arguments, the object is still created
-~~~
+```
 
 The keyword arguments can be dangerous to use in your code as is. In ES6, a few methods were introduced that can help better use arguments.
 
-~~~javascript
+```javascript
 function showArgs(arg1, arg2) {
-  console.log('arguments: ', arguments)
-  console.log(Array.from(arguments))
-
+  console.log("arguments: ", arguments);
+  console.log(Array.from(arguments));
 }
 
-showArgs('hello', 'world')
+showArgs("hello", "world");
 
 // arguments: { 0: 'hello', 1: 'world' }
 // [ 'hello', 'world' ]
 
 function showArgs2(...args) {
-  console.log(console.log('arguments: ', args))
-  console.log(Array.from(arguments))
-  return `${args[0]} ${args[1]}`
+  console.log(console.log("arguments: ", args));
+  console.log(Array.from(arguments));
+  return `${args[0]} ${args[1]}`;
 }
 
-showArgs2('hello', 'world')
+showArgs2("hello", "world");
 
 // arguments: [ 'hello', 'world' ]
 // [ 'hello', 'world' ]
 // hello world
-~~~
+```
 
 ---
 
@@ -400,63 +418,64 @@ showArgs2('hello', 'world')
 
 Hoisting is the process of putting all variable and function declarations into memory during the compile phase. In JavaScript, functions are fully hoisted, but variables are only partially hoisted. They are given a memory allocation and a value of undefined until they are initialized in line. So if a variable is used in the code before it is initialized, then it will return undefined. However, a function can be called from anywhere in the code base because it is fully hoisted.
 
-~~~javascript
+```javascript
 // function expression gets hoisted as undefined
-var sing = function () {
-  console.log('uhhhh la la la')
-} 
+var sing = function() {
+  console.log("uhhhh la la la");
+};
 // function declaration gets fully hoisted
 function sing2() {
-  console.log('ohhhh la la la')
+  console.log("ohhhh la la la");
 }
-~~~
+```
 
-~~~javascript
+```javascript
 // function declaration gets hoisted
 function a() {
-  console.log('hi')
+  console.log("hi");
 }
 
 // function declaration get rewritten in memory
 function a() {
-  console.log('bye')
+  console.log("bye");
 }
 
-console.log(a())
+console.log(a());
 // bye
-~~~
+```
 
-~~~javascript
+```javascript
 // variable declaration gets hoisted as undefined
-var favoriteFood = 'grapes' 
+var favoriteFood = "grapes";
 
 // function expression gets hoisted as undefined
-var foodThoughts = function () {
+var foodThoughts = function() {
   // new execution context created favoriteFood = undefined
-  console.log(`Original favorite food: ${favoriteFood}`)
+  console.log(`Original favorite food: ${favoriteFood}`);
 
   // variable declaration gets hoisted as undefined
-  var favoriteFood = 'sushi'
+  var favoriteFood = "sushi";
 
-  console.log(`New favorite food: ${favoriteFood}`)
-}
+  console.log(`New favorite food: ${favoriteFood}`);
+};
 
-foodThoughts()
-~~~
+foodThoughts();
+```
 
 > ## Takeaways
-> Avoid hoisting when possible.  It can cause memory leaks and hard to catch bugs in your code. Use *let* and *const* as your go to variables.
+>
+> Avoid hoisting when possible. It can cause memory leaks and hard to catch bugs in your code. Use _let_ and _const_ as your go to variables.
 
 ---
 
 ## Lexical Environment
 
-A **lexical environment** is basically the *scope* or environment the engine is currently reading code in. A new lexical environment is created when curly brackets {} are used, even nested brackets {{...}} create a new lexical environment. The execution context tells the engine which lexical environment it is currently working in and the lexical scope determines the available variables.
+A **lexical environment** is basically the _scope_ or environment the engine is currently reading code in. A new lexical environment is created when curly brackets {} are used, even nested brackets {{...}} create a new lexical environment. The execution context tells the engine which lexical environment it is currently working in and the lexical scope determines the available variables.
 
-~~~javascript
+```javascript
 function one() {
-  var isValid = true // local env
-  two() // new execution context
+  var isValid = true; // local env
+  two(); // new execution context
 }
 
 function two() {
@@ -464,7 +483,7 @@ function two() {
 }
 
 var isValid = false; // global
-one()
+one();
 
 /* 
    two() isValid = undefined
@@ -473,10 +492,7 @@ one()
    ------------------------
    call stack
 */
-~~~
-
-> ## let and const
-> Variable declarations with *let* and *const* work differently from the *var* variable declaration and I wanted to take a minute to explain. When a lexical scope is entered and the execution context is created, the engine allocates memory for any *var* variable in that scope and initializes it to undefined. The *let* and *const* variables only get initialized on the line they are executed on and only get allocated undefined if there is no assignment to the variable.  Trying to access a *let* or *const* variable before it is declared will result in a Reference Error.
+```
 
 ---
 
@@ -484,59 +500,117 @@ one()
 
 Each environment context that is created has a link outside of its lexical environment called the scope chain. The scope chain gives us access to variables in the parent environment.
 
-~~~javascript
-var x = 'x'
+```javascript
+var x = "x";
 
 function findName() {
-  console.log(x)
-  var b = 'b'
-  return printName()
+  console.log(x);
+  var b = "b";
+  return printName();
 }
 
 function printName() {
-  var c = 'c'
-  return 'Brittney Postma'
+  var c = "c";
+  return "Brittney Postma";
 }
 
 function sayMyName() {
-  var a = 'a'
-  return findName()
+  var a = "a";
+  return findName();
 }
 
-sayMyName()
+sayMyName();
 
 // sayMyName runs a = 'a'
-// findName runs 
+// findName runs
 // x
 // b = 'b'
 // printName runs c = 'c'
 // Brittney Postma
-~~~
+```
 
 In this example, all the functions have access to the global variable **x**, but trying to access a variable from another function would return an error. The example below will show how the scope chain links each function.
 
-~~~javascript
+```javascript
 function sayMyName() {
-  var a = 'a'
-  console.log(b, c) // returns error
+  var a = "a";
+  console.log(b, c); // returns error
   return function findName() {
-    var b = 'b'
-    console.log(a) // a
-    console.log(c) // returns error
+    var b = "b";
+    console.log(a); // a
+    console.log(c); // returns error
     return function printName() {
-      var c = 'c'
-      console.log(a, b) // a, b
-    }
-  }
+      var c = "c";
+      console.log(a, b); // a, b
+    };
+  };
 }
 
-sayMyName()()() //each function is returned and has to be called
-~~~
+sayMyName()()(); //each function is returned and has to be called
+```
 
-In this example, you can see that the functions only get access to the variables in their parent container, not a child.  The scope chain only links down the call stack, so you almost have to think of it in reverse.  It goes up to the parent, but down the call stack.
+In this example, you can see that the functions only get access to the variables in their parent container, not a child. The scope chain only links down the call stack, so you almost have to think of it in reverse. It goes up to the parent, but down the call stack.
 
 <p align='center'>
 <img src="scope_chain.png" alt="scope chain" width="100%"/>
 </p>
+
+### JavaScript is Weird
+
+```javascript
+// It asks global scope for height.
+// Global scope says: ummm... no but here I just created it for you.
+// We call this leakage of global variables.
+// Adding 'use strict' to the file prevents this and causes an error.
+function weird() {
+  height = 50;
+}
+
+var heyhey = function doodle() {
+  // code here
+};
+
+heyhey();
+doodle(); // Error! because it is enclosed in its own scope.
+```
+
+---
+
+## Function and Block Scope
+
+Most programing languages are block scoped, meaning every time you see a new { } (curly braces) is a new lexical environment. However, JavaScript is function scoped, meaning it only creates a new local environment if it sees the keyword function on the global scope. To give us access to block scope, in ES6 _let_ and _const_ were added to the language. Using these can prevent memory leaks, but there is still an argument to be made for using _var_.
+
+```javascript
+//Function Scope
+function loop() {
+  for (var i = 0; i < 5; i++) {
+    console.log(i);
+  }
+  console.log("final", i); // returns final 5
+}
+
+//Block Scope
+function loop2() {
+  for (let i = 0; i < 5; i++) {
+    // can access i here
+  }
+  console.log("final", i); // returns an error here
+}
+
+loop();
+/*
+  1
+  2
+  3
+  4
+  final 5
+*/
+loop2();
+// ReferenceError: i is not defined
+```
+
+> ## let and const
+>
+> Variable declarations with _let_ and _const_ work differently from the _var_ variable declaration and I wanted to take a minute to explain. When a lexical scope is entered and the execution context is created, the engine allocates memory for any _var_ variable in that scope and initializes it to undefined. The _let_ and _const_ variables only get initialized on the line they are executed on and only get allocated undefined if there is no assignment to the variable. Trying to access a _let_ or _const_ variable before it is declared or outside of its block without returning it will result in a Reference Error.
 
 </div>
