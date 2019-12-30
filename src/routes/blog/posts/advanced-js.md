@@ -464,7 +464,7 @@ foodThoughts();
 
 > ## Takeaways
 >
-> Avoid hoisting when possible. It can cause memory leaks and hard to catch bugs in your code. Use _let_ and _const_ as your go to variables.
+> Avoid hoisting when possible. It can cause memory leaks and hard to catch bugs in your code. Use _let_ and _const_ as your go to variables. 
 
 ---
 
@@ -613,4 +613,96 @@ loop2();
 >
 > Variable declarations with _let_ and _const_ work differently from the _var_ variable declaration and I wanted to take a minute to explain. When a lexical scope is entered and the execution context is created, the engine allocates memory for any _var_ variable in that scope and initializes it to undefined. The _let_ and _const_ variables only get initialized on the line they are executed on and only get allocated undefined if there is no assignment to the variable. Trying to access a _let_ or _const_ variable before it is declared or outside of its block without returning it will result in a Reference Error.
 
+---
+
+## IIFE - Immediately Invoked Function Expression
+
+Immediately Invoked Function Expression or more simply **IIFE** is a JavaScript function that runs as soon as it is defined. Can also be refered to as a Self-Executing Anonymous Function.
+
+```javascript
+// Grouping Operator () creates a lexical scope
+(function () {
+  // statements
+})();
+// Immediately invokes the function with 2nd set of ()
+```
+
+> ## Takeaways
+> <p align='center'>
+> Avoid polluting the global namespace or scope when possible.<br/>
+>   <img src="pollute.gif" alt="Don't Pollute"/>
+> </p>
+
+---
+
+## this
+
+<p align='center'>
+  <img src="dun.png" alt="dun dun duuun" width="50%"/><br/>
+  Here we are...
+</p>
+
+The moment has arrived, time to talk about **this**.  What is **this**?  Why is **this** so confusing?  For some, **this** is the scariest part of JavaScript. Well, hopefully we can clear some things up. 
+
+> **this** is the ***object*** that the ***function*** is a property of
+
+There that's simple right? Well, maybe not, what does that mean? Back in Execution Context, we talked about how the JavaScript engine creates the global execution context and initializes _this_ to the global window object.
+
+```javascript
+this // Window {...}
+window // Window {...}
+this === window // true
+
+function a() {
+  console.log(this) 
+}
+
+a()
+
+// Window {...}
+```
+
+In the example above, it is easy to understand that _this_ is equal to the window object, but what about inside of function a? Well, what object is function a apart of? In the dev tools, if you expand the window object and scroll down the list, you will see a() is a method on the window object. By calling a(), you are essentially saying window.a() to the console.
+
+```javascript
+const obj = {
+  property: `I'm a property of obj.`,
+  method: function() {
+    // this refers to the object obj
+    console.log(this.property) 
+  }
+}
+obj.method()
+// I'm a property of obj.
+```
+
+> **this** refers to whatever is on the left of the . (dot) when calling a method
+> ```javascript
+> // obj is to the left of the dot
+> obj.method()
+> ```
+
+Still confused? Try this:
+
+```javascript
+function whichName() {
+  console.log(this.name)
+}
+
+var name = 'window'
+
+const obj1 = {
+  name: 'Obj 1',
+  whichName
+}
+const obj2 = {
+  name: 'Obj 2',
+  whichName
+}
+
+
+whichName() // window
+obj1.whichName() // Obj 1
+obj2.whichName() // Obj 2
+```
 </div>

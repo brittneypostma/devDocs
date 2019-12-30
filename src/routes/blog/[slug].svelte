@@ -27,10 +27,6 @@
     text-align: center;
   }
 
-  .content :global(pre) {
-    display: inline-block;
-  }
-
   .content :global(h2) {
     font-size: 1.5em;
     font-weight: 500;
