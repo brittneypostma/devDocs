@@ -770,4 +770,32 @@ obj.sing()
 ```
 
 After everything is said and done, using **this** can still be a bit confusing. If you aren't sure what it's referencing, just console.log(this) and see where it's pointing.
+
+---
+
+## Call, Apply, Bind
+
+### Call
+
+Call is a method of an object that can substitute a different object than the one it is written on.
+
+```javascript
+const wizard = {
+  name: 'Merlin',
+  health: 100,
+  heal() {
+    return this.health = 100;
+  }
+}
+
+const archer = {
+  name: 'Robin Hood',
+  health: 30
+}
+console.log(archer) // health: 30
+
+wizard.heal.call(archer)
+
+console.log(archer) // health: 100
+```
 </div>
