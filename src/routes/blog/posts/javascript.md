@@ -1369,7 +1369,7 @@ const newFunc = first()newFunc()
 
 ## Currying
 
-Currying is breaking down a function into a series of functions that each accept a single argument.
+Currying is breaking down a function with multiple arguments into one or more functions that each accept a single argument. See [Advanced JS](https://console-logs.netlify.com/blog/advanced-js) for currying with _bind_.
 
 ~~~javascript
 const multiply = (a, b) => a * b

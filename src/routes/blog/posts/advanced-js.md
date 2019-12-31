@@ -398,20 +398,23 @@ showArgs2("hello", "world");
 ```
 
 > ## Arrow Functions
-> Some people think of arrow functions as just being syntactic sugar for a reguar function, but arrow functions work a bit differently than a regular function. They are a compact alternative to a regular function, but also without its own bindings to **this**, **arguments**, **super**, or **new.target** keywords. Arrow functions cannot be used as constuctors and are not the best option for methods.
-> ```javascript
-> var obj = { // does not create a new scope
-> i: 10,
->  b: () => console.log(this.i, this),
->  c: function() {
->    console.log(this.i, this);
->  }
-> }
 >
+> Some people think of arrow functions as just being syntactic sugar for a reguar function, but arrow functions work a bit differently than a regular function. They are a compact alternative to a regular function, but also without its own bindings to **this**, **arguments**, **super**, or **new.target** keywords. Arrow functions cannot be used as constuctors and are not the best option for methods.
+>
+> ````javascript
+> var obj = {
+>   // does not create a new scope
+>   i: 10,
+>   b: () => console.log(this.i, this),
+>   c: function() {
+>     console.log(this.i, this);
+>   }
+> };
 >
 > obj.b(); // prints undefined, Window {...} (or the global object)
 > obj.c(); // prints 10, Object {...}```
-> ```
+> ````
+
 ---
 
 ## Hoisting
@@ -445,6 +448,7 @@ function a() {
 console.log(a());
 // bye
 ```
+
 <br/>
 
 ```javascript
@@ -467,7 +471,7 @@ foodThoughts();
 
 > ## Takeaways
 >
-> Avoid hoisting when possible. It can cause memory leaks and hard to catch bugs in your code. Use _let_ and _const_ as your go to variables. 
+> Avoid hoisting when possible. It can cause memory leaks and hard to catch bugs in your code. Use _let_ and _const_ as your go to variables.
 
 ---
 
@@ -624,13 +628,14 @@ Immediately Invoked Function Expression or more simply **IIFE** is a JavaScript 
 
 ```javascript
 // Grouping Operator () creates a lexical scope
-(function () {
+(function() {
   // statements
 })();
 // Immediately invokes the function with 2nd set of ()
 ```
 
 > ## Takeaways
+>
 > <p align='center'>
 > Avoid polluting the global namespace or scope when possible.<br/>
 >   <img src="pollute.gif" alt="Don't Pollute"/>
@@ -645,22 +650,22 @@ Immediately Invoked Function Expression or more simply **IIFE** is a JavaScript 
   Here we are...
 </p>
 
-The moment has arrived, time to talk about **this**.  What is **this**?  Why is **this** so confusing?  For some, **this** is the scariest part of JavaScript. Well, hopefully we can clear some things up. 
+The moment has arrived, time to talk about **this**. What is **this**? Why is **this** so confusing? For some, **this** is the scariest part of JavaScript. Well, hopefully we can clear some things up.
 
-> **this** is the ***object*** that the ***function*** is a property of
+> **this** is the **_object_** that the **_function_** is a property of
 
 There that's simple right? Well, maybe not, what does that mean? Back in Execution Context, we talked about how the JavaScript engine creates the global execution context and initializes _this_ to the global window object.
 
 ```javascript
-this // Window {...}
-window // Window {...}
-this === window // true
+this; // Window {...}
+window; // Window {...}
+this === window; // true
 
 function a() {
-  console.log(this) 
+  console.log(this);
 }
 
-a()
+a();
 
 // Window {...}
 ```
@@ -672,101 +677,142 @@ const obj = {
   property: `I'm a property of obj.`,
   method: function() {
     // this refers to the object obj
-    console.log(this.property) 
+    console.log(this.property);
   }
-}
-obj.method()
+};
+obj.method();
 // I'm a property of obj.
 ```
 
 > **this** refers to whatever is on the left of the . (dot) when calling a method
+>
 > ```javascript
 > // obj is to the left of the dot
-> obj.method()
+> obj.method();
 > ```
 
 Still confused? Try this:
 
 ```javascript
 function whichName() {
-  console.log(this.name)
+  console.log(this.name);
 }
 
-var name = 'window'
+var name = "window";
 
 const obj1 = {
-  name: 'Obj 1',
+  name: "Obj 1",
   whichName
-}
+};
 const obj2 = {
-  name: 'Obj 2',
+  name: "Obj 2",
   whichName
-}
+};
 
-
-whichName() // window
-obj1.whichName() // Obj 1
-obj2.whichName() // Obj 2
+whichName(); // window
+obj1.whichName(); // Obj 1
+obj2.whichName(); // Obj 2
 ```
+
 Another way to look at **this** is to check which object called it.
 
 ```javascript
 const a = function() {
-  console.log('a', this)
+  console.log("a", this);
   const b = function() {
-    console.log('b', this)
+    console.log("b", this);
     const c = {
       hi: function() {
-      console.log('c', this)
-    }}
-    c.hi() // new obj c called function
-  }
-  b() // ran by a window.a(b())
-}
-a() // called by window
+        console.log("c", this);
+      }
+    };
+    c.hi(); // new obj c called function
+  };
+  b(); // ran by a window.a(b())
+};
+a(); // called by window
 
 // a Window {…}
 // b Window {…}
 // c {hi: ƒ}
 ```
+
 ### Lexical vs Dynamic Scope
 
-A big gotcha for a lot of people working with *this is when a function is ran inside of another function. It gets a little confusing, but we can remember who called the function.
+A big gotcha for a lot of people working with \*this is when a function is ran inside of another function. It gets a little confusing, but we can remember who called the function.
 
 ```javascript
 const obj = {
-  name: 'Billy',
+  name: "Billy",
   sing() {
-    console.log('a', this)
+    console.log("a", this);
     var anotherFunc = function() {
-      console.log('b', this)
-    }
-    anotherFunc()
+      console.log("b", this);
+    };
+    anotherFunc();
   }
-}
-obj.sing()
+};
+obj.sing();
 
 // a {name: "Billy", sing: ƒ}
 // b Window {…}
 ```
 
-In the example above, the obj called sing() and then anotherFunc() was called within the sing() function. In JavaScript, that function defaults to the Window object. It happens because everything in JavaScript is lexically scoped except for the **this** keyword. It doesn't matter where it is written, it matters how it is called.  Changing anotherFunc() instead to an arrow function will fix this problem, as seen below. Arrow functions do not bind or set their own context for **this**. If **this** is used in an arrow function, it is taken from the outside. Arrow functions also have no **arguments** created as functions do.
+In the example above, the obj called sing() and then anotherFunc() was called within the sing() function. In JavaScript, that function defaults to the Window object. It happens because everything in JavaScript is lexically scoped except for the **this** keyword. It doesn't matter where it is written, it matters how it is called. Changing anotherFunc() instead to an arrow function will fix this problem, as seen below. Arrow functions do not bind or set their own context for **this**. If **this** is used in an arrow function, it is taken from the outside. Arrow functions also have no **arguments** created as functions do.
 
 ```javascript
 const obj = {
-  name: 'Billy',
+  name: "Billy",
   sing() {
-    console.log('a', this)
+    console.log("a", this);
     var anotherFunc = () => {
-      console.log('b', this)
-    }
-    anotherFunc()
+      console.log("b", this);
+    };
+    anotherFunc();
   }
-}
-obj.sing()
+};
+obj.sing();
 
 // a {name: "Billy", sing: ƒ}
 // b {name: "Billy", sing: ƒ}
+```
+
+Okay, last example to really solidify our knowledge of **this**.
+
+```javascript
+var b = {
+  name: "jay",
+  say() {
+    console.log(this);
+  }
+};
+
+var c = {
+  name: "jay",
+  say() {
+    return function() {
+      console.log(this);
+    };
+  }
+};
+
+var d = {
+  name: "jay",
+  say() {
+    return () => console.log(this);
+  }
+};
+
+b.say(); // b {name: 'jay', say()...}
+// b called the function
+c.say(); // function() {console.log(this)}
+// returned a function that gets called later
+c.say()(); // Window {...}
+// c.say() gets the function and the Window runs it
+d.say(); // () => console.log(this)
+// returned the arrow function
+d.say()(); // d {name: 'jay', say()...}
+// arrow function does not rebind this and inherits this from parent
 ```
 
 After everything is said and done, using **this** can still be a bit confusing. If you aren't sure what it's referencing, just console.log(this) and see where it's pointing.
@@ -781,21 +827,96 @@ Call is a method of an object that can substitute a different object than the on
 
 ```javascript
 const wizard = {
-  name: 'Merlin',
+  name: "Merlin",
   health: 100,
-  heal() {
-    return this.health = 100;
+  heal(num1, num2) {
+    return (this.health += num1 + num2);
   }
-}
+};
 
 const archer = {
-  name: 'Robin Hood',
+  name: "Robin Hood",
   health: 30
-}
-console.log(archer) // health: 30
+};
+console.log(archer); // health: 30
 
-wizard.heal.call(archer)
+wizard.heal.call(archer, 50, 20);
 
-console.log(archer) // health: 100
+console.log(archer); // health: 100
 ```
+
+In this example call is used to _borrow_ the heal method from the wizard and is used on the archer (which is actually pointing _this_ to archer), with the optional arguments added.
+
+### Apply
+
+Apply is almost identical to call, except that instead of a comma separated list of arguments, it takes an array of arguments.
+
+```javascript
+// instead of this
+// wizard.heal.call(archer, 50, 20)
+// apply looks like this
+wizard.heal.apply(archer, [50, 20]);
+// this has the same result
+```
+
+### Bind
+
+Unlike call and apply, bind does not run the method it is used on, but rather returns a new function that can then be called later.
+
+```javascript
+console.log(archer); // health: 30
+const healArcher = wizard.heal.bind(archer, 50, 20);
+healArcher();
+console.log(archer); // health: 100
+```
+
+### Currying with bind
+
+Currying is breaking down a function with multiple arguments into one or more functions that each accept a single argument.
+
+```javascript
+function multiply(a, b) {
+  return a * b;
+}
+
+let multiplyByTwo = multiply.bind(this, 2);
+multiplyByTwo(4); // 8
+
+let multiplyByTen = multiply.bind(this, 10);
+multiplyByTen(6); // 60
+```
+
+> **Exercise**: Find the largest number in an array
+>
+> ```javascript
+> const array = [1, 2, 3];
+>
+> function getMaxNumber(arr) {
+>   return Math.max.apply(null, arr);
+> }
+>
+> getMaxNumber(array); // 3
+> ```
+
+> **Exercise 2**: How would you fix this?
+>
+> ```javascript
+> const character = {
+>   name: "Simon",
+>   getCharacter() {
+>     return this.name;
+>   }
+> };
+> const giveMeTheCharacterNOW = character.getCharacter;
+>
+> //How Would you fix this?
+> console.log("?", giveMeTheCharacterNOW()); //this should return 'Simon' but doesn't
+> // ANSWER
+> // change this line
+> const giveMeTheCharacterNOW = character.getCharacter.bind(character);
+> console.log("?", giveMeTheCharacterNOW()); // ? Simon
+> ```
+
+---
+
 </div>
