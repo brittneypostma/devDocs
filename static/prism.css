@@ -38,6 +38,8 @@ pre[class*="language-"] {
 	background: radial-gradient(at top, #7c7c7c 10%, #333, #000);
 	border-radius: 0.5em;
 	display: inline-block;
+	max-width: 95%;
+	position: relative;
 	margin: .5em auto;
 }
 

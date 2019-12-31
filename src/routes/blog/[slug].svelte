@@ -105,6 +105,10 @@
   }
 
   @media only screen and (max-width: 900px) {
+      .post-page {
+    width: 95%;
+    margin: 0 auto;
+  }
     .content {
       width: 100%;
     }

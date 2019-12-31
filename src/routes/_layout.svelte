@@ -18,6 +18,7 @@
     box-sizing: border-box;
     width: 100%;
     color: var(--font-color);
+    overflow-x: hidden;
   }
 
   footer {

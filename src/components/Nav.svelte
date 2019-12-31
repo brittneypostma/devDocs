@@ -37,7 +37,6 @@
     margin-left: 10px;
   }
 
- 
   .a-logo {
     margin: 0;
     padding: 0;
@@ -53,7 +52,7 @@
     transform: scale(1.5);
   }
 
-    .nav-links {
+  .nav-links {
     display: flex;
   }
 
@@ -159,27 +158,82 @@
   .slider.round:before {
     border-radius: 50%;
   }
+
+  @media only screen and (max-width: 500px) {
+    nav {
+      font-size: 14px;
+    }
+
+    input:hover + .slider:before {
+      transform: none;
+    }
+
+    .slider:hover::before {
+      background-color: #ccc;
+      transform: none;
+    }
+
+    .slider-img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .theme-switch {
+      display: inline-block;
+      height: 20px;
+      position: relative;
+      width: 50px;
+    }
+
+    .slider:before {
+      background-color: #fff;
+      bottom: 3px;
+      content: "";
+      height: 15px;
+      left: 4px;
+      position: absolute;
+      transition: all 0.4s linear;
+      width: 15px;
+    }
+    .theme-switch-wrapper {
+      top: 7px;
+      position: relative;
+    }
+  }
 </style>
 
 <nav>
-  
-  <div class="links">
-  <a class="a-logo" href="."><img src="favicon.png" alt="logo" class="logo"/></a>
-  <div class="nav-links">
-    <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
 
-    <a rel="prefetch" class={segment === 'blog' ? 'selected' : ''} href="blog">
-      logs
+  <div class="links">
+    <a class="a-logo" href=".">
+      <img src="favicon.png" alt="logo" class="logo" />
     </a>
+    <div class="nav-links">
+      <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
+
+      <a
+        rel="prefetch"
+        class={segment === 'blog' ? 'selected' : ''}
+        href="blog">
+        logs
+      </a>
     </div>
   </div>
   <div class="theme-switch-wrapper">
-    <img class="slider-img" src="sun.png" alt="light-mode" style="margin-right: 0.5em;" />
+    <img
+      class="slider-img"
+      src="sun.png"
+      alt="light-mode"
+      style="margin-right: 0.5em;" />
     <label class="theme-switch" for="checkbox">
       <input type="checkbox" id="checkbox" />
       <div class="slider round" />
     </label>
-    <img class="slider-img" src="moon.png" alt="dark-mode" style="margin-left: 0.5em;" />
+    <img
+      class="slider-img"
+      src="moon.png"
+      alt="dark-mode"
+      style="margin-left: 0.5em;" />
   </div>
 
 </nav>
