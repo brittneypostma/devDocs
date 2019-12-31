@@ -241,7 +241,7 @@ JavaScript is a garbage collected language. If you allocate memory inside of a f
 <a href="https://developers.soundcloud.com/blog/garbage-collection-in-redux-applications" rel="noopener noreferrer" target="_blank" style="display: flex; justify-content: center;">Mark and Sweep Method</a>
 
 <p align='center'>
-<img src="mark_and_sweep.gif" alt="mark and sweep figure" width="100%"/>
+<img src="mark_and_sweep.gif" alt="mark and sweep figure" width="50%"/>
 </p>
 
 ---
@@ -304,7 +304,7 @@ In the last example, we get the same output. How does this work if it waits 0 se
 <a href="http://latentflip.com/loupe/?code=ZnVuY3Rpb24gcHJpbnRIZWxsbygpIHsNCiAgICBjb25zb2xlLmxvZygnSGVsbG8gZnJvbSBiYXonKTsNCn0NCg0KZnVuY3Rpb24gYmF6KCkgew0KICAgIHNldFRpbWVvdXQocHJpbnRIZWxsbywgMzAwMCk7DQp9DQoNCmZ1bmN0aW9uIGJhcigpIHsNCiAgICBiYXooKTsNCn0NCg0KZnVuY3Rpb24gZm9vKCkgew0KICAgIGJhcigpOw0KfQ0KDQpmb28oKTs%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" rel="noopener noreferrer" target="_blank" style="display: flex; justify-content: center;">JS Runtime Playground</a>
 
 <p align='center'>
-<iframe width="100%" height="315" src="https://www.youtube.com/embed/8aGhZQkoFbQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="75%" height="350" src="https://www.youtube.com/embed/8aGhZQkoFbQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 
 > **Nifty Snippet**: Until 2009, JavaScript was only ran inside of the browser. That is when Ryan Dahl decided it would be great if we could use JavaScript to build things outside the browser. He used C and C++ to build an executible (exe) program called Node JS. Node JS is a JavaScript runtime environment built on Chrome's V8 engine that uses C++ to provide the event loop and callback queue needed to run asyncronous operations.
