@@ -412,11 +412,26 @@ showArgs2("hello", "world");
 // hello world
 ```
 
+> ## Arrow Functions
+> Some people think of arrow functions as just being syntactic sugar for a reguar function, but arrow functions work a bit differently than a regular function. They are a compact alternative to a regular function, but also without its own bindings to **this**, **arguments**, **super**, or **new.target** keywords. Arrow functions cannot be used as constuctors and are not the best option for methods.
+> ```javascript
+> var obj = { // does not create a new scope
+> i: 10,
+>  b: () => console.log(this.i, this),
+>  c: function() {
+>    console.log(this.i, this);
+>  }
+> }
+>
+>
+> obj.b(); // prints undefined, Window {...} (or the global object)
+> obj.c(); // prints 10, Object {...}```
+> ```
 ---
 
 ## Hoisting
 
-Hoisting is the process of putting all variable and function declarations into memory during the compile phase. In JavaScript, functions are fully hoisted, but variables are only partially hoisted. They are given a memory allocation and a value of undefined until they are initialized in line. So if a variable is used in the code before it is initialized, then it will return undefined. However, a function can be called from anywhere in the code base because it is fully hoisted.
+Hoisting is the process of putting all variable and function declarations into memory during the compile phase. In JavaScript, functions are fully hoisted, var variables are hoisted and initialized to undefined, and let and const variables are hoisted but not initialized a value. Var variables are given a memory allocation and initialized a value of undefined until they are set to a value in line. So if a var variable is used in the code before it is initialized, then it will return undefined. However, a function can be called from anywhere in the code base because it is fully hoisted. If let and const are used before they are declared, then they will throw a reference error because they have not yet been initialized.
 
 ```javascript
 // function expression gets hoisted as undefined
@@ -428,6 +443,8 @@ function sing2() {
   console.log("ohhhh la la la");
 }
 ```
+
+<br/>
 
 ```javascript
 // function declaration gets hoisted
@@ -443,6 +460,7 @@ function a() {
 console.log(a());
 // bye
 ```
+<br/>
 
 ```javascript
 // variable declaration gets hoisted as undefined
@@ -638,7 +656,7 @@ Immediately Invoked Function Expression or more simply **IIFE** is a JavaScript 
 ## this
 
 <p align='center'>
-  <img src="dun.png" alt="dun dun duuun" width="50%"/><br/>
+  <img src="dun.png" alt="dun dun duuun" width="25%"/><br/>
   Here we are...
 </p>
 
@@ -726,4 +744,45 @@ a() // called by window
 // b Window {…}
 // c {hi: ƒ}
 ```
+## Lexical vs Dynamic Scope
+
+A big gotcha for a lot of people working with *this is when a function is ran inside of another function. It gets a little confusing, but we can remember who called the function.
+
+```javascript
+const obj = {
+  name: 'Billy',
+  sing() {
+    console.log('a', this)
+    var anotherFunc = function() {
+      console.log('b', this)
+    }
+    anotherFunc()
+  }
+}
+obj.sing()
+
+// a {name: "Billy", sing: ƒ}
+// b Window {…}
+```
+
+In the example above, the obj called sing() and then anotherFunc() was called within the sing() function. In JavaScript, that function defaults to the Window object. It happens because everything in JavaScript is lexically scoped except for the **this** keyword. It doesn't matter where it is written, it matters how it is called.  Changing anotherFunc() instead to an arrow function will fix this problem, as seen below. Arrow functions do not bind or set their own context for **this**. If **this** is used in an arrow function, it is taken from the outside. Arrow functions also have no **arguments** created as functions do.
+
+```javascript
+const obj = {
+  name: 'Billy',
+  sing() {
+    console.log('a', this)
+    var anotherFunc = () => {
+      console.log('b', this)
+    }
+    anotherFunc()
+  }
+}
+obj.sing()
+
+// a {name: "Billy", sing: ƒ}
+// b {name: "Billy", sing: ƒ}
+```
+
+After everything is said and done, using **this** can still be a bit confusing. If you aren't sure what it's referencing, just console.log(this) and see where it's pointing.
 </div>
