@@ -1052,4 +1052,17 @@ Objects are one of the broadest types in JavaScript, almost "everything" is an o
 - &#x25FE; Functions are always objects
 - &#x25FE; Objects are always objects
 
+### Primitive vs Non Primitive
+
+**Primitive** - Primitive values are defined by being immutable, they cannot be altered. The variable assigned to a primitive type may be reassigned to a new value, but the original value can not be changed in the same way objects can be modified. Primitives are **passed by value**, meaning their values are copied and then placed somewhere else in the memory. They are also compared by value. There are currently 7 primitive data types in JavaScript.
+
+- &#x25FE; string
+- &#x25FE; number
+- &#x25FE; bigint
+- &#x25FE; boolean
+- &#x25FE; null
+- &#x25FE; undefined
+- &#x25FE; symbol
+
+**Non Primitive** - That only leaves us with _objects_. Objects are able to be mutated and their properties are **passed by reference**, meaning their properties are not stored separately. A new variable pointing to an object will not create a copy, but reference the same object. Changing the 2nd object will also change the first.
 </div>
