@@ -1088,6 +1088,7 @@ There are two ways to get around this, _Object.assign()_ or use the spread opera
 
 >**Shallow copy**: Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.<br/>
 >**Deep copy**: A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.<br/>
+<<<<<<< HEAD
 [Understanding Deep and Shallow Copy](https://we-are.bookmyshow.com/understanding-deep-and-shallow-copy-in-javascript-13438bad941c)
 
 ```javascript
@@ -1105,4 +1106,12 @@ const shallowObj = { ...originalObj };
 const deepObj = JSON.parse(JSON.stringify(originalObj))
 // deepObj clones all of
 ```
+=======
+>[Understanding Deep and Shallow Copy](https://we-are.bookmyshow.com/understanding-deep-and-shallow-copy-in-javascript-13438bad941c)
+
+<p align='center'>
+  <img src="obj_memory.png" alt="Object Memory Allocation" width="75%"/>
+</p>
+
+>>>>>>> a0be454137f71d67f8927dcce947d755dd1ae35a
 </div>
