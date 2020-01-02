@@ -1084,9 +1084,25 @@ newArr.push(4)
 console.log(arr) // [1, 2, 3, 4]
 console.log(newArr) // [1, 2, 3, 4]
 ```
-The way to get around this, is to use the spread operator {...} to "spread" or expand the object into a new variable. By doing this, it will allow the new variable to be modified without changing the original.  However, this only creates a "shallow copy".
+There are two ways to get around this, _Object.assign()_ or use the spread operator {...} to "spread" or expand the object into a new variable. By doing this, it will allow the new variable to be modified without changing the original.  However, these only create a "shallow copy".
 
 >**Shallow copy**: Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.<br/>
 >**Deep copy**: A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.<br/>
 [Understanding Deep and Shallow Copy](https://we-are.bookmyshow.com/understanding-deep-and-shallow-copy-in-javascript-13438bad941c)
+
+```javascript
+const originalObj = {
+  nested: {
+    nestedKey: "nestedValue"
+  },
+  key: "value"
+}
+// originalObj points to location 1 in memory
+const assignObj = originalObj;
+// assignObj will point to 1 in memory
+const shallowObj = { ...originalObj };
+// shallowObj points to a new location 2, but references location 1 for the nested object
+const deepObj = JSON.parse(JSON.stringify(originalObj))
+// deepObj clones all of
+```
 </div>
