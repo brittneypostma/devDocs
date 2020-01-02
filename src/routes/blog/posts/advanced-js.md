@@ -1098,17 +1098,75 @@ const originalObj = {
   key: "value"
 }
 // originalObj points to location 1 in memory
-const assignObj = originalObj;
+const assignObj = originalObj
 // assignObj will point to 1 in memory
-const shallowObj = { ...originalObj };
+const shallowObj = { ...originalObj }
 // shallowObj points to a new location 2, but references location 1 for the nested object
 const deepObj = JSON.parse(JSON.stringify(originalObj))
-// deepObj clones all of
+// deepObj clones all parts of the object to a new memory address
 ```
->[Understanding Deep and Shallow Copy](https://we-are.bookmyshow.com/understanding-deep-and-shallow-copy-in-javascript-13438bad941c)
+
 
 <p align='center'>
-  <img src="obj_memory.png" alt="Object Memory Allocation" width="75%"/>
+<iframe style="border: 2px solid black; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7kGBvbp2yrJPIfaqYMaOCg%2FUntitled%3Fnode-id%3D0%253A1" allowfullscreen></iframe>
 </p>
+
+```javascript
+const originalObj = {
+  nested: {
+    nestedKey: "nestedValue"
+  },
+  key: "value"
+}
+const assignObj = originalObj
+const shallowObj = { ...originalObj }
+const deepObj = JSON.parse(JSON.stringify(originalObj))
+
+console.log("originalObj: ", originalObj)
+console.log("assignObj: ", assignObj)
+console.log("shallowObj: ", shallowObj)
+console.log("deepObj: ", deepObj)
+
+/*
+originalObj: {nested: {
+                nestedKey: "changed value"
+                }, 
+              key: "changed value"}
+
+assignObj: {nested: {
+                nestedKey: "changed value"
+                }, 
+              key: "changed value"}
+
+shallowObj: {nested: {
+                nestedKey: "changed value"
+                }, 
+              key: "value"}
+
+deepObj: {nested: {
+                nestedKey: "nestedValue"
+                }, 
+              key: "value"}
+*/
+```
+
+> **Nifty Snippet**: If you try to check if 2 objects with the same properties are equal with _obj1 = obj2_, it will return _false_. It does this because each object has its own address in memory as we learned about. The easiest way to check the contents of the objects for equality is this.
+> ```javascript
+> JSON.stringify(obj1) === JSON.stringify(obj2)
+> ```
+> This will return _true_ if all the properties are the same.
+
+### Type Coercion
+
+Type cooercion is the process of converting one type of value into another.
+
+```javascript
+let num = 1
+let str = '1'
+num == str 
+// notice loose equality 2 =, not 3
+// true
+
+```
 
 </div>
