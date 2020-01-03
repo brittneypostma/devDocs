@@ -1158,15 +1158,21 @@ deepObj: {nested: {
 
 ### Type Coercion
 
-Type cooercion is the process of converting one type of value into another.
+Type cooercion is the process of converting one type of value into another. There are 3 types of conversion in JavaScript.
+
+- &#x25FE; to string
+- &#x25FE; to boolean
+- &#x25FE; to number
 
 ```javascript
 let num = 1
 let str = '1'
-num == str 
-// notice loose equality 2 =, not 3
-// true
-
+num == str // true
+// notice loose equality ==, not ===
+// double equals (==) will perform a type conversion
+// one or both sides may undergo conversions
+// in this case 1 == 1 or '1' == '1' before checking equality
 ```
 
+> **Strict equals**: The triple equals (===) or strict equality compares two values without type coersion. If the values are not the same type, then the values are not equal. This is almost always the right way to check for equality in JavaScript, so you don't accidentaly cooerce a value and end up with a bug in your program.
 </div>
