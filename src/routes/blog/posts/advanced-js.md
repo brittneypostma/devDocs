@@ -1174,5 +1174,19 @@ num == str // true
 // in this case 1 == 1 or '1' == '1' before checking equality
 ```
 
-> **Strict equals**: The triple equals (===) or strict equality compares two values without type coersion. If the values are not the same type, then the values are not equal. This is almost always the right way to check for equality in JavaScript, so you don't accidentaly cooerce a value and end up with a bug in your program.
+> **Strict equals**: The triple equals (===) or strict equality compares two values without type coersion. If the values are not the same type, then the values are not equal. This is almost always the right way to check for equality in JavaScript, so you don't accidentaly cooerce a value and end up with a bug in your program. Here is the [MDN Equality Comparision](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness) page and the [ECMAScript Comparision Algorithm](https://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3).
+
+There are several edge cases that you will come in contact with in JavaScript as well. Check out this [Comparison Table](https://dorey.github.io/JavaScript-Equality-Table/) if you have questions about how types are coerced.
+
+### Static vs Dynamic Typed
+
+The major difference between static and dynamic typed languages is when the types of variables are checked. Static typed languages (Java, C, C++, C#) are checked during the compile stage, so all types are known before run-time. Dynamic languages (JavaScript, PHP, Python, Ruby, Perl) are checked on the fly, during the execution stage. Also, after dividing the languages into dynamic and static, they are then divided again into **strong** and **weak** typed. Weakly typed (JavaScript, PHP, C, C++) languages can make type coercions implicitly while strongly typed (Python, Ruby, C#, Java) do not allow conversions between unrelated types. 
+
+<p align='center'>
+<img src="languages.png" alt="Static Dynamic Strong Weak languages graph" width="75%">
+</p>
+
+---
+
+
 </div>
