@@ -4,7 +4,6 @@ const prism = require('prismjs');
 const marked = require('marked');
 const matter = require('gray-matter');
 const formatDate = require('date-fns/format');
-const readingTime = require('reading-time');
 
 // Support JSX syntax highlighting
 require('prismjs/components/prism-jsx.min');
@@ -35,15 +34,23 @@ renderer.code = (code, language) => {
 	return `<pre class="language-${language}"><code class="language-${language}">${highlighted}</code></pre>`;
 };
 
-marked.setOptions({ renderer });
+marked.setOptions({
+	renderer
+});
 
 const posts = fs
 	.readdirSync(POSTS_DIR)
 	.filter(fileName => /\.md$/.test(fileName))
 	.map(fileName => {
 		const fileMd = fs.readFileSync(path.join(POSTS_DIR, fileName), 'utf8');
-		const { data, content: rawContent } = matter(fileMd);
-		const { title, date } = data;
+		const {
+			data,
+			content: rawContent
+		} = matter(fileMd);
+		const {
+			title,
+			date
+		} = data;
 		const slug = fileName.split('.')[0];
 		let content = rawContent;
 		// let excerpt = '';
