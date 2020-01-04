@@ -1188,5 +1188,25 @@ The major difference between static and dynamic typed languages is when the type
 
 ---
 
+## The 2 Pillars: Closures and Prototypal Inheritance
+
+Closures and Prototypical Inheritance are things that make JavaScript special. But, before diving into those there are a few things we need to review.
+
+### Function Constructor
+
+Functions are objects in JavaScript, which is not true for other languages. Because of that, they can be called multiple ways, but they can also be constructors. A **function constructor** creates a new _Function_ object. Every JavaScript function, is actually a function object.
+
+```javascript
+(function(){}).contructor === Function 
+// true
+
+// function constructor
+new Function ('optionalArguments', 'functionBody')
+
+const four = new Function('return four') // 4
+const sum = new Function('x', 'y', 'return x + y')
+console.log(sum(2, 3)) // 5
+```
+
 
 </div>
