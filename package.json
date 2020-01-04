@@ -1,6 +1,6 @@
 {
-	"name": "Console Logs",
-	"description": "Console Logs - a site for all my bytes of programming related knowledge.",
+	"name": "TODO",
+	"description": "TODO",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "sapper dev",
