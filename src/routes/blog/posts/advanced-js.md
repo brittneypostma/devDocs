@@ -1383,5 +1383,22 @@ efficient(6500)
 // inefficient created the bigArray 3 times
 // efficient created the bigArray only once
 ```
+### Encapsulation
 
+Encapsulation means the restriction of direct accessto some of an object's components. It hides as much as possible of an object's internal parts and only exposes the necessary parts to run. Why use encapsulation?
+
+- Security - Controlled access
+- Hide Implementation and Expose Behaviours
+- Loose Coupling - Modify the implementation at any time
+
+```javascript
+function encapsulate() {
+  const getEmployee = () => employee
+  const setEmployee = name => employee = name
+  return {
+    getEmployee,
+    setEmployee
+  }
+}
+```
 </div>
