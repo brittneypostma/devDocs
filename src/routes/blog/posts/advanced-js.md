@@ -255,7 +255,7 @@ var person = {
 person = "Brittney Postma";
 ```
 
-In the example above a **memory leak** is created. By changing the variable person from an object to a string, it leaves the values of first and last in the memory heap and does not remove it. This can be avoided by trying to keep variables out of the global namespace, only instantiate variable inside of functions when possible. JavaScript is a **single threaded** language, meaning only one thing can be executed at a time. It only has one call stack and therefore it is a **synchronous** language.
+In the example above a **memory leak** is created. By changing the variable person from an object to a string, it leaves the values of first and last in the memory heap and does not remove it. This can be avoided by trying to keep variables out of the global namespace, only instantiate variables inside of functions when possible. JavaScript is a **single threaded** language, meaning only one thing can be executed at a time. It only has one call stack and therefore it is a **synchronous** language.
 
 ### Synchronous
 
@@ -505,6 +505,10 @@ one();
 
 ## Scope Chain
 
+<p align="center">
+<img alt="Scope Graph" src="scope_graph.png" style="width: 50%;"/>
+</p>
+
 Each environment context that is created has a link outside of its lexical environment called the scope chain. The scope chain gives us access to variables in the parent environment.
 
 ```javascript
@@ -634,12 +638,9 @@ Immediately Invoked Function Expression or more simply **IIFE** is a JavaScript 
 // Immediately invokes the function with 2nd set of ()
 ```
 
-> ## Takeaways
->
-> <p align='center'>
-> Avoid polluting the global namespace or scope when possible.<br/>
->   <img src="pollute.gif" alt="Don't Pollute" width="100%"/>
-> </p>
+> **Takeaways**: Avoid polluting the global namespace or scope when possible.<br/>
+><img src="pollute.gif" alt="Don't Pollute" width="25%"/>
+
 
 ---
 
@@ -1188,7 +1189,7 @@ The major difference between static and dynamic typed languages is when the type
 
 ---
 
-## The 2 Pillars: Closures and Prototypal Inheritance
+## The 2 Pillars: Closures and Prototypes
 
 Closures and Prototypical Inheritance are things that make JavaScript special. But, before diving into those there are a few things we need to review.
 
@@ -1233,6 +1234,154 @@ const funcObj = {
 const obj = {
   // nothing gets created
 }
+```
+
+> **Nifty snippet**: You might hear people say "Functions are first-class citizens in JavaScript". All this means is that functions can be passed around as if they were a JavaScript type. Anything that can be done with other types, can also be done with functions. This introduces JavaScript to a whole different type of programming called **functional programming**. Below are some examples of how functions work differently in JavaScript. 
+>```javascript
+> // setting functions to variables
+> var setFuncToVar = function () {}
+> // call function within another
+> function a(fn) {
+>   fn()
+> }
+> a(function () {console.log('a new function')}
+> // return functions within another
+> function b() {
+>   return function c() {console.log('another func')}
+> }
+
+### Higher Order Functions
+
+A Higher Order Function (HOF) is a function that either takes a function as an argument or returns another function. There are 3 kinds of functions in JavaScript.
+
+- &#x25FE; function ()
+- &#x25FE; function (a,b)
+- &#x25FE; function hof() { return function () {} }
+
+Instead of writing multiple functions that do the same thing, remember DRY (don't repeat yourself). Imagine in the example below, if you separated each code out into individual functions how much more code you would be writing and how much code would be repeated.
+
+```javascript
+const giveAccessTo = name => `Access granted to ${name}`
+
+function auth(roleAmt) {
+  let array = []
+  for (let i = 0; i < roleAmt; i++) {
+    array.push(i)
+  }
+  return true
+}
+
+function checkPerson(person, fn) {
+  if (person.level === 'admin') {
+    fn(100000)
+  } else if (person.level === 'user') {
+    fn(500000)
+  }
+  return giveAccessTo(person.name)
+}
+
+checkPerson({level: 'admin', name: 'Brittney'}, auth)
+// "Access granted to Brittney"
+```
+Take the example below of how you can separate code out and break it down to make it more reusable.
+
+```javascript
+function multBy(a) {
+  return function(b) {
+    return a * b
+  }
+}
+
+// can also be an arrow function
+const multiplyBy = a => b => a * b
+
+const multByTwo = multiplyBy(2)
+const multByTen = multiplyByTen(10)
+
+multByTwo(4) // 8
+multByTen(5) // 50
+```
+
+### Closures
+
+Closures allow a function to access variables from an enclosing scope or envrionment even after it leaves the scope in which it was declared. In other words, a closure gives you access to its outer functions scope from the inner scope. The JavaScript engine will keep variables around inside functions that have a reference to them, instead of "sweeping" them away after they are popped off the call stack.
+
+```javascript
+function a() {
+  let grandpa = 'grandpa'
+  return function b() {
+    let father = 'father'
+    let random = 12345 // not referenced, will get garbage collected
+    return function c() {
+      let son = 'son'
+      return `closure inherited all the scopes: ${grandpa} > ${father} > ${son}`
+    }
+  }
+}
+
+a()()()
+
+// closure inherited all the scopes: grandpa > father > son
+
+const closure = grandma => mother => daughter => return `${grandma} > ${mother} > ${daughter}`
+
+// grandma > mother > daughter
+```
+
+> A Fun Example with Closures:
+>```javascript
+>function callMeMaybe() {
+>    const callMe = `Hey, I just met you!`
+>    setTimeout(function() {
+>        console.log(callMe)
+>    }, 8640000000);
+>
+>callMeMaybe()
+>
+>// ONE DAY LATER
+>// Hey, I just met you!
+>```
+>Do not run this in the console, it takes 1 day to timeout!
+
+Two of the major reasons closures are so beneficial are memory efficiency and encapsulation. 
+
+### Memory Efficient
+
+Using closures makes your code more memory efficient. Take the example below.
+
+```javascript
+function inefficient(idx) {
+  const bigArray = new Array(7000).fill('😄')
+  console.log('created!')
+  return bigArray[idx]
+}
+
+function efficient() {
+  const bigArray = new Array(7000).fill('😄')
+  console.log('created again!')
+  return function (idx) {
+    return bigArray[idx]
+  }
+}
+
+inefficient(688)
+inefficient(1000)
+inefficient(6500)
+
+const getEfficient = efficient()
+
+efficient(688)
+efficient(1000)
+efficient(6500)
+
+// created!
+// created!
+// created!
+// created Again!
+// '😄'
+
+// inefficient created the bigArray 3 times
+// efficient created the bigArray only once
 ```
 
 </div>
