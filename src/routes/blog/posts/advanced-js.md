@@ -1410,4 +1410,8 @@ data.rmName(0) // ['Brittney']
 // you have no access to the array people
 // can only change it via methods provided
 ```
+
+---
+
+
 </div>
