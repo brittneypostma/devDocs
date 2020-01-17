@@ -2,7 +2,6 @@
 title: Advanced JS
 ---
 
-<div style="max-width: 86vw">
 
 ## Advanced Javascript Concepts
 
@@ -1413,5 +1412,3 @@ data.rmName(0) // ['Brittney']
 
 ---
 
-
-</div>
