@@ -30,7 +30,7 @@ Python is:
 
 Python does not have a mandatory character (like semicolon ;) to close off a statment and blocks are specified by indentation. Statements that need an indentation after end in a colon  (:). Failing to indent a block of code will result in a syntax error. Comments start with the pound or hastag (#) symbol for a single line and 3 string characters (''') to start and end the block for multi-line comments. Assignment is done with the equals (=) sign, and testing equality is done with a double equals (==). You can also shortcut increment/decrement characters with (+=/-=).
 
-```py
+```python
 a = 5 #no semicolon here
 b = 2
 if a > b:
