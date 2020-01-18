@@ -33,14 +33,251 @@ Python does not have a mandatory character (like semicolon ;) to close off a sta
 ```python
 a = 5 #no semicolon here
 b = 2
+
 if a > b:
     print(a 'is greater than' b) 
 elif a == b:
     print(a 'is equal to' b)
 else:
     print(a 'is less than' b))
+
 '''
 not indenting the print line
 will give a syntax error
 '''
+# as long as the string comment
+# isn't set to a variable,
+# python will ignore it
 ```
+
+---
+
+## Variables
+
+Rules for naming Python variables:
+
+- &#x25FE; Must start with a letter or underscore (_) character.
+- &#x25FE; Cannot start with a number.
+- &#x25FE; Can only contain alpha-numeric characters and underscores.
+- &#x25FE; Names are case-sensitive.
+
+Multiple values can also be assigned in one line.
+
+```python
+x, y, z = 'one', 'two', 'three'
+print(x)
+print(y)
+print(z)
+
+# one
+# two
+# three
+```
+
+## Operators
+
+### Math Operators
+
+
+- &#x25FE; **+** Addition, adds two numbers.
+
+- &#x25FE; **-** Subtraction, subtracts two numbers.
+
+- &#x25FE; **\*** Multiplication, multiplies two numbers.
+
+- &#x25FE; **/** Division (float), divides first number by the second number with remainders as floating point number.
+
+- &#x25FE; **//** Division (floor), divides first number by the second number rounded to the nearest number.
+
+- &#x25FE; **%** Modulus, returns the remainder of the first number divided by the second number.
+
+```python
+# Examples of Arithmetic Operator 
+a = 9
+b = 4
+  
+add = a + b 
+sub = a, b  
+mul = a * b   
+div1 = a / b 
+div2 = a // b 
+mod = a % b 
+  
+print(add) # 13
+print(sub) # 5
+print(mul) # 36
+print(div1) # 2.25
+print(div2) # 2
+print(mod) # 1
+```
+
+### Relational Operators
+
+
+- &#x25FE; **>** Greater than, returns true if left is greater than the right, else false.
+
+- &#x25FE; **<** Less than = return true if left is less than the right, else false.
+
+- &#x25FE; **==** Equal to, true if both sides are equal and of the same type.
+
+- &#x25FE; **!=** Not equal to, true if sides are not equal, else false.
+
+- &#x25FE; **>=** Greater than or equal to, true if the left is greater or equal to the right.
+
+- &#x25FE; **<=** Less than or equal to, true if the left is less than or equal to the right.
+
+```python
+# Examples of Relational Operators 
+a = 13
+b = 33
+  
+print(a > b) # False
+print(a < b) # True
+print(a == b) # False
+print(a != b) # True
+print(a >= b) # False
+print(a <= b) # True
+```
+
+### Logical Operators
+
+
+- &#x25FE; **and** AND, true if both or all conditions are true, else false.
+
+- &#x25FE; **or** OR, true if any condition is true, else false.
+
+- &#x25FE; **not** NOT, true if the condition is false, else true.
+
+```python
+# Examples of Logical Operator 
+a = True
+b = False
+  
+print(a and b) # False
+print(a or b) # True
+print(not a) # False
+```
+
+Python also has **global** or **local** variables. Any variable created outside of a function will be global and accessible anywhere. A variable created inside of a function will be local and will only be accessible within that function. The keyword **global** can be used on a variable inside of a function to make it accessible from the outside or to allow changes in a function to a variable declared on the global scope.
+
+## Types
+
+Python has many different types that are able to do different things based on their type. To get the type of a variable, you can run _type(var)_.
+
+<br/>
+
+<table>
+  <tr>
+    <td style="width:160px;">Text</td>
+    <td><code>str</code></td>
+  </tr>
+  <tr>
+    <td>Numeric:</td>
+    <td><code>int</code>, <code>float</code>,
+    <code>complex</code></td>
+  </tr>
+  <tr>
+    <td>Sequence:</td>
+    <td><code>list</code>, <code>tuple</code>, 
+    <code>range</code></td>
+  </tr>
+  <tr>
+    <td>Mapping</td>
+    <td><code>dict</code></td>
+  </tr>
+  <tr>
+    <td>Set:</td>
+    <td><code>set</code>, <code>frozenset</code></td>
+  </tr>
+  <tr>
+    <td>Boolean</td>
+    <td><code>bool</code></td>
+  </tr>
+  <tr>
+    <td>Binary:</td>
+    <td><code>bytes</code>, <code>bytearray</code>, 
+    <code>memoryview</code></td>
+  </tr>
+</table>
+
+
+```python
+a = str("Hello World") type(a) # str
+b = int(20) type(b) # int
+c = float(20.5) type(c) # float
+d = complex(1j) type(d) # complex
+e = list(("apple", "banana", "cherry")) type(e) # list
+f = tuple(("apple", "banana", "cherry")) type(f) # tuple
+g = range(6) type(g) # range
+h = dict(name="John", age=36) type(h) # dict
+i = set(("apple", "banana", "cherry"))
+j = set(("apple", "banana", "cherry"))
+k = bool(5) type(k) # bool
+l = bytes(5) type(l) # bytes
+m = bytearray(5) type(m) # bytearray
+n = memoryview(bytes(5)) type(n) # memoryview
+```
+
+
+<table>
+<tr>
+<th style="min-width:350px">Example</th>
+<th>Data Type</th>
+</tr>
+<tr>
+<td>x = str(&quot;Hello World&quot;)</td>
+<td>str</td>
+</tr>
+<tr>
+<td>x = int(20)</td>
+<td>int</td>
+</tr>
+<tr>
+<td>x = float(20.5)</td>
+<td>float</td>
+</tr>
+<tr>
+<td>x = complex(1j)</td>
+<td>complex</td>
+</tr>
+<tr>
+<td>x = list((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))</td>
+<td>list</td>
+</tr>
+  <tr>
+<td>x = tuple((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))</td>
+<td>tuple</td>
+  </tr>
+  <tr>
+<td>x = range(6)</td>
+<td>range</td>
+  </tr>
+  <tr>
+<td>x = dict(name=&quot;John&quot;, age=36)</td>
+<td>dict</td>
+  </tr>
+  <tr>
+<td>x = set((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))</td>
+<td>set</td>
+  </tr>
+  <tr>
+<td>x = frozenset((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))</td>
+<td>frozenset</td>
+  </tr>
+  <tr>
+<td>x = bool(5)</td>
+<td>bool</td>
+  </tr>
+  <tr>
+<td>x = bytes(5)</td>
+<td>bytes</td>
+  </tr>
+  <tr>
+<td>x = bytearray(5)</td>
+<td>bytearray</td>
+  </tr>
+<tr>
+<td>x = memoryview(bytes(5))</td>
+<td>memoryview</td>
+</tr>
+</table>

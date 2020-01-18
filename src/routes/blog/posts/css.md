@@ -60,35 +60,31 @@ There are 5 types of selectors.
 
 1.  1\. Simple selectors (element name, class, or id)
 
-    <div style="margin-left: 1em">
 
-        div {*styles*} .my-div {*styles*} #this-div {*styles*}
 
-    </div>
+```css
+div {*styles*} .my-div {*styles*} #this-div {*styles*}
+```
+
+    
 
 2.  2\. Combination selectors (relationship between multiple elements)
 
-    <div style="margin-left: 1em">
-
-        .my-div p {*styles only paragraphs with a parent container with a class of my-div*}
-
-    </div>
+```css
+ .my-div p {*styles only paragraphs with a parent container with a class of my-div*}
+``` 
 
 3.  3\. Pseudo-class selectors (state of an element)
 
-    <div style="margin-left: 1em">
-
-        a:hover {*styles the anchor link when it is hovered over*} li:nth-child(even) {*styles every other list element*}
-
-    </div>
+```css
+a:hover {*styles the anchor link when it is hovered over*} li:nth-child(even) {*styles every other list element*}
+```
 
 4.  4\. Pseudo-elements selectors (a piece of an element)
 
-    <div style="margin-left: 1em">
-
-        h1::before {content: "-"; *styles before the h1 with a -*} h1::after{content: "-"; *styles after the h1 with a -*}
-
-    </div>
+```css
+h1::before {content: "-"; *styles before the h1 with a -*} h1::after{content: "-"; *styles after the h1 with a -*}
+```
 
 5.  5\. Attribute selectors (an element with an attribute)
 
