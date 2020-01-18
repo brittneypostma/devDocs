@@ -2,10 +2,10 @@
 title: Python
 date: 01/17/2019
 ---
+
 <p align="center">
 <img src="python.png" alt="python logo"/>
 </p>
-
 
 Right away, I am impressed with the Python site by giving you up front details and tutorials on how to learn the language.
 
@@ -21,21 +21,21 @@ Disclaimer: I came from a JavaScript background and this will be starting from a
 
 Python is:
 
-- **strongly typed** - types are enforced 
+- **strongly typed** - types are enforced
 - **dynamic** - checked during execution, not before
 - **implicit** - variables do not need to be declared
 - **object-oriented** - everything is an object
 
 ## Syntax
 
-Python does not have a mandatory character (like semicolon ;) to close off a statment and blocks are specified by indentation. Statements that need an indentation after end in a colon  (:). Failing to indent a block of code will result in a syntax error. Comments start with the pound or hastag (#) symbol for a single line and 3 string characters (''') to start and end the block for multi-line comments. Assignment is done with the equals (=) sign, and testing equality is done with a double equals (==). You can also shortcut increment/decrement characters with (+=/-=).
+Python does not have a mandatory character (like semicolon ;) to close off a statement, the end of a statement is marked by a newline character. To continue a statement to multiple lines, use the line continuation character (\\). Blocks are specified by four spaces or a tab indentation, not including the indentation will result in a syntax error. Statements that need an indentation after end in a colon (:). Failing to indent a block of code will result in a syntax error. Comments start with the pound or hashtag (#) symbol for a single line and 3 string characters (''') to start and end the block for multi-line comments. Assignment is done with the equals (=) sign, and testing equality is done with a double equals (==). You can also shortcut increment/decrement characters with (+=/-=).
 
 ```python
 a = 5 #no semicolon here
 b = 2
 
 if a > b:
-    print(a 'is greater than' b) 
+    print(a 'is greater than' b)
 elif a == b:
     print(a 'is equal to' b)
 else:
@@ -56,7 +56,7 @@ will give a syntax error
 
 Rules for naming Python variables:
 
-- &#x25FE; Must start with a letter or underscore (_) character.
+- &#x25FE; Must start with a letter or underscore (\_) character.
 - &#x25FE; Cannot start with a number.
 - &#x25FE; Can only contain alpha-numeric characters and underscores.
 - &#x25FE; Names are case-sensitive.
@@ -74,10 +74,22 @@ print(z)
 # three
 ```
 
+Constants can be declared in Python using all caps and underscores (\_). Constants are typically declared in a separate file and then imported back into the main file.
+
+```python
+# constant.py
+PI = 3.14
+GRAVITY = 9.8
+
+# main.py
+import constant
+print(constant.PI) # 3.14
+print(constant.GRAVITY) # 9.8
+```
+
 ## Operators
 
 ### Math Operators
-
 
 - &#x25FE; **+** Addition, adds two numbers.
 
@@ -92,17 +104,17 @@ print(z)
 - &#x25FE; **%** Modulus, returns the remainder of the first number divided by the second number.
 
 ```python
-# Examples of Arithmetic Operator 
+# Examples of Arithmetic Operator
 a = 9
 b = 4
-  
-add = a + b 
-sub = a, b  
-mul = a * b   
-div1 = a / b 
-div2 = a // b 
-mod = a % b 
-  
+
+add = a + b
+sub = a, b
+mul = a * b
+div1 = a / b
+div2 = a // b
+mod = a % b
+
 print(add) # 13
 print(sub) # 5
 print(mul) # 36
@@ -112,7 +124,6 @@ print(mod) # 1
 ```
 
 ### Relational Operators
-
 
 - &#x25FE; **>** Greater than, returns true if left is greater than the right, else false.
 
@@ -127,10 +138,10 @@ print(mod) # 1
 - &#x25FE; **<=** Less than or equal to, true if the left is less than or equal to the right.
 
 ```python
-# Examples of Relational Operators 
+# Examples of Relational Operators
 a = 13
 b = 33
-  
+
 print(a > b) # False
 print(a < b) # True
 print(a == b) # False
@@ -141,7 +152,6 @@ print(a <= b) # True
 
 ### Logical Operators
 
-
 - &#x25FE; **and** AND, true if both or all conditions are true, else false.
 
 - &#x25FE; **or** OR, true if any condition is true, else false.
@@ -149,10 +159,10 @@ print(a <= b) # True
 - &#x25FE; **not** NOT, true if the condition is false, else true.
 
 ```python
-# Examples of Logical Operator 
+# Examples of Logical Operator
 a = True
 b = False
-  
+
 print(a and b) # False
 print(a or b) # True
 print(not a) # False
@@ -200,24 +210,7 @@ Python has many different types that are able to do different things based on th
   </tr>
 </table>
 
-
-```python
-a = str("Hello World") type(a) # str
-b = int(20) type(b) # int
-c = float(20.5) type(c) # float
-d = complex(1j) type(d) # complex
-e = list(("apple", "banana", "cherry")) type(e) # list
-f = tuple(("apple", "banana", "cherry")) type(f) # tuple
-g = range(6) type(g) # range
-h = dict(name="John", age=36) type(h) # dict
-i = set(("apple", "banana", "cherry"))
-j = set(("apple", "banana", "cherry"))
-k = bool(5) type(k) # bool
-l = bytes(5) type(l) # bytes
-m = bytearray(5) type(m) # bytearray
-n = memoryview(bytes(5)) type(n) # memoryview
-```
-
+<br/>
 
 <table>
 <tr>
@@ -225,27 +218,27 @@ n = memoryview(bytes(5)) type(n) # memoryview
 <th>Data Type</th>
 </tr>
 <tr>
-<td>x = str(&quot;Hello World&quot;)</td>
+<td>x = &quot;Hello World&quot;</td>
 <td>str</td>
 </tr>
 <tr>
-<td>x = int(20)</td>
+<td>x = 20</td>
 <td>int</td>
 </tr>
 <tr>
-<td>x = float(20.5)</td>
+<td>x = 20.5</td>
 <td>float</td>
 </tr>
 <tr>
-<td>x = complex(1j)</td>
+<td>x = 1j</td>
 <td>complex</td>
 </tr>
 <tr>
-<td>x = list((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))</td>
+<td>x = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]</td>
 <td>list</td>
 </tr>
   <tr>
-<td>x = tuple((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))</td>
+<td>x = (&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)</td>
 <td>tuple</td>
   </tr>
   <tr>
@@ -253,23 +246,23 @@ n = memoryview(bytes(5)) type(n) # memoryview
 <td>range</td>
   </tr>
   <tr>
-<td>x = dict(name=&quot;John&quot;, age=36)</td>
+<td>x = {&quot;name&quot; : &quot;John&quot;, &quot;age&quot; : 36}</td>
 <td>dict</td>
   </tr>
   <tr>
-<td>x = set((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))</td>
+<td>x = {&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;}</td>
 <td>set</td>
   </tr>
   <tr>
-<td>x = frozenset((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))</td>
+<td>x = frozenset({&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;})</td>
 <td>frozenset</td>
   </tr>
   <tr>
-<td>x = bool(5)</td>
+<td>x = True</td>
 <td>bool</td>
   </tr>
   <tr>
-<td>x = bytes(5)</td>
+<td>x = b&quot;Hello&quot;</td>
 <td>bytes</td>
   </tr>
   <tr>
@@ -280,4 +273,63 @@ n = memoryview(bytes(5)) type(n) # memoryview
 <td>x = memoryview(bytes(5))</td>
 <td>memoryview</td>
 </tr>
+</table>
+
+---
+
+## Keywords
+
+<table>
+	<caption>Keywords in Python</caption>
+	<tbody>
+		<tr>
+			<td><code>False</code></td>
+			<td><code>class</code></td>
+			<td><code>finally</code></td>
+			<td><code>is</code></td>
+			<td><code>return</code></td>
+		</tr>
+		<tr>
+			<td><code>None</code></td>
+			<td><code>continue</code></td>
+			<td><code>for</code></td>
+			<td><code>lambda</code></td>
+			<td><code>try</code></td>
+		</tr>
+		<tr>
+			<td><code>True</code></td>
+			<td><code>def</code></td>
+			<td><code>from</code></td>
+			<td><code>nonlocal</code></td>
+			<td><code>while</code></td>
+		</tr>
+		<tr>
+			<td><code>and</code></td>
+			<td><code>del</code></td>
+			<td><code>global</code></td>
+			<td><code>not</code></td>
+			<td><code>with</code></td>
+		</tr>
+		<tr>
+			<td><code>as</code></td>
+			<td><code>elif</code></td>
+			<td><code>if</code></td>
+			<td><code>or</code></td>
+			<td><code>yield</code></td>
+		</tr>
+		<tr>
+			<td><code>assert</code></td>
+			<td><code>else</code></td>
+			<td><code>import</code></td>
+			<td><code>pass</code></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><code>break</code></td>
+			<td><code>except</code></td>
+			<td><code>in</code></td>
+			<td><code>raise</code></td>
+			<td>&nbsp;</td>
+		</tr>
+	</tbody>
 </table>
