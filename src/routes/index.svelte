@@ -42,6 +42,6 @@
 <p>A site for all my bytes of programming related knowledge.</p>
 
 <figure>
-  <img alt="Borat" src="great-success.png" />
-  <figcaption>GREAT SUCCESS!</figcaption>
+  <img alt="dev" src="dev.png" />
+  <figcaption>Welcome!</figcaption>
 </figure>
