@@ -1,6 +1,5 @@
 <style>
   h1,
-  figure,
   p {
     text-align: center;
     margin: 0 auto;
@@ -11,10 +10,6 @@
     text-transform: uppercase;
     font-weight: 700;
     margin: 0 0 0.5em 0;
-  }
-
-  figure {
-    margin: 0 0 1em 0;
   }
 
   img {
@@ -41,7 +36,4 @@
 <h1>Welcome to console logs!</h1>
 <p>A site for all my bytes of programming related knowledge.</p>
 
-<figure>
-  <img alt="dev" src="dev.png" />
-  <figcaption>Welcome!</figcaption>
-</figure>
+<img alt="dev" src="dev.png" />
