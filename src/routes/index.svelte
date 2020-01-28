@@ -1,4 +1,8 @@
 <style>
+.cont {
+  text-align: center;
+}
+
   h1,
   p {
     text-align: center;
@@ -32,8 +36,9 @@
 <svelte:head>
   <title>Console Logs</title>
 </svelte:head>
-
+<div class="cont">
 <h1>Welcome to console logs!</h1>
 <p>A site for all my bytes of programming related knowledge.</p>
 
 <img alt="dev" src="dev.png" />
+</div>
