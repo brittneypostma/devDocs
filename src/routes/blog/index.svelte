@@ -33,7 +33,6 @@
   }
 
   a {
-    color: #333;
     text-decoration: none;
     background: #fff;
     display: block;

@@ -2,7 +2,6 @@
 title: Advanced JS
 ---
 
-
 ## Advanced Javascript Concepts
 
 <p align="center">
@@ -637,9 +636,7 @@ Immediately Invoked Function Expression or more simply **IIFE** is a JavaScript 
 // Immediately invokes the function with 2nd set of ()
 ```
 
-> **Takeaways**: Avoid polluting the global namespace or scope when possible.<br/>
-><img src="pollute.gif" alt="Don't Pollute" width="25%"/>
-
+> **Takeaways**: Avoid polluting the global namespace or scope when possible.<br/> ><img src="pollute.gif" alt="Don't Pollute" width="25%"/>
 
 ---
 
@@ -970,72 +967,66 @@ I go into all of the types over in the [JavaScript](https://console-logs.netlify
 	</tbody>
 </table>
 
-> ***Null** - Why does the typeof null return object? When JavaScript was first implemented, values were represented as a type tag and a value.  The objects type tag was 0 and the _NULL_ pointer (0x00 in most platforms) consequently had 0 as a type tag as well. A fix was proposed that would have made _typeof null === 'null'_, but it was rejected due to legacy code that would have broken.
+> **\*Null** - Why does the typeof null return object? When JavaScript was first implemented, values were represented as a type tag and a value. The objects type tag was 0 and the _NULL_ pointer (0x00 in most platforms) consequently had 0 as a type tag as well. A fix was proposed that would have made _typeof null === 'null'_, but it was rejected due to legacy code that would have broken.
 
 ```javascript
 // Numbers
-typeof 37 === 'number';
-typeof 3.14 === 'number';
-typeof(42) === 'number';
-typeof Math.LN2 === 'number';
-typeof Infinity === 'number';
-typeof NaN === 'number'; // Despite being "Not-A-Number"
-typeof Number('1') === 'number';      // Number tries to parse things into numbers
-typeof Number('shoe') === 'number';   // including values that cannot be type coerced to a number
+typeof 37 === "number";
+typeof 3.14 === "number";
+typeof 42 === "number";
+typeof Math.LN2 === "number";
+typeof Infinity === "number";
+typeof NaN === "number"; // Despite being "Not-A-Number"
+typeof Number("1") === "number"; // Number tries to parse things into numbers
+typeof Number("shoe") === "number"; // including values that cannot be type coerced to a number
 
-typeof 42n === 'bigint';
-
+typeof 42n === "bigint";
 
 // Strings
-typeof '' === 'string';
-typeof "bla" === 'string';
-typeof `template literal` === 'string';
-typeof '1' === 'string'; // note that a number within a string is still typeof string
-typeof (typeof 1) === 'string'; // typeof always returns a string
-typeof String(1) === 'string'; // String converts anything into a string, safer than toString
-
+typeof "" === "string";
+typeof "bla" === "string";
+typeof `template literal` === "string";
+typeof "1" === "string"; // note that a number within a string is still typeof string
+typeof typeof 1 === "string"; // typeof always returns a string
+typeof String(1) === "string"; // String converts anything into a string, safer than toString
 
 // Booleans
-typeof true === 'boolean';
-typeof false === 'boolean';
-typeof Boolean(1) === 'boolean'; // Boolean() will convert values based on if they're truthy or falsy
-typeof !!(1) === 'boolean'; // two calls of the ! (logical NOT) operator are equivalent to Boolean()
-
+typeof true === "boolean";
+typeof false === "boolean";
+typeof Boolean(1) === "boolean"; // Boolean() will convert values based on if they're truthy or falsy
+typeof !!1 === "boolean"; // two calls of the ! (logical NOT) operator are equivalent to Boolean()
 
 // Symbols
-typeof Symbol() === 'symbol'
-typeof Symbol('foo') === 'symbol'
-typeof Symbol.iterator === 'symbol'
-
+typeof Symbol() === "symbol";
+typeof Symbol("foo") === "symbol";
+typeof Symbol.iterator === "symbol";
 
 // Undefined
-typeof undefined === 'undefined';
-typeof declaredButUndefinedVariable === 'undefined';
-typeof undeclaredVariable === 'undefined'; 
-
+typeof undefined === "undefined";
+typeof declaredButUndefinedVariable === "undefined";
+typeof undeclaredVariable === "undefined";
 
 // Objects
-typeof {a: 1} === 'object';
+typeof { a: 1 } === "object";
 
 // use Array.isArray or Object.prototype.toString.call
 // to differentiate regular objects from arrays
-typeof [1, 2, 4] === 'object';
+typeof [1, 2, 4] === "object";
 
-typeof new Date() === 'object';
-typeof /regex/ === 'object'; // See Regular expressions section for historical results
-
+typeof new Date() === "object";
+typeof /regex/ === "object"; // See Regular expressions section for historical results
 
 // The following are confusing, dangerous, and wasteful. Avoid them.
-typeof new Boolean(true) === 'object'; 
-typeof new Number(1) === 'object'; 
-typeof new String('abc') === 'object';
-
+typeof new Boolean(true) === "object";
+typeof new Number(1) === "object";
+typeof new String("abc") === "object";
 
 // Functions
-typeof function() {} === 'function';
-typeof class C {} === 'function';
-typeof Math.sin === 'function';
+typeof function() {} === "function";
+typeof class C {} === "function";
+typeof Math.sin === "function";
 ```
+
 > **Undefined vs Null**: Undefined is the absence of definition, it has yet to be defined, and null is the absence of value, there is no value there.
 
 ### Objects in JavaScript
@@ -1069,26 +1060,26 @@ Objects are one of the broadest types in JavaScript, almost "everything" is an o
 ```javascript
 // objects are passed by reference
 let obj = {
-  name: 'object 1'
-}
-let newObj = obj // points to same place in memory as obj
-newObj.name = 'newObj' // modifies the memory
+  name: "object 1"
+};
+let newObj = obj; // points to same place in memory as obj
+newObj.name = "newObj"; // modifies the memory
 // Since both point to the same place...
-console.log(obj) // {name: newObj}
-console.log(newObj) // {name: newObj}
+console.log(obj); // {name: newObj}
+console.log(newObj); // {name: newObj}
 // They are both modified.
 
-let arr = [1, 2, 3]
-let newArr = arr
-newArr.push(4)
-console.log(arr) // [1, 2, 3, 4]
-console.log(newArr) // [1, 2, 3, 4]
+let arr = [1, 2, 3];
+let newArr = arr;
+newArr.push(4);
+console.log(arr); // [1, 2, 3, 4]
+console.log(newArr); // [1, 2, 3, 4]
 ```
-There are two ways to get around this, _Object.assign()_ or use the spread operator {...} to "spread" or expand the object into a new variable. By doing this, it will allow the new variable to be modified without changing the original.  However, these only create a "shallow copy".
 
->**Shallow copy**: Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.<br/>
->**Deep copy**: A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.<br/>
-[Understanding Deep and Shallow Copy](https://we-are.bookmyshow.com/understanding-deep-and-shallow-copy-in-javascript-13438bad941c)
+There are two ways to get around this, _Object.assign()_ or use the spread operator {...} to "spread" or expand the object into a new variable. By doing this, it will allow the new variable to be modified without changing the original. However, these only create a "shallow copy".
+
+> **Shallow copy**: Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.<br/> >**Deep copy**: A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.<br/>
+> [Understanding Deep and Shallow Copy](https://we-are.bookmyshow.com/understanding-deep-and-shallow-copy-in-javascript-13438bad941c)
 
 ```javascript
 const originalObj = {
@@ -1096,16 +1087,15 @@ const originalObj = {
     nestedKey: "nestedValue"
   },
   key: "value"
-}
+};
 // originalObj points to location 1 in memory
-const assignObj = originalObj
+const assignObj = originalObj;
 // assignObj will point to 1 in memory
-const shallowObj = { ...originalObj }
+const shallowObj = { ...originalObj };
 // shallowObj points to a new location 2, but references location 1 for the nested object
-const deepObj = JSON.parse(JSON.stringify(originalObj))
+const deepObj = JSON.parse(JSON.stringify(originalObj));
 // deepObj clones all parts of the object to a new memory address
 ```
-
 
 <p align='center'>
 <iframe style="border: 2px solid black; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7kGBvbp2yrJPIfaqYMaOCg%2FUntitled%3Fnode-id%3D0%253A1" allowfullscreen></iframe>
@@ -1117,15 +1107,15 @@ const originalObj = {
     nestedKey: "nestedValue"
   },
   key: "value"
-}
-const assignObj = originalObj
-const shallowObj = { ...originalObj }
-const deepObj = JSON.parse(JSON.stringify(originalObj))
+};
+const assignObj = originalObj;
+const shallowObj = { ...originalObj };
+const deepObj = JSON.parse(JSON.stringify(originalObj));
 
-console.log("originalObj: ", originalObj)
-console.log("assignObj: ", assignObj)
-console.log("shallowObj: ", shallowObj)
-console.log("deepObj: ", deepObj)
+console.log("originalObj: ", originalObj);
+console.log("assignObj: ", assignObj);
+console.log("shallowObj: ", shallowObj);
+console.log("deepObj: ", deepObj);
 
 /*
 originalObj: {nested: {
@@ -1151,9 +1141,11 @@ deepObj: {nested: {
 ```
 
 > **Nifty Snippet**: If you try to check if 2 objects with the same properties are equal with _obj1 = obj2_, it will return _false_. It does this because each object has its own address in memory as we learned about. The easiest way to check the contents of the objects for equality is this.
+>
 > ```javascript
-> JSON.stringify(obj1) === JSON.stringify(obj2)
+> JSON.stringify(obj1) === JSON.stringify(obj2);
 > ```
+>
 > This will return _true_ if all the properties are the same.
 
 ### Type Coercion
@@ -1165,9 +1157,9 @@ Type cooercion is the process of converting one type of value into another. Ther
 - &#x25FE; to number
 
 ```javascript
-let num = 1
-let str = '1'
-num == str // true
+let num = 1;
+let str = "1";
+num == str; // true
 // notice loose equality ==, not ===
 // double equals (==) will perform a type conversion
 // one or both sides may undergo conversions
@@ -1180,7 +1172,7 @@ There are several edge cases that you will come in contact with in JavaScript as
 
 ### Static vs Dynamic Typed
 
-The major difference between static and dynamic typed languages is when the types of variables are checked. Static typed languages (Java, C, C++, C#) are checked during the compile stage, so all types are known before run-time. Dynamic languages (JavaScript, PHP, Python, Ruby, Perl) are checked on the fly, during the execution stage. Also, after dividing the languages into dynamic and static, they are then divided again into **strong** and **weak** typed. Weakly typed (JavaScript, PHP, C, C++) languages can make type coercions implicitly while strongly typed (Python, Ruby, C#, Java) do not allow conversions between unrelated types. 
+The major difference between static and dynamic typed languages is when the types of variables are checked. Static typed languages (Java, C, C++, C#) are checked during the compile stage, so all types are known before run-time. Dynamic languages (JavaScript, PHP, Python, Ruby, Perl) are checked on the fly, during the execution stage. Also, after dividing the languages into dynamic and static, they are then divided again into **strong** and **weak** typed. Weakly typed (JavaScript, PHP, C, C++) languages can make type coercions implicitly while strongly typed (Python, Ruby, C#, Java) do not allow conversions between unrelated types.
 
 <p align='center'>
 <img src="languages.png" alt="Static Dynamic Strong Weak languages graph" width="75%">
@@ -1190,23 +1182,36 @@ The major difference between static and dynamic typed languages is when the type
 
 ## The 2 Pillars: Closures and Prototypes
 
-Closures and Prototypical Inheritance are things that make JavaScript special. But, before diving into those there are a few things we need to review.
+Closures and Prototypical Inheritance are two things that make JavaScript special and different from other programming languages. 
 
 ### Function Constructor
 
 Functions are objects in JavaScript, which is not true for other languages. Because of that, they can be called multiple ways, but they can also be constructors. A **function constructor** creates a new _Function_ object. Every JavaScript function, is actually a function object.
 
 ```javascript
-(function(){}).contructor === Function 
+(function() {}.contructor === Function);
 // true
 
 // function constructor
-new Function ('optionalArguments', 'functionBody')
+new Function("optionalArguments", "functionBody");
 
-const four = new Function('return four') // 4
-const sum = new Function('x', 'y', 'return x + y')
-console.log(sum(2, 3)) // 5
+const four = new Function("return four"); // 4
+const sum = new Function("x", "y", "return x + y");
+console.log(sum(2, 3)); // 5
 ```
+
+### Prototypical Inheritance
+
+Objects in Javascript pass down properties through a prototype chain. We call this chain, prototypical inheritance. The child of the object "inherits" properties from its parent.
+
+```
+--------Objects---------
+__proto__     __proto__
+--Arrays--    --Functions--
+array[]         function(){}
+array methods    prototype
+```
+### Prototype vs __proto__
 
 Because functions are objects in JavaScript, this also gives them the ability to have properties added to them. This creates a **callable object**, a special object that creates properties not available on normal objects. Below is a visualization of how this works under the hood. This code can not be ran in the console, but it is a representation of how the object looks.
 
@@ -1221,7 +1226,7 @@ say.yell = 'yell something'
 // will not run or show in console
 const funcObj = {
   // name will not exist if anonymous
-  name: 'say', 
+  name: 'say',
   // code to be ran
   (): console.log('say something')
   // properties get added
@@ -1235,8 +1240,9 @@ const obj = {
 }
 ```
 
-> **Nifty snippet**: You might hear people say "Functions are first-class citizens in JavaScript". All this means is that functions can be passed around as if they were a JavaScript type. Anything that can be done with other types, can also be done with functions. This introduces JavaScript to a whole different type of programming called **functional programming**. Below are some examples of how functions work differently in JavaScript. 
->```javascript
+> **Nifty snippet**: You might hear people say "Functions are first-class citizens in JavaScript". All this means is that functions can be passed around as if they were a JavaScript type. Anything that can be done with other types, can also be done with functions. This introduces JavaScript to a whole different type of programming called **functional programming**. Below are some examples of how functions work differently in JavaScript.
+>
+> ```javascript
 > // setting functions to variables
 > var setFuncToVar = function () {}
 > // call function within another
@@ -1248,6 +1254,7 @@ const obj = {
 > function b() {
 >   return function c() {console.log('another func')}
 > }
+> ```
 
 ### Higher Order Functions
 
@@ -1260,45 +1267,46 @@ A Higher Order Function (HOF) is a function that either takes a function as an a
 Instead of writing multiple functions that do the same thing, remember DRY (don't repeat yourself). Imagine in the example below, if you separated each code out into individual functions how much more code you would be writing and how much code would be repeated.
 
 ```javascript
-const giveAccessTo = name => `Access granted to ${name}`
+const giveAccessTo = name => `Access granted to ${name}`;
 
 function auth(roleAmt) {
-  let array = []
+  let array = [];
   for (let i = 0; i < roleAmt; i++) {
-    array.push(i)
+    array.push(i);
   }
-  return true
+  return true;
 }
 
 function checkPerson(person, fn) {
-  if (person.level === 'admin') {
-    fn(100000)
-  } else if (person.level === 'user') {
-    fn(500000)
+  if (person.level === "admin") {
+    fn(100000);
+  } else if (person.level === "user") {
+    fn(500000);
   }
-  return giveAccessTo(person.name)
+  return giveAccessTo(person.name);
 }
 
-checkPerson({level: 'admin', name: 'Brittney'}, auth)
+checkPerson({ level: "admin", name: "Brittney" }, auth);
 // "Access granted to Brittney"
 ```
+
 Take the example below of how you can separate code out and break it down to make it more reusable.
 
 ```javascript
 function multBy(a) {
   return function(b) {
-    return a * b
-  }
+    return a * b;
+  };
 }
 
 // can also be an arrow function
-const multiplyBy = a => b => a * b
+const multiplyBy = a => b => a * b;
 
-const multByTwo = multiplyBy(2)
-const multByTen = multiplyByTen(10)
+const multByTwo = multiplyBy(2);
+const multByTen = multiplyByTen(10);
 
-multByTwo(4) // 8
-multByTen(5) // 50
+multByTwo(4); // 8
+multByTen(5); // 50
 ```
 
 ### Closures
@@ -1328,21 +1336,23 @@ const closure = grandma => mother => daughter => return `${grandma} > ${mother} 
 ```
 
 > A Fun Example with Closures:
->```javascript
->function callMeMaybe() {
+>
+> ```javascript
+> function callMeMaybe() {
 >    const callMe = `Hey, I just met you!`
 >    setTimeout(function() {
 >        console.log(callMe)
 >    }, 8640000000);
 >
->callMeMaybe()
+> callMeMaybe()
 >
->// ONE DAY LATER
->// Hey, I just met you!
->```
->Do not run this in the console, it takes 1 day to timeout!
+> // ONE DAY LATER
+> // Hey, I just met you!
+> ```
+>
+> Do not run this in the console, it takes 1 day to timeout!
 
-Two of the major reasons closures are so beneficial are memory efficiency and encapsulation. 
+Two of the major reasons closures are so beneficial are memory efficiency and encapsulation.
 
 ### Memory Efficient
 
@@ -1350,28 +1360,28 @@ Using closures makes your code more memory efficient. Take the example below.
 
 ```javascript
 function inefficient(idx) {
-  const bigArray = new Array(7000).fill('😄')
-  console.log('created!')
-  return bigArray[idx]
+  const bigArray = new Array(7000).fill("😄");
+  console.log("created!");
+  return bigArray[idx];
 }
 
 function efficient() {
-  const bigArray = new Array(7000).fill('😄')
-  console.log('created again!')
-  return function (idx) {
-    return bigArray[idx]
-  }
+  const bigArray = new Array(7000).fill("😄");
+  console.log("created again!");
+  return function(idx) {
+    return bigArray[idx];
+  };
 }
 
-inefficient(688)
-inefficient(1000)
-inefficient(6500)
+inefficient(688);
+inefficient(1000);
+inefficient(6500);
 
-const getEfficient = efficient()
+const getEfficient = efficient();
 
-efficient(688)
-efficient(1000)
-efficient(6500)
+efficient(688);
+efficient(1000);
+efficient(6500);
 
 // created!
 // created!
@@ -1382,9 +1392,10 @@ efficient(6500)
 // inefficient created the bigArray 3 times
 // efficient created the bigArray only once
 ```
+
 ### Encapsulation
 
-Encapsulation means the restriction of direct accessto some of an object's components. It hides as much as possible of an object's internal parts and only exposes the necessary parts to run. Why use encapsulation?
+Encapsulation means the restriction of direct access to some of an object's components. It hides as much as possible of an object's internal parts and only exposes the necessary parts to run. Why use encapsulation?
 
 - Security - Controlled access
 - Hide Implementation and Expose Behaviours
@@ -1392,23 +1403,84 @@ Encapsulation means the restriction of direct accessto some of an object's compo
 
 ```javascript
 const encapsulation = () => {
-    let people = []
-    const setName = name => people.push(name)
-    const getName = idx => people[idx]
-    const rmName = idx => people.splice(idx, 1)
-    return {
+  let people = [];
+  const setName = name => people.push(name);
+  const getName = idx => people[idx];
+  const rmName = idx => people.splice(idx, 1);
+  return {
     setName,
     getName,
     rmName
-    }
-}
-const data = encapsulation()
-data.setName('Brittney') // 0
-data.getName(0) // 'Brittney'
-data.rmName(0) // ['Brittney']
+  };
+};
+const data = encapsulation();
+data.setName("Brittney"); // 0
+data.getName(0); // 'Brittney'
+data.rmName(0); // ['Brittney']
 // you have no access to the array people
 // can only change it via methods provided
 ```
 
 ---
 
+## Object Oriented Programming vs Functional Programming
+
+There are 2 basic philosophies when it comes to how you structure your programs, object oriented and functional. Each style has its use in programming, it is not one over the other, but merely a preference in style.
+
+### Object Oriented Programming
+
+Object Oriented Programming, or OOP, is the idea that all code should be grouped into "boxes" (objects) to keep your code clean and organized. Considering almost everything in JavaScript is an object, you would think this would be easy to do. Say we want to create a game that has lots of characters that all have different abilities. How would we go about this?
+
+```javascript
+const elf1 = {
+  name: 'Dobby',
+  type: 'house',
+  weapon: 'cloth',
+  say: function() {
+    return `Hi, my name is ${this.name}, I am a ${this.type} elf.`
+  }
+  attack: function() {
+    return `attack with ${this.weapon}`
+  }
+}
+
+const elf2 = {
+  name: 'Legolas',
+  type: 'high',
+  weapon: 'bow',
+  say: function() {
+    return `Hi, my name is ${this.name}, I am a ${this.type} elf.`
+  }
+  attack: function() {
+    return `attack with ${this.weapon}`
+  }
+}
+```
+
+As you can see, this code is getting very repetitive and is not maintainable with only 1 character type. Imagine adding more characters, things would get out of control quickly. So, another way to create objects was introduced, **factory functions**. Factory functions return a new object every time they are ran. This could improve the code somewhat.
+
+```javascript
+function createElf(name, type, weapon) {
+  return {
+    name: name,
+    type: type,
+    weapon: weapon,
+    say() {
+      return `Hi, my name is ${name}, I am a ${type} elf.`;
+    },
+    attack() {
+      return `${name} attacks with ${weapon}`;
+    }
+  };
+}
+
+const dobby = createElf("Dobby", "house", "cloth");
+const legolas = createElf("Legolas", "high", "bow");
+
+dobby.say(); // Hi, my name is Dobby, I am a house elf.
+legolas.say(); // Hi, my name is Legolas, I am a high elf.
+dobby.attack(); // Dobby attacks with cloth.
+legolas.attack(); // Legolas attacks with bow.
+```
+
+This does make the code more readable, but if we added more characters, we would run into some of the same issues again. Not only is it not DRY, we are also taking up space in memory for each new elf created. They have a separate name, type, and weapon, so the methods will have to point to different places in memory. How do we solve this? JavaScript added the **Object.create** method to try and aid this problem. Object.create 
