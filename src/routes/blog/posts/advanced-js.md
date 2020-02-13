@@ -1220,35 +1220,63 @@ typeof assignString // string
 five === assignFive // false
 five == assignFive // true - types are coerced
 
-// Notice how the types are different depending on
-// how they are created.
+// Notice how the types are different 
+// depending on how they are created.
+
+// Arrays, Booleans, Dates, Objects, and Strings
+// can be created this way as well.
 ```
 
 ### Prototypal Inheritance
 
-All objects in Javascript pass down properties through a prototype chain **\_\_proto\_\_**. We call this chain, prototypal inheritance. The child of the object "inherits" properties from its parent.<br/>
+Almost all objects in Javascript pass down properties through a prototype chain. We call this chain, prototypal inheritance. The child of the object "inherits" properties from its parent. All objects in JavaScript are descended from the Object constructor unless deliberately created or altered to not do so. The objects inherit methods and properties from **Object.prototype**. The prototype property also has an accessor property called **\_\_proto\_\_** that creates a link between the current object and points to the object it was created from, the "prototype". <br/>
 
-![Prototype Chain]()
-<br/>
+```javascript
+Object.prototype.__proto__
+// null
 
-```
-------------------Objects--------------------
-__proto__                  __proto__
---Arrays--                 --Functions--
-new Array                  new Function
-prototype: {               prototype: {
-  map, reduce, forEach...      call, apply, bind...
-}                              }
+Object.prototype
+{
+  __proto__: null
+  // ...more methods and properties
+}
+
+Object
+// function Object() 
+// This is the object constructor function
+
+Object.prototype.constructor
+// function Object()
+// Points to the constructor
+
+Object.__proto__
+// function () {...}
+// Because it is created with a constructor function
 ```
 
 ### Prototype vs \_\_proto\_\_
 
-Understanding the difference between \_\_proto\_\_ and prototype can be quite a confusing concept for JavaScript developers. Every function in JavaScript automatically gets a **prototype** property when it is created that gives it the call, apply, and bind methods. It doesn't really do anything with regular functions, but in constructor functions the prototype property allows us to add our own methods to the objects we create. The **\_\_proto\_\_** property is what creates the link between objects, the child inherits properties from the parent through the prototype chain.
+Understanding the difference between \_\_proto\_\_ and prototype can be quite a confusing concept for JavaScript developers. Every function in JavaScript automatically gets a **prototype** property when it is created that gives it the call, apply, and bind methods. It doesn't really do anything with regular functions, but in constructor functions the prototype property allows us to add our own methods to the objects we create. The **\_\_proto\_\_** property is what creates the link between prototype objects, the child inherits properties from the parent through the prototype chain. Each time a new object is created in JavaScript, it uses the \_\_proto\_\_ getter function to use a built in constructor function based on what is being created. This could be an Array, Boolean, Date, Number, Object, String, Function, or RegExp. Each one has their own separate properties and methods that they inherit from the constructor. 
+
+<p align="center">
+<img src="prototype_chain.png" alt="prototype chain">
+</p>
+<br/>
 
 ```javascript
-// prototype property
-
-// __proto__ chain
+let newArr = new Array
+newArr
+/* [] 
+    length: 0
+    __proto__: Array(0)
+      concat, forEach, pop, splice...
+      // all array properties and methods
+      // inherited from Array constructor function.
+    __proto__: Object
+    {
+      __proto__: null
+    }
+    }
 ```
 
 ### Callable Object
@@ -1633,7 +1661,7 @@ This is the most popular method seen in JavaScript programs. Under the hood, Jav
 const Elf = new Function(
   'name', 
   'type', 
-  `weapon', 
+  'weapon', 
   // the \ n just creates a new line
   // it can be ignored here
   'this.name = name \n
