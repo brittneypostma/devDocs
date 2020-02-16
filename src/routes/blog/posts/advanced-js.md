@@ -1205,16 +1205,16 @@ Almost everything in JavaScript can be created with a constructor. Even basic Ja
 ```javascript
 // examples of constructor functions in JavaScript
 const five = new Number(5)
-const newString = new String(`I am a new string`)
+const assignFive = 5
+
 
 // this is different than using regular assignment
-const assignFive = 5
+const newString = new String(`I am a new string`)
 const assignString = `I am an assigned string`
 
 typeof five // object
-typeof newString //object
-
 typeof assignFive // number
+typeof newString //object
 typeof assignString // string
 
 five === assignFive // false
@@ -1267,15 +1267,20 @@ Understanding the difference between \_\_proto\_\_ and prototype can be quite a 
 let newArr = new Array
 newArr
 /* [] 
-    length: 0
-    __proto__: Array(0)
-      concat, forEach, pop, splice...
-      // all array properties and methods
-      // inherited from Array constructor function.
-    __proto__: Object
     {
-      __proto__: null
-    }
+// all array properties and methods
+// inherited from Array constructor function.
+      length: 0
+      prototype: {
+        concat, forEach, pop, splice...
+        __proto__: Array(0)
+        prototype: {
+          __proto__: Object
+          prototype: {
+            __proto__: null
+          }
+        }
+      }    
     }
 ```
 
@@ -1651,25 +1656,49 @@ Elf.prototype.attack = function() {
 // This would need to be repeated for each method.
 
 dobby.attack() // attack with cloth
+legolas.attack() // attack with bow
 ```
 
-**WORK ON THIS SECTION**
-This is the most popular method seen in JavaScript programs. Under the hood, JavaScript is actually using a Function constructor to make the constructor function. Confused yet? Let me show you...
+> **Nifty Snippet**: A constructor function in JavaScript is actually just a constructor itself.
+>  ```javascript
+>  // What happens under the hood...
+>  const Elf = new Function(
+>    'name', 
+>    'type', 
+>    'weapon', 
+>    // the \ n just creates a new line
+>    // it can be ignored here
+>    'this.name = name \n
+>    this.type = type \n
+>    this.weapon = weapon`
+>    )
+>
+>  const dobby = new Elf('Dobby', 'house', 'cloth')
+>  // This will work the same as our code above.
+>  ```
+
+
+#### Class
+
+Confused yet? Prototype is a little weird and hard to read unless you really understand your prototypal inheritance. No one really liked using the prototype way of adding methods, so in ES6 JavaScript gave us the **class** keyword. You can check if something is inherited from a class by using the keyword **instanceof** to compare the new object to the class.
 
 ```javascript
-// What happens under the hood...
-const Elf = new Function(
-  'name', 
-  'type', 
-  'weapon', 
-  // the \ n just creates a new line
-  // it can be ignored here
-  'this.name = name \n
-  this.type = type \n
-  this.weapon = weapon`
-  )
+class Elf {
+  constructor(name, type, weapon) {
+    this.name = name;
+    this.type = type;
+    this.weapon = weapon;
+  }
+  say() {
+    return `Hi, my name is ${this.name}, I am a ${this.type} elf.`
+  }
+  attack() {
+    return `attack with ${this.weapon}`
+  }
+}
 
 const dobby = new Elf('Dobby', 'house', 'cloth')
-// This will work the same as our code above.
-```
+const legolas = new Elf('Legolas', 'high', 'bow')
 
+legolas instanceof Elf //true
+```
