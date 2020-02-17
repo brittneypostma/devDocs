@@ -734,6 +734,71 @@ a(); // called by window
 // c {hi: ƒ}
 ```
 
+Here is **this** 4 ways:
+
+- &#x25FE; **new keyword binding** - the new keyword changes the meaning of this to be the object that is being created.
+
+- &#x25FE; **implicit binding** - "this" refers to the object that is calling it. It is implied, without doing anything its just how the language works.
+
+- &#x25FE; **explicit binding** - using the "bind" keyword to change the meaning of "this".
+
+- &#x25FE; **arrow functions as methods** - "this" is lexically scoped, refers to it's current surroundings and no further. However, if "this" is inside of a method's function, it falls out of scope and belongs to the window object. To correct this, you can use a higher order function to return an arrow function that calls "this".
+
+```javascript
+// new binding
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  console.log(this);
+}
+
+const person1 = new Person("person1", 55);
+// this = Person { name: 'person1', age: 55 }
+
+//implicit binding
+const person = {
+  name: "person",
+  age: 20,
+  hi() {
+    console.log("hi " + this);
+  }
+};
+
+person.hi();
+// this = person { name: 'person', age: 20, hi(){...} }
+
+//explicit binding
+let name = "Brittney";
+
+const person3 = {
+  name: "person3",
+  age: 50,
+  hi: function() {
+    console.log("hi " + this.name);
+  }.bind(window)
+};
+
+person3.hi();
+// hi Brittney
+// this = window {...}
+
+// arrow functions inside objects
+const person4 = {
+  name: "person4",
+  age: 40,
+  hi: function() {
+    var inner = () => {
+      console.log(this);
+    };
+    return inner();
+  }
+};
+
+person4.hi();
+// this = person4 { name: 'person4', age: 40, hi() {...} }
+// if either function is changed around, it doesn't work
+```
+
 ### Lexical vs Dynamic Scope
 
 A big gotcha for a lot of people working with \*this is when a function is ran inside of another function. It gets a little confusing, but we can remember who called the function.
@@ -1078,8 +1143,7 @@ console.log(newArr); // [1, 2, 3, 4]
 
 There are two ways to get around this, _Object.assign()_ or use the spread operator {...} to "spread" or expand the object into a new variable. By doing this, it will allow the new variable to be modified without changing the original. However, these only create a "shallow copy".
 
-> **Shallow copy**: Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.<br/> >**Deep copy**: A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.<br/>
-> [Understanding Deep and Shallow Copy](https://we-are.bookmyshow.com/understanding-deep-and-shallow-copy-in-javascript-13438bad941c)
+> **Shallow copy**: Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.<br/> >**Deep copy**: A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.<br/> > [Understanding Deep and Shallow Copy](https://we-are.bookmyshow.com/understanding-deep-and-shallow-copy-in-javascript-13438bad941c)
 
 ```javascript
 const originalObj = {
@@ -1182,11 +1246,11 @@ The major difference between static and dynamic typed languages is when the type
 
 ## The 2 Pillars: Closures and Prototypes
 
-Closures and Prototypal Inheritance are two things that make JavaScript special and different from other programming languages. 
+Closures and Prototypal Inheritance are two things that make JavaScript special and different from other programming languages.
 
 ### Function Constructor
 
-Functions are objects in JavaScript, which is not true for other languages. Because of that, they can be called multiple ways, but they can also be constructors. A **function constructor** creates a new object and returns it. Every JavaScript function, is actually a function object itself. 
+Functions are objects in JavaScript, which is not true for other languages. Because of that, they can be called multiple ways, but they can also be constructors. A **function constructor** creates a new object and returns it. Every JavaScript function, is actually a function object itself.
 
 ```javascript
 (function() {}.contructor === Function);
@@ -1204,23 +1268,22 @@ Almost everything in JavaScript can be created with a constructor. Even basic Ja
 
 ```javascript
 // examples of constructor functions in JavaScript
-const five = new Number(5)
-const assignFive = 5
-
+const five = new Number(5);
+const assignFive = 5;
 
 // this is different than using regular assignment
-const newString = new String(`I am a new string`)
-const assignString = `I am an assigned string`
+const newString = new String(`I am a new string`);
+const assignString = `I am an assigned string`;
 
-typeof five // object
-typeof assignFive // number
-typeof newString //object
-typeof assignString // string
+typeof five; // object
+typeof assignFive; // number
+typeof newString; //object
+typeof assignString; // string
 
-five === assignFive // false
-five == assignFive // true - types are coerced
+five === assignFive; // false
+five == assignFive; // true - types are coerced
 
-// Notice how the types are different 
+// Notice how the types are different
 // depending on how they are created.
 
 // Arrays, Booleans, Dates, Objects, and Strings
@@ -1232,31 +1295,31 @@ five == assignFive // true - types are coerced
 Almost all objects in Javascript pass down properties through a prototype chain. We call this chain, prototypal inheritance. The child of the object "inherits" properties from its parent. All objects in JavaScript are descended from the Object constructor unless deliberately created or altered to not do so. The objects inherit methods and properties from **Object.prototype**. The prototype property also has an accessor property called **\_\_proto\_\_** that creates a link between the current object and points to the object it was created from, the "prototype". <br/>
 
 ```javascript
-Object.prototype.__proto__
+Object.prototype.__proto__;
 // null
 
-Object.prototype
+Object.prototype;
 {
-  __proto__: null
+  __proto__: null;
   // ...more methods and properties
 }
 
-Object
-// function Object() 
+Object;
+// function Object()
 // This is the object constructor function
 
-Object.prototype.constructor
+Object.prototype.constructor;
 // function Object()
 // Points to the constructor
 
-Object.__proto__
+Object.__proto__;
 // function () {...}
 // Because it is created with a constructor function
 ```
 
 ### Prototype vs \_\_proto\_\_
 
-Understanding the difference between \_\_proto\_\_ and prototype can be quite a confusing concept for JavaScript developers. Every function in JavaScript automatically gets a **prototype** property when it is created that gives it the call, apply, and bind methods. It doesn't really do anything with regular functions, but in constructor functions the prototype property allows us to add our own methods to the objects we create. The **\_\_proto\_\_** property is what creates the link between prototype objects, the child inherits properties from the parent through the prototype chain. Each time a new object is created in JavaScript, it uses the \_\_proto\_\_ getter function to use a built in constructor function based on what is being created. This could be an Array, Boolean, Date, Number, Object, String, Function, or RegExp. Each one has their own separate properties and methods that they inherit from the constructor. 
+Understanding the difference between \_\_proto\_\_ and prototype can be quite a confusing concept for JavaScript developers. Every function in JavaScript automatically gets a **prototype** property when it is created that gives it the call, apply, and bind methods. It doesn't really do anything with regular functions, but in constructor functions the prototype property allows us to add our own methods to the objects we create. The **\_\_proto\_\_** property is what creates the link between prototype objects, the child inherits properties from the parent through the prototype chain. Each time a new object is created in JavaScript, it uses the \_\_proto\_\_ getter function to use a built in constructor function based on what is being created. This could be an Array, Boolean, Date, Number, Object, String, Function, or RegExp. Each one has their own separate properties and methods that they inherit from the constructor.
 
 <p align="center">
 <img src="prototype_chain.png" alt="prototype chain">
@@ -1266,7 +1329,7 @@ Understanding the difference between \_\_proto\_\_ and prototype can be quite a 
 ```javascript
 let newArr = new Array
 newArr
-/* [] 
+/* []
     {
 // all array properties and methods
 // inherited from Array constructor function.
@@ -1280,7 +1343,7 @@ newArr
             __proto__: null
           }
         }
-      }    
+      }
     }
 ```
 
@@ -1313,7 +1376,7 @@ const obj = {
 }
 ```
 
-> **Nifty snippet**: You might hear people say "Functions are first-class citizens in JavaScript". All this means is that functions can be passed around as if they were a JavaScript type. Anything that can be done with other 7n hhb  , can also be done with functions. This introduces JavaScript to a whole different type of programming called **functional programming**. Below are some examples of how functions work differently in JavaScript.
+> **Nifty snippet**: You might hear people say "Functions are first-class citizens in JavaScript". All this means is that functions can be passed around as if they were a JavaScript type. Anything that can be done with other 7n hhb , can also be done with functions. This introduces JavaScript to a whole different type of programming called **functional programming**. Below are some examples of how functions work differently in JavaScript.
 >
 > ```javascript
 > // setting functions to variables
@@ -1529,7 +1592,7 @@ const elf2 = {
   }
 }
 
-elf1.attack() 
+elf1.attack()
 // attack with cloth
 elf2.attack()
 // attack with bow
@@ -1570,12 +1633,12 @@ This is a step in the right direction, but if we added more characters, we would
 ```javascript
 const elfMethodsStore = {
   attack() {
-    return `attack with ${this.weapon}`
+    return `attack with ${this.weapon}`;
   },
   say() {
-    return `Hi, my name is ${this.name}, I am a ${this.type} elf.`
+    return `Hi, my name is ${this.name}, I am a ${this.type} elf.`;
   }
-}
+};
 
 function createElf(name, type, weapon) {
   return {
@@ -1585,15 +1648,15 @@ function createElf(name, type, weapon) {
   };
 }
 
-// each method has to be assigned to the store method to 
+// each method has to be assigned to the store method to
 // create the __proto__ chain
 const dobby = createElf("Dobby", "house", "cloth");
-dobby.attack = elfMethodsStore.attack
-dobby.say = elfMethodsStore.say
+dobby.attack = elfMethodsStore.attack;
+dobby.say = elfMethodsStore.say;
 
 const legolas = createElf("Legolas", "high", "bow");
-legolas.attack = elfMethodsStore.attack
-legolas.say = elfMethodsStore.say
+legolas.attack = elfMethodsStore.attack;
+legolas.say = elfMethodsStore.say;
 ```
 
 #### Object.create
@@ -1603,29 +1666,29 @@ Having a store saved us some efficiency in memory, but this was a lot of manual 
 ```javascript
 const elfMethodsStore = {
   attack() {
-    return `attack with ${this.weapon}`
+    return `attack with ${this.weapon}`;
   },
   say() {
-    return `Hi, my name is ${this.name}, I am a ${this.type} elf.`
+    return `Hi, my name is ${this.name}, I am a ${this.type} elf.`;
   }
-}
+};
 
 function createElf(name, type, weapon) {
   // this creates the __proto__ chain to the store
-  let newElf = Object.create(elfMethodsStore)
-  console.log(newElf.__proto__) // { attack: [Function], say: [Function] }
+  let newElf = Object.create(elfMethodsStore);
+  console.log(newElf.__proto__); // { attack: [Function], say: [Function] }
   // this assigns all the methods
-  newElf.name = name
-  newElf.type = type
-  newElf.weapon = weapon
+  newElf.name = name;
+  newElf.type = type;
+  newElf.weapon = weapon;
   // this returns the new Elf with everything attached
-  return newElf
+  return newElf;
 }
 
 const dobby = createElf("Dobby", "house", "cloth");
 const legolas = createElf("Legolas", "high", "bow");
-dobby.attack // attack with cloth
-legolas.attack // attack with bow
+dobby.attack; // attack with cloth
+legolas.attack; // attack with bow
 ```
 
 #### Constructor Functions
@@ -1637,68 +1700,117 @@ Using Object.create is true prototypal inheritance, the code is cleaner and easi
 function Elf(name, type, weapon) {
   // not returning anything
   // "constructing" a new elf
-  this.name = name
-  this.type = type
-  this.weapon = weapon
+  this.name = name;
+  this.type = type;
+  this.weapon = weapon;
 }
 
 // to use a constructor function
 // the "new" keyword must be used
-const dobby = new Elf('Dobby', 'house', 'cloth')
-const legolas = new Elf('Legolas', 'high', 'bow')
+const dobby = new Elf("Dobby", "house", "cloth");
+const legolas = new Elf("Legolas", "high", "bow");
 
 // To add methods we need to add
 Elf.prototype.attack = function() {
   // cannot be an arrow function
   // this would be scoped to the window obj
-  return `attack with ${this.weapon}`
-}
+  return `attack with ${this.weapon}`;
+};
 // This would need to be repeated for each method.
 
-dobby.attack() // attack with cloth
-legolas.attack() // attack with bow
+dobby.attack(); // attack with cloth
+legolas.attack(); // attack with bow
 ```
 
 > **Nifty Snippet**: A constructor function in JavaScript is actually just a constructor itself.
->  ```javascript
->  // What happens under the hood...
->  const Elf = new Function(
->    'name', 
->    'type', 
->    'weapon', 
->    // the \ n just creates a new line
->    // it can be ignored here
->    'this.name = name \n
->    this.type = type \n
->    this.weapon = weapon`
->    )
 >
->  const dobby = new Elf('Dobby', 'house', 'cloth')
->  // This will work the same as our code above.
->  ```
-
+> ```javascript
+> // What happens under the hood...
+> const Elf = new Function(
+>   'name',
+>   'type',
+>   'weapon',
+>   // the \ n just creates a new line
+>   // it can be ignored here
+>   'this.name = name \n
+>   this.type = type \n
+>   this.weapon = weapon`
+>   )
+>
+> const dobby = new Elf('Dobby', 'house', 'cloth')
+> // This will work the same as our code above.
+> ```
 
 #### Class
 
-Confused yet? Prototype is a little weird and hard to read unless you really understand your prototypal inheritance. No one really liked using the prototype way of adding methods, so in ES6 JavaScript gave us the **class** keyword. You can check if something is inherited from a class by using the keyword **instanceof** to compare the new object to the class.
+Confused yet? Prototype is a little weird and hard to read unless you really understand your prototypal inheritance. No one really liked using the prototype way of adding methods, so in ES6 JavaScript gave us the **class** keyword. However, classes in JavaScript are not true classes,they are syntactic sugar. Under the hood, it is still using the old prototype method. They are in fact just "special functions" with one big difference, functions are hoisted and classes are not. You need to declare your class before it can be used in your codebase. Classes also comes with a new method, the **constructor** that creates and instatiates an object created with class. Classes are able to be extended upon using the **extends** keyword, allowing subclasses to be created. If there is a constructor present in the extended class, the **super** keyword is needed to link the constructor to the base class. You can check if something is inherited from a class by using the keyword **instanceof** to compare the new object to the class.
 
 ```javascript
-class Elf {
-  constructor(name, type, weapon) {
+class Character {
+  constructor(name, weapon) {
     this.name = name;
-    this.type = type;
     this.weapon = weapon;
   }
-  say() {
-    return `Hi, my name is ${this.name}, I am a ${this.type} elf.`
-  }
   attack() {
-    return `attack with ${this.weapon}`
+    return `attack with ${this.weapon}`;
   }
 }
 
-const dobby = new Elf('Dobby', 'house', 'cloth')
-const legolas = new Elf('Legolas', 'high', 'bow')
+class Elf extends Character {
+  constructor(name, weapon, type) {
+    super(name, weapon);
+    // pulls in name and weapon from Character
+    this.type = type;
+  }
+}
 
-legolas instanceof Elf //true
+class Ogre extends Character {
+  constructor(name, weapon, color) {
+    super(name, weapon);
+    this.color = color;
+  }
+  enrage() {
+    return `double attack power`;
+  }
+}
+
+const legolas = new Elf("Legolas", "high", "bow");
+const gruul = new Ogre("Gruul", "club", "gray");
+
+legolas.attack(); // attack with bow
+gruul.enrage(); // double attack power
+gruul.attack(); // attack with club
+
+legolas instanceof Elf; //true
+gruul instanceof Ogre; //true
 ```
+
+#### Private and public fields
+
+Most class based languages have the ability to create either public or private fields within a class. Adding these to classes in JavaScript is still an experimental feature in development. Support in browsers is limited, but can be implemented with systems like Babel. **Public declarations** are set above the constructor and can be used within the class, but do not get added to a new instance. The **private declarations** are set with the **#** sign in front of the variable and are only accessible within that class, they cannot be accessed or changed from outside.
+
+```javascript
+// public declarations
+class Rectangle {
+  height = 0;
+  width;
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+// private declarations
+class Rectangle {
+  #height = 0;
+  #width;
+  constructor(height, width) {
+    this.#height = height;
+    this.#width = width;
+  }
+}
+```
+
+So, did we obtain perfect object oriented programming? Well, that is up for debate. It is really up to you the developer to decide which style of writing you like best. We did learn that object oriented programming helps make you code more understandable, easy to extend, easy to maintain, memory efficient, and DRY!
+
+> **Nifty Snippet**: Why didn't Eich just add classes to JavaScript in the beginning?<br/> _"If I had done classes in JavaScript back in May 1995, I would have been told that it was too much like Java or the JavaScript was competing with Java ... I was under marketing orders to make it look like Java but not make it too big for its britches ... [it] needed to be a silly little brother language." &#8212;Brendan Eich_
