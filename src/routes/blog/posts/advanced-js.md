@@ -1814,3 +1814,13 @@ class Rectangle {
 So, did we obtain perfect object oriented programming? Well, that is up for debate. It is really up to you the developer to decide which style of writing you like best. We did learn that object oriented programming helps make you code more understandable, easy to extend, easy to maintain, memory efficient, and DRY!
 
 > **Nifty Snippet**: Why didn't Eich just add classes to JavaScript in the beginning?<br/> _"If I had done classes in JavaScript back in May 1995, I would have been told that it was too much like Java or the JavaScript was competing with Java ... I was under marketing orders to make it look like Java but not make it too big for its britches ... [it] needed to be a silly little brother language." &#8212;Brendan Eich_
+
+---
+
+### Functional Programming
+
+Functional programming has the same goals in mind as object oriented programming, to keep your code understanable, easy to extent, easy to maintain, memory efficient, and DRY. Instead of objects, it uses reusable functions to create and act on data. Functional program is based on a seperation of concerns similar to object oriented programming. However, in functional programming there is a complete seperation between the data and the behaviors of a program. There is also an idea that once something is created, it should not be changed, being **immutable**. Unlike OOP, shared state is avoided functional programming works on the idea of **pure functions**.
+
+#### Pure Functions
+
+A **pure function** has no side effects to anything outside of it and given the same input will always output the same value. They do not change any data passed into them, but create new data to return without altering the original.
