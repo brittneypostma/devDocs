@@ -1860,8 +1860,51 @@ Idempotence is another important piece of functional programming. It is the idea
 
 #### Imperative vs Declarative
 
-Imperitive programming tells the computer what to do and how to complete it. Declarative programming only tells the computer what to do, but not how to do things. Humans are declarative by nature, but computers typically need more imperitive type programming. However, using higher level languages like JavaScript is actually being less declarative.
+Imperitive programming tells the computer what to do and how to complete it. Declarative programming only tells the computer what to do, but not how to do things. Humans are declarative by nature, but computers typically need more imperitive type programming. However, using higher level languages like JavaScript is actually being less declarative. This is important in function programming because we want to be more declarative to better understand our code and let the computer handle the dirty work of figuring out the best way to do something.
 
 <p align="center">
   <img src="imperative_code.png" alt="imperative to declarative code" width="100%">
+</p>
+
+```javascript
+// more imperative
+for (let i = 0; i < 10; i++) {
+  console.log(i);
+}
+
+// more declarative
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+arr.forEach(item => console.log(item));
+```
+
+#### Immutability
+
+Immutability is simply not modifying the original data or **state**. Instead we should create copies of the state inside our functions and return a new version of the state.
+
+```javascript
+// Bad code
+const obj = {name: 'Brittney'}
+
+function clone(obj) {
+  return {...obj} // this is pure
+}
+
+obj.name = 'Joe' //mutated the state
+
+// Better code
+function updateName(obj) {
+  const newObj = clone(obj)
+  newObj.name = 'Joe'
+  return newObj
+}
+
+const updatedNameObj = updateName(obj)
+console.log(`obj = ${obj}`, `updatedNameObj = ${updatedNameObj})
+// obj = {name: 'Brittney'} updatedNameObj = {name: 'Joe'}
+```
+
+You may be thinking that this could get really expensive, memory wise, to just copy code over and over. However, there is something called **structural sharing** that allows the data to only copy new information and points to the original state for any commonalities.
+
+<p align="center">
+  <img src="structure_tree.svg" alt="structural sharing tree" width="100%">
 </p>
