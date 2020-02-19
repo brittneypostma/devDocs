@@ -1824,3 +1824,44 @@ Functional programming has the same goals in mind as object oriented programming
 #### Pure Functions
 
 A **pure function** has no side effects to anything outside of it and given the same input will always output the same value. They do not change any data passed into them, but create new data to return without altering the original.
+However, it is not possible to have 100% pure functions. At some point you need to interact with the dom or fetch an api. Even _console.log_ makes a function unpure because it uses the window object outside of the function. Fact is a program cannot exist without side effects. So, the goal of functional programming is to minimize side effects by isolating them away from the data. Build lots of very small, reusable and predictable pure functions that do the following:
+
+- &#x25FE; Complete 1 task per function.
+- &#x25FE; Do not mutate state.
+- &#x25FE; Do not share state.
+- &#x25FE; Be predictable.
+- &#x25FE; Be composable, one input and one output.
+- &#x25FE; Be pure if possible.
+- &#x25FE; Return something.
+
+#### Referential transparency
+
+One important concept of functional programming is **referential transparency**, the ability to replace an expression with the resulting value without changing the result of the program.
+
+```javascript
+function a(num1, num2) {
+  return num1 + num2;
+}
+
+function b(num) {
+  return num * 2;
+}
+
+b(a(3, 4)); // 14
+// a should always return 7
+// so it could be changed to
+b(7); // 14
+// and the output is the same
+```
+
+#### Idempotence
+
+Idempotence is another important piece of functional programming. It is the idea that given the same input to a function, you will always return the same output. The function could be used over and over again and nothing changes. This is how you make your code predictable.
+
+#### Imperative vs Declarative
+
+Imperitive programming tells the computer what to do and how to complete it. Declarative programming only tells the computer what to do, but not how to do things. Humans are declarative by nature, but computers typically need more imperitive type programming. However, using higher level languages like JavaScript is actually being less declarative.
+
+<p align="center">
+  <img src="imperative_code.png" alt="imperative to declarative code" width="100%">
+</p>
