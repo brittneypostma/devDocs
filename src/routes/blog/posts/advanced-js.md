@@ -1968,3 +1968,41 @@ const curriedMultiplyBy5 = multiply.bind(null, 5); // this is null
 
 curriedMultiplyBy5(4, 10); // 200
 ```
+
+#### Pipe and Compose
+
+In JavaScript it is best for speed and efficiency to keep functions small and reusable. Function composition is the idea that you lay out your functions like a factory assembly line. The actual functions **pipe()** and **compose()** don't actually exist in JavaScript yet, but there are many libraries that use them. You can however create your own versions of them. The **compose()** function reads the functions from right to left and the **pipe()** function will read from left to right.
+
+```javascript
+// create our own COMPOSE function
+const compose = (fn1, fn2) => data => fn1(fn2(data));
+// create our own PIPE function
+const pipe = (fn1, fn2) => data => fn2(fn1(data));
+const multiplyBy3 = num => num * 3;
+const makePositive = num => Math.abs(num);
+// use compose to combine multiple functions
+const composeFn = compose(multiplyBy3, makePositive);
+const pipeFn = pipe(multiplyBy3, makePositive);
+composeFn(-50); // 150
+pipeFn(-50); // 150
+
+// essentially we are doing this
+// fn1(fn2(fn3(50)))
+// compose(fn1, fn2, fn3)(50)
+// pipe(fn3, fn2, fn1)(50)
+```
+
+> **Nifty Snippet**: The **Pipeline Operator** is in the experimental stage 1 of being introduced to JavaScript. Stage 1 means that it has only started the process and could be years before it is a part of the language. The pipeline operator, **|>**, would be syntactic sugar for composing and piping functions the long way. This would improve readability when chaining multiple functions.
+>
+> ```javascript
+> const double = n => n * 2;
+> const increment = n => n + 1;
+> // without pipeline operator
+> double(increment(double(double(5)))); // 42
+> // with pipeline operator
+> 5 |> double |> double |> increment |> double; // 42
+> ```
+
+#### Arity
+
+Arity simply means the number of arguments a function takes. The more parameters a function has the harder it becomes to break apart and reuse. Try to stick to only 1 or 2 parameters when writing functions.
