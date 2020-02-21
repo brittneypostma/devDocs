@@ -52,7 +52,56 @@ In modern engines, the interpreter starts reading the code line by line while th
 
 ## Writing Optimized Code
 
-We want to write code that helps the compiler make its optimizations, not work against it making the engine slower. Here are a few things you should avoid when writing your code if possible:
+We want to write code that helps the compiler make its optimizations, not work against it making the engine slower.
+
+#### Memoization
+
+Memoization is a way to cache a return value of a function based on its parameters. This makes the function that takes a long time run much faster after one execution. If the parameter changes, it will still have to reevaluate the function.
+
+```javascript
+// Bad Way
+function addTo80(n) {
+  console.log('long time...')
+  return n + 80
+}
+
+addTo80(5)
+addTo80(5)
+addTo80(5)
+
+// long time... 85
+// long time... 85
+// long time... 85
+
+// Memoized Way
+functions memoizedAddTo80() {
+  let cache = {}
+  return function(n) { // closure to access cache obj
+    if (n in cache) {
+      return cache[n]
+    } else {
+      console.log('long time...')
+      cache[n] = n + 80
+      return cache[n]
+    }
+  }
+}
+const memoized = memoizedAddTo80()
+
+console.log('1.', memoized(5))
+console.log('2.', memoized(5))
+console.log('3.', memoized(5))
+console.log('4.', memoized(10))
+
+// long time...
+// 1. 85
+// 2. 85
+// 3. 85
+// long time...
+// 4. 90
+```
+
+Here are a few things you should avoid when writing your code if possible:
 
 - &#x25FE; eval()
 - &#x25FE; arguments
@@ -62,10 +111,10 @@ We want to write code that helps the compiler make its optimizations, not work a
 
 There are a few main reasons these should be avoided.
 
-[JavaScript Hidden Classes and Inline Caching in V8](https://richardartoul.github.io/jekyll/update/2015/04/26/hidden-classes.html)
+[JavaScript Hidden Classes and Inline Caching in V8](https://richardartoul.github.io/jekyll/update/2015/04/26/hidden-classes.html)<br/>
 [Managing Arguments](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments)
 
-### 1. Inline Caching
+#### Inline Caching
 
 ```javascript
 function findUser(user) {
@@ -83,9 +132,9 @@ findUser(userData)
 // then it will be optimized (inline cached) to just be 'found Brittney Postma'
 ```
 
-As you can see, if this code gets optimized to return only 1 name, it could become problamatic down the road.
+If this code gets optimized to return only 1 name, then the computer would have to do a lot more work if you needed to return a different user.
 
-### 2. Hidden Classes
+#### Hidden Classes
 
 ```javascript
 function Animal(x, y) {
@@ -125,7 +174,7 @@ obj2.a = 30;
 obj2.b = 100;
 ```
 
-### 3. Managing Arguments
+#### Managing Arguments
 
 There are many ways using **arguments** that can cause a function to be unoptimizable. Be very careful when using arguments and remember:
 
@@ -1908,3 +1957,14 @@ You may be thinking that this could get really expensive, memory wise, to just c
 <p align="center">
   <img src="structure_tree.svg" alt="structural sharing tree" width="100%">
 </p>
+
+#### Partial Application
+
+Partial application is expanding on the idea of currying and taking it a step farther by separating a parameter out. If you have more than 2 arguments in a functions, then you can **bind** one of them to a value to be used later.
+
+```javascript
+const multiply = (a, b, c) => a * b * c;
+const curriedMultiplyBy5 = multiply.bind(null, 5); // this is null
+
+curriedMultiplyBy5(4, 10); // 200
+```
