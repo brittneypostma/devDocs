@@ -1452,7 +1452,7 @@ Object.__proto__;
 Understanding the difference between \_\_proto\_\_ and prototype can be quite a confusing concept for JavaScript developers. Every function in JavaScript automatically gets a **prototype** property when it is created that gives it the call, apply, and bind methods. It doesn't really do anything with regular functions, but in constructor functions the prototype property allows us to add our own methods to the objects we create. The **\_\_proto\_\_** property is what creates the link between prototype objects, the child inherits properties from the parent through the prototype chain. Each time a new object is created in JavaScript, it uses the \_\_proto\_\_ getter function to use a built in constructor function based on what is being created. This could be an Array, Boolean, Date, Number, Object, String, Function, or RegExp. Each one has their own separate properties and methods that they inherit from the constructor.
 
 <p align="center">
-<img src="prototype_chain.png" alt="prototype chain">
+<img src="prototype_chain.png" alt="prototype chain" style="width: 100%">
 </p>
 <br/>
 
@@ -1693,7 +1693,7 @@ data.rmName(0); // ['Brittney']
 
 There are 2 basic philosophies when it comes to how you structure your programs, object oriented and functional. Each style has its use in programming, it is not one over the other, but merely a preference in style.
 
-### Object Oriented Programming
+## Object Oriented Programming
 
 Object Oriented Programming, or OOP, is the idea that all code should be grouped into "boxes" (objects) to make your program easier to read and understand. Keeping the data encapsulated helps to keep the program organized. Each object has a state that defines what it does and methods (functions on an object) that can use or modify the state. Considering almost everything in JavaScript is an object, you would think this would be easy to do. Say we want to create a game that has lots of characters that all have different abilities. How would we go about this?
 
@@ -1728,7 +1728,7 @@ elf2.attack()
 // attack with bow
 ```
 
-#### Factory Functions
+### Factory Functions
 
 As you can see, this code is already getting very repetitive and is not maintainable with only 1 character type. Imagine adding more characters, things would get out of control quickly. So, another way to create objects was introduced, **factory functions**. Factory functions return a new object every time they are ran. This could improve the code somewhat.
 
@@ -1756,7 +1756,7 @@ dobby.attack(); // Dobby attacks with cloth.
 legolas.attack(); // Legolas attacks with bow.
 ```
 
-#### Stores
+### Stores
 
 This is a step in the right direction, but if we added more characters, we would run into some of the same issues again. Not only is the code not DRY, the attack method is being created and taking up memory space for every new elf. This is not very efficient. How do we solve this? Well, we could separate the methods out into a store.
 
@@ -1789,7 +1789,7 @@ legolas.attack = elfMethodsStore.attack;
 legolas.say = elfMethodsStore.say;
 ```
 
-#### Object.create
+### Object.create
 
 Having a store saved us some efficiency in memory, but this was a lot of manual work to assign each method. So, we were given **Object.create** to help create this chain without having to assign each method.
 
@@ -1821,7 +1821,7 @@ dobby.attack; // attack with cloth
 legolas.attack; // attack with bow
 ```
 
-#### Constructor Functions
+### Constructor Functions
 
 Using Object.create is true prototypal inheritance, the code is cleaner and easier to read. However, you will not see this being used in most programs. Before Object.create came around, we had the ability to use constructor functions. Constructor functions are exactly like the function constructor we talked about above. The number and string functions were constructed and invoked with the **new** keyword and they were capitalized. The **new** keyword actually changes the meaning of **this** for the constructor function. Without new, this will point to the window object instead of the object that we just created. It is best practice to capitalize constructor functions to help us identify them and know to use the new keyword. Properties added to a constructor function can only be done using the **this** keyword, regular variables do not get added to the object.
 
@@ -1871,7 +1871,7 @@ legolas.attack(); // attack with bow
 > // This will work the same as our code above.
 > ```
 
-#### Class
+### Class
 
 Confused yet? Prototype is a little weird and hard to read unless you really understand your prototypal inheritance. No one really liked using the prototype way of adding methods, so in ES6 JavaScript gave us the **class** keyword. However, classes in JavaScript are not true classes,they are syntactic sugar. Under the hood, it is still using the old prototype method. They are in fact just "special functions" with one big difference, functions are hoisted and classes are not. You need to declare your class before it can be used in your codebase. Classes also comes with a new method, the **constructor** that creates and instatiates an object created with class. Classes are able to be extended upon using the **extends** keyword, allowing subclasses to be created. If there is a constructor present in the extended class, the **super** keyword is needed to link the constructor to the base class. You can check if something is inherited from a class by using the keyword **instanceof** to compare the new object to the class.
 
@@ -1915,7 +1915,7 @@ legolas instanceof Elf; //true
 gruul instanceof Ogre; //true
 ```
 
-#### Private and public fields
+### Private and public fields
 
 Most class based languages have the ability to create either public or private fields within a class. Adding these to classes in JavaScript is still an experimental feature in development. Support in browsers is limited, but can be implemented with systems like Babel. **Public declarations** are set above the constructor and can be used within the class, but do not get added to a new instance. The **private declarations** are set with the **#** sign in front of the variable and are only accessible within that class, they cannot be accessed or changed from outside.
 
@@ -1947,11 +1947,11 @@ So, did we obtain perfect object oriented programming? Well, that is up for deba
 
 ---
 
-### Functional Programming
+## Functional Programming
 
 Functional programming has the same goals in mind as object oriented programming, to keep your code understanable, easy to extent, easy to maintain, memory efficient, and DRY. Instead of objects, it uses reusable functions to create and act on data. Functional program is based on a seperation of concerns similar to object oriented programming. However, in functional programming there is a complete seperation between the data and the behaviors of a program. There is also an idea that once something is created, it should not be changed, being **immutable**. Unlike OOP, shared state is avoided functional programming works on the idea of **pure functions**.
 
-#### Pure Functions
+### Pure Functions
 
 A **pure function** has no side effects to anything outside of it and given the same input will always output the same value. They do not change any data passed into them, but create new data to return without altering the original.
 However, it is not possible to have 100% pure functions. At some point you need to interact with the dom or fetch an api. Even _console.log_ makes a function unpure because it uses the window object outside of the function. Fact is a program cannot exist without side effects. So, the goal of functional programming is to minimize side effects by isolating them away from the data. Build lots of very small, reusable and predictable pure functions that do the following:
@@ -1964,7 +1964,7 @@ However, it is not possible to have 100% pure functions. At some point you need 
 - &#x25FE; Be pure if possible.
 - &#x25FE; Return something.
 
-#### Referential transparency
+### Referential transparency
 
 One important concept of functional programming is **referential transparency**, the ability to replace an expression with the resulting value without changing the result of the program.
 
@@ -1984,11 +1984,11 @@ b(7); // 14
 // and the output is the same
 ```
 
-#### Idempotence
+### Idempotence
 
 Idempotence is another important piece of functional programming. It is the idea that given the same input to a function, you will always return the same output. The function could be used over and over again and nothing changes. This is how you make your code predictable.
 
-#### Imperative vs Declarative
+### Imperative vs Declarative
 
 Imperitive programming tells the computer what to do and how to complete it. Declarative programming only tells the computer what to do, but not how to do things. Humans are declarative by nature, but computers typically need more imperitive type programming. However, using higher level languages like JavaScript is actually being less declarative. This is important in function programming because we want to be more declarative to better understand our code and let the computer handle the dirty work of figuring out the best way to do something.
 
@@ -2007,7 +2007,7 @@ let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 arr.forEach(item => console.log(item));
 ```
 
-#### Immutability
+### Immutability
 
 Immutability is simply not modifying the original data or **state**. Instead we should create copies of the state inside our functions and return a new version of the state.
 
@@ -2039,7 +2039,7 @@ You may be thinking that this could get really expensive, memory wise, to just c
   <img src="structure_tree.svg" alt="structural sharing tree" width="100%">
 </p>
 
-#### Partial Application
+### Partial Application
 
 Partial application is expanding on the idea of currying and taking it a step farther by separating a parameter out. If you have more than 2 arguments in a functions, then you can **bind** one of them to a value to be used later.
 
@@ -2050,7 +2050,7 @@ const curriedMultiplyBy5 = multiply.bind(null, 5); // this is null
 curriedMultiplyBy5(4, 10); // 200
 ```
 
-#### Pipe and Compose
+### Pipe and Compose
 
 In JavaScript it is best for speed and efficiency to keep functions small and reusable. Function composition is the idea that you lay out your functions like a factory assembly line. The actual functions **pipe()** and **compose()** don't actually exist in JavaScript yet, but there are many libraries that use them. You can however create your own versions of them. The **compose()** function reads the functions from right to left and the **pipe()** function will read from left to right.
 
@@ -2084,11 +2084,11 @@ pipeFn(-50); // 150
 > 5 |> double |> double |> increment |> double; // 42
 > ```
 
-#### Arity
+### Arity
 
 Arity simply means the number of arguments a function takes. The more parameters a function has the harder it becomes to break apart and reuse. Try to stick to only 1 or 2 parameters when writing functions.
 
-#### Reviewing Functional Programming
+### Reviewing Functional Programming
 
 So, is functional programming the answer to everything? No, but it is great in situations where you have to perform different operations on the same set of data. Functional programming just lays the foundation for creating reusable functions that can be moved around as needed. For example, it is great in areas of industry and machine learning and it is even in some front end libraries like React and Redux. Redux really popularized functional programming for JavaScript developers. I'll leave you with one more example, a basic shopping cart.
 
@@ -2163,14 +2163,55 @@ refundItem(user, { name: "laptop", price: 200 });
 console.log(userHistory);
 ```
 
-### Composition vs Inheritance
+---
+
+## Composition vs Inheritance
 
 Composition is what we just did with FP, creating small reusable functions to make code modular. Inheritance is what we did with OOP, creating a class and extending it to subclasses that inherit the properties. In OOP we create few operations on common data that is stateful with side effects. In FP we create many operations on fixed data with pure functions that don't mutate state. There is a big debate over which one is better and most people believe that composition is better.
 
-#### OOP Problems
+### OOP Problems
 
-One of the drawbacks to inheritance is that it is based on the fact that it won't change, we tell it what it is. We create a class and give it properties and methods that describe the class. But say, down the road, we need to update that class and add more functionality. Adding a new method to the base class will create rippling effects through your entire program. FP is more declarative, what to do not how, and OOP is more imperative, what and how to do something. This is the **tight coupling** problem which leads to the **fragile base class** problem, it is the opposite of small reusable code. Changing one small thing in either of the class or subclasses could break the program. Another problem is **heirarchy** where you may need to create a subclass that can only do 1 part of the class, but instead you get everything passed down to it.
+One of the drawbacks to inheritance is that it is based on the fact that it won't change, we tell it what it is. We create a class and give it properties and methods that describe the class. But say, down the road, we need to update that class and add more functionality. Adding a new method to the base class will create rippling effects through your entire program. FP is more declarative, what to do not how, and OOP is more imperative, what and how to do something. This is the **tight coupling** problem, things having to depend on one another, which leads to the **fragile base class** problem, seemingly safe changes cause unforeseen repercussions. It is the opposite of small reusable code. Changing one small thing in either of the class or subclasses could break the program. Another problem is **heirarchy** where you may need to create a subclass that can only do 1 part of the class, but instead you get everything passed down to it.
 
-#### Finally
+### Finally
 
 Composition is probably a better tool to use when creating programs because it creates a more stable environment that is easier to change in the future. The key is to decide which structure is better for your project. You can use ideas from both of these styles to write your code. React uses OOP in class compotents to extend inheritance and then uses FP in the pure components.
+
+---
+
+## Modules in JavaScript
+
+Modules are pieces of code, grouped together, that can be combined together to create an expandable program that can get bigger as it needs to. Good modules are self contained and grouped together with their own specific functionality allowing them to be moved or deleted without breaking the program.
+
+### Module Patterns
+
+Originally in JavaScript, we had the **module pattern**. Before block scope came around, there was only global scope and function scope. To create this idea of modules, a **module scope** was implemented just above the function scope. This allowed variables to be shared, by exporting and importing, between the functions without having to go through the global scope. A function as a module is essentially just an immediately invoked function expression, IIFE.
+
+```javascript
+var globalScopeVar = "I can be accessed anywhere";
+
+var moduleName = (function(globalScopeVar) {
+  // add private variables here
+  var privateVar = "I cannot be accessed outside";
+  // create the function
+  function say(msg1, msg2) {
+    var say1 = Math.floor(Math.random() * msg1.length);
+    var say2 = Math.floor(Math.random() * msg2.length);
+    return say1 > say2 ? say1 : say2;
+  }
+  globalScopeVar = `I don't change the outside scope`;
+  // return only what you want the outside to access
+  return {
+    say: say
+  };
+})(globalScopeVar);
+```
+
+#### Issues with Modules
+
+Even though modules help us to contain and organize code, there are still problems that can arise. There can be naming conflicts if you don't use const to declare the module. Also, there are dependency issues if scripts are placed in the wrong order, such as jQuery needing to be called before it can be used. Because of these problems, people started developing libraries to solve them. Some of these are:
+
+- &#x25FE; **CommonJS** - uses the keywords **require** and **exports** to interact with the module system. Require is a function used to import from another module and exports is an object where functions get exported from. These are run synchronously where we wait on one module to load before another can start and this is not ideal for browsers. However, this code may look familiar because NodeJS still uses this library. There are other packages such as Browserify and webpack that aid in bundling scripts with CommonJS to be used in the browsers.
+- &#x25FE; **Asynchronous Module Definition (AMD)** - as in the name, AMD loads modules asynchronously. This was great for browsers early on before packages that bundled code.<br/>_define(['module1', 'module2'], function(module1, module2) {console.log(module1.setName());});_<br/>The **define** function takes an array of dependency modules that are loaded in a non-blocking manner in the background. Once completed, the callback function is then executed.
+- &#x25FE; **RequireJS** - implements the AMD endpoint and was the main way people used AMD modules.
+- &#x25FE; ES6 Modules -
