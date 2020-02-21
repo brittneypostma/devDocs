@@ -358,6 +358,87 @@ In the last example, we get the same output. How does this work if it waits 0 se
 >
 > <p align='center'><img src="node_js.png" alt="node js runtime" width="100%"></p>
 
+### Job Queue
+
+The job queue or microtask queue came about with promises in ES6. With promises we needed another callback queue that would give higher priority to promise calls. The JavaScript engine is going to check the job queue before the callback queue.
+
+```javascript
+// 1 Callback Queue ~ Task Queue
+setTimeout(() => {
+  console.log("1", "is the loneliest number");
+}, 0);
+setTimeout(() => {
+  console.log("2", "can be as bad as one");
+}, 10);
+
+// 2 Job Queue ~ Microtask Queue
+Promise.resolve("hi").then(data => console.log("2", data));
+
+// 3
+console.log("3", "is a crowd");
+
+// 3 is a crowd
+// 2 hi
+// undefined Promise resolved
+// 1 is the loneliest number
+// 2 can be as bad as one
+```
+
+### 3 Ways to Promise
+
+There are 3 ways you could want promises to resolve, parallel (all together), sequential (1 after another), or a race (doesn't matter who wins).
+
+```javascript
+const promisify = (item, delay) =>
+  new Promise(resolve => setTimeout(() => resolve(item), delay));
+
+const a = () => promisify("a", 100);
+const b = () => promisify("b", 5000);
+const c = () => promisify("c", 3000);
+
+async function parallel() {
+  const promises = [a(), b(), c()];
+  const [output1, output2, output3] = await Promise.all(promises);
+  return `parallel is done: ${output1} ${output2} ${output3}`;
+}
+
+async function sequence() {
+  const output1 = await a();
+  const output2 = await b();
+  const output3 = await c();
+  return `sequence is done: ${output1} ${output2} ${output3}`;
+}
+
+async function race() {
+  const promises = [a(), b(), c()];
+  const output1 = await Promise.race(promises);
+  return `race is done: ${output1}`;
+}
+
+sequence().then(console.log);
+parallel().then(console.log);
+race().then(console.log);
+
+// race is done: a
+// parallel is done: a b c
+// sequence is done: a b c
+```
+
+### Threads, Concurrency, and Parallelism
+
+Even though JavaScript is a single threaded language, there are worker threads that work in the background that don't block the main thread. Just like a browser creates a new thread when you open a new tab. The workers work through messages being sent, but don't have access to the full program.
+
+[Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)<br/>
+[Scaling NodeJS](https://www.freecodecamp.org/news/scaling-node-js-applications-8492bd8afadc/)<br/>
+[Multi threading](https://www.internalpointers.com/post/gentle-introduction-multithreading)
+
+```javascript
+var worker = new Worker("worker.js");
+worker.postMessage("Helloooo");
+
+addEventListener("message");
+```
+
 ---
 
 ## Execution Context
@@ -2006,3 +2087,90 @@ pipeFn(-50); // 150
 #### Arity
 
 Arity simply means the number of arguments a function takes. The more parameters a function has the harder it becomes to break apart and reuse. Try to stick to only 1 or 2 parameters when writing functions.
+
+#### Reviewing Functional Programming
+
+So, is functional programming the answer to everything? No, but it is great in situations where you have to perform different operations on the same set of data. Functional programming just lays the foundation for creating reusable functions that can be moved around as needed. For example, it is great in areas of industry and machine learning and it is even in some front end libraries like React and Redux. Redux really popularized functional programming for JavaScript developers. I'll leave you with one more example, a basic shopping cart.
+
+```javascript
+const user = {
+  name: "Kim",
+  active: true,
+  cart: [],
+  purchases: []
+};
+
+const userHistory = [];
+
+function addToCart(user, item) {
+  userHistory.push(
+    Object.assign({}, user, { cart: user.cart, purchases: user.purchases })
+  );
+  const updateCart = user.cart.concat(item);
+  return Object.assign({}, user, { cart: updateCart });
+}
+
+function taxItems(user) {
+  userHistory.push(
+    Object.assign({}, user, { cart: user.cart, purchases: user.purchases })
+  );
+  const { cart } = user;
+  const taxRate = 1.4;
+  const updatedCart = cart.map(item => {
+    return {
+      name: item.name,
+      price: item.price * taxRate
+    };
+  });
+  return Object.assign({}, user, { cart: updatedCart });
+}
+
+function buyItems(user) {
+  userHistory.push(
+    Object.assign({}, user, { cart: user.cart, purchases: user.purchases })
+  );
+  return Object.assign({}, user, { purchases: user.cart });
+}
+
+function emptyCart(user) {
+  userHistory.push(
+    Object.assign({}, user, { cart: user.cart, purchases: user.purchases })
+  );
+  return Object.assign({}, user, { cart: [] });
+}
+
+function refundItem(user, item) {
+  userHistory.push(
+    Object.assign({}, user, { cart: user.cart, purchases: user.purchases })
+  );
+  const { purchases } = user;
+  const refundItem = purchases.splice(item);
+  return Object.assign({}, user, { purchases: refundItem });
+}
+const compose = (fn1, fn2) => (...args) => fn1(fn2(...args));
+
+const purchaseItems = (...fns) => fns.reduce(compose);
+
+purchaseItems(
+  emptyCart,
+  buyItems,
+  taxItems,
+  addToCart
+)(user, { name: "laptop", price: 200 });
+
+refundItem(user, { name: "laptop", price: 200 });
+
+console.log(userHistory);
+```
+
+### Composition vs Inheritance
+
+Composition is what we just did with FP, creating small reusable functions to make code modular. Inheritance is what we did with OOP, creating a class and extending it to subclasses that inherit the properties. In OOP we create few operations on common data that is stateful with side effects. In FP we create many operations on fixed data with pure functions that don't mutate state. There is a big debate over which one is better and most people believe that composition is better.
+
+#### OOP Problems
+
+One of the drawbacks to inheritance is that it is based on the fact that it won't change, we tell it what it is. We create a class and give it properties and methods that describe the class. But say, down the road, we need to update that class and add more functionality. Adding a new method to the base class will create rippling effects through your entire program. FP is more declarative, what to do not how, and OOP is more imperative, what and how to do something. This is the **tight coupling** problem which leads to the **fragile base class** problem, it is the opposite of small reusable code. Changing one small thing in either of the class or subclasses could break the program. Another problem is **heirarchy** where you may need to create a subclass that can only do 1 part of the class, but instead you get everything passed down to it.
+
+#### Finally
+
+Composition is probably a better tool to use when creating programs because it creates a more stable environment that is easier to change in the future. The key is to decide which structure is better for your project. You can use ideas from both of these styles to write your code. React uses OOP in class compotents to extend inheritance and then uses FP in the pure components.
