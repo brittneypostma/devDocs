@@ -2372,6 +2372,8 @@ err.fix; // please log in
 
 ---
 
+## The End...
+
 This is the end of the advanced JavaScript section, but I've added a small section on data structures and algorithms because they are an important part of developing great programs.
 
 ---
@@ -2394,8 +2396,12 @@ A computer has many parts but 3 that run almost all of our everyday operations, 
 
 ### Popular Data Structures
 
-There are many implementations of data structures out there but there are only 2 fundamental kinds, array of contiguous memory locations and linked structures, or you can combine the two. The most important ones you will run into are arrays, stacks, queues, linked lists, trees, tries, graphs, and hash tables. With algorithms there are sorting, dynamic programming, BFS + DFS (Searching), and recursion.
+There are many implementations of data structures out there but there are only 2 fundamental kinds, array of contiguous memory locations and linked structures, or you can combine the two. The most important ones you will run into are arrays, stacks, queues, linked lists, trees, tries, graphs, and hash tables. With algorithms there are sorting, dynamic programming, BFS + DFS (Searching), and recursion. Each data structure has things they are good at and may be better in certain situations than others. Below is a list of data structures that are built into several popular languages. That doesn't mean that you can't use other types, you just have to build our own. Such as if JavaScript doesn't have stacks, we can build one.
 
 <p align="center">
 <img src="data.png" alt="data structures in languages" style="width: 100%">
 </p>
+
+### Arrays
+
+Arrays order items sequentially with an index. Arrays are probably the simplest and the most widely used data structure because the are fast and take up the least amount of space. They also have the least amount of rules.
