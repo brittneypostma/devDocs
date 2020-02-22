@@ -2404,4 +2404,23 @@ There are many implementations of data structures out there but there are only 2
 
 ### Arrays
 
-Arrays order items sequentially with an index. Arrays are probably the simplest and the most widely used data structure because the are fast and take up the least amount of space. They also have the least amount of rules.
+Arrays order items sequentially with an index. Arrays are probably the simplest and the most widely used data structure because the are fast and take up the least amount of space. They also have the least amount of rules. Array methods have different time complexities, called big O notations. \_O(1) is constant time, meaning the time does not change with the data input. The \_O(n) is linear time, meaning time changes or goes up the more operations that need to be performed.
+
+```javascript
+const strings = ["a", "b", "c", "d"];
+// 4 * 4 = 16 bytes of storage
+
+strings[2]; // c
+strings.push("e"); // O(1)
+// ['a', 'b', 'c', 'd', 'e']
+strings.pop(); // O(1)
+// ['a', 'b', 'c', 'd']
+strings.unshift("z"); // O(n)
+// ['z', 'a', 'b', 'c', 'd']
+// unshift took 5 operations to complete.
+// ['a', 'b', 'c', 'd']
+// [ 0    1    2    3 ] all indexes need to shift
+// ['z', 'a', 'b', 'c', 'd']
+// [      0    1    2    3 ]
+// [ 0    1    2    3    4 ]
+```
