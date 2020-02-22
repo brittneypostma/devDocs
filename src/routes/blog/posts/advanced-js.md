@@ -2209,9 +2209,193 @@ var moduleName = (function(globalScopeVar) {
 
 #### Issues with Modules
 
-Even though modules help us to contain and organize code, there are still problems that can arise. There can be naming conflicts if you don't use const to declare the module. Also, there are dependency issues if scripts are placed in the wrong order, such as jQuery needing to be called before it can be used. Because of these problems, people started developing libraries to solve them. Some of these are:
+Even though modules help us to contain and organize code, there are still problems that can arise. There can be naming conflicts if you don't use const to declare the module. Also, there are dependency issues if scripts are placed in the wrong order, such as jQuery needing to be called before it can be used. Because of these problems, people started developing libraries to solve them. Before ES6 we had 2 ways to implement modules in JavaScript **CommonJS** and **AMD**.
 
 - &#x25FE; **CommonJS** - uses the keywords **require** and **exports** to interact with the module system. Require is a function used to import from another module and exports is an object where functions get exported from. These are run synchronously where we wait on one module to load before another can start and this is not ideal for browsers. However, this code may look familiar because NodeJS still uses this library. There are other packages such as Browserify and webpack that aid in bundling scripts with CommonJS to be used in the browsers.
-- &#x25FE; **Asynchronous Module Definition (AMD)** - as in the name, AMD loads modules asynchronously. This was great for browsers early on before packages that bundled code.<br/>_define(['module1', 'module2'], function(module1, module2) {console.log(module1.setName());});_<br/>The **define** function takes an array of dependency modules that are loaded in a non-blocking manner in the background. Once completed, the callback function is then executed.
-- &#x25FE; **RequireJS** - implements the AMD endpoint and was the main way people used AMD modules.
-- &#x25FE; ES6 Modules -
+
+- &#x25FE; **Asynchronous Module Definition (AMD)** - as in the name, AMD loads modules asynchronously. This was great for browsers early on before packages that bundled code.<br/>_define(['module1', 'module2'], function(module1, module2) {console.log(module1.setName());});_<br/>The **define** function takes an array of dependency modules that are loaded in a non-blocking manner in the background. Once completed, the callback function is then executed. Packages came out like RequireJS thatimplemented the AMD endpoint and was the main way people used AMD modules.
+
+### ES6 Modules
+
+After ES6 came out, pretty much everything above was thrown out the window with 2 new keywords. We can now use the **import** and **export** keywords in our files to implement modules. This again may look familiar from popluar frameworks like React.
+
+```javascript
+import module1 from "module1";
+import module2 from "module2";
+
+export function name() {}
+```
+
+Here is our module code from above in the new ES6 syntax.
+
+```javascript
+const privateVar = "I cannot be accessed outside this file";
+
+export function name(msg1, msg2) {
+  const say1 = Math.floor(Math.random() * msg1.length);
+  const say2 = Math.floor(Math.random() * msg2.length);
+  return say1 > say2 ? say1 : say2;
+}
+```
+
+There are 2 types of exports, named and default. A named export is imported using curly braces (**{ importFnName }**) and a default function is added in created like this:
+
+```javascript
+import { importFnName } from "./script.js";
+// with a default function the {} are not needed
+import name from "./script.js";
+// both default and named function import
+import name, { importFnName } from "./script.js";
+
+export default function name(msg1, msg2) {
+  const say1 = Math.floor(Math.random() * msg1.length);
+  const say2 = Math.floor(Math.random() * msg2.length);
+  return say1 > say2 ? say1 : say2;
+}
+```
+
+Trying to run this in the browser there is still 2 more things that have to be done. You have to declare the **type** in the html script tag as **module** and the file has to be served from a server. You can spin up your own server with a package like **live-server** on npm.
+
+```html
+<script type="module" src="'./script.js'></script>
+```
+
+---
+
+## Error Handling
+
+One of the most important things to learn in being a developer is how to solve errors. Learning to handle errors makes you a better programmer. Writing your programs you have the ability to use the **throw** keyword to stop the program and handle an error by using a **try/catch** block that has an optional **finally** block or the **.catch()** method for asynchronous code. Throwing a new error in asynchronous code gets what is called a silent fail if there is no catch block present. In synchronous code, if there is no catch statement placed in the code, the runtime will create _catch: onerror()_ and we see the built in JavaScript error message in red.
+
+```javascript
+throw new Error();
+
+// synchronous try/catch/finally block
+function fail() {
+  try {
+    console.log("this works");
+    throw new Error("oopsie!!!");
+  } catch (error) {
+    console.log("we have made an oopsie", error);
+  } finally {
+    console.log("still good");
+  }
+}
+
+fail();
+// this works // because it goes line by line
+// we have made an oopsie Error: oopsie at fail
+// still good
+
+// asynchronous .catch()
+Promise.resolve("asyncfail")
+  .then(response => {
+    console.log(response);
+    return response;
+  })
+  .catch(error => {
+    console.log(err);
+  });
+
+(async function() {
+  try {
+    await Promise.resolve("oopsie #1");
+    await Promise.reject("oopsie #2");
+  } catch (err) {
+    console.log(err);
+  }
+  console.log("is this still good?");
+})();
+
+// Promise {} // Promise resolved
+// ooopsie #2
+// is this still good?
+```
+
+Besides the generic **Error** constructor, there are seven other built in error constructors.
+
+- &#x25FE; **EvalError** - an error with the global function _eval()_.
+
+- &#x25FE; **InternalError** - an error in the JavaScript engine is thrown. Usually when something is too large.
+
+- &#x25FE; **RangeError** - an error when a numeric variable or parameter is outside of its valid range.
+
+- &#x25FE; **ReferenceError** - an error that occurs when referencing something invalid. E.g. When a variable is used before it is declared.
+
+- &#x25FE; **SyntaxError** - an error that occurs in parsing, the engine does not understand what is written.
+
+- &#x25FE; **TypeError** - an error when a variable is not the correct type.
+
+- &#x25FE; **URIError** - an error when _encodeURI()_ or _decodeURI()_ are passed invalid parameters.
+
+Errors created using the new keyword come with 3 properties.
+
+- &#x25FE; **name** - the name of the error.
+
+- &#x25FE; **message** - the parameter given to the error.
+
+- &#x25FE; **stack** - the stack trace or callback queue when the error occurred that also includes the line and character number where the error happened.
+
+```javascript
+const myError = new Error("oopsie");
+
+myError.name; // "Error"
+myError.message; // "oopsie"
+myError.stack; // "Error: oopsie at <anonymous>:1:17
+
+function a() {
+  const b = new Error("uh oh");
+  return b;
+}
+
+b(); // b().stack
+// Error: uh oh
+// at a (<anonymous>:2:12)
+// at <anonymous>:1:1
+```
+
+Because Error is a constructor function, we can use that to extend it and add to it. You don't want to reveal parts of your program by allowing an error to give the stack trace and other information to possible bad actors. So, you can customize what you want your errors to reveal.
+
+```javascript
+class AuthenticationError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "AuthenticationError";
+    this.message = "authentication problem";
+    this.fix = "please log in";
+  }
+}
+
+const err = new AuthenticationError("oopsie");
+err; // authenticationError: "authentication problem" stack trace
+err.fix; // please log in
+```
+
+---
+
+This is the end of the advanced JavaScript section, but I've added a small section on data structures and algorithms because they are an important part of developing great programs.
+
+---
+
+## Data Structures & Algorithms
+
+Data structures and algorithms are the fundamentals of every program. Data structures are collections of values and algolrithms are the steps we put in place to manipulate the data structures. No matter what language you write in if you understand these 2 things, you have the ability to write great programs.
+
+### Data Structures
+
+A data structure is different types of containers that hold your data. Each container has its own type of data it holds and its specfic to that type. You want to be able to easily access your data and know where it is located. It is basically a way to organize your data. There are 2 parts to data structures, how to build one and how to use it.
+
+### How do computers work?
+
+A computer has many parts but 3 that run almost all of our everyday operations, the CPU, RAM, and a hard drive (storage). The CPU processes all the data and only has so much power, the RAM is memory that is temporarily delegated to programs, and a hard drive is persistent memory that stays where we put it. Persistent storage is quiet slow, so we need RAM to use as a temporary holder for memory. RAM is like a storage shelf of memory addresses that each contain 8 bits or 1 byte. Each bit is either a 0 or a 1 to indicate whether it is on or off, 1 for on and 0 for off.
+
+<p align="center">
+<img src="bit.png" alt="bits and bytes in RAM">
+</p>
+
+### Popular Data Structures
+
+There are many implementations of data structures out there but there are only 2 fundamental kinds, array of contiguous memory locations and linked structures, or you can combine the two. The most important ones you will run into are arrays, stacks, queues, linked lists, trees, tries, graphs, and hash tables. With algorithms there are sorting, dynamic programming, BFS + DFS (Searching), and recursion.
+
+<p align="center">
+<img src="data.png" alt="data structures in languages" style="width: 100%">
+</p>
