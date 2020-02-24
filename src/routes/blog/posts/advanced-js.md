@@ -1949,7 +1949,7 @@ So, did we obtain perfect object oriented programming? Well, that is up for deba
 
 ## Functional Programming
 
-Functional programming has the same goals in mind as object oriented programming, to keep your code understanable, easy to extent, easy to maintain, memory efficient, and DRY. Instead of objects, it uses reusable functions to create and act on data. Functional program is based on a seperation of concerns similar to object oriented programming. However, in functional programming there is a complete seperation between the data and the behaviors of a program. There is also an idea that once something is created, it should not be changed, being **immutable**. Unlike OOP, shared state is avoided functional programming works on the idea of **pure functions**.
+Functional programming has the same goals in mind as object oriented programming, to keep your code understanable, easy to extend, easy to maintain, memory efficient, and DRY. Instead of objects, it uses reusable functions to create and act on data. Functional program is based on a seperation of concerns similar to object oriented programming. However, in functional programming there is a complete seperation between the data and the behaviors of a program. There is also an idea that once something is created, it should not be changed, being **immutable**. Unlike OOP, shared state is avoided functional programming works on the idea of **pure functions**.
 
 ### Pure Functions
 
@@ -2036,7 +2036,7 @@ console.log(`obj = ${obj}`, `updatedNameObj = ${updatedNameObj})
 You may be thinking that this could get really expensive, memory wise, to just copy code over and over. However, there is something called **structural sharing** that allows the data to only copy new information and points to the original state for any commonalities.
 
 <p align="center">
-  <img src="structure_tree.svg" alt="structural sharing tree" width="100%">
+  <img src="structure_tree.svg" alt="structural sharing tree" width="50%">
 </p>
 
 ### Partial Application
@@ -2391,7 +2391,7 @@ A data structure is different types of containers that hold your data. Each cont
 A computer has many parts but 3 that run almost all of our everyday operations, the CPU, RAM, and a hard drive (storage). The CPU processes all the data and only has so much power, the RAM is memory that is temporarily delegated to programs, and a hard drive is persistent memory that stays where we put it. Persistent storage is quiet slow, so we need RAM to use as a temporary holder for memory. RAM is like a storage shelf of memory addresses that each contain 8 bits or 1 byte. Each bit is either a 0 or a 1 to indicate whether it is on or off, 1 for on and 0 for off.
 
 <p align="center">
-<img src="bit.png" alt="bits and bytes in RAM">
+<img src="bit.png" alt="bits and bytes in RAM" style="width: 100%;">
 </p>
 
 ### Popular Data Structures
@@ -2402,15 +2402,19 @@ There are many implementations of data structures out there but there are only 2
 <img src="data.png" alt="data structures in languages" style="width: 100%">
 </p>
 
+<p align="center">
+<img src="big-o.png" alt="big-o notation cheat sheet" style="width: 100%">
+</p>
+
 ### Arrays
 
-Arrays order items sequentially with an index. Arrays are probably the simplest and the most widely used data structure because the are fast and take up the least amount of space. They also have the least amount of rules. Array methods have different time complexities, called big O notations. \_O(1) is constant time, meaning the time does not change with the data input. The \_O(n) is linear time, meaning time changes or goes up the more operations that need to be performed.
+Arrays order items sequentially with an index. Arrays are probably the simplest and the most widely used data structure because the are fast and take up the least amount of space. They also have the least amount of rules. Array methods have different time complexities, called big O notations. \_O(1) is constant time, meaning the time does not change with the data input. The \_O(n) is linear time, meaning time changes or goes up the more operations that need to be performed. \_O(1) can end up as \_O(n) in languages like JavaScript if it needs to allocate more memory for the array.
 
 ```javascript
 const strings = ["a", "b", "c", "d"];
 // 4 * 4 = 16 bytes of storage
 
-strings[2]; // c
+strings[2]; // c // O(1)
 strings.push("e"); // O(1)
 // ['a', 'b', 'c', 'd', 'e']
 strings.pop(); // O(1)
@@ -2424,3 +2428,139 @@ strings.unshift("z"); // O(n)
 // [      0    1    2    3 ]
 // [ 0    1    2    3    4 ]
 ```
+
+#### Implementing an Array
+
+Arrays can be declared easily in JavaScript, but what if we built our own...
+
+```javascript
+class MyArray {
+  constructor() {
+    this.length = 0;
+    this.data = {};
+  }
+  get(index) {
+    return this.data[index];
+  }
+  push(item) {
+    this.data[this.length] = item;
+    this.length++;
+    return this.length;
+  }
+  pop() {
+    const lastItem = this.data[this.length - 1];
+    delete this.data[this.length - 1];
+    this.length--;
+    return lastItem;
+  }
+  delete(index) {
+    const item = this.data[index];
+    this.shiftItems(index);
+    return item;
+  }
+  shiftItems(index) {
+    for (let i = index; i < this.length; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+    delete this.data[this.length - 1];
+    this.length--;
+  }
+}
+
+const newArray = new MyArray();
+newArray.push("hi");
+// MyArray { length: 1, data: { 0: 'hi'}}
+newArray.pop();
+// MyArray { length: 0, data: { }}
+```
+
+### Hash tables
+
+Different languages have different names for a hash table, but in JavaScript a hash table is an object. A data structure that stores data in key/value pairs.
+
+#### Hash function
+
+A hash function takes a key and maps it to a value of fixed length for every input. It is an indempotent function meaning given the same input the output will always be the same. A hash table uses the hash function to compute the key into a hash code and map that to an address in memory where it is stored with the value in a **bucket**. Using the hashing technique makes looking up data inside the hash table very fast and is usually _O(1)_ time.
+
+```javascript
+let character = {
+  age: 20,
+  name: "Harry Potter",
+  muggle: false,
+  patronus: function() {
+    console.log("Expecto Patronum!");
+  }
+};
+
+character.age; // 20 // O(1)
+character.levitate = "Wingardium Leviosa!"; // O(1)
+character.patronus(); // Expecto Patronum! // O(1)
+```
+
+#### Hash Collisions
+
+Every data structure is going to come with downsides. Hash collisions are what happens when a hash function maps a key to the same address as a previously added key. With enough data and limited memory, we will always run into this collision. This does not overwrite the previous information, but creates a linked list and slows down our ability to access the information. Your big O notation time jumps from O(1) to O(n/k) where n is the time and k is the size of the hash table.
+
+#### Hashing in JavaScript
+
+JavaScript came out with 2 ways to help prevent hash collisions when implenting hash tables, the **Map** object and the **Set**. Map will store key/value pairs like an object, but will remember the original order in memory. A Map also allows for any data type to be stored as a key such as an array or function. A Set will only store the values and also remembers the original order, but the values may only occur once.
+
+## Create a Hash Table
+
+```javascript
+class HashTable {
+  constructor(size) {
+    this.data = new Array(size);
+    // this.data = [];
+  }
+
+  _hash(key) {
+    let hash = 0;
+    for (let i = 0; i < key.length; i++) {
+      hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+    }
+    return hash;
+  }
+
+  set(key, value) {
+    let address = this._hash(key);
+    if (!this.data[address]) {
+      this.data[address] = [];
+    }
+    this.data[address].push([key, value]);
+    return this.data;
+  }
+
+  get(key) {
+    const address = this._hash(key);
+    const currentBucket = this.data[address];
+    if (currentBucket) {
+      for (let i = 0; i < currentBucket.length; i++) {
+        if (currentBucket[i][0] === key) {
+          return currentBucket[i][1];
+        }
+      }
+    }
+    return undefined;
+  }
+
+  keys() {
+    const keysArray = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i]) {
+        keysArray.push(this.data[i][0][0]);
+      }
+    }
+    return keysArray;
+  }
+}
+
+const myHashTable = new HashTable(50);
+myHashTable.set("grapes", 10000);
+myHashTable.get("grapes");
+myHashTable.set("apples", 9);
+myHashTable.get("apples");
+myHashTable.keys();
+```
+
+---
