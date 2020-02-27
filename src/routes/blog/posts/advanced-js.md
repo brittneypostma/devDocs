@@ -281,6 +281,12 @@ inception();
 // Maximum call stack size exceeded
 ```
 
+> **Nifty Snippet**: Did you know, Google has hard-coded recursion into their program to throw your brain for a loop when searching recursion?
+>
+> <p align='center'>
+> <img src="recursion.png" alt="recursion on google">
+> </p>
+
 ### Garbage Collection
 
 JavaScript is a garbage collected language. If you allocate memory inside of a function, JavaScript will automatically remove it from the memory heap when the function is done being called. However, that does not mean you can forget about **memory leaks**. No system is perfect, so it is important to always remember memory management. JavaScript completes garbage collection with a **mark and sweep** method.
