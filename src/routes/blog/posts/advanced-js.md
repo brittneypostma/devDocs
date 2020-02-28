@@ -192,7 +192,7 @@ The JavaScript engine does a lot of work for us, but 2 of the biggest jobs are r
 
 ### Memory Heap
 
-The memory heap is a place to store and write information so that we can use our memory appropriately. It is a place to allocate, use, and remove memory as needed. Think of it as a stoarage room of boxes that are unordered.
+The memory heap is a place to store and write information so that we can use our memory appropriately. It is a place to allocate, use, and remove memory as needed. Think of it as a storage room of boxes that are unordered.
 
 ```javascript
 // tell the memory heap to allocate memory for a number
@@ -205,6 +205,10 @@ const person = {
   last: "Postma"
 };
 ```
+
+<p align="center">
+<img src="memory-stack.png" alt="memory visualization">
+</p>
 
 ### Call Stack
 
