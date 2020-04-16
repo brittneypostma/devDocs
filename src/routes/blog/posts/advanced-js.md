@@ -1301,8 +1301,8 @@ const deepObj = JSON.parse(JSON.stringify(originalObj));
 // deepObj clones all parts of the object to a new memory address
 ```
 
-<p align='center'>
-<iframe style="border: 2px solid black; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F7kGBvbp2yrJPIfaqYMaOCg%2FUntitled%3Fnode-id%3D0%253A1" allowfullscreen></iframe>
+<p align='center' style="max-width: 100vw; overflow-x:auto;">
+<img src="./values.svg" alt="javascript memory head" />
 </p>
 
 ```javascript
