@@ -2413,7 +2413,7 @@ There are many implementations of data structures out there but there are only 2
 </p>
 
 <p align="center">
-<img src="big-o.png" alt="big-o notation cheat sheet" style="width: 100%">
+<img src="big-o.jpg" alt="big-o notation cheat sheet" style="width: 100%">
 </p>
 
 ### Arrays
