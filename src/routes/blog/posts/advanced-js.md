@@ -22,7 +22,7 @@ A JavaScript engine is a computer program that you give JavaScript code to and i
   <img src="javascript_engine.png" alt="javascript engine image" width="100%">
 </p>
 
-> **Nifty Snippet**: 2008 was a pivitol moment for JavaScript when Google created the Chrome V8 Engine. The V8 engine is an open source high-performance JavaScript engine, written in C++ and used in the Chrome browser and powers Node JS. The performance outmatched any engine that came before it mainly because it combines 2 parts of the engine, the interpreter and the compiler. Today, all major engines use this same technique.
+> **Nifty Snippet**: 2008 was a pivotal moment for JavaScript when Google created the Chrome V8 Engine. The V8 engine is an open source high-performance JavaScript engine, written in C++ and used in the Chrome browser and powers Node JS. The performance outmatched any engine that came before it mainly because it combines 2 parts of the engine, the interpreter and the compiler. Today, all major engines use this same technique.
 
 ### The Parser
 
