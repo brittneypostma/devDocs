@@ -28,10 +28,15 @@ title: React
 <br/><br/>
 
 <p align="center" style="overflow-x: auto;">
-  <img src="./react/components.svg" alt="React Component Visual">
+  <img src="./react/components.svg" alt="React Component Visual" width="75%">
 </p>
 
 ### Unidirectional Data Flow
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unidirectional or one way is how data flows in React. From top to bottom, parent to children. If you graph out the DOM, it is a tree-like structure starting with the body and branching out to any children components that are created. React creates a virtual version of the DOM to hold all changes in until it is ready to **repaint** or re-render the actual DOM. All changes to the **state** of the program will be put into the virtual DOM, it will check for the differences, and then finally re-render the actual DOM.
+<br/><br/>
 
+<p align="center" style="overflow-x: auto;">
+  <img src="./react/dom-tree.svg" alt="React DOM Tree" width="50%">
+</p>
 
