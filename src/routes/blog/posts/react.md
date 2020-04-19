@@ -81,6 +81,8 @@ Running the above commands will start up a local server, typically at port 3000.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lastly, we have the `src` folder. This is the folder where the code of your application lives. For now you see `App.css`, `App.js`, `App.test.js`, `index.css`, `index.js`, and `logo.svg`. Everything you see on the page in the browser is located within these files. These files can be deleted, renamed, or edited and any new files and folders, will be added to this directory. Additionally, if you already had Git installed when you created the app, a `.git` directory will be created too. This initializes a git repository for your project. After you create a new repo on GitHub, you can run `git remote add origin https://github.com/your-github-username/repo-name` you will be able to `git add .`, `git commit -m "any changes you made`, and then `git push` to add your application to GitHub. You might want to add a `.gitignore` file for any files you don't want to add to the repository, such as environment variables or tokens. There were a few new files added in the latest release that we don't need to worry about at this time, we will talk about `serviceWorker.js` later and if you are curious about the other files, a Google search will usually help you find the answer.
 
+---
+
 ### How React Works
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you open `src/index.js`, you will find the file that React uses to inject all your files into the div with the id **"root"** in `public/index.html`. We are importing React, ReactDOM, a css file, the App.js file, and the serviceWorker. We then tell ReactDOM to render (a method on the ReactDOM class) some React.StrictMode component and then our App component inside of that. StrictMode is a fairly new addition that is supposed to help us find potential bug in the application, it doesn't render anything visually, but activated checks and warnings at runtime. These are only done in development mode and does not affect the production build. In fact, we could take everything from ( to the , and input any valid HTML and it would show up in the browser. But, in the end you want your `src/index.js` to look like this:
@@ -102,11 +104,15 @@ ReactDOM.render(
 serviceWorker.unregister();
 ```
 
+---
+
 ### Service Worker
 
 [Create React App Service Worker Docs](https://create-react-app.dev/docs/making-a-progressive-web-app/)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By default the service worker in your app is turned off, or unregistered. During the build of the application, a service worker file is generated. By switching `serviceWorker.unregister()` to `serviceWorker.register()` is all you need to turn the service on. This will turn your app into a **Progressive Web App** which is described <a href="https://web.dev/progressive-web-apps/" target="_blank" rel="noopener noreferrer">here</a>. Turning it on basically allows your app to have some functionality while offline, but can cause issues when debugging.
+
+---
 
 ### Introducing JSX
 
