@@ -50,7 +50,7 @@ title: React
 
 ## Getting Started With React
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you want to test React before using it in your application, there are many code playgrounds that have React templates. A few are <a href="https://reactjs.org/redirect-to-codepen/hello-world" target="_blank" rel="noopener noreferrer">CodePen</a>, <a href="https://repl.it/" target="_blank" rel="noopener noreferrer">Repl.it</a>, or <a href="https://codesandbox.io/s/new" target="_blank" rel="noopener noreferrer">Code Sandbox</a>. React also has a simple way you can try React on your HTML site <a href="https://reactjs.org/docs/add-react-to-a-website.html" target="_blank" rel="noopener noreferrer">here</a>. There are even more ways to integrate React if you head over <a href="https://reactjs.org/docs/getting-started.html" target="_blank" rel="noopener noreferrer">here</a>. For a single page application or **SPA**, the easiest way to get started is to open a terminal to the directory of your choice and type `npx create-react-app my-app` to create a new react application.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you want to test React before using it in your application, there are many code playgrounds that have React templates. A few are <a href="https://reactjs.org/redirect-to-codepen/hello-world" target="_blank" rel="noopener noreferrer">CodePen</a>, <a href="https://codesandbox.io/s/new" target="_blank" rel="noopener noreferrer">Code Sandbox</a>, or <a href="https://repl.it/" target="_blank" rel="noopener noreferrer">Repl.it</a>. React also has a simple way you can try React on your HTML site <a href="https://reactjs.org/docs/add-react-to-a-website.html" target="_blank" rel="noopener noreferrer">here</a>. There are even more ways to integrate React if you head over <a href="https://reactjs.org/docs/getting-started.html" target="_blank" rel="noopener noreferrer">here</a>. For a single page application or **SPA**, the easiest way to get started is to open a terminal to the directory of your choice and type `npx create-react-app my-app` to create a new react application.
 
 ```
 npx create-react-app my-app
@@ -58,7 +58,35 @@ cd my-app
 npm start
 ```
 
-Running the above commands will start up a local server, typically at port 3000. If you follow the link in the terminal, it will open the starter page for React in the browser.
+Running the above commands will start up a local server, typically at port 3000. If you follow the link in the terminal, it will open the starter page for React in the browser. You can also open the folder in your favorite code editor, if you use VSCode you can simply type `code .` in your terminal to open up that folder location.
+
+---
+
+### React Folder Structure
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;React is constantly changing and updating itself, so it can be hard to keep up with all the latest and greatest information. Create-react-app now has its own dedicated page <a href="https://create-react-app.dev/docs/folder-structure/" rel="noopener noreferrer">here</a> that should be up to date with whenever you are reading this. They usually change out the logo.svg and update some of the code, but the overall folder structure typically stays the same. When you open up the new react app in a code editor, you are going to see a some folders and files like this.
+
+```
+my-app/
+  README.md
+  node_modules/
+  package.json
+  public/
+    index.html
+    favicon.ico
+  src/
+    App.css
+    App.js
+    App.test.js
+    index.css
+    index.js
+    logo.svg
+```
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This may seem a bit overwhelming, but lets break it down. The **`my-app`** folder is the base folder of your project, it is named whatever you named your application when running `create-react-app`. Inside of that, we see some folders and a couple files. The `README.md` file is what explains about the application, it will show up as the front page on the GitHub repository if you add it. The other file in the main directory is `package.json`. This is where all the information about what packages and versions the app currently needs to run. Depending on if you used `npm` or `yarn` to install, you will see a list of scripts that are able to be run in the terminal to start, build, test, and eject the app. My advice is don't ever eject unless you know exactly what you are doing. Also if you are just starting out, don't mess with this file too much. But, if you want to learn more about it, you can head <a href="https://docs.npmjs.com/files/package.json" rel="noopener noreferrer">here</a>. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;So, we have 3 folders left in the main directory. The first is `node_modules`. These are all the files the packages in `package.json` need to run your app. Whenever you `npm install` or `yarn` a package, it will install its files into the `node_modules` folder. You do not directly do anything with this folder. Next, we have the `public` folder. This is the page template, it contains the `index.html` and the `index.js` files that build your app.
+
 
 ### Introducing JSX
 
