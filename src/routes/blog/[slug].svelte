@@ -101,7 +101,7 @@
   }
 
   div {
-    font-weight: 300;
+    font-weight: 400;
   }
 
   @media only screen and (max-width: 900px) {
