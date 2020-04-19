@@ -44,5 +44,41 @@ title: React
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;React is a UI library, it only handles the UI and allows you to bring in other libraries or frameworks if you need to handle other concerns. Unlike AngularJS, that hands you everything in the kitchen you might need, React is just the oven that bakes the finished product. This can be extremely beneficial if you are already familiar with other packages and want to use them in your applications. With React it is easy to bring in whatever you need to build your project. React also has variations the can be ran on many different platforms. React Native runs on Android and IOS devices for mobile, Electron that runs with Windows and Mac for desktop, and React360 for VR applications. In the end, React is one of the most popular choices for Front-end development today and is one of the most sought after job positions.
 
+> **Nifty Snippet**:Great React developers do a few things really well. Deciding on how to break down to components and structure the application, deciding on the state and where it lives, and what changes when state changes. Doing these 3 things well will make your program as efficient and fast as it can be.
+
 ---
 
+## Getting Started With React
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you want to test React before using it in your application, there are many code playgrounds that have React templates. A few are <a href="https://reactjs.org/redirect-to-codepen/hello-world" target="_blank" rel="noopener noreferrer">CodePen</a>, <a href="https://repl.it/" target="_blank" rel="noopener noreferrer">Repl.it</a>, or <a href="https://codesandbox.io/s/new" target="_blank" rel="noopener noreferrer">Code Sandbox</a>. React also has a simple way you can try React on your HTML site <a href="https://reactjs.org/docs/add-react-to-a-website.html" target="_blank" rel="noopener noreferrer">here</a>. There are even more ways to integrate React if you head over <a href="https://reactjs.org/docs/getting-started.html" target="_blank" rel="noopener noreferrer">here</a>. For a single page application or **SPA**, the easiest way to get started is to open a terminal to the directory of your choice and type `npx create-react-app my-app` to create a new react application.
+
+```
+npx create-react-app my-app
+cd my-app
+npm start
+```
+
+Running the above commands will start up a local server, typically at port 3000. If you follow the link in the terminal, it will open the starter page for React in the browser.
+
+### Introducing JSX
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSX is JavaScript XML (Extensible Markup Language), that is a lot of fancy jargon for a way to write HTML in React. It looks and feels a lot like HTML, but has some key differences. One of the first things you may notice if you get an error, is in JSX all elements must be properly closed. Some tags in HTML automatically close like `<img>` and `<input>`, but in JSX they need to be closed with a **`/`**.
+
+```html
+<img src="filename.png" />
+<input type="text" />
+```
+
+Another common error in JSX is when adding a class to an element. In HTML you can write `class=""`, but in JSX it is `className=""`
+
+```html
+<div className="container">
+  <p class="name">Name</p>
+</div>
+```
+
+Because JSX is a JavaScript extension, you can insert JavaScript expressions directly by using `{ }` curly braces.
+
+```html
+<h1>{10 * 10}% JSX</h1>
+```
