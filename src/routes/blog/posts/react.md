@@ -159,11 +159,11 @@ export default App;
 <input type="text" />
 ```
 
-Another common error in JSX is when adding a class to an element. In HTML you can write `class=""`, but in JSX it is `className=""`
+Another common error in JSX is when adding a class to an element. In HTML you can write `class=""`, but in JSX it is `className=""`. JSX uses camelCase rather than lowercase for attributes and event handling.
 
 ```html
 <div className="container">
-  <p class="name">Name</p>
+  <p class="name" onClick={handleClick}>Name</p>
 </div>
 ```
 
@@ -377,8 +377,129 @@ class Header extends React.Component {
 ReactDOM.render(<Header />, document.getElementById('root'));
 ```
 
+### Binding
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A common problem in class components is running into issues with the binding of **this**. Class methods are not bound by default and if you forget to bind **this**, the function will return undefined.
+
+```javascript
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(state => ({
+      isToggleOn: !state.isToggleOn
+    }));
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Toggle />,
+  document.getElementById('root')
+);
+```
+
+Another way to bind **this** is to just use an arrow function instead, which will lexically bind **this**.
+
+```javascript
+class LoggingButton extends React.Component {
+  // This syntax ensures `this` is bound within handleClick.
+  // Warning: this is *experimental* syntax.
+  handleClick = () => {
+    console.log('this is:', this);
+  }
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        Click me
+      </button>
+    );
+  }
+}
+
+class LoggingButton extends React.Component {
+  handleClick() {
+    console.log('this is:', this);
+  }
+
+  render() {
+    // This syntax ensures `this` is bound within handleClick
+    return (
+      <button onClick={() => this.handleClick()}>
+        Click me
+      </button>
+    );
+  }
+}
+```
+
 <div id="hooks"></div>
 
 ### Hooks
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hooks work in React version 16.8 or higher and were added to simplify the connection between components and make the code more readable. Classes can be confusing to both people and machines reading the code and it makes it more difficult to organize and reuse. Understanding **this** binding was also troublesome. Hooks simply lets you use React features without having a class component and extending methods. React says they have no plans to remove classes and everything is backward compatible and you can use hooks alongside class components. There are many built-in hooks React provides, but you can also create custom hooks to use. The hooks that are used most often are:
+- **useState** - returns a state value, and a function to update it. 
+- **useEffect** - accepts a function as an argument the would cause a side effect.
+- **useContext**  - accepts an object as an argument and returns the current value of that object.
+
+```javascript
+import { createContext, useState, useEffect } from 'react';
+const context = createContext(null);
+export default function UserProvider({ children }) {
+  // The useState() hook defines a state variable.
+  const [userData, setUserData] = useState(null);
+  // The useEffect() hook registers a function to run after render.
+  useEffect(() => {
+    fetch('/api/v1/whoami')        // Ask the server for user data.
+      .then(response => response.json()) // Get the response as JSON
+      .then(data => {                    // When data arrives...
+        setUserData({                    // set our state variable.
+          username: data.username,
+          isAuthenticated: data.is_authenticated,
+          timezone: data.timezone,
+          gravatarUrl: data.gravatar_url
+        });
+      });
+  }, []);  // This empty array means the effect will only run once.
+  // On the first render userData will have the default value null.
+  // But after that render, the effect function will run and will
+  // start a fetch of the real user data. When the data arrives, it
+  // will be passed to setUserData(), which changes state and
+  // triggers a new render. On this second render, we'll have real
+  // user data to provide to any consumers. (And the effect will not
+  // run again.)
+  return (
+    <context.Provider value={userData}>
+      {children}
+    </context.Provider>
+  );
+}
+
+UserProvider.context = context;
+```
+
+Additional hooks are:
+- **useReducer** - an alternative to useState that returns the current state paired with a dispatch method similar to Redux.
+- **useCallback** - returns a memoized callback function. Basically caches the value returned from the callback function to make it more efficient.
+- **useMemo** - returns a memoized value. Only updates when one of the dependencies changes to avoid recalculating on every render.
+- **useRef** - returns an object that is mutable. Like a box it holds a value through the life of the component.
+- **useImperativeHandle** - goes with useRef and customizes the value useRef exposes.
+- **useLayoutEffect** - similar to useEffect, but fires after DOM mutations. Can block visual updates.
+- **useDebugValue** - can display a label for custom hooks.
+
+[Hooks API Docs](https://reactjs.org/docs/hooks-reference.html)
+
+---
