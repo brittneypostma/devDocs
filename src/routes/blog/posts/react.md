@@ -24,7 +24,7 @@ title: React
 
 ### Components
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;React is built around this concept of reusable components. Components are intended to be small pieces that are put together to build a larger application, a lot like lego blocks. The components are created once and able to be pulled in anywhere they are needed. Components can even be reused in multiple applications. Frameworks like Material-UI have pre-styled components that can be put into any application. Some developers even have their own library or components that they like to use in their applications.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;React is built around this concept of reusable components. Components are intended to be small pieces that are put together to build a larger application, a lot like lego blocks. The components are created once and able to be pulled in anywhere they are needed. Components can even be reused in multiple applications. Frameworks like Material-UI have pre-styled components that can be put into any application. Some developers even have their own library or components that they like to use in their applications. There are 2 types of components in React, functional, sometimes called pure, or class components. We will dive into the differences between them a little later.
 <br/><br/>
 
 <p align="center" style="overflow-x: auto;">
@@ -38,6 +38,17 @@ title: React
 
 <p align="center" style="overflow-x: auto;">
   <img src="./react/dom-tree.svg" alt="React DOM Tree" width="75%">
+</p>
+
+### Lifecycle
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In React each component has a lifecycle with 3 main phases that you can capture or change data in. **Mounting** is the initial phase of the lifecycle. When a component first appears in the DOM, it is considered mounted. **Updating** happens whenever there is a change to the state or props. And finally, **Unmounting** happens when the component is removed from the DOM or unmounted. This is when you want to clean up any code that may cause memory leaks like timeouts or intervals. Each lifecycle phase has specific methods than can be called within a class component explained in the [Class Methods](#class-methods) section.
+
+[The Component Lifecycle](https://reactjs.org/docs/react-component.html#the-component-lifecycle)
+<br/><br/>
+
+<p align="center">
+  <img src="./react/lifecycle.png" alt="React Component Lifecycle" width="75%">
 </p>
 
 ### Why React?
@@ -77,7 +88,7 @@ Running the above commands will start up a local server, typically at port 3000.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;So, we have 3 folders left in the main directory. The first is `node_modules`. These are all the files the packages in `package.json` need to run your app. Whenever you `npm install` or `yarn` a package, it will install its files into the `node_modules` folder. You do not directly do anything with this folder. Next, we have the `public` folder. It contains `index.html`, the page template, and `index.js`, the JavaScript entry point. For the project to build, these files must keep the same names and locations. Only files inside the public directory can be directly used by `public/index.html`, such as the `favicon.ico` and other images needed for meta tags.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lastly, we have the `src` folder. This is the folder where the code of your application lives. For now you see `App.css`, `App.js`, `App.test.js`, `index.css`, `index.js`, and `logo.svg`. Everything you see on the page in the browser is located within these files. These files can be deleted, renamed, or edited and any new files and folders, will be added to this directory. Additionally, if you already had Git installed when you created the app, a `.git` directory will be created too. This initializes a git repository for your project. After you create a new repo on GitHub, you can run `git remote add origin https://github.com/your-github-username/repo-name` you will be able to `git add .`, `git commit -m "any changes you made`, and then `git push` to add your application to GitHub. You might want to add a `.gitignore` file for any files you don't want to add to the repository, such as environment variables or tokens. There were a few new files added in the latest release that we don't need to worry about at this time, we will talk about `serviceWorker.js` later and if you are curious about the other files, a Google search will usually help you find the answer.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lastly, we have the `src` folder. This is the folder where the code of your application lives. For now you see `App.css`, `App.js`, `App.test.js`, `index.css`, `index.js`, and `logo.svg`. Everything you see on the page in the browser is located within these files. These files can be deleted, renamed, or edited and any new files and folders, will be added to this directory. Additionally, if you already had Git installed when you created the app, a `.git` directory will be created too. This initializes a git repository for your project. After you create a new repo on GitHub, you can run `git remote add origin https://github.com/your-github-username/repo-name` you will be able to `git add .`, `git commit -m "any changes you made`, and then `git push` to add your application to GitHub. You might want to add a `.gitignore` file for any files you don't want to add to the repository, such as environment variables or tokens. There were a few new files added in the latest release that we don't need to worry about at this time, we will talk about `serviceWorker.js` in the [Service Worker](#service-worker) section and if you are curious about the other files, a Google search will usually help you find the answer.
 
 ### How React Works
 
@@ -100,11 +111,13 @@ ReactDOM.render(
 serviceWorker.unregister();
 ```
 
+<div id="service-worker"></div>
+
 ### Service Worker
 
-[Create React App Service Worker Docs](https://create-react-app.dev/docs/making-a-progressive-web-app/)
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By default the service worker in your app is turned off, or unregistered. During the build of the application, a service worker file is generated. By switching `serviceWorker.unregister()` to `serviceWorker.register()` is all you need to turn the service on. This will turn your app into a **Progressive Web App** which is described <a href="https://web.dev/progressive-web-apps/" target="_blank" rel="noopener noreferrer">here</a>. Turning it on basically allows your app to have some functionality while offline, but can cause issues when debugging.
+
+[Create React App Service Worker Docs](https://create-react-app.dev/docs/making-a-progressive-web-app/)
 
 ### Introducing JSX
 
@@ -139,7 +152,7 @@ function App() {
 export default App;
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSX is JavaScript XML (Extensible Markup Language), that is a lot of fancy jargon for a way to write HTML in React. It looks and feels a lot like HTML, but has some key differences. One of the first things you may notice if you get an error, is in JSX all elements must be properly closed. Some tags in HTML automatically close like `<img>` and `<input>`, but in JSX they need to be closed with a **`/`**.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSX is JavaScript XML (Extensible Markup Language), that is a lot of fancy jargon for a way to write HTML in React. It looks and feels a lot like HTML, but has some key differences. One of the first things you may notice if you get an error, is in JSX all elements must be properly closed. Some tags in HTML automatically close like `<img>` and `<input>`, but in JSX they need to be closed with a backslash **`/`**.
 
 ```html
 <img src="filename.png" />
@@ -159,3 +172,213 @@ Because JSX is a JavaScript extension, you can insert JavaScript expressions dir
 ```html
 <h1>{10 * 10}% JSX</h1>
 ```
+
+[JSX In Depth Docs](https://reactjs.org/docs/jsx-in-depth.html)
+
+### Function vs Class Components
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Function components are the simplest way to define a component and are sometimes called pure components because they don't have any side effects or changes to state of the application. Function components are impure if they change the state or don't always output the same result. Function components are literally a JavaScript function that accepts an optional **props** argument and returns JSX. Class components are written a bit differently than function components, but do the same thing as well as extending some extra methods that can be used. You can view more info on those in the [Class Methods](#class-methods) section. Here is what a class component looks like:
+
+```javascript
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+```
+
+Or, the **Component** can be destructured in the import like so:
+
+```javascript
+import React, {Component} from 'react'
+
+class Welcome extends Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+```
+
+[React Components Docs](https://reactjs.org/docs/components-and-props.html)
+
+
+### Props
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As you dive into React and as you saw above, you may see or hear the term **props** used a lot. It is a keyword in React, which is short for properties and is used to pass data from a parent component to a child. The data is read-only and should not be changed by the child. Here is what React says in regards to props:
+
+>React is pretty flexible but it has a single strict rule:
+>
+>### All React components must act like pure functions with respect to their props.
+
+### State
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In React there are 2 ways to initiate the **state** of the application, through an object in a class component or using the **state hook**. **Hooks** are a newer addition to React and only work in versions 16.8 or higher, you can learn more in the [Hooks Section](#hooks). A lot of older code bases with still use the class method because of this, but you are able to use whichever feels more comfortable to you as there are no plans to get rid of classes in React.
+<br/><br/>
+
+- #### Class component
+```javascript
+class Example extends React.Component {
+  constructor(props) {
+    super(props);
+    // initiate state here
+    this.state = {
+      count: 0
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <p>You clicked {this.state.count} times</p>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Click me
+        </button>
+      </div>
+    );
+  }
+}
+```
+
+- #### useState Hook
+```javascript
+import React, { useState } from 'react';
+function Example() {
+  // Initiate state as count and update as setCount
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+<div id="class-methods"></div>
+
+### Class Methods
+
+<p align="center" style="overflow-x: auto;">
+  <img src="./react/class-methods.svg" alt="React Class Methods">
+  <img src="./react/lifecycle-methods.png" alt="React Component Lifecycle"><br/>
+  <a href="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/" target="_blank" rel="noopener noreferrer">Interactive image</a>
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When a class component is used, there are methods provided by the class available to use during the 3 phases of the lifecycle. During the mounting phase there are 4 methods. They get called in this order:
+
+- 1\. **constructor()** - is called first when the component is initiated and is the place to initialize your state. It takes props as an argument and requires `super(props)` to be called to inherit the parent's methods.
+- 2\. **getDerivedStateFromProps()** - method is the place to update the state of the component based on the props coming from the parent.
+- 3\. **render()** - is required in a class component and outputs the JSX to the DOM.
+- 4\. **componentDidMount()** - is called after the component is mounted to the DOM. This is where you place functions that require the window object or for the component to be present.
+
+```javascript
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    // state sets color to red by default
+    this.state = {favoriteColor: "red"};
+  }
+  static getDerivedStateFromProps(props, state) {
+    // changes favoriteColor state to update based on parent props
+    return {favoriteColor: props.favCol };
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({favoriteColor: "yellow"})
+    }, 1000)
+  }
+  render() {
+    return (
+      <h1>My Favorite Color is {this.state.favoriteColor}</h1>
+    );
+  }
+}
+
+// Parent sets favCol to yellow
+ReactDOM.render(<Header favCol="yellow"/>, document.getElementById('root'));
+```
+
+The 2nd phase is updating. During this phase, we can call 5 different methods in this order:
+
+- 1\. **getDerivedStateFromProps()** - same as mounting phase.
+- 2\. **shouldComponentUpdate()** -  returns a Boolean (true/false) value that tells React whether or not to update the component.
+- 3\. **render()** - called by default, renders the JSX to the DOM again.
+- 4\. **getSnapshotBeforeUpdate()** - gives access to props and state before it is updated.
+- 5\. **componentDidUpdate()** - is called after the component is updated.
+
+```javascript
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoriteColor: "red"};
+  }
+  static getDerivedStateFromProps(props, state) {
+    // changes favoriteColor state to update based on parent props
+    return {favoriteColor: props.favCol };
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({favoriteColor: "yellow"})
+    }, 1000)
+  }
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    document.getElementById("div1").innerHTML =
+    "Before the update, the favorite was " + prevState.favoriteColor;
+  // returns red
+  }
+  componentDidUpdate() {
+    document.getElementById("div2").innerHTML =
+    "The updated favorite is " + this.state.favoriteColor;
+    // returns yellow
+  }
+  render() {
+    return (
+      <div>
+        <h1>My Favorite Color is {this.state.favoriteColor}</h1>
+        <div id="div1"></div>
+        <div id="div2"></div>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Header />, document.getElementById('root'));
+```
+
+Finally, the last phase of the lifecycle in a component is unmounting. Here we only call the **componentWillUnmount()** method.
+
+```javascript
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoriteColor: "red"};
+  }
+  let timer = null;
+  componentDidMount() {
+    timer = setTimeout(() => {
+      this.setState({favoriteColor: "yellow"})
+    }, 1000)
+  }
+  componentWillUnmount() {
+    clearTimeout(timer)
+  }
+  render() {
+    return (
+      <div>
+        <h1>My Favorite Color is {this.state.favoriteColor}</h1>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Header />, document.getElementById('root'));
+```
+
+<div id="hooks"></div>
+
+### Hooks
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
