@@ -65,8 +65,6 @@ Running the above commands will start up a local server, typically at port 3000.
 [Create React App Docs](https://create-react-app.dev/docs/getting-started)<br/>
 [Reactjs.org](https://reactjs.org/)
 
----
-
 ### React Folder Structure
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;React is constantly changing and updating itself, so it can be hard to keep up with all the latest and greatest information. Create-react-app now has its own dedicated page <a href="https://create-react-app.dev/docs/folder-structure/" target="_blank" rel="noopener noreferrer">here</a> that should be up to date with whenever you are reading this. They usually change out the logo.svg and update some of the code, but the overall folder structure typically stays the same. When you open up the new react app in a code editor, you are going to see a some folders and files like this.
