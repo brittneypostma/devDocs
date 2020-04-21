@@ -39,15 +39,15 @@ Redux does these 3 things really well, by using these 3 principles:
 
 ### Setting Up React Redux
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you have a project running on React that you want to add Redux to, there is some setup involved to convert your app over. You need to have added both the **redux** and **react-redux** packages to your app. React Redux has a **`<Provider />`** component, which allows the app to access the Redux store. You go into your **`src/index.js`** file and around your **`<App />`** component, you wrap the Provider like this:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you have a project running on React that you want to add Redux to, there is some setup involved to convert your app over. You need to have added both the **redux** and **react-redux** packages to your app. React Redux has a **`<Provider />`** component, which allows the app to access the Redux store. You go into your **`src/index.js`** file and around your **`<App />`** component, you wrap the Provider around the App component like this:
 ``` javascript
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import App from './App'
+
 import { Provider } from 'react-redux'
 import store from './store'
-
-import App from './App'
 
 const rootElement = document.getElementById('root')
 ReactDOM.render(
@@ -57,19 +57,35 @@ ReactDOM.render(
   rootElement
 )
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Redux also needs to connect to each component you need access to the store in.
-In your **`src`** folder inside your React application create 2 files called **`actions.js`** and **`constants.js`**. In actions.js, we will create our action objects. Each action will take in the event and return the **payload** or data that is needed. The type is a constant and it is common practice in JavaScript to capitalize constants and it just describes what the object is doing. In, constants.js we can keep track of all of our type constants and import them into our actions.js file.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now we haven't actually created our store yet, so lets do that next. Everyone seems to have their own folder structure that they like when creating an application. In time, you will be able to In your **`src`** folder inside your React application create 3 files called **`actions.js`**, **`constants.js`**, and **`store.js`**. In actions.js, we will create our action objects. Each action will take in the event that happened and a copy of the current state. It then updates the **payload** or data and returns an updated copy of the store, our state. In, constants.js we can keep track of all of our type constants and import them into our actions.js file. The constants.js file is optional, it is a common practice in larger applications to hold all of the constant names of the action types. 
 
 ```javascript
 // constants.js
-export const CHANGE_SEARCH_FIELD = 'CHANGE_SEARCH_FIELD'
+export const INCREMENT_LIKES = 'INCREMENT_LIKES'
+export const ADD_COMMENT = 'ADD_COMMENT'
+export const REMOVE_COMMENT = 'REMOVE_COMMENT'
+```
 
+```javascript
 // actions.js
-import { CHANGE_SEARCH_FIELD } from './constants.js'
+import { INCREMENT_LIKES, ADD_COMMENT, REMOVE_COMMENT } from './constants.js'
 
-export const setSearchField = (text) => ({
-  type: CHANGE_SEARCH_FIELD, 
-  payload: text
+export const increment = index => ({
+  type: INCREMENT_LIKES, 
+  payload: index
+})
+
+export const addComment = (postId, author, comment) => ({
+  type: ADD_COMMENT,
+  postId,
+  author,
+  comment
+})
+
+export const removeComment = (postId, i) => ({
+  type: REMOVE_COMMENT,
+  postId,
+  i
 })
 ```
 
@@ -77,12 +93,18 @@ export const setSearchField = (text) => ({
 
 ```javascript
 import { CHANGE_SEARCH_FIELD } from './constants.js
+
 const initialState = {
   searchField: ''
 }
 
-export const searchRobots = ( state=initialState, action={} ) = > ({
-  switch(action.type)
+export const searchRobots = ( state=initialState, action={} ) => ({
+  switch(action.type) {
+    case CHANGE_SEARCH_FIELD:
+      return { ...state, { searchField: action.payload } }
+    default:
+      return state
+  }
 })
 ```
 
