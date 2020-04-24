@@ -100,6 +100,10 @@
     text-align: left;
   }
 
+  .content :global(th, tr, td) {
+    word-break: normal;
+  }
+
   div {
     font-weight: 400;
   }
