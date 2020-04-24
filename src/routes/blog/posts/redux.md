@@ -185,25 +185,28 @@ export const rootReducer = combineReducers({
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The last thing we have left to do is connect our app to the store. In our **src** folder create a new component called **Connect.js**. In Connect.js, we need to import **connect** from react-redux and set up 2 functions: **mapStateToProps** and **mapDispatchToProps**. In mapStateToProps, we are giving access to the state or store to all the children components. In mapDispatchToProps, we are sending the events to the correct actions.
 
 ```javascript
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux';
-import * as actionCreators from '../actions';
-import App from './App'
+import { connect } from "react-redux";
+import { setSearchField, requestRobots } from "./redux/actions";
+import App from "./App";
 
-const mapStateToProps = (state) => ({
-    searchField: state.searchRobots.searchField,
-    robots: state.requestRobots.robots,
-    isPending: state.requestRobots.isPending
-})
+const mapStateToProps = state => ({
+  searchField: state.searchRobots.searchField,
+  robots: state.requestRobots.robots,
+  isPending: state.requestRobots.isPending
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(actionCreators, dispatch)
-}
+const mapDispatchToProps = dispatch => ({
+  onSearchChange: event => dispatch(setSearchField(event.target.value)),
+  onRequestRobots: () => dispatch(requestRobots())
+});
 
 // we take the 2 functions and connect them to our App component
-const Connect = connect(mapStateToProps, mapDispatchToProps)(App)
+const Connect = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
 
-export default Connect
+export default Connect;
 ```
 
 Finally, our app is fully connected to Redux! This is our final folder structure.
