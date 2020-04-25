@@ -16,8 +16,9 @@ title: React Native
 
 ### Components in React Native
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since there is no such thing as HTML in the native world, our JSX needs to render something that the device can recognize. We use Native Components to do this. A "view" is the basic UI building block, similar to a div in HTML. React native invokes these native views using the React Native Components. Here is the full list of Core Components, from the [React Native Docs](https://reactnative.dev/docs/intro-react-native-components).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since there is no such thing as HTML in the native world, our JSX needs to render something that the device can recognize. We use Native Components to do this. A **view** is the basic UI building block, similar to a div in HTML. React native invokes these native views using the React Native Components. Here is the full list of Core Components, from the [React Native Docs](https://reactnative.dev/docs/intro-react-native-components).
 
+<div  style="width: 100%; overflow-x: auto;">
 <table>
 <thead>
 <tr><th>React Native UI Component</th><th>Android View</th><th>iOS View</th><th>Web Analog</th><th>Description</th></tr>
@@ -30,7 +31,8 @@ title: React Native
 <tr><td><code>&lt;TextInput&gt;</code></td><td><code>&lt;EditText&gt;</code></td><td><code>&lt;UITextField&gt;</code></td><td><code>&lt;input type=&quot;text&quot;&gt;</code></td><td>Allows the user to enter text</td></tr>
 </tbody>
 </table>
+</div>
 
 ### CSS in React Native
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;React Native provides a StyleSheet JavaScript object to emulate CSS to native code. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since there is no true CSS in React Native, it uses    a JavaScript object to emulate CSS to native code. React Native provides 2 ways by default to style an application. You can use **style props**, which is inline styling in JavaScript, or use the StyleSheet method. Both provide a JavaScript object of camelCased CSS properties as keys and values. React Native uses density-independent pixels that are unitless. There are no units (px, em, vw, etc.) for dimensions, you simply don't include them in your styles. There can be either fixed width and height or you can use flex containers to dynamically fit the components.
