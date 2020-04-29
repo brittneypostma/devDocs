@@ -93,7 +93,7 @@ title: React Native
 
 ## CSS in React Native
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since there is no true CSS in React Native, how do we style our apps? All React Native core components accept a **`style`** prop that you can write your styles **inline**, or import the **StyleSheet** method that allows you to create classes that . Both provide a JavaScript object of camelCased CSS properties as keys and values. There are also many frameworks out there like Styled Components that would allow you to write more vanilla style CSS. There are also no units for dimensions (px, em, vw, etc.), you simply don't include them in your styles. There can either be fixed width and height or you can use flex containers to dynamically fit the components. Flexbox is used to layout components and each type of component has its own set of styles that are able to be applied to it. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since there is no true CSS in React Native, how do we style our apps? All React Native core components accept a **`style`** prop that you can write your styles **inline**, or import the **StyleSheet** method that allows you to create classes that . Both provide a JavaScript object of camelCased CSS properties as keys and values. There are also many frameworks out there like Styled Components that would allow you to write more vanilla style CSS. Styles are not inherited the way CSS is in a browser, only Text components within Text components are inherited. So, in most cases you have to specify for each component the styles you want. There are also no units for dimensions (px, em, vw, etc.), you simply don't include them in your styles. There can either be fixed width and height or you can use flex containers to dynamically fit the components. Flexbox is used to layout components and each type of component has its own set of styles that are able to be applied to it.
 
 ```javascript
   <View style={styles.container}>
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-## View Component Styles
+### View Component Styles
 <div  style="width: 100%; overflow-x: auto;">
 <table>
 <thead>
@@ -142,9 +142,27 @@ const styles = StyleSheet.create({
 </div>
 <br/>
 
-## Image Component Styles
+```javascript
+   <View
+      style={{
+        flexDirection: "row",
+        height: 100,
+        padding: 20
+      }}
+    >
+    <View style={{styles.box}}>
 
-<p style="text-align: center;">Along with the all of the above props, the Image component adds the following possible properties and methods.</p>
+    const styles = StyleSheet.create({
+      box: {
+        backgroundColor: 'blue',
+        flex: 0.5
+      }
+});
+```
+
+### Image Component Styles
+
+Along with the all of the above props, the Image component adds the following possible properties and methods.
 
 <div  style="width: 100%; overflow-x: auto;">
 <table>
@@ -174,6 +192,7 @@ const styles = StyleSheet.create({
 <tr><td><code>source</code></td><td>ImageSourcePropType</td><td>The source is either a remote or local file URL.</td></tr>
 <tr><td><code>testID</code></td><td>string</td><td>Unique id to be used in testing scripts.</td></tr>
 <tr><td><code>tintColor</code></td><td>color</td><td>Changes any non-transparent pixels to the tintColor.</td></tr>
+<th colspan=3><h2>Methods<h2></th>
 <tr><td><code>getSize()</code></td><td><code>Image.getSize(uri, success, [failure])</code></td><td>Retrieve the width and height in pixels of an image before its displayed.</td></tr>
 <tr><td><code>getSizeWithHeaders()</code></td><td><code>Image.getSizeWithHeaders(uri, success, [failure])</code></td><td>Retrieve the width and height in pixels of an image before its displayed with the ability to provide the headers for the request.</td></tr>
 <tr><td><code>prefetch()</code></td><td><code>Image.prefetch(url)</code></td><td>Prefetches a remote image for later use by downloading it to the disk cache.</td></tr>
@@ -185,7 +204,52 @@ const styles = StyleSheet.create({
 </div>
 <br/>
 
-## Text Component Styles
+```javascript
+import React from 'react';
+import { View, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  tinyLogo: {
+    width: 50,
+    height: 50,
+  },
+  logo: {
+    width: 66,
+    height: 58,
+  },
+});
+
+const DisplayAnImage = () => {
+  return (
+    <View style={styles.container}>
+      <Image
+        style={styles.tinyLogo}
+        source={require('@expo/snack-static/react-native-logo.png')}
+      />
+      <Image
+        style={styles.tinyLogo}
+        source={{
+          uri: 'https://reactnative.dev/img/tiny_logo.png',
+        }}
+      />
+      <Image
+        style={styles.logo}
+        source={{
+          uri:
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
+        }}
+      />
+    </View>
+  );
+}
+
+export default DisplayAnImage;
+```
+
+### Text Component Styles
 
 <div  style="width: 100%; overflow-x: auto;">
 <table>
@@ -220,9 +284,59 @@ const styles = StyleSheet.create({
 </div>
 <br/>
 
+```javascript
+
+const TextInANest = () => {
+  const titleText = useState("Bird's Nest");
+  const bodyText = useState("This is not really a bird nest.");
+
+  return (
+    <Text style={styles.baseText}>
+      <Text style={styles.titleText} onPress={onPressTitle}>
+        {titleText}
+        {"\n"}
+        {"\n"}
+      </Text>
+      <Text numberOfLines={5}>{bodyText}</Text>
+    </Text>
+  );
+};
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: "Cochin"
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: "bold"
+  }
+});
+```
+
 ## Button
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buttons 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buttons in React Native have a very limited amount of properties that can be applied to them. They cannot have a direct style prop on a button and it is a self-closing tag. Text is set with the **title** prop and **color** can be set, otherwise you can use **TouchableOpacity** or **TouchableNativeFeedback** to build your own button. You can also surround a Button with a View container to create a larger margin.
+
+<div  style="width: 100%; overflow-x: auto;">
+<table>
+<thead>
+<tr><th>Property</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>accessibilityLabel</code></td><td>string</td><td>Sets the text that is read by the screen reader when the button is hovered or clicked on.</td></tr>
+<tr><td><code>color</code></td><td>color</td><td>Sets the color of the button.</td></tr>
+<tr><td><code>disabled</code></td><td>bool</td><td>If true, the button has no interactions. Default is false.</td></tr>
+<tr><td><code>hasTVPreferredFocus</code></td><td>bool</td><td>Apple TV only, to check if tv is the preferred focus.</td></tr>
+<tr><td><code>nextFocus<em>Direction</em></code></td><td>number</td><td>Android only, defines the next view that gets focused. Directions are Down, Forward, Up, Left, and Right</td></tr>
+<tr><td><code>onPress</code></td><td>function</td><td>Provides the function that should be executed when the button is pressed.</td></tr>
+<tr><td><code>testID</code></td><td>string</td><td>Unique identifier for testing.</td></tr>
+<tr><td><code>title</code></td><td>string</td><td>Sets the text that appears on the button.</td></tr>
+<tr><td><code>touchSoundDisabled</code></td><td>bool</td><td>Android only, tell system not to play a sound on touch.</td></tr>
+</tbody>
+</table>
+</div>
+<br/>
+
 ```javascript
 <Button
   onPress={onPressLearnMore}
