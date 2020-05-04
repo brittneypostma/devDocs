@@ -2,7 +2,10 @@
 title: VSCode Setup
 ---
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Visual Studio Code (aka VS Code) is a code editor for all platforms that is free and open source. There are several decent code editors out there, such as Atom, Sublime, and Notepad++, but VS Code has quickly become the standard for software development. With its cross-platform support, built-in Git source control, integrated terminal, an extensive library of extensions and plugins for nearly every programming language, and so much more, it has pretty much all you need to start writing programs. So, lets get started installing this magical program.<br/><br/>
+[Remove VS Code settings](https://stackoverflow.com/questions/36108515/how-to-reset-settings-in-visual-studio-code)
+To reset everything in VS Code go to **`Users/<UserName>/AppData/Roaming/Code`** and delete the whole folder after VS Code is uninstalled. [Wes Bos guide](https://github.com/wesbos/eslint-config-wesbos)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Visual Studio Code (aka VS Code) is a code editor for all platforms that is free and open source. There are several decent code editors out there, such as Atom, Sublime, and Notepad++, but VS Code has quickly become the standard for software development. With its cross-platform support, built-in Git source control, integrated terminal, an extensive library of extensions, plugins for nearly every programming language, and so much more, it has everything you need to start writing programs. So, lets get started installing this magical program.<br/><br/>
 
 ---
 
@@ -15,7 +18,7 @@ On Mac and Linux the install is pretty straightforward with **`curl -o- https://
 
 ## ESLint
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you are working with JavaScript, then you are going to want a linter to improve your code. ESLint is one of the best linting utilities and paired with the [Airbnb style guide](https://medium.com/medvine/install-eslint-global-with-airbnb-style-guide-and-use-it-in-vscode-d752dfa40b21). You can install ESLint with the Airbnb config with a single npm command **`npm i eslint eslint-config-airbnb-base eslint-plugin-import -g`**. This installs the package globally. Next, we need to navigate to our user directory to setup the config file. It should be **`/Users/<UserName>`**. Once at the right path, we can **`touch .eslintrc`** to create the file and then type **`code .eslintrc`** to open in VS Code. After opening the file, paste in the following code and save the file:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you are working with JavaScript, then you are going to want a linter to improve your code. ESLint is one of the best linting utilities and paired with the [Airbnb style guide](https://medium.com/medvine/install-eslint-global-with-airbnb-style-guide-and-use-it-in-vscode-d752dfa40b21). You can install ESLint with the Airbnb config with a single npm command **`npm i eslint eslint-config-airbnb-base eslint-plugin-import -g`**. If you plan on using React, use this command **`npm install -g eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks`**. This installs the package globally. Next, we need to navigate to our user directory to setup the config file. It should be **`/Users/<UserName>`**. Once at the right path, we can **`touch .eslintrc`** to create the file and then type **`code .eslintrc`** to open in VS Code. After opening the file, paste in the following code and save the file:
 
 ```javascript
 {
