@@ -5,6 +5,18 @@ date: 12/14/2019
 
 <div style="max-width: 86vw">
 
+### Table of Contents
+
+- [Getting started with Git](#getting-started-with-git)
+- [Configure Git Information](#configure-git-information)
+- [Create a Repository](#create-a-repository)
+- [Ignore File](#ignore-file)
+- [Working with Branches](#working-with-branches)
+- [Make a change](#make-a-change)
+- [Sync changes](#sync-changes)
+
+---
+
 Git is a version-control system that is used for tracking changes in source code.  It can be used to track changes, coordinate work with others, and test branches before publishing. Git commands are ran from the command line inside of 
 
 <p align="center">

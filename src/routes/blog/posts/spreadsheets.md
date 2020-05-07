@@ -3,6 +3,20 @@ title: Spreadsheets
 ---
 <div style="max-width: 86vw">
 
+### Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Abbreviations](#abbreviations)
+- [Formulas](#formulas)
+  - [Date & Time Formulas](#date--time-formulas)
+  - [Filter & Sort Formulas](#filter--sort-formulas)
+  - [Google Formulas](#google-formulas)
+  - [Logical Formulas](#logical-formulas)
+  - [Lookup Formulas](#lookup-formulas)
+  - [Math & Operator Formulas](#math--operator-formulas)
+
+---
+
 [Google Sheets Function List](https://support.google.com/docs/table/25273?hl=en)
 
 ### Abbreviations

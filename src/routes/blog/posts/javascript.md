@@ -14,6 +14,47 @@ title: JavaScript
 		>) on <a href="https://codepen.io">CodePen</a>. 
 </iframe><br />
 
+### Table of Contents
+
+- [Types](#types)
+	- [Primitive Data Types](#primitive-data-types)
+	- [Object Data Type](#object-data-type)
+- [JavaScript Reserved Keywords](#javascript-reserved-keywords)
+- [Comparisons](#comparisons)
+- [Variables](#variables)
+	- [Naming Variables](#naming-variables)
+- [Assignment Operators](#assignment-operators)
+- [Conditionals](#conditionals)
+- [Logical Operators](#logical-operators)
+- [The Console](#the-console)
+	- [A few of the most used console objects:](#a-few-of-the-most-used-console-objects)
+- [Functions](#functions)
+	- [Function examples](#function-examples)
+		- [Add 2 numbers](#add-2-numbers)
+		- [Multiply 2 numbers with parameters](#multiply-2-numbers-with-parameters)
+- [Arrays](#arrays)
+	- [Array Properties and Methods](#array-properties-and-methods)
+- [Objects](#objects)
+	- [Object Methods](#object-methods)
+- [Friendbook Example with Array of Objects](#friendbook-example-with-array-of-objects)
+- [Loops](#loops)
+	- [Types of Loops](#types-of-loops)
+- [Scope](#scope)
+- [Context](#context)
+- [Destructuring](#destructuring)
+- [Template Literals](#template-literals)
+- [Closures](#closures)
+- [Currying](#currying)
+- [Pipe](#pipe)
+- [Compose](#compose)
+- [Pure Function](#pure-function)
+- [Instantiation](#instantiation)
+- [Promises](#promises)
+- [Async await](#async-await)
+- [Debugger](#debugger)
+
+---
+
 [MDN JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 JavaScript is the verb of the internet, it powers anything that is an action.
@@ -641,7 +682,7 @@ Functions can be declared a few different ways and are either anonymous (no name
 
 You can write functions in the function syntax or by using an **_arrow function_**. Arrow functions usually have a shorter syntax than typical functions and there is no binding of **_this_** (more on "this" later).
 
-#### Anonymous function
+**Anonymous function**
 
 ~~~javascript
 function(parameters) {*statements to be executed when called*}
@@ -649,7 +690,7 @@ function(parameters) {*statements to be executed when called*}
 parameter => {*statements*}
 ~~~
 
-#### Named function
+**Named function**
 
 ~~~javascript
 function fnName (parameters) {*statements to be executed when called*}
@@ -835,7 +876,7 @@ var objName = {
 objName.logShape() // I am a blue circle!
 ~~~
 
-### **<u>Object Methods</u>**
+### Object Methods
 
 &diams; <strong>Object.assign()</strong> - used to copy values from one object to another. Takes a target and a source parameter. Copies the source and modifies the target object.
 

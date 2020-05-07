@@ -2,6 +2,29 @@
 title: React
 ---
 
+### Table of Contents
+
+- [The Complete React Developer](#the-complete-react-developer)
+- [What is React?](#what-is-react)
+  - [Declarative vs Imperative](#declarative-vs-imperative)
+  - [Components](#components)
+  - [Unidirectional Data Flow](#unidirectional-data-flow)
+  - [Lifecycle](#lifecycle)
+  - [Why React?](#why-react)
+- [Getting Started With React](#getting-started-with-react)
+  - [React Folder Structure](#react-folder-structure)
+  - [How React Works](#how-react-works)
+  - [Service Worker](#service-worker)
+  - [Introducing JSX](#introducing-jsx)
+  - [Function vs Class Components](#function-vs-class-components)
+  - [Props](#props)
+  - [State](#state)
+  - [Class Methods](#class-methods)
+  - [Binding](#binding)
+  - [Hooks](#hooks)
+
+---
+
 ## The Complete React Developer
 
 <p align="center">

@@ -8,6 +8,19 @@ title: HTML
   (<a href='https://codepen.io/sballgirl11'>@sballgirl11</a>) on <a href='https://codepen.io'>CodePen</a>
 </iframe>
 
+### Table of Contents
+
+- [Getting started with a HTML document](#getting-started-with-a-html-document)
+- [Basic Tags](#basic-tags)
+- [Sectioning Tags](#sectioning-tags)
+- [Text Content Tags](#text-content-tags)
+- [Inline Text Tags](#inline-text-tags)
+- [Image and multimedia Tags](#image-and-multimedia-tags)
+- [Form Tags](#form-tags)
+
+---
+
+
 ## Getting started with a HTML document
 
 [MDN HTML Document](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics)<br/>
