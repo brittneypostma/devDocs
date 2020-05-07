@@ -2,6 +2,17 @@
 title: Redux
 --- 
 
+### Table of Contents
+
+- [Redux.js.org](#reduxjsorg)
+- [What is Redux?](#what-is-redux)
+- [Redux Flux Pattern](#redux-flux-pattern)
+  - [Why Redux?](#why-redux)
+  - [Getting Started With Redux](#getting-started-with-redux)
+  - [Setting Up React Redux](#setting-up-react-redux)
+
+---
+
 <p align="center">
   <img src="react/redux.svg" alt="Redux Logo" width="25%">
 </p>

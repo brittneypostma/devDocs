@@ -3,6 +3,19 @@ title: Python
 date: 01/17/2019
 ---
 
+### Table of Contents
+
+- [Syntax](#syntax)
+- [Variables](#variables)
+- [Operators](#operators)
+	- [Math Operators](#math-operators)
+	- [Relational Operators](#relational-operators)
+	- [Logical Operators](#logical-operators)
+- [Types](#types)
+- [Keywords](#keywords)
+
+---
+
 <p align="center">
 <img src="python.png" alt="python logo"/>
 </p>
