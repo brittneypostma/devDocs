@@ -1,5 +1,5 @@
 ---
-title: The Complete Junior to Senior Developer
+title: Jr to Sr Developer
 ---
 
 <p align="center">
@@ -11,6 +11,7 @@ title: The Complete Junior to Senior Developer
 - [SSH](#ssh)
   - [Install SSH on Windows](#install-ssh-on-windows)
     - [SSH Service](#ssh-service)
+    - [SSH Encryption](#ssh-encryption)
 
 ---
 
@@ -53,9 +54,9 @@ Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 
 #### SSH Service
 
-- To start the service run **`Start-Service sshd`**
-- To get a running service run **`Get-Service sshd`**
-- And to stop the service run **`Stop-Service sshd`**
+- &#x25A0; To start the service run **`Start-Service sshd`**
+- &#x25A0; To get a running service run **`Get-Service sshd`**
+- &#x25A0; And to stop the service run **`Stop-Service sshd`**
 
 Alternatively, you can avoid manually starting by having it start on boot. You can run this command to do that.
 
@@ -68,3 +69,17 @@ The last thing to add are the firewall settings. You can set those with this com
 ```
 New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
 ```
+
+#### SSH Encryption
+
+There are 3 types of SSH Encryption.
+
+- &#x25A0; Symmetrical Encryption - key based encryption. Anyone who has access to the key can read the data being sent. To exchange the key, there is a secure algorithm to scramble the key.
+
+- &#x25A0; Asymmetrical Encryption - uses 2 separate keys to encrypt data, public and private. A machines public key can only be decrypted by that same machines private key. It is a one way relationship.
+
+- &#x25A0; Hashing
+
+<p align="center">
+  <img src="./jr2sr/encryption.gif" alt="Asymmetric Encryption" width="50%">
+</p>
