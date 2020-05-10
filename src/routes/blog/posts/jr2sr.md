@@ -10,8 +10,10 @@ title: Jr to Sr Developer
 
 - [SSH](#ssh)
   - [Install SSH on Windows](#install-ssh-on-windows)
-    - [SSH Service](#ssh-service)
-    - [SSH Encryption](#ssh-encryption)
+  - [SSH Service](#ssh-service)
+  - [SSH Encryption](#ssh-encryption)
+  - [SSH Commands](#ssh-commands)
+  - [SSH on GitHub](#ssh-on-github)
 
 ---
 
@@ -52,7 +54,7 @@ State : Installed
 Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 ```
 
-#### SSH Service
+### SSH Service
 
 - &#x25A0; To start the service run **`Start-Service sshd`**
 - &#x25A0; To get a running service run **`Get-Service sshd`**
@@ -70,16 +72,61 @@ The last thing to add are the firewall settings. You can set those with this com
 New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
 ```
 
-#### SSH Encryption
+### SSH Encryption
+
+<p align="center">
+  <img src="./jr2sr/ssh.png" alt="SSH" width="75%">
+</p>
 
 There are 3 types of SSH Encryption.
 
-- &#x25A0; Symmetrical Encryption - key based encryption. Anyone who has access to the key can read the data being sent. To exchange the key, there is a secure algorithm to scramble the key.
+- &#x25A0; **Symmetrical Encryption** - key based encryption. Anyone who has access to the key can read the data being sent. To exchange the key, there is a secure algorithm to scramble the key.
 
-- &#x25A0; Asymmetrical Encryption - uses 2 separate keys to encrypt data, public and private. A machines public key can only be decrypted by that same machines private key. It is a one way relationship.
+- &#x25A0; **Asymmetrical Encryption** - uses 2 separate keys to encrypt data, public and private. A machines public key can only be decrypted by that same machines private key. It is a one way relationship. SSH uses this type of encryption in the initial exchanging of public keys.
 
-- &#x25A0; Hashing
+- &#x25A0; **Hashing** - computes a unique value for every input that is given. SSH hashes the final data sent, so that bad actors cannot become middle men and intercept messages.
+
+- 1\. [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
+- 2\. Arrive at Symmetric key
+- 3\. Make sure no funny business
+- 4\. Authenticate User
 
 <p align="center">
-  <img src="./jr2sr/encryption.gif" alt="Asymmetric Encryption" width="50%">
+  <img src="./jr2sr/encryption.gif" alt="Asymmetric Encryption" width="75%">
 </p>
+
+### SSH Commands
+
+Full list of [SSH Commands](https://www.ssh.com/ssh/command/).
+
+```
+// access server
+ssh USER_NAME@HOST_IP
+
+// create key with type (-t) rsa, bit size (-b) and comment (-C)
+ssh-keygen -t rsa -b 4096 -C 'email_address@email.com'
+
+// add correct private key
+ssh-add /.ssh/your_private_key
+```
+
+### SSH on GitHub
+
+[Visual Guide for SSH setup on windows](https://github.com/antonykidis/Setup-ssh-for-github/blob/master/Setup-ssh-on-github.pdf)
+
+- &#x25A0; Navigate to your GitHub settings.
+- &#x25A0; Click SSH and GPG keys
+- &#x25A0; Click New SSH Key
+- &#x25A0; Create a title and paste in the **PUBLIC** key.
+- &#x25A0; Click Add SSH key
+
+The next step may vary based on what OS you are running. I am on Windows and followed these steps.
+
+- &#x25A0; Open git bash terminal to directory I want to clone into.
+- &#x25A0; Typed **`eval`\`ssh-agent -s`** to start up the ssh agent.
+- &#x25A0; Then type **`ssh-add /.ssh/your_github_key`**.
+- &#x25A0; Finally, type **`git clone git@github.com:username/repo`**
+
+At last, SSH is setup and working for GitHub. Bruno is happy! 😄
+
+---
