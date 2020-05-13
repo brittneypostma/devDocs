@@ -11,6 +11,7 @@ title: VSCode Setup
 - [Create React App with ESLint](#create-react-app-with-eslint)
 - [Extensions](#extensions)
 - [Themes](#themes)
+- [Fonts](#fonts)
 - [The End](#the-end)
 
 ---
@@ -134,11 +135,40 @@ code --install-extension xabikos.JavaScriptSnippets
 
 ## Themes
 
+<<<<<<< HEAD
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Themes are something that every person has a different opinion on, but it is something that can be important to your development experience. Find a theme that suits you. I prefer darker themes with bright text. Above the one I have installed is Neon Vommit, which describes it accurately :joy:. You can download whatever works best for you and then set the theme to the one you want. You can edit any of the theme colors in settings.json with **`workbench.colorCustomizations`** and **`editor.tokenColorCustomizations`**. Here is the [VS Code theme color settings](https://code.visualstudio.com/api/references/theme-color).
+=======
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Themes are something that every person has a different opinion on, but it is something that can be important to your development experience. Find a theme that suits you. I prefer darker themes with bright text. Above the one I have installed is Neon Vommit, which describes it accurately :joy:. You can download whatever works best for you and then set the theme to the one you want. You can edit any of the theme colors in settings.json with **`workbench.colorCustomizations`**. Here is the [VS Code theme color settings](https://code.visualstudio.com/api/references/theme-color). If you want to go a step farther and create your own themes, you can use this command in the command pallet to generate a json file that you can edit.
 
+> > > > > > > e949668a5f9c65ee74a1ce09efdb7c2b2b1ae2d5
+
 ```
-Developer: Generate Color Theme From Current Settings
+"workbench.colorCustomizations": {
+    "activityBar.background": "#14161a",
+    "activityBarBadge.foreground": "#000000"
+    },
+"editor.tokenColorCustomizations": {
+    "[Neon Vommit]": {
+        "strings": "#ffffff"
+    }
 ```
+
+To see your current theme settings, you can hit **`ctrl+shift+p`** and type **`Developer: Generate Color Theme From Current Settings`**. This will generate a JSON file of the current theme.
+
+---
+
+## Fonts
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Another feature of VS Code is custom fonts. You can download and install any font to your system. Once installed, you can go into **`settings.json`** and add these lines.
+
+```
+"editor.fontFamily": "Font Name",
+"editor.fontLigatures": true or false
+```
+
+Font family will be whatever font you want to use. [Victor Mono](https://rubjo.github.io/victor-mono/) is my favorite! Ligatures in typography is when 2 or 3 characters are joined together to make them look as if they were one.
+
+![Font Ligatures](https://i.ytimg.com/vi/PRMQ7bFK3L4/maxresdefault.jpg)
 
 ---
 

@@ -31,13 +31,16 @@
     margin: 5px auto;
   }
 
+  .content :global(h1, h2, h3, h4, h5, h6) {
+    font-weight: bold;
+  }
+
   .content :global(h3) {
     margin: 1em auto 0;
   }
 
   .content :global(h2) {
     font-size: 1.5em;
-    font-weight: 500;
     text-align: center;
   }
 
