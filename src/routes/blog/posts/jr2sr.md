@@ -21,6 +21,11 @@ title: Jr to Sr Developer
     - [Critical Render Path](#critical-render-path)
     - [Optimize CRP](#optimize-crp)
 - [Frontend Development](#frontend-development)
+  - [Module Bundlers](#module-bundlers)
+  - [Webpack](#webpack)
+  - [Build Webpack with React from Scratch](#build-webpack-with-react-from-scratch)
+    - [Part 2 - Build Webpack with React from Scratch](#part-2---build-webpack-with-react-from-scratch)
+    - [Part 3 - Build Webpack with React from Scratch](#part-3---build-webpack-with-react-from-scratch)
 
 ---
 
@@ -210,17 +215,17 @@ At last, SSH is setup and working for GitHub. Bruno is happy! 😄
 -->
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Critical Render Path</title>
-		<link rel="stylesheet" href="./style.css" media="all" />
-	</head>
-	<body>
-		<h1>How Fast?</h1>
-		<button>Click Me</button>
-		<script>
-			alert('check')
-		</script>
-	</body>
+  <head>
+    <title>Critical Render Path</title>
+    <link rel="stylesheet" href="./style.css" media="all" />
+  </head>
+  <body>
+    <h1>How Fast?</h1>
+    <button>Click Me</button>
+    <script>
+      alert('check')
+    </script>
+  </body>
 </html>
 ```
 
@@ -228,19 +233,19 @@ At last, SSH is setup and working for GitHub. Bruno is happy! 😄
 
 ```javascript
 const loadStylesheet = src => {
-	if (document.createStylesheet) {
-		document.createStylesheet(src)
-	} else {
-		const stylesheet = document.createElement('link')
-		stylesheet.href = src
-		stylesheet.type = 'text/css'
-		stylesheet.rel = 'stylesheet'
-		document.getElementsByTagName('head')[0].appendChild(stylesheet)
-	}
+  if (document.createStylesheet) {
+    document.createStylesheet(src)
+  } else {
+    const stylesheet = document.createElement('link')
+    stylesheet.href = src
+    stylesheet.type = 'text/css'
+    stylesheet.rel = 'stylesheet'
+    document.getElementsByTagName('head')[0].appendChild(stylesheet)
+  }
 }
 
 window.onload = function () {
-	loadStylesheet('./style3.css')
+  loadStylesheet('./style3.css')
 }
 ```
 
@@ -251,15 +256,15 @@ Using media attributes on the link tag will only load that file for devices of t
 <link rel="stylesheet" href="./style.css" media="all" />
 <!-- DEVICES GREATER THAN 600px IN WIDTH -->
 <link
-	rel="stylesheet"
-	href="./style.css"
-	media="only screen and (min-width: 600px)"
+  rel="stylesheet"
+  href="./style.css"
+  media="only screen and (min-width: 600px)"
 />
 <!-- DEVICES LESS THAN 600px IN WIDTH -->
 <link
-	rel="stylesheet"
-	href="./style.css"
-	media="only screen and (max-width: 600px)"
+  rel="stylesheet"
+  href="./style.css"
+  media="only screen and (max-width: 600px)"
 />
 ```
 
@@ -268,12 +273,12 @@ Finally, use less specificity. The browser needs to do more work, the more speci
 ```css
 /* BAD */
 .header .nav .item .link a.important {
-	color: red;
+  color: red;
 }
 
 /* GOOD */
 a.important {
-	color: red;
+  color: red;
 }
 ```
 
@@ -281,20 +286,20 @@ As a final option, loading an internal **`<style>`** tag in your HTML files or u
 
 ```html
 <html>
-	<head>
-		<style>
-			/* INTERNAL STYLES */
-			h1 {
-				color: blue;
-			}
-		</style>
-	</head>
-	<body>
-		<h1>How fast?</h1>
-		<h2 style="background-color: blue; color: white;">
-			Inline style
-		</h2>
-	</body>
+  <head>
+    <style>
+      /* INTERNAL STYLES */
+      h1 {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>How fast?</h1>
+    <h2 style="background-color: blue; color: white;">
+      Inline style
+    </h2>
+  </body>
 </html>
 ```
 
@@ -318,3 +323,228 @@ As a final option, loading an internal **`<style>`** tag in your HTML files or u
 ## Frontend Development
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The frontend landscape is forever changing and evolving. It sometimes seems as if there is a new library or framework every week. The thing Senior Developers realize is that these are all just tools and each tool is useful depending on the circumstance. It is better to use which one fits the project best than to develop a "this one is better than that one" opinion. At the time of writing, 3 of the major players in this market are **Angular**, **React**, and **Vue**. **Svelte** is a newer framework that is making some headway as well, this site is actually written in Svelte. Angular is a very opinionated framework that is often referred to as the "whole kitchen". It gives you all the tools you need to build a site included and you have to do things the Angular way. React, on the other hand, is unopinionated and is considered more of a tool that you can build on and bring in whatever packages you need to build a site. **Vue** is a mixture of both React and Angular. It is able to be scaled between a library and a full-featured framework and is also user friendly for newer developers. This section focuses on [React](https://console-logs.netlify.app/blog/react) and [Redux](https://console-logs.netlify.app/blog/redux). Here is a [Code Sandbox](https://codesandbox.io/s/robofriends-jmyy7?fontsize=14&hidenavigation=1&theme=dark) of the rewritten RoboFriends app using Redux and Hooks. You can also check out my post on dev.to [Explain Redux like I'm 5!](https://dev.to/bdesigned/explain-redux-like-i-m-5-18kn). You can visit their respective links to learn more on those topics.
+
+### Module Bundlers
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Module bundlers are used to bundle all of your JavaScript files into a single file that can be executed in the browser. Popular bundlers are **Webpack**, **Rollup**, and **Parcel**. Webpack is widely used and is apart of Create React App already. It requires the user to configure and setup the files and allows for customization. Parcel has come out with a zero configuration version that takes care of the setup. Rollup is known for being really good at **tree shaking**, throwing out code that isn't needed.
+
+### Webpack
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Webpack is probably the most widely used module bundler. Webpack requires a lot of setup, but that also comes with a lot of control over what and how you want to use things. There are 4 main concepts in Webpack. **Entry** is a JavaScript file where Webpack will enter your project, typically **`index.js`**. **Output** is where you tell Webpack to output all of the files in bundles together, typically a **`build`** folder. **Loaders** are what you put your code through to compile or transpile your code, a popular tool for this is **Babel**. Lastly, **Plugins** play a vital role in outputting your code. Webpack has a rich plugin interface you can explore here: [Webpack Plugins](https://webpack.js.org/plugins/).
+
+### Build Webpack with React from Scratch
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create React App comes with Webpack already pre-configured for you. This is going to teach you how it is done. Go to the directory of your choice and follow these steps to create a new project and setup Webpack.
+
+- 1\. **`mkdir webpack-project`** and then **`cd webpack-project`**
+- 2\. **`npm init`** - this will walk you through the steps of creating a basic package.json file.
+- 3\. **`npm i --save-dev webpack webpack-dev-server webpack-cli`** - install webpack.
+- 4\. **`mkdir build`** then **`cd build`** then **`touch index.html`** and **`touch bundle.js`**- create our build folder, html entry point, and js bundle file.
+- 5\. **`cd ..`** to go back to the root directory of your project.
+- 6\. **`touch webpack.config.js`** to create the webpack configuration file we will use next.
+
+- 7\. Open up the project in your favorite editor. Mine is VS Code and I wrote a whole article on getting it setup with a good developer environment here [VS Code Setup](https://dev.to/bdesigned/vscode-setup-with-eslint-and-prettier-1gek). In your package.json file we are going to edit the "scripts" section. Make sure your file looks like this unless you customized the package.json setup. Change the "scripts" section to include **`"start": "webpack-dev-server --config ./webpack.config.js --mode development"`** so we can run our server with Webpack using **`npm start`**.
+
+```javascript
+{
+  "name": "webpack-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+  },
+  "author": "",
+  "license": "ISC",
+    "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
+```
+
+- 8\. **`mkdir src`** - in your **root** directory create a src folder.
+- 9\. **`cd src`** then **`touch index.js`** to change into src folder and create our js entry point. Add **`console.log('Webpack wizard!')`** to the index.js file.
+- 10\. Next, open up the **`webpack.config.js`** file and add the following code.
+
+```javascript
+module.exports = {
+  entry: [
+    './src/index.js' // The entry point
+  ],
+  output: {
+    path: (__dirname = '/build'), // folder webpack should output files to
+    publicPath: '/', // path to build directory
+    filename: 'bundle.js' // file to output js to
+  },
+  devServer: {
+    contentBase: './build' // dev server folder to use
+  }
+}
+```
+
+- 11\. Now, open up the index.html file and add the following code. We will inject React into the `div` with `id="app"` and Webpack will bundle our js into the bundle.js file.
+
+```html
+<!-- index.html file -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webpack Wizard</title>
+  </head>
+  <body>
+    <h1>Webpack Wizard</h1>
+    <div id="app"></div>
+    <script src="/bundle.js"></script>
+  </body>
+</html>
+```
+
+- 12\. At this step, we should check to ensure Webpack is configured correctly. Run **`npm start`** from the root directory. This will output some information to the terminal, but if you visit **`http://localhost:8080/`** in your browser, you should see something like this.
+
+<p align="center">
+  <img src="./jr2sr/webpack.png" alt="webpack output" width="100%" style="border: 1px solid black">
+</p>
+
+#### Part 2 - Build Webpack with React from Scratch
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yay! Part 1 is done. Now, we move onto **Babel** to transpile our code back to ES5 so we have full browser support.
+
+- 1\. **`npm i --save-dev babel-core babel-loader babel-preset-env babel-preset-react`** - in your root directory, install babel core, babel loader, and babel preset env.
+- 2\. Open package.json and add **`"babel": { "presets": [ "env", "react" ]}`** to it. It should now look like this.
+
+```javascript
+{
+	"name": "webpack-project",
+	"version": "1.0.0",
+	"description": "building webpack from scratch",
+	"main": "index.js",
+	"scripts": {
+		"start": "webpack-dev-server --config ./webpack.config.js --mode development"
+	},
+	"babel": {
+		"presets": [
+			"env",
+			"react"
+		]
+	},
+	"author": "Brittney Postma",
+	"license": "ISC",
+	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-loader": "^8.1.0",
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-react": "^6.24.1",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.11",
+		"webpack-dev-server": "^3.11.0"
+	}
+}
+```
+
+- 3\. In **`webpack.config.js`** add **`module: { rules: [{ test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] }]}, resolve: { extensions: ['js', 'jsx'] }`**. It now should look like this.
+
+```javascript
+module.exports = {
+  entry: ['./src/index.js'],
+  output: {
+    path: (__dirname = '/build'),
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  devServer: {
+    contentBase: './build'
+  },
+  module: {
+    rules: [
+      {
+        // test for all js and jsx files
+        test: /\.(js|jsx)$/,
+        // exclude node modules folder
+        exclude: /node_modules/,
+        // run all js and jsx through babel-loader
+        use: ['babel-loader']
+      }
+    ]
+  },
+  resolve: {
+    // makes it so you don't have to
+    // write .js and .jsx at the end of imports
+    extensions: ['js', 'jsx']
+  }
+}
+```
+
+#### Part 3 - Build Webpack with React from Scratch
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Finally, Webpack and Babel are setup. The last step is to install React and ESLint.
+
+- 1\. **`npm i react react-dom`** then **`npm i --save-dev eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks @babel/core @babel/preset-env @babel/preset-react babel-eslint babel-loader`** to install React and ESLint from your root directory.
+- 2\. Now edit webpack.config.js to include **`{ test: /\.(js|jsx)$/, exclude: /node_modules, use: ['eslint-loader'] }`** in the rules section.
+
+```javascript
+module.exports = {
+  entry: ['./src/index.js'],
+  output: {
+    path: (__dirname = '/build'),
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  devServer: {
+    contentBase: './build'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['eslint-loader']
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
+}
+```
+
+- 3\. **`touch .eslintrc.json`** to create the ESLint configuration file.
+- 4\. Open .eslintrc and input the following code to configure ESLint, and Babel.
+
+```javascript
+// .eslintrc
+{
+	"extends": ["airbnb-base"],
+	"env": {
+		"node": true,
+		"es6": true,
+		"browser": true
+	},
+	"parser": "babel-eslint",
+	"rules": {
+		"no-console": "off"
+	}
+}
+
+```
+
+- 5\. Open package.json and add **`"babel": { "presets": ["@babel/preset-env","@babel/preset-react"] },`** to configure babel.
+- 6\. Finally, it is time to test our configuration. Run **`npm start`** 🍀 and fingers crossed it is working.
+
+**Warning** - If you run into errors or issues when running **`npm start`**, which you probably will, then first try fully reading the error and then Googling the error. I spent an hour looking for the reason babel-core was missing and nothing worked. I looked down and saw this error and the answer was staring me in the face. I was using a deprecated version of babel and had to redo my entire setup.
+
+<p align="center">
+  <img src="./jr2sr/error-webpack.png" alt="error babel" width="100%">
+</p>
+
+Congratulations! If you are still with me, we now have a working version of basically create-react-app, but we built it from scratch. 🎉
+
+---
