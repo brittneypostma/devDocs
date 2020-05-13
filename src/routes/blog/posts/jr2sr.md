@@ -567,4 +567,6 @@ ReactDOM.render(<WebpackWizard />, document.getElementById('app'))
 
 Congratulations! If you are still with me, we now have a working version of basically create-react-app, but we built it from scratch. 🎉
 
+[Create Webpack Config App](https://createapp.dev/).
+
 ---
