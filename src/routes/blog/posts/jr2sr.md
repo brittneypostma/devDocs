@@ -24,8 +24,8 @@ title: Jr to Sr Developer
   - [Module Bundlers](#module-bundlers)
   - [Webpack](#webpack)
   - [Build Webpack with React from Scratch](#build-webpack-with-react-from-scratch)
-    - [Part 2 - Build Webpack with React from Scratch](#part-2---build-webpack-with-react-from-scratch)
-    - [Part 3 - Build Webpack with React from Scratch](#part-3---build-webpack-with-react-from-scratch)
+  - [Part 2 - Build Webpack with React from Scratch](#part-2---build-webpack-with-react-from-scratch)
+  - [Part 3 - Build Webpack with React from Scratch](#part-3---build-webpack-with-react-from-scratch)
 
 ---
 
@@ -409,7 +409,7 @@ module.exports = {
   <img src="./jr2sr/webpack.png" alt="webpack output" width="100%" style="border: 1px solid black">
 </p>
 
-#### Part 2 - Build Webpack with React from Scratch
+### Part 2 - Build Webpack with React from Scratch
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yay! Part 1 is done. Now, we move onto **Babel** to transpile our code back to ES5 so we have full browser support.
 
@@ -478,7 +478,7 @@ module.exports = {
 }
 ```
 
-#### Part 3 - Build Webpack with React from Scratch
+### Part 3 - Build Webpack with React from Scratch
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Finally, Webpack and Babel are setup. The last step is to install React and ESLint.
 
