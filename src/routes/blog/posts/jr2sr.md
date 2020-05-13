@@ -26,6 +26,7 @@ title: Jr to Sr Developer
   - [Build Webpack with React from Scratch](#build-webpack-with-react-from-scratch)
   - [Part 2 - Build Webpack with React from Scratch](#part-2---build-webpack-with-react-from-scratch)
   - [Part 3 - Build Webpack with React from Scratch](#part-3---build-webpack-with-react-from-scratch)
+    - [Connect React](#connect-react)
 
 ---
 
@@ -544,6 +545,25 @@ module.exports = {
 <p align="center">
   <img src="./jr2sr/error-webpack.png" alt="error babel" width="100%">
 </p>
+
+#### Connect React
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The last thing to do is connect React and insert it into our `div` with the `id="app"` we created earlier. Remove the console log from `src/index.js` and we are going to build our React component.
+
+```javascript
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+const WebpackWizard = () => {
+  return (
+    <div>
+      <h1>Webpack Wizard</h1>
+    </div>
+  )
+}
+
+ReactDOM.render(<WebpackWizard />, document.getElementById('app'))
+```
 
 Congratulations! If you are still with me, we now have a working version of basically create-react-app, but we built it from scratch. 🎉
 
