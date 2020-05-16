@@ -3,8 +3,10 @@ title: Jr to Sr Developer
 ---
 
 <p align="center">
-  <img src="./jr2sr/roadmap.png" alt="Jr to Sr Course map" width="100%">
+  <img src="./jr2sr/roadmap.png" alt="Jr to Sr Course map" width="65%">
 </p>
+
+---
 
 ### Table of Contents
 
@@ -27,6 +29,8 @@ title: Jr to Sr Developer
   - [Part 2 - Build Webpack with React from Scratch](#part-2---build-webpack-with-react-from-scratch)
   - [Part 3 - Build Webpack with React from Scratch](#part-3---build-webpack-with-react-from-scratch)
     - [Connect React](#connect-react)
+- [Performance Part II](#performance-part-ii)
+  - [Code Splitting](#code-splitting)
 
 ---
 
@@ -159,7 +163,7 @@ At last, SSH is setup and working for GitHub. Bruno is happy! 😄
 - 3\. **Backend processing**
 
 <p align="center">
-  <img src="./jr2sr/performance.png" alt="performance" width="100%">
+  <img src="./jr2sr/performance.png" alt="performance" width="75%">
 </p>
 
 ### Image Optimization
@@ -179,7 +183,7 @@ At last, SSH is setup and working for GitHub. Bruno is happy! 😄
 - &#x25A0; [Which to Use](https://www.sitepoint.com/gif-png-jpg-which-one-to-use/)
 
 <p align="center">
-  <img src="./jr2sr/images.png" alt="which to use images" width="100%">
+  <img src="./jr2sr/images.png" alt="which to use images" width="75%">
 </p>
 
 - &#x25A0; [JPEG Optimizer](http://jpeg-optimizer.com/)
@@ -200,7 +204,7 @@ At last, SSH is setup and working for GitHub. Bruno is happy! 😄
 #### Critical Render Path
 
 <p align="center">
-  <img src="./jr2sr/crp.png" alt="critical render path" width="100%">
+  <img src="./jr2sr/crp.png" alt="critical render path" width="75%">
 </p>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When a page is loaded it goes through a sequence of steps called the **Critical Render Path** to convert files into what you see on the screen. Optimizing this path will improve the performance. As the browser receives the HTML, it begins to build the **DOM** or **Document Object Model**. This is a tree like structure of the site. As the browser continues to parse the HTML, it may encounter CSS stylesheets that are retrieved and then combined to create the **CSSOM** or **CSS Object Model** on how to style the DOM. CSS is render blocking though, meaning nothing continues loading on the page until it receives and processes all of the CSS. Once the CSSOM is created, the JavaScript is loaded and is then combined with the DOM to create the **Render Tree** of how the page should look. Once the render tree is built, the **Layout** determines where and how elements are positioned on the screen. Finally, once the layout is set, the pixels are put on the screen in the **Paint** step.
@@ -570,3 +574,17 @@ Congratulations! If you are still with me, we now have a working version of basi
 [Create Webpack Config App](https://createapp.dev/).
 
 ---
+
+## Performance Part II
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Optimizing your code and testing it for multiple devices will ensure that it runs smoothly across all platforms. You can use the network tab to see when things happen on your page and how long they take. There are also sites out there like [Web Page Test](https://www.webpagetest.org/) that will break down your page load into graphs and allow you to test for different devices. You want to make sure your time to first meaningful paint and time to interactivity are as short as possible.
+
+### Code Splitting
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Splitting your code up into chunks that will only be delivered if they are needed will help to speed up the compilation time of your page. If a contact page never gets visited, we don't need to load its JavaScript into the home page. Create React App has this built in and most libraries include a build tool to give you the **production build**. If you run `npm run build`, it will create minified versions of your files and remove all of the debugging tools. The below
+
+```javascript
+import React from 'react'
+
+const App = () => {}
+```
