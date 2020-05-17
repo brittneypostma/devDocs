@@ -1,5 +1,5 @@
 ---
-title: Jr to Sr Developer
+title: Jr to Sr Dev
 ---
 
 <p align="center">
@@ -31,6 +31,8 @@ title: Jr to Sr Developer
     - [Connect React](#connect-react)
 - [Performance Part II](#performance-part-ii)
   - [Code Splitting](#code-splitting)
+  - [Component Updating](#component-updating)
+- [Progressive Web Apps - PWAs](#progressive-web-apps---pwas)
 
 ---
 
@@ -156,7 +158,7 @@ At last, SSH is setup and working for GitHub. Bruno is happy! 😄
 
 ## Performance
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The speed at which a website loads can cost companies billions of dollars if it is too slow to load. We need to be able to make sure our sites preform at the most optimum speed. When you type in a web address in your browser, a **GET** request is made to the server. You would expect that page to load in 2 seconds. If it takes more than 3 seconds, would you leave? The server needs to process that GET request, retrieve the data, and then send it back to the client. You can use the developer console in browsers to see how your page would load at different connection speeds. We can improve upon these things to increase the speed of our page loading.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The speed at which a website loads can cost companies billions of dollars if it is too slow to load. We need to be able to make sure our sites preform at the most optimum speed. When you type in a web address in your browser, a **GET** request is made to the server. You would expect that page to load in 2 seconds. If it takes more than 3 seconds, would you leave? The server needs to process that GET request, retrieve the data, and then send it back to the client. You can use the developer console in browsers to see how your page would load at different connection speeds. The lighthouse extension is now built into Chrome developer tools or you can get [Lighthouse for firefox](https://addons.mozilla.org/en-US/firefox/addon/lighthouse-report-generator/). Lighthouse will analyze your site and break down each thing that needs improvement and what steps to take. We can improve upon these things to increase the speed of our page loading.
 
 - 1\. **Frontend client**
 - 2\. **Transfer of data**
@@ -331,7 +333,7 @@ As a final option, loading an internal **`<style>`** tag in your HTML files or u
 
 ### Module Bundlers
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Module bundlers are used to bundle all of your JavaScript files into a single file that can be executed in the browser. Popular bundlers are **Webpack**, **Rollup**, and **Parcel**. Webpack is widely used and is apart of Create React App already. It requires the user to configure and setup the files and allows for customization. Parcel has come out with a zero configuration version that takes care of the setup. Rollup is known for being really good at **tree shaking**, throwing out code that isn't needed.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Module bundlers are used to bundle all of your JavaScript files into a single file that can be executed in the browser. Popular bundlers are **Webpack**, **Rollup**, and **Parcel**. Webpack is widely used and is apart of Create React App already. It requires the user to configure and setup the files and allows for customization. Parcel has come out with a zero configuration version that takes care of the setup. Rollup is known for being really good at **tree shaking**, throwing out code that isn't needed. Here is a good resource on [tree shaking](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking/).
 
 ### Webpack
 
@@ -577,14 +579,62 @@ Congratulations! If you are still with me, we now have a working version of basi
 
 ## Performance Part II
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Optimizing your code and testing it for multiple devices will ensure that it runs smoothly across all platforms. You can use the network tab to see when things happen on your page and how long they take. There are also sites out there like [Web Page Test](https://www.webpagetest.org/) that will break down your page load into graphs and allow you to test for different devices. You want to make sure your time to first meaningful paint and time to interactivity are as short as possible.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Optimizing your code and testing it for multiple devices will ensure that it runs smoothly across all platforms. You can use the network tab to see when things happen on your page and how long they take. There are also sites out there like [Web Page Test](https://www.webpagetest.org/) that will break down your page load into graphs and allow you to test for different devices. You want to make sure your time to first meaningful paint and time to interactivity are as short as possible. Also, make sure to add [React Dev Tools for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) or [React Dev Tools for FireFox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) if you are building a React project.
 
 ### Code Splitting
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Splitting your code up into chunks that will only be delivered if they are needed will help to speed up the compilation time of your page. If a contact page never gets visited, we don't need to load its JavaScript into the home page. Create React App has this built in and most libraries include a build tool to give you the **production build**. If you run `npm run build`, it will create minified versions of your files and remove all of the debugging tools. The below
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Splitting your code up into chunks that will only be delivered if they are needed will help to speed up the compilation time of your page. If a contact page never gets visited, we don't need to load its JavaScript into the home page or even think about code splitting components that don't need to be loaded immediately. Create React App has this built in and most libraries include a build tool to give you a **production build** that takes advantage of code splitting. If you run `npm run build` in a react app, it will create minified versions of your files and remove all of the debugging tools. [React Suspense](https://reactjs.org/docs/code-splitting.html#reactlazy) is another great tool to help integrate code splitting for a component in React. Also, check out this [Comparison with React.lazy](https://loadable-components.com/docs/loadable-vs-react-lazy/).
 
 ```javascript
+import React, { Suspense } from 'react'
+
+const OtherComponent = React.lazy(() => import('./Components/Other'))
+const AnotherComponent = React.lazy(() => import('./Components/Another'))
+
+const App = () => {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <section>
+          <OtherComponent />
+          <AnotherComponent />
+        </section>
+      </Suspense>
+    </div>
+  )
+}
+```
+
+### Component Updating
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Making sure your components update only when needed can definitely increase your sites performance. One package can help you figure out if a component should be updated or not, it's called [why did you render](https://github.com/maicki/why-did-you-update). You can install this with `npm i @welldone-software/why-did-you-render --save`. To use it we need to add some code, so that it is only used in development, not production. The best way to do this is to create a file near the entry-point of you application.
+
+```javascript
+// wdyr.js
 import React from 'react'
 
-const App = () => {}
+if (process.env.NODE_ENV === 'development') {
+  const whyDidYouRender = require('@welldone-software/why-did-you-render')
+  const ReactRedux = require('react-redux')
+  whyDidYouRender(React, {
+    trackAllPureComponents: true,
+    trackExtraHooks: [[ReactRedux, 'useSelector']]
+  })
+}
+
+// index.js
+import './wdyr'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { App } from './App'
+
+ReactDOM.render(<App />, document.getElementById('root'))
 ```
+
+---
+
+## Progressive Web Apps - PWAs
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PWAs or progressive web apps are regular websites that deliver app-like experience on a mobile device. [What web can do today](https://whatwebcando.today/) is a site that tells you current information about what PWAs can do versus a native app. Google created PWAs and are the fastest at providing updates to it, Apple is the slowest. If we think about this, it kind of makes sense right? Google is interested in keeping people using the web for things like google.com, ad revenue, and Chrome browser, where Apple is interested in keeping their app store restricted to only apps they approve. You can read more on PWAs in [Submitting PWA to 3 app stores](http://debuggerdotbreak.judahgabriel.com/2018/04/13/i-built-a-pwa-and-published-it-in-3-app-stores-heres-what-i-learned/) or in [PWA Android vs iOS](https://medium.com/@firt/progressive-web-apps-on-ios-are-here-d00430dee3a7). Also, [Appscope](https://appsco.pe/) displays some of the top PWAs.
+
+---
