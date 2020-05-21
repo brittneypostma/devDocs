@@ -33,6 +33,8 @@ title: Jr to Sr Dev
   - [Code Splitting](#code-splitting)
   - [Component Updating](#component-updating)
 - [Progressive Web Apps - PWAs](#progressive-web-apps---pwas)
+  - [Service Workers](#service-workers)
+- [Testing](#testing)
 
 ---
 
@@ -635,6 +637,67 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 ## Progressive Web Apps - PWAs
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PWAs or progressive web apps are regular websites that deliver app-like experience on a mobile device. [What web can do today](https://whatwebcando.today/) is a site that tells you current information about what PWAs can do versus a native app. Google created PWAs and are the fastest at providing updates to it, Apple is the slowest. If we think about this, it kind of makes sense right? Google is interested in keeping people using the web for things like google.com, ad revenue, and Chrome browser, where Apple is interested in keeping their app store restricted to only apps they approve. You can read more on PWAs in [Submitting PWA to 3 app stores](http://debuggerdotbreak.judahgabriel.com/2018/04/13/i-built-a-pwa-and-published-it-in-3-app-stores-heres-what-i-learned/) or in [PWA Android vs iOS](https://medium.com/@firt/progressive-web-apps-on-ios-are-here-d00430dee3a7). Also, [Appscope](https://appsco.pe/) displays some of the top PWAs.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PWAs or progressive web apps are regular websites that deliver app-like experience on a mobile device. [What web can do today](https://whatwebcando.today/) is a site that tells you current information about what PWAs can do versus a native app. Google created PWAs and are the fastest at providing updates to it, Apple is the slowest. If we think about this, it kind of makes sense right? Google is interested in keeping people using the web for things like google.com, ad revenue, and Chrome browser, where Apple is interested in keeping their app store restricted to only apps they approve. You can read more on PWAs in [Submitting PWA to 3 app stores](http://debuggerdotbreak.judahgabriel.com/2018/04/13/i-built-a-pwa-and-published-it-in-3-app-stores-heres-what-i-learned/) or in [PWA Android vs iOS](https://medium.com/@firt/progressive-web-apps-on-ios-are-here-d00430dee3a7). Also, [Appscope](https://appsco.pe/) displays some of the top PWAs. One line of code is mandatory to have in your main html file in order to help your app be sized correctly across all devices, that is the [viewport meta tag](https://web.dev/viewport/).
+
+```html
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/>
+```
+
+Another file you need to have is the `manifest.json`. This will tell the app how it should appear on a mobile device. It also downloads the app icons and allows it to be added to the homescreen of the device.
+
+```js
+{
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.icon",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+     {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color"; "#ffffff"
+}
+```
+
+Running a lighthouse audit will show you steps you can take to improve you web app. Loading in fonts with the css property `font-display: swap;` will allow the browser to generate the font immediately and then swap in the new font once it is downloaded. [Real Favicon Generator](https://realfavicongenerator.net/) is a great site to generate the correct icon sizes for your web app. It will check if your images are in the correct formats and make sure they are sized appropriately. [Progressive Tooling](https://progressivetooling.com/) is another great site to audit your web app.
+
+### Service Workers
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A service worker is a js file that runs in the background when a web page is opened that allows for offline use of some features. First, the script checks if the browser has access to serviceWorker, since each browser can implement different features. If the browser does have serviceWorker access, it will register the serviceWorker provided by the app and then log out if it was successful or if there was an error. Once the serviceWorker is registered it can act as a proxy between the clint and the server. The serviceWorker has the ability to cache files transferred and can prevent having to send a new request to the server.
 
 ---
+
+## Testing
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Testing our applications is an important step that ensures our app will function correctly in production. Testing is done by writing code that will check for potential bugs in your application. Some believe **TDD** or **Test Driven Development** is the way to go. Writing your tests before you even write your application. There are 3 main categories in testing:
+
+- 1\. Unit tests - easiest and most frequent test used. They check individual functions.
+- 2\. Integration tests - test how different pieces of the app go together.
+- 3\. Automation tests - checking the user interface, going through the application to ensure it works correctly.
+
+To actually write tests, we could just write JavaScript files to test out each thing, but we want to include a package or packages that will help us write tests faster.
+
+- &diams; **Testing Library** - the testing package that gives us the scaffolding or structure of the tests.
+- &diams; **Assertion Library** - provides functions and methods to allow easier testing of functions.
+- &diams; **Test Runner** - a package that allows the test to be ran with a command like `npm run test`.
+- &diams; **Mock, Spies, and Stubs** - Mock fakes a function or a behavior in order to test it. Spies provide information about functions like how many times they are called. Stubbing replaces functions to ensure they output the correct data.
+- &diams; **Code Coverage** - an output that shows what percentage of your app is covered by tests.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As of writing, **Jest** and **Mocha** are two of the most popular testing libraries. Jest, created and maintained by Facebook, provides a zero-configuration testing experience. Unlike Jest, Mocha provides flexibility in choosing which packages you want in your testing suite. Other libraries to consider are **Jasmine**, **Karma**, and **Puppeteer**.
