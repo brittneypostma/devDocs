@@ -31,6 +31,10 @@
     margin: 5px auto;
   }
 
+  .content :global(h1, h3, h4, h5, h6) {
+    font-weight: bold;
+  }
+
   .content :global(h3) {
     margin: 1em auto 0;
   }
