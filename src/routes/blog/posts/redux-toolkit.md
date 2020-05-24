@@ -12,6 +12,7 @@ title: Redux Toolkit
 
 - [What is Redux Toolkit?](#what-is-redux-toolkit)
 - [Why Redux Toolkit?](#why-redux-toolkit)
+- [Using Redux Toolkit](#using-redux-toolkit)
 
 ## What is Redux Toolkit?
 
@@ -24,6 +25,12 @@ title: Redux Toolkit
 - &diams; **`createAsyncThunk`**: accepts an action type string and a function that returns a promise, and generates a thunk that dispatches `pending/fulfilled/rejected` action types based on that promise
 - &diams; **`createEntityAdapter`**: generates a set of reusable reducers and selectors to manage normalized data in the store.
 - &diams; **`createSelector`**- utility from the Reselect library, re-exported for ease of use.
+
+## Why Redux Toolkit?
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As I said above, using Redux Toolkit will greatly decrease the configuration and setup of the Redux store. This will get you ready to code faster and simplify adding new items to your store. While the bundle size is going to be larger than the original Redux package, the RTK team is constantly working on better tree-shaking techniques to decrease its size. As Redux Toolkit installs the individual packages, you always have the option to remove pieces you aren't using as well. It also chooses to use `redux-thunk` over `redux-saga` and you can swap those out if you wish. Here is more information on [Why RTK uses Redux Thunk over Redux Saga](https://www.youtube.com/redirect?v=9lCmbth63k0&redir_token=iP6uatfm2qwV48vpraoPY20fgxd8MTU5MDQxMTk2N0AxNTkwMzI1NTY3&q=https%3A%2F%2Fblog.isquaredsoftware.com%2F2020%2F02%2Fblogged-answers-why-redux-toolkit-uses-thunks-for-async-logic%2F&event=video_description), if you want to know more.
+
+## Using Redux Toolkit
 
 To start a new project with Redux Toolkit:
 
@@ -43,6 +50,72 @@ npm i @reduxjs/toolkit
 yarn add @reduxjs/toolkit
 ```
 
-## Why Redux Toolkit?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coming from the original Redux package, you may think `createAction()` and `createReducer()` are going to be your first files to setup. Even though you can still set it up that way, most of the time, all you are going to need is the `createSlice()` function. It will accept a slice name string, an initial state and an object of reducer functions as parameters and will automatically generate the action creators and types that correspond to the reducers and state. It essentially combines 3 files into 1. Create a redux folder and a `todosSlice.js` file. Let's take a look at a slice for setting up a todo.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As I said above, using Redux Toolkit will greatly decrease the configuration and setup of the Redux store. This will get you ready to code faster and simplify adding new items to your store. While the bundle size is going to be larger than the original Redux package, the RTK team is constantly working on better tree-shaking techniques to decrease its size. As Redux Toolkit installs the individual packages, you always have the option to remove pieces you aren't using as well. It also chooses to use `redux-thunk` over `redux-saga` and you can swap those out if you wish. Here is more information on [Why RTK uses Redux Thunk over Redux Saga](https://www.youtube.com/redirect?v=9lCmbth63k0&redir_token=iP6uatfm2qwV48vpraoPY20fgxd8MTU5MDQxMTk2N0AxNTkwMzI1NTY3&q=https%3A%2F%2Fblog.isquaredsoftware.com%2F2020%2F02%2Fblogged-answers-why-redux-toolkit-uses-thunks-for-async-logic%2F&event=video_description), if you want to know more.
+```js
+import { createSlice } from '@reduxjs/toolkit'
+
+const todosSlice = createSlice({
+  // slice name
+  name: 'todos',
+  // initial state
+  initialState: [
+    {
+      id: 1,
+      desc: 'name slice',
+      isComplete: true
+    },
+    {
+      id: 2,
+      desc: 'set initial state',
+      isComplete: true
+    },
+    {
+      id: 3,
+      desc: 'create reducer',
+      isComplete: false
+    }
+  ],
+  // object of reducer functions
+  reducers: {
+    // action
+    create: {
+      // the reducer
+      reducer: ( state, { payload }) => state.push(payload),
+      // ran before reducer
+      prepare: ({desc}) => ({
+        payload: {
+          // not the best way to do unique ids
+          id: Math.random().toString(36).substr(2, 9),
+          desc,
+          isComplete: false
+        }
+      })
+    },
+    // action
+    edit: (state, { payload }) => {
+      const idx = state.findIndex(todo => todo.id === payload.id)
+      if (idx !== -1) state[idx].dec = payload.desc
+    },
+    // action
+    toggle: (state, { payload }) => {
+      const idx state.findIndex(todo => todo.id === payload.id)
+      if (idx !== 01) state[idx].isComplete = payload.isComplete
+    },
+    // action
+    remove: (state, { payload }) => {
+      const idx state.findIndex(todo => todo.id === payload.id)
+      if (idx !== -1) state.splice(idx, 1)
+    }
+  }
+})
+
+// destructuring actions and reducer from the slice
+const { actions, reducer } = todosSlice
+
+// destructuring actions off slice
+const { create, edit, toggle, remove } = actions
+
+// export reducer
+export default reducer
+```
