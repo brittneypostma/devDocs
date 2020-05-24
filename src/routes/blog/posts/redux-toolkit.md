@@ -7,3 +7,42 @@ title: Redux Toolkit
 </p>
 
 ---
+
+#### Table of Contents
+
+- [What is Redux Toolkit?](#what-is-redux-toolkit)
+- [Why Redux Toolkit?](#why-redux-toolkit)
+
+## What is Redux Toolkit?
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Redux Toolkit is the new **official** way to incorporate Redux into your project. It tries to solve some of the common concerns developers expressed in using the original Redux package. Such as too much setup, too complicated, and needed too many addon packages to function. With toolkit, there is less configuration and a lot more work is done under the hood and middlewares have been integrated in for async thunks. While the original Redux package was very unopinionated and allowed you to choose which packages you wanted to use with it, the new Redux Toolkit is opinionated because it comes with those packages out of the box. You can think of Redux Toolkit as the Create React App for Redux as it comes with things that will help get you started faster. Here's a list of the new APIs from [Redux Toolkit Docs](https://redux-toolkit.js.org/introduction/quick-start):
+
+- &diams; **`configureStore()`**: wraps `createStore` to provide simplified configuration options and good defaults. It can automatically combine your slice reducers, adds whatever Redux middleware you supply, includes `redux-thunk` by default, and enables use of the Redux DevTools Extension.
+- &diams; **`createReducer()`**: that lets you supply a lookup table of action types to case reducer functions, rather than writing switch statements. In addition, it automatically uses the `immer` library to let you write simpler immutable updates with normal mutative code, like `state.todos[3].completed = true`.
+- &diams; **`createAction()`**: generates an action creator function for the given action type string. The function itself has `toString()` defined, so that it can be used in place of the type constant.
+- &diams; **`createSlice()`**: accepts an object of reducer functions, a slice name, and an initial state value, and automatically generates a slice reducer with corresponding action creators and action types.
+- &diams; **`createAsyncThunk`**: accepts an action type string and a function that returns a promise, and generates a thunk that dispatches `pending/fulfilled/rejected` action types based on that promise
+- &diams; **`createEntityAdapter`**: generates a set of reusable reducers and selectors to manage normalized data in the store.
+- &diams; **`createSelector`**- utility from the Reselect library, re-exported for ease of use.
+
+To start a new project with Redux Toolkit:
+
+```
+npx create-react-app my-app-name --template redux
+```
+
+To add Redux Toolkit to an existing app.
+
+```js
+// NPM
+
+npm i @reduxjs/toolkit
+
+// Yarn
+
+yarn add @reduxjs/toolkit
+```
+
+## Why Redux Toolkit?
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As I said above, using Redux Toolkit will greatly decrease the configuration and setup of the Redux store. This will get you ready to code faster and simplify adding new items to your store. While the bundle size is going to be larger than the original Redux package, the RTK team is constantly working on better tree-shaking techniques to decrease its size. As Redux Toolkit installs the individual packages, you always have the option to remove pieces you aren't using as well. It also chooses to use `redux-thunk` over `redux-saga` and you can swap those out if you wish. Here is more information on [Why RTK uses Redux Thunk over Redux Saga](https://www.youtube.com/redirect?v=9lCmbth63k0&redir_token=iP6uatfm2qwV48vpraoPY20fgxd8MTU5MDQxMTk2N0AxNTkwMzI1NTY3&q=https%3A%2F%2Fblog.isquaredsoftware.com%2F2020%2F02%2Fblogged-answers-why-redux-toolkit-uses-thunks-for-async-logic%2F&event=video_description), if you want to know more.
