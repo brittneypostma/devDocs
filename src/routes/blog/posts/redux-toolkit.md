@@ -28,7 +28,7 @@ title: Redux Toolkit
 
 ## Why Redux Toolkit?
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As I said above, using Redux Toolkit will greatly decrease the configuration and setup of the Redux store. This will get you ready to code faster and simplify adding new items to your store. While the bundle size is going to be larger than the original Redux package, the RTK team is constantly working on better tree-shaking techniques to decrease its size. As Redux Toolkit installs the individual packages, you always have the option to remove pieces you aren't using as well. It also chooses to use `redux-thunk` over `redux-saga` and you can swap those out if you wish. Here is more information on [Why RTK uses Redux Thunk over Redux Saga](https://www.youtube.com/redirect?v=9lCmbth63k0&redir_token=iP6uatfm2qwV48vpraoPY20fgxd8MTU5MDQxMTk2N0AxNTkwMzI1NTY3&q=https%3A%2F%2Fblog.isquaredsoftware.com%2F2020%2F02%2Fblogged-answers-why-redux-toolkit-uses-thunks-for-async-logic%2F&event=video_description), if you want to know more.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As I said above, using Redux Toolkit will greatly decrease the configuration and setup of the Redux store. This will get you ready to code faster and simplify adding new items to your store. While the bundle size is going to be larger than the original Redux package, the RTK team is constantly working on better tree-shaking techniques to decrease its size. As Redux Toolkit installs the individual packages, you always have the option to remove pieces you aren't using as well. It also chooses to use `redux-thunk` over `redux-saga` and you can swap those out if you wish. Here is more information on [Why RTK uses Redux Thunk over Redux Saga](https://blog.isquaredsoftware.com/2020/02/blogged-answers-why-redux-toolkit-uses-thunks-for-async-logic/), if you want to know more.
 
 ## Using Redux Toolkit
 
@@ -38,16 +38,20 @@ To start a new project with Redux Toolkit:
 npx create-react-app my-app-name --template redux
 ```
 
-To add Redux Toolkit to an existing app.
+If it is a React project, you will also need `react-redux`. To add Redux Toolkit to an existing app:
 
 ```js
 // NPM
-
 npm i @reduxjs/toolkit
 
-// Yarn
+// With React
+npm i @reduxjs/toolkit react-redux
 
+// Yarn
 yarn add @reduxjs/toolkit
+
+// With React
+yarn add @reduxjs/toolkit react-redux
 ```
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coming from the original Redux package, you may think `createAction()` and `createReducer()` are going to be your first files to setup. Even though you can still set it up that way, most of the time, all you are going to need is the `createSlice()` function. It will accept a slice name string, an initial state and an object of reducer functions as parameters and will automatically generate the action creators and types that correspond to the reducers and state. It essentially combines 3 files into 1. Create a redux folder and a `todosSlice.js` file. Let's take a look at a slice for setting up a todo.
@@ -81,7 +85,9 @@ const todosSlice = createSlice({
     // action
     create: {
       // the reducer
-      reducer: ( state, { payload }) => state.push(payload),
+      reducer: ( state, { payload }) => {
+        state.push(payload)
+      },
       // ran before reducer
       prepare: ({desc}) => ({
         payload: {
@@ -95,20 +101,25 @@ const todosSlice = createSlice({
     // action
     edit: (state, { payload }) => {
       // reducer
-      const idx = state.findIndex(todo => todo.id === payload.id)
-      if (idx !== -1) state[idx].dec = payload.desc
+      const todo= state.find(todo => todo.id === payload.id)
+      if (todo) {
+       todo.desc = payload.desc
+       }
     },
     // action
     toggle: (state, { payload }) => {
       // reducer
-      const idx state.findIndex(todo => todo.id === payload.id)
-      if (idx !== 01) state[idx].isComplete = payload.isComplete
-    },
+      const todo = state.find(todo => todo.id === payload.is) {
+        if (todo) {
+          todo.completed = !todo.completed
+        }
     // action
     remove: (state, { payload }) => {
       // reducer
-      const idx state.findIndex(todo => todo.id === payload.id)
-      if (idx !== -1) state.splice(idx, 1)
+      const idx = state.findIndex(todo => todo.id === payload.id)
+      if (idx !== -1) {
+        state.splice(idx, 1)
+      }
     }
   }
 })
@@ -131,6 +142,7 @@ import { combineReducers } from '@reduxjs/toolkit'
 import todosReducer from './todosSlice'
 
 export default combineReducers({
+  // other slices would be added here
   todos: todosReducer
 })
 ```

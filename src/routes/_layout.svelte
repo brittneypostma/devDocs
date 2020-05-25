@@ -73,6 +73,9 @@
   <a href="https://bdesigned.netlify.com/" rel="noreferrer" target="_blank">
     b.Designed
   </a>
+  Find me on GitHub
+  <a href="https://github.com/brittneypostma" rel="noreferrer" target="_blank">
+  <img alt="github" src="octocat.png" style="width: 30px;"/></a>
   Powered by
   <img alt="svelte" src="svelte-logo.png" />
   and
