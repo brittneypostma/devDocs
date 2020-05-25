@@ -94,16 +94,19 @@ const todosSlice = createSlice({
     },
     // action
     edit: (state, { payload }) => {
+      // reducer
       const idx = state.findIndex(todo => todo.id === payload.id)
       if (idx !== -1) state[idx].dec = payload.desc
     },
     // action
     toggle: (state, { payload }) => {
+      // reducer
       const idx state.findIndex(todo => todo.id === payload.id)
       if (idx !== 01) state[idx].isComplete = payload.isComplete
     },
     // action
     remove: (state, { payload }) => {
+      // reducer
       const idx state.findIndex(todo => todo.id === payload.id)
       if (idx !== -1) state.splice(idx, 1)
     }
@@ -119,3 +122,50 @@ const { create, edit, toggle, remove } = actions
 // export reducer
 export default reducer
 ```
+
+Next, we need to create a `rootReducer.js` file to combine our reducers for the store.
+
+```js
+import { combineReducers } from '@reduxjs/toolkit'
+// import the reducer as todosReducer
+import todosReducer from './todosSlice'
+
+export default combineReducers({
+  todos: todosReducer
+})
+```
+
+Finally, we just need to configure the store. You can do this by creating a `store.js` file or just include it in the `index.js`.
+
+```js
+import { configureStore } from '@reduxjs/toolkit'
+import rootReducer from './rootReducer'
+
+const store = configureStore({
+  reducer: rootReducer
+})
+
+export default store
+```
+
+Now in `index.js`, we need to wrap the **Provider** around our main component.
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import * as serviceWorker from './serviceWorker'
+import store from './redux/store'
+import { Provider } from 'react-redux'
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+
+serviceWorker.register()
+```
+
+That's it! Redux Toolkit is now set up and connected to our application. This is a basic tutorial, next time we will dive deeper into RTK! Thanks for the :heart:!
