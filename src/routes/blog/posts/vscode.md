@@ -14,9 +14,9 @@ title: VSCode Setup
 - [Fonts](#fonts)
 - [The End](#the-end)
 
----
+**This is also available on Dev.to. Please, go give it some 💖 [VSCode Setup with ESLint and Prettier](https://dev.to/bdesigned/vscode-setup-with-eslint-and-prettier-1gek)!**
 
-**This is also available on Dev.to. Please, go give it some :heart: [VSCode Setup with ESLint and Prettier](https://dev.to/bdesigned/vscode-setup-with-eslint-and-prettier-1gek)!**
+---
 
 ## Visual Studio Code
 
@@ -67,19 +67,19 @@ extensions, plugins for nearly every programming language, and so much more, it 
 
 ```
 How would you like to use ESLint? To check syntax, find problems, and enforce code style
-? What type of modules does your project use? JavaScript modules (import/export)
-? Which framework does your project use? React
-? Does your project use TypeScript? No
-? Where does your code run? Browser
-? How would you like to define a style for your project? Use a popular style guide
-? Which style guide do you want to follow? Airbnb: https://github.com/airbnb/javascript
-? What format do you want your config file to be in? JSON
+What type of modules does your project use? JavaScript modules (import/export)
+Which framework does your project use? React
+Does your project use TypeScript? No
+Where does your code run? Browser
+How would you like to define a style for your project? Use a popular style guide
+Which style guide do you want to follow? Airbnb: https://github.com/airbnb/javascript
+What format do you want your config file to be in? JSON
 Checking peerDependencies of eslint-config-airbnb@latest
 Local ESLint installation not found.
 The config that you've selected requires the following dependencies:
 
 eslint-plugin-react@^7.19.0 eslint-config-airbnb@latest eslint@^5.16.0 || ^6.8.0 eslint-plugin-import@^2.20.1 eslint-plugin-jsx-a11y@^6.2.3 eslint-plugin-react-hooks@^2.5.0 || ^1.7.0
-? Would you like to install them now with npm? Yes
+Would you like to install them now with npm? Yes
 ```
 
 We also need to install **`npm i prettier eslint-config-prettier eslint-plugin-prettier -D`** to our project. This uses the Prettier ESLint configuration.
@@ -163,7 +163,9 @@ If you want to go a step farther and create your own themes, hit **`ctrl+shift+p
 
 Font family will be whatever font you want to use. [Victor Mono](https://rubjo.github.io/victor-mono/) is my favorite! Ligatures in typography is when 2 or 3 characters are joined together to make them look as if they were one.
 
-![Font Ligatures](https://i.ytimg.com/vi/PRMQ7bFK3L4/maxresdefault.jpg)
+<p align="center">
+<img alt="Font Ligatures" src="https://i.ytimg.com/vi/PRMQ7bFK3L4/maxresdefault.jpg" width="50%" />
+</p>
 
 ---
 

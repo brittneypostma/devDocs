@@ -14,6 +14,10 @@ title: Redux Toolkit
 - [Why Redux Toolkit?](#why-redux-toolkit)
 - [Using Redux Toolkit](#using-redux-toolkit)
 
+**This is also available on Dev.to. Please, go give it some 💖 [Redux Toolkit Basic Intro](https://dev.to/bdesigned/redux-toolkit-basic-intro-57g4)!**
+
+---
+
 ## What is Redux Toolkit?
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Redux Toolkit is the new **official** way to incorporate Redux into your project. It tries to solve some of the common concerns developers expressed in using the original Redux package. Such as too much setup, too complicated, and needed too many addon packages to function. With toolkit, there is less configuration and a lot more work is done under the hood and middlewares have been integrated in for async thunks. While the original Redux package was very unopinionated and allowed you to choose which packages you wanted to use with it, the new Redux Toolkit is opinionated because it comes with those packages out of the box. You can think of Redux Toolkit as the Create React App for Redux as it comes with things that will help get you started faster. Here's a list of the new APIs from [Redux Toolkit Docs](https://redux-toolkit.js.org/introduction/quick-start):
@@ -136,7 +140,7 @@ import { combineReducers } from '@reduxjs/toolkit'
 import todosReducer from './todosSlice'
 
 export default combineReducers({
-// other slices would be added here
+  // other slices would be added here
   todos: todosReducer
 })
 ```
@@ -249,4 +253,4 @@ const App = () => {
 export default App
 ```
 
-That's it! Redux Toolkit is now set up and connected to our application. This is a basic tutorial, next time we will dive deeper into RTK! Thanks for the :heart:!
+That's it! Redux Toolkit is now set up and connected to our application. This is a basic tutorial, next time we will dive deeper into RTK! Thanks for the 💖!
