@@ -40,7 +40,7 @@ npx create-react-app my-app-name --template redux
 
 If it is a React project, you will also need `react-redux`. To add Redux Toolkit to an existing app:
 
-```js
+```
 // NPM
 npm i @reduxjs/toolkit
 
@@ -58,6 +58,8 @@ yarn add @reduxjs/toolkit react-redux
 
 ```js
 import { createSlice } from '@reduxjs/toolkit'
+
+let nextTodoId = 0
 
 const todosSlice = createSlice({
   // slice name
@@ -84,35 +86,27 @@ const todosSlice = createSlice({
   reducers: {
     // action
     create: {
-      // the reducer
-      reducer: ( state, { payload }) => {
-        state.push(payload)
+      reducer(state, { payload }) {
+        const { id, desc } = payload
+        state.push({ id, desc, isComplete: false })
       },
-      // ran before reducer
-      prepare: ({desc}) => ({
-        payload: {
-          // not the best way to do unique ids
-          id: Math.random().toString(36).substr(2, 9),
-          desc,
-          isComplete: false
+      prepare(desc) {
+        return {
+          payload: {
+            desc,
+            id: nextTodoId++
+          }
         }
-      })
-    },
-    // action
-    edit: (state, { payload }) => {
-      // reducer
-      const todo= state.find(todo => todo.id === payload.id)
-      if (todo) {
-       todo.desc = payload.desc
-       }
+      }
     },
     // action
     toggle: (state, { payload }) => {
       // reducer
-      const todo = state.find(todo => todo.id === payload.is) {
-        if (todo) {
-          todo.completed = !todo.completed
-        }
+      const todo = state.find(todo => todo.id === payload.id)
+      if (todo) {
+        todo.isComplete = !todo.isComplete
+      }
+    },
     // action
     remove: (state, { payload }) => {
       // reducer
@@ -127,8 +121,8 @@ const todosSlice = createSlice({
 // destructuring actions and reducer from the slice
 const { actions, reducer } = todosSlice
 
-// destructuring actions off slice
-const { create, edit, toggle, remove } = actions
+// destructuring actions off slice and exporting
+export const { create, toggle, remove } = actions
 
 // export reducer
 export default reducer
@@ -142,7 +136,7 @@ import { combineReducers } from '@reduxjs/toolkit'
 import todosReducer from './todosSlice'
 
 export default combineReducers({
-  // other slices would be added here
+// other slices would be added here
   todos: todosReducer
 })
 ```
@@ -162,7 +156,7 @@ export default store
 
 Now in `index.js`, we need to wrap the **Provider** around our main component.
 
-```js
+```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
@@ -178,6 +172,81 @@ ReactDOM.render(
 )
 
 serviceWorker.register()
+```
+
+Now, we can use the **react-redux** hooks to pull in our Redux store to our app.
+
+```jsx
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { create, toggle, remove } from '../redux/todosSlice'
+import './App.css'
+
+const App = () => {
+  const dispatch = useDispatch()
+  // get todos from state
+  const todos = useSelector(state => state.todos)
+  const completed = useSelector(state => state.todos.isComplete)
+  const [todoInput, setTodoInput] = useState('')
+
+  const handleInputChange = e => {
+    setTodoInput(e.target.value)
+  }
+
+  const handleNewTodo = e => {
+    e.preventDefault()
+    // if no input, just return
+    if (!todoInput.length) return
+    // dispatch will send our create action
+    dispatch(create(todoInput))
+    // reset input
+    setTodoInput('')
+  }
+
+  const handleToggle = id => {
+    // send toggle action updated state
+    dispatch(
+      toggle({
+        id,
+        isComplete: !completed
+      })
+    )
+  }
+
+  return (
+    <div className='App'>
+      <div className='App__header'>
+        <h1>Todo: RTK Edition</h1>
+        <form onSubmit={handleNewTodo}>
+          <label htmlFor='new-todo' style={{ display: 'none' }}>
+            New Todo:
+          </label>
+          <input
+            onChange={handleInputChange}
+            id='new-todo'
+            value={todoInput}
+            placeholder='todo...'
+          />
+          <button type='submit'>Create</button>
+        </form>
+      </div>
+      <div className='App__body'>
+        <ul className='App__list'>
+          {todos.map(todo => (
+            <li
+              className={`${todo.isComplete ? 'done' : ''}`}
+              key={todo.id}
+              onClick={() => handleToggle(todo.id)}>
+              {todo.desc}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+export default App
 ```
 
 That's it! Redux Toolkit is now set up and connected to our application. This is a basic tutorial, next time we will dive deeper into RTK! Thanks for the :heart:!

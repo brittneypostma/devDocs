@@ -236,19 +236,19 @@ If this code gets optimized to return only 1 name, then the computer would have 
 
 ```javascript
 function Animal(x, y) {
-  this.x = x;
-  this.y = y;
+  this.x = x
+  this.y = y
 }
 
-const obj1 = new Animal(1, 2);
-const obj2 = new Animal(3, 4);
+const obj1 = new Animal(1, 2)
+const obj2 = new Animal(3, 4)
 
-obj1.a = 30;
-obj1.b = 100;
-obj2.b = 30;
-obj2.a = 100;
+obj1.a = 30
+obj1.b = 100
+obj2.b = 30
+obj2.a = 100
 
-delete obj1.x = 30;
+delete obj1.x = 30
 ```
 
 By setting these values in a different order than they were instatiated, we are making the compiler slower because of **hidden classes**. Hidden classes are what the compiler uses under the hood to say that these 2 objects have the same properties. If values are introduced in a different order than it was set up in, the compiler can get confused and think they don't have a shared hidden class, they are 2 different things, and will slow down the computation. Also, the reason the delete keyword shouldn't be used is because it would change the hidden class.
@@ -258,18 +258,18 @@ By setting these values in a different order than they were instatiated, we are 
 
 function Animal(x, y) {
   // instantiating a and b in the constructor
-  this.a = x;
-  this.b = y;
+  this.a = x
+  this.b = y
 }
 
-const obj1 = new Animal(1, 2);
-const obj2 = new Animal(3, 4);
+const obj1 = new Animal(1, 2)
+const obj2 = new Animal(3, 4)
 
 // and setting the values in order
-obj1.a = 30;
-obj1.b = 100;
-obj2.a = 30;
-obj2.b = 100;
+obj1.a = 30
+obj1.b = 100
+obj2.a = 30
+obj2.b = 100
 ```
 
 #### Managing Arguments
@@ -294,14 +294,14 @@ The memory heap is a place to store and write information so that we can use our
 
 ```javascript
 // tell the memory heap to allocate memory for a number
-const number = 11;
+const number = 11
 // allocate memory for a string
-const string = "some text";
+const string = 'some text'
 // allocate memory for an object and it's values
 const person = {
-  first: "Brittney",
-  last: "Postma"
-};
+  first: 'Brittney',
+  last: 'Postma'
+}
 ```
 
 <p align="center">
@@ -314,21 +314,21 @@ The call stack keeps track of where we are in the code, so we can run the progra
 
 ```javascript
 function subtractTwo(num) {
-  return num - 2;
+  return num - 2
 }
 
 function calculate() {
-  const sumTotal = 4 + 5;
-  return subtractTwo(sumTotal);
+  const sumTotal = 4 + 5
+  return subtractTwo(sumTotal)
 }
-debugger;
-calculate();
+debugger
+calculate()
 ```
 
 Things are placed into the call stack on top and removed as they are finished. It runs in a first in last out mode. Each call stack can point to a location inside the memory heap. In the above snippet the call stack looks like this.
 
 ```javascript
-anonymous; // file is being ran
+anonymous // file is being ran
 // CALL STACK
 
 // hits debugger and stops the file
@@ -337,13 +337,13 @@ anonymous; // file is being ran
 calculate(
   // steps through calculate() sumTotal = 9
   anonymous
-);
+)
 // CALL STACK
 
 // steps into subtractTwo(sumTotal) num = 9
 
-subtractTwo; // returns 9 - 2
-calculate(anonymous);
+subtractTwo // returns 9 - 2
+calculate(anonymous)
 // CALL STACK
 
 // subtractTwo() has finished and has been removed
@@ -357,7 +357,7 @@ calculate(
   // calculate() has finished and has been removed
 
   anonymous
-);
+)
 // CALL STACK
 
 // and finally the file is finished and is removed
@@ -375,10 +375,10 @@ So what happens if you keep calling functions that are nested inside each other?
 // When a function calls itself,
 // it is called RECURSION
 function inception() {
-  inception();
+  inception()
 }
 
-inception();
+inception()
 // returns Uncaught RangeError:
 // Maximum call stack size exceeded
 ```
@@ -403,11 +403,11 @@ JavaScript is a garbage collected language. If you allocate memory inside of a f
 
 ```javascript
 var person = {
-  first: "Brittney",
-  last: "Postma"
-};
+  first: 'Brittney',
+  last: 'Postma'
+}
 
-person = "Brittney Postma";
+person = 'Brittney Postma'
 ```
 
 In the example above a **memory leak** is created. By changing the variable person from an object to a string, it leaves the values of first and last in the memory heap and does not remove it. This can be avoided by trying to keep variables out of the global namespace, only instantiate variables inside of functions when possible. JavaScript is a **single threaded** language, meaning only one thing can be executed at a time. It only has one call stack and therefore it is a **synchronous** language.
@@ -421,15 +421,15 @@ So, what is the issue with being a single threaded language? Lets's start from t
 When you run some JavaScript code in a browser, the engine starts to parse the code. Each line is executed and popped on and off the call stack. But, what about Web API's? Web API's are not something JavaScript recognizes, so the parser knows to pass it off to the browser for it to handle. When the browser has finished running its method, it puts what is needed to be ran by JavaScript into the **callback queue**. The callback queue cannot be ran until the call stack is completely empty. So, the **event loop** is constantly checking the call stack to see if it is empty so that it can add anything in the callback queue back into the call stack. And finally, once it is back in the call stack, it is ran and then popped off the stack.
 
 ```javascript
-console.log("1");
+console.log('1')
 // goes on call stack and runs 1
 setTimeout(() => {
-  console.log("2"), 1000;
-});
+  console.log('2'), 1000
+})
 // gets sent to web api
 // web api waits 1 sec, runs and sends to callback queue
 // the javascript engine keeps going
-console.log("3");
+console.log('3')
 // goes on call stack and runs 3
 // event loop keeps checking and see call stack is empty
 // event loop sends calback queue into call stack
@@ -441,11 +441,11 @@ console.log("3");
 
 // Example with 0 second timeout
 
-console.log("1");
+console.log('1')
 setTimeout(() => {
-  console.log("2"), 0;
-});
-console.log("3");
+  console.log('2'), 0
+})
+console.log('3')
 
 // 1
 // 3
@@ -473,17 +473,17 @@ The job queue or microtask queue came about with promises in ES6. With promises 
 ```javascript
 // 1 Callback Queue ~ Task Queue
 setTimeout(() => {
-  console.log("1", "is the loneliest number");
-}, 0);
+  console.log('1', 'is the loneliest number')
+}, 0)
 setTimeout(() => {
-  console.log("2", "can be as bad as one");
-}, 10);
+  console.log('2', 'can be as bad as one')
+}, 10)
 
 // 2 Job Queue ~ Microtask Queue
-Promise.resolve("hi").then(data => console.log("2", data));
+Promise.resolve('hi').then(data => console.log('2', data))
 
 // 3
-console.log("3", "is a crowd");
+console.log('3', 'is a crowd')
 
 // 3 is a crowd
 // 2 hi
@@ -498,34 +498,34 @@ There are 3 ways you could want promises to resolve, parallel (all together), se
 
 ```javascript
 const promisify = (item, delay) =>
-  new Promise(resolve => setTimeout(() => resolve(item), delay));
+  new Promise(resolve => setTimeout(() => resolve(item), delay))
 
-const a = () => promisify("a", 100);
-const b = () => promisify("b", 5000);
-const c = () => promisify("c", 3000);
+const a = () => promisify('a', 100)
+const b = () => promisify('b', 5000)
+const c = () => promisify('c', 3000)
 
 async function parallel() {
-  const promises = [a(), b(), c()];
-  const [output1, output2, output3] = await Promise.all(promises);
-  return `parallel is done: ${output1} ${output2} ${output3}`;
+  const promises = [a(), b(), c()]
+  const [output1, output2, output3] = await Promise.all(promises)
+  return `parallel is done: ${output1} ${output2} ${output3}`
 }
 
 async function sequence() {
-  const output1 = await a();
-  const output2 = await b();
-  const output3 = await c();
-  return `sequence is done: ${output1} ${output2} ${output3}`;
+  const output1 = await a()
+  const output2 = await b()
+  const output3 = await c()
+  return `sequence is done: ${output1} ${output2} ${output3}`
 }
 
 async function race() {
-  const promises = [a(), b(), c()];
-  const output1 = await Promise.race(promises);
-  return `race is done: ${output1}`;
+  const promises = [a(), b(), c()]
+  const output1 = await Promise.race(promises)
+  return `race is done: ${output1}`
 }
 
-sequence().then(console.log);
-parallel().then(console.log);
-race().then(console.log);
+sequence().then(console.log)
+parallel().then(console.log)
+race().then(console.log)
 
 // race is done: a
 // parallel is done: a b c
@@ -541,10 +541,10 @@ Even though JavaScript is a single threaded language, there are worker threads t
 [Multi threading](https://www.internalpointers.com/post/gentle-introduction-multithreading)
 
 ```javascript
-var worker = new Worker("worker.js");
-worker.postMessage("Helloooo");
+var worker = new Worker('worker.js')
+worker.postMessage('Helloooo')
 
-addEventListener("message");
+addEventListener('message')
 ```
 
 ---
@@ -564,9 +564,9 @@ Code in JavaScript is always ran inside a type of **execution context**. Executi
 - 4\. initializes all variables to _undefined_ (also known as **hoisting**) and places them with any functions into memory
 
 ```javascript
-this;
-window;
-this === window;
+this
+window
+this === window
 
 // Window {...}
 // Window {...}
@@ -588,20 +588,20 @@ Only when a function is invoked, does a function execution context get created.
 ```javascript
 // Function Execution Context creates arguments object and points 'this' to the function
 function showArgs(arg1, arg2) {
-  console.log("arguments: ", arguments);
-  return `argument 1 is: ${arg1} and argument 2 is: ${arg2}`;
+  console.log('arguments: ', arguments)
+  return `argument 1 is: ${arg1} and argument 2 is: ${arg2}`
 }
 
-showArgs("hello", "world");
+showArgs('hello', 'world')
 
 // arguments: { 0: 'hello', 1: 'world' }
 // argument 1 is hello and argument 2 is world
 
 function noArgs() {
-  console.log("arguments: ", arguments);
+  console.log('arguments: ', arguments)
 }
 
-noArgs();
+noArgs()
 
 // arguments: {}
 // even though there are no arguments, the object is still created
@@ -611,22 +611,22 @@ The keyword arguments can be dangerous to use in your code as is. In ES6, a few 
 
 ```javascript
 function showArgs(arg1, arg2) {
-  console.log("arguments: ", arguments);
-  console.log(Array.from(arguments));
+  console.log('arguments: ', arguments)
+  console.log(Array.from(arguments))
 }
 
-showArgs("hello", "world");
+showArgs('hello', 'world')
 
 // arguments: { 0: 'hello', 1: 'world' }
 // [ 'hello', 'world' ]
 
 function showArgs2(...args) {
-  console.log(console.log("arguments: ", args));
-  console.log(Array.from(arguments));
-  return `${args[0]} ${args[1]}`;
+  console.log(console.log('arguments: ', args))
+  console.log(Array.from(arguments))
+  return `${args[0]} ${args[1]}`
 }
 
-showArgs2("hello", "world");
+showArgs2('hello', 'world')
 
 // arguments: [ 'hello', 'world' ]
 // [ 'hello', 'world' ]
@@ -642,13 +642,13 @@ showArgs2("hello", "world");
 >   // does not create a new scope
 >   i: 10,
 >   b: () => console.log(this.i, this),
->   c: function() {
->     console.log(this.i, this);
+>   c: function () {
+>     console.log(this.i, this)
 >   }
-> };
+> }
 >
-> obj.b(); // prints undefined, Window {...} (or the global object)
-> obj.c(); // prints 10, Object {...}```
+> obj.b() // prints undefined, Window {...} (or the global object)
+> obj.c() // prints 10, Object {...}```
 > ````
 
 ---
@@ -659,12 +659,12 @@ Hoisting is the process of putting all variable and function declarations into m
 
 ```javascript
 // function expression gets hoisted as undefined
-var sing = function() {
-  console.log("uhhhh la la la");
-};
+var sing = function () {
+  console.log('uhhhh la la la')
+}
 // function declaration gets fully hoisted
 function sing2() {
-  console.log("ohhhh la la la");
+  console.log('ohhhh la la la')
 }
 ```
 
@@ -673,15 +673,15 @@ function sing2() {
 ```javascript
 // function declaration gets hoisted
 function a() {
-  console.log("hi");
+  console.log('hi')
 }
 
 // function declaration get rewritten in memory
 function a() {
-  console.log("bye");
+  console.log('bye')
 }
 
-console.log(a());
+console.log(a())
 // bye
 ```
 
@@ -689,20 +689,20 @@ console.log(a());
 
 ```javascript
 // variable declaration gets hoisted as undefined
-var favoriteFood = "grapes";
+var favoriteFood = 'grapes'
 
 // function expression gets hoisted as undefined
-var foodThoughts = function() {
+var foodThoughts = function () {
   // new execution context created favoriteFood = undefined
-  console.log(`Original favorite food: ${favoriteFood}`);
+  console.log(`Original favorite food: ${favoriteFood}`)
 
   // variable declaration gets hoisted as undefined
-  var favoriteFood = "sushi";
+  var favoriteFood = 'sushi'
 
-  console.log(`New favorite food: ${favoriteFood}`);
-};
+  console.log(`New favorite food: ${favoriteFood}`)
+}
 
-foodThoughts();
+foodThoughts()
 ```
 
 > ## Takeaways
@@ -717,16 +717,16 @@ A **lexical environment** is basically the _scope_ or environment the engine is 
 
 ```javascript
 function one() {
-  var isValid = true; // local env
-  two(); // new execution context
+  var isValid = true // local env
+  two() // new execution context
 }
 
 function two() {
-  var isValid; // undefined
+  var isValid // undefined
 }
 
-var isValid = false; // global
-one();
+var isValid = false // global
+one()
 
 /* 
    two() isValid = undefined
@@ -748,25 +748,25 @@ one();
 Each environment context that is created has a link outside of its lexical environment called the scope chain. The scope chain gives us access to variables in the parent environment.
 
 ```javascript
-var x = "x";
+var x = 'x'
 
 function findName() {
-  console.log(x);
-  var b = "b";
-  return printName();
+  console.log(x)
+  var b = 'b'
+  return printName()
 }
 
 function printName() {
-  var c = "c";
-  return "Brittney Postma";
+  var c = 'c'
+  return 'Brittney Postma'
 }
 
 function sayMyName() {
-  var a = "a";
-  return findName();
+  var a = 'a'
+  return findName()
 }
 
-sayMyName();
+sayMyName()
 
 // sayMyName runs a = 'a'
 // findName runs
@@ -780,20 +780,20 @@ In this example, all the functions have access to the global variable **x**, but
 
 ```javascript
 function sayMyName() {
-  var a = "a";
-  console.log(b, c); // returns error
+  var a = 'a'
+  console.log(b, c) // returns error
   return function findName() {
-    var b = "b";
-    console.log(a); // a
-    console.log(c); // returns error
+    var b = 'b'
+    console.log(a) // a
+    console.log(c) // returns error
     return function printName() {
-      var c = "c";
-      console.log(a, b); // a, b
-    };
-  };
+      var c = 'c'
+      console.log(a, b) // a, b
+    }
+  }
 }
 
-sayMyName()()(); //each function is returned and has to be called
+sayMyName()()() //each function is returned and has to be called
 ```
 
 In this example, you can see that the functions only get access to the variables in their parent container, not a child. The scope chain only links down the call stack, so you almost have to think of it in reverse. It goes up to the parent, but down the call stack.
@@ -810,15 +810,15 @@ In this example, you can see that the functions only get access to the variables
 // We call this leakage of global variables.
 // Adding 'use strict' to the file prevents this and causes an error.
 function weird() {
-  height = 50;
+  height = 50
 }
 
 var heyhey = function doodle() {
   // code here
-};
+}
 
-heyhey();
-doodle(); // Error! because it is enclosed in its own scope.
+heyhey()
+doodle() // Error! because it is enclosed in its own scope.
 ```
 
 ---
@@ -831,9 +831,9 @@ Most programing languages are block scoped, meaning every time you see a new { }
 //Function Scope
 function loop() {
   for (var i = 0; i < 5; i++) {
-    console.log(i);
+    console.log(i)
   }
-  console.log("final", i); // returns final 5
+  console.log('final', i) // returns final 5
 }
 
 //Block Scope
@@ -841,10 +841,10 @@ function loop2() {
   for (let i = 0; i < 5; i++) {
     // can access i here
   }
-  console.log("final", i); // returns an error here
+  console.log('final', i) // returns an error here
 }
 
-loop();
+loop()
 /*
   1
   2
@@ -852,7 +852,7 @@ loop();
   4
   final 5
 */
-loop2();
+loop2()
 // ReferenceError: i is not defined
 ```
 
@@ -868,9 +868,9 @@ Immediately Invoked Function Expression or more simply **IIFE** is a JavaScript 
 
 ```javascript
 // Grouping Operator () creates a lexical scope
-(function() {
+;(function () {
   // statements
-})();
+})()
 // Immediately invokes the function with 2nd set of ()
 ```
 
@@ -892,15 +892,15 @@ The moment has arrived, time to talk about **this**. What is **this**? Why is **
 There that's simple right? Well, maybe not, what does that mean? Back in Execution Context, we talked about how the JavaScript engine creates the global execution context and initializes _this_ to the global window object.
 
 ```javascript
-this; // Window {...}
-window; // Window {...}
-this === window; // true
+this // Window {...}
+window // Window {...}
+this === window // true
 
 function a() {
-  console.log(this);
+  console.log(this)
 }
 
-a();
+a()
 
 // Window {...}
 ```
@@ -910,12 +910,12 @@ In the example above, it is easy to understand that _this_ is equal to the windo
 ```javascript
 const obj = {
   property: `I'm a property of obj.`,
-  method: function() {
+  method: function () {
     // this refers to the object obj
-    console.log(this.property);
+    console.log(this.property)
   }
-};
-obj.method();
+}
+obj.method()
 // I'm a property of obj.
 ```
 
@@ -923,49 +923,49 @@ obj.method();
 >
 > ```javascript
 > // obj is to the left of the dot
-> obj.method();
+> obj.method()
 > ```
 
 Still confused? Try this:
 
 ```javascript
 function whichName() {
-  console.log(this.name);
+  console.log(this.name)
 }
 
-var name = "window";
+var name = 'window'
 
 const obj1 = {
-  name: "Obj 1",
+  name: 'Obj 1',
   whichName
-};
+}
 const obj2 = {
-  name: "Obj 2",
+  name: 'Obj 2',
   whichName
-};
+}
 
-whichName(); // window
-obj1.whichName(); // Obj 1
-obj2.whichName(); // Obj 2
+whichName() // window
+obj1.whichName() // Obj 1
+obj2.whichName() // Obj 2
 ```
 
 Another way to look at **this** is to check which object called it.
 
 ```javascript
-const a = function() {
-  console.log("a", this);
-  const b = function() {
-    console.log("b", this);
+const a = function () {
+  console.log('a', this)
+  const b = function () {
+    console.log('b', this)
     const c = {
-      hi: function() {
-        console.log("c", this);
+      hi: function () {
+        console.log('c', this)
       }
-    };
-    c.hi(); // new obj c called function
-  };
-  b(); // ran by a window.a(b())
-};
-a(); // called by window
+    }
+    c.hi() // new obj c called function
+  }
+  b() // ran by a window.a(b())
+}
+a() // called by window
 
 // a Window {…}
 // b Window {…}
@@ -985,54 +985,54 @@ Here is **this** 4 ways:
 ```javascript
 // new binding
 function Person(name, age) {
-  this.name = name;
-  this.age = age;
-  console.log(this);
+  this.name = name
+  this.age = age
+  console.log(this)
 }
 
-const person1 = new Person("person1", 55);
+const person1 = new Person('person1', 55)
 // this = Person { name: 'person1', age: 55 }
 
 //implicit binding
 const person = {
-  name: "person",
+  name: 'person',
   age: 20,
   hi() {
-    console.log("hi " + this);
+    console.log('hi ' + this)
   }
-};
+}
 
-person.hi();
+person.hi()
 // this = person { name: 'person', age: 20, hi(){...} }
 
 //explicit binding
-let name = "Brittney";
+let name = 'Brittney'
 
 const person3 = {
-  name: "person3",
+  name: 'person3',
   age: 50,
-  hi: function() {
-    console.log("hi " + this.name);
+  hi: function () {
+    console.log('hi ' + this.name)
   }.bind(window)
-};
+}
 
-person3.hi();
+person3.hi()
 // hi Brittney
 // this = window {...}
 
 // arrow functions inside objects
 const person4 = {
-  name: "person4",
+  name: 'person4',
   age: 40,
-  hi: function() {
+  hi: function () {
     var inner = () => {
-      console.log(this);
-    };
-    return inner();
+      console.log(this)
+    }
+    return inner()
   }
-};
+}
 
-person4.hi();
+person4.hi()
 // this = person4 { name: 'person4', age: 40, hi() {...} }
 // if either function is changed around, it doesn't work
 ```
@@ -1043,16 +1043,16 @@ A big gotcha for a lot of people working with \*this is when a function is ran i
 
 ```javascript
 const obj = {
-  name: "Billy",
+  name: 'Billy',
   sing() {
-    console.log("a", this);
-    var anotherFunc = function() {
-      console.log("b", this);
-    };
-    anotherFunc();
+    console.log('a', this)
+    var anotherFunc = function () {
+      console.log('b', this)
+    }
+    anotherFunc()
   }
-};
-obj.sing();
+}
+obj.sing()
 
 // a {name: "Billy", sing: ƒ}
 // b Window {…}
@@ -1062,16 +1062,16 @@ In the example above, the obj called sing() and then anotherFunc() was called wi
 
 ```javascript
 const obj = {
-  name: "Billy",
+  name: 'Billy',
   sing() {
-    console.log("a", this);
+    console.log('a', this)
     var anotherFunc = () => {
-      console.log("b", this);
-    };
-    anotherFunc();
+      console.log('b', this)
+    }
+    anotherFunc()
   }
-};
-obj.sing();
+}
+obj.sing()
 
 // a {name: "Billy", sing: ƒ}
 // b {name: "Billy", sing: ƒ}
@@ -1081,37 +1081,37 @@ Okay, last example to really solidify our knowledge of **this**.
 
 ```javascript
 var b = {
-  name: "jay",
+  name: 'jay',
   say() {
-    console.log(this);
+    console.log(this)
   }
-};
+}
 
 var c = {
-  name: "jay",
+  name: 'jay',
   say() {
-    return function() {
-      console.log(this);
-    };
+    return function () {
+      console.log(this)
+    }
   }
-};
+}
 
 var d = {
-  name: "jay",
+  name: 'jay',
   say() {
-    return () => console.log(this);
+    return () => console.log(this)
   }
-};
+}
 
-b.say(); // b {name: 'jay', say()...}
+b.say() // b {name: 'jay', say()...}
 // b called the function
-c.say(); // function() {console.log(this)}
+c.say() // function() {console.log(this)}
 // returned a function that gets called later
-c.say()(); // Window {...}
+c.say()() // Window {...}
 // c.say() gets the function and the Window runs it
-d.say(); // () => console.log(this)
+d.say() // () => console.log(this)
 // returned the arrow function
-d.say()(); // d {name: 'jay', say()...}
+d.say()() // d {name: 'jay', say()...}
 // arrow function does not rebind this and inherits this from parent
 ```
 
@@ -1127,22 +1127,22 @@ Call is a method of an object that can substitute a different object than the on
 
 ```javascript
 const wizard = {
-  name: "Merlin",
+  name: 'Merlin',
   health: 100,
   heal(num1, num2) {
-    return (this.health += num1 + num2);
+    return (this.health += num1 + num2)
   }
-};
+}
 
 const archer = {
-  name: "Robin Hood",
+  name: 'Robin Hood',
   health: 30
-};
-console.log(archer); // health: 30
+}
+console.log(archer) // health: 30
 
-wizard.heal.call(archer, 50, 20);
+wizard.heal.call(archer, 50, 20)
 
-console.log(archer); // health: 100
+console.log(archer) // health: 100
 ```
 
 In this example call is used to _borrow_ the heal method from the wizard and is used on the archer (which is actually pointing _this_ to archer), with the optional arguments added.
@@ -1155,7 +1155,7 @@ Apply is almost identical to call, except that instead of a comma separated list
 // instead of this
 // wizard.heal.call(archer, 50, 20)
 // apply looks like this
-wizard.heal.apply(archer, [50, 20]);
+wizard.heal.apply(archer, [50, 20])
 // this has the same result
 ```
 
@@ -1164,10 +1164,10 @@ wizard.heal.apply(archer, [50, 20]);
 Unlike call and apply, bind does not run the method it is used on, but rather returns a new function that can then be called later.
 
 ```javascript
-console.log(archer); // health: 30
-const healArcher = wizard.heal.bind(archer, 50, 20);
-healArcher();
-console.log(archer); // health: 100
+console.log(archer) // health: 30
+const healArcher = wizard.heal.bind(archer, 50, 20)
+healArcher()
+console.log(archer) // health: 100
 ```
 
 ### Currying with bind
@@ -1176,45 +1176,45 @@ Currying is breaking down a function with multiple arguments into one or more fu
 
 ```javascript
 function multiply(a, b) {
-  return a * b;
+  return a * b
 }
 
-let multiplyByTwo = multiply.bind(this, 2);
-multiplyByTwo(4); // 8
+let multiplyByTwo = multiply.bind(this, 2)
+multiplyByTwo(4) // 8
 
-let multiplyByTen = multiply.bind(this, 10);
-multiplyByTen(6); // 60
+let multiplyByTen = multiply.bind(this, 10)
+multiplyByTen(6) // 60
 ```
 
 > **Exercise**: Find the largest number in an array
 >
 > ```javascript
-> const array = [1, 2, 3];
+> const array = [1, 2, 3]
 >
 > function getMaxNumber(arr) {
->   return Math.max.apply(null, arr);
+>   return Math.max.apply(null, arr)
 > }
 >
-> getMaxNumber(array); // 3
+> getMaxNumber(array) // 3
 > ```
 
 > **Exercise 2**: How would you fix this?
 >
 > ```javascript
 > const character = {
->   name: "Simon",
+>   name: 'Simon',
 >   getCharacter() {
->     return this.name;
+>     return this.name
 >   }
-> };
-> const giveMeTheCharacterNOW = character.getCharacter;
+> }
+> const giveMeTheCharacterNOW = character.getCharacter
 >
 > //How Would you fix this?
-> console.log("?", giveMeTheCharacterNOW()); //this should return 'Simon' but doesn't
+> console.log('?', giveMeTheCharacterNOW()) //this should return 'Simon' but doesn't
 > // ANSWER
 > // change this line
-> const giveMeTheCharacterNOW = character.getCharacter.bind(character);
-> console.log("?", giveMeTheCharacterNOW()); // ? Simon
+> const giveMeTheCharacterNOW = character.getCharacter.bind(character)
+> console.log('?', giveMeTheCharacterNOW()) // ? Simon
 > ```
 
 ---
@@ -1274,60 +1274,60 @@ I go into all of the types over in the [JavaScript](https://console-logs.netlify
 
 ```javascript
 // Numbers
-typeof 37 === "number";
-typeof 3.14 === "number";
-typeof 42 === "number";
-typeof Math.LN2 === "number";
-typeof Infinity === "number";
-typeof NaN === "number"; // Despite being "Not-A-Number"
-typeof Number("1") === "number"; // Number tries to parse things into numbers
-typeof Number("shoe") === "number"; // including values that cannot be type coerced to a number
+typeof 37 === 'number'
+typeof 3.14 === 'number'
+typeof 42 === 'number'
+typeof Math.LN2 === 'number'
+typeof Infinity === 'number'
+typeof NaN === 'number' // Despite being "Not-A-Number"
+typeof Number('1') === 'number' // Number tries to parse things into numbers
+typeof Number('shoe') === 'number' // including values that cannot be type coerced to a number
 
-typeof 42n === "bigint";
+typeof 42n === 'bigint'
 
 // Strings
-typeof "" === "string";
-typeof "bla" === "string";
-typeof `template literal` === "string";
-typeof "1" === "string"; // note that a number within a string is still typeof string
-typeof typeof 1 === "string"; // typeof always returns a string
-typeof String(1) === "string"; // String converts anything into a string, safer than toString
+typeof '' === 'string'
+typeof 'bla' === 'string'
+typeof `template literal` === 'string'
+typeof '1' === 'string' // note that a number within a string is still typeof string
+typeof typeof 1 === 'string' // typeof always returns a string
+typeof String(1) === 'string' // String converts anything into a string, safer than toString
 
 // Booleans
-typeof true === "boolean";
-typeof false === "boolean";
-typeof Boolean(1) === "boolean"; // Boolean() will convert values based on if they're truthy or falsy
-typeof !!1 === "boolean"; // two calls of the ! (logical NOT) operator are equivalent to Boolean()
+typeof true === 'boolean'
+typeof false === 'boolean'
+typeof Boolean(1) === 'boolean' // Boolean() will convert values based on if they're truthy or falsy
+typeof !!1 === 'boolean' // two calls of the ! (logical NOT) operator are equivalent to Boolean()
 
 // Symbols
-typeof Symbol() === "symbol";
-typeof Symbol("foo") === "symbol";
-typeof Symbol.iterator === "symbol";
+typeof Symbol() === 'symbol'
+typeof Symbol('foo') === 'symbol'
+typeof Symbol.iterator === 'symbol'
 
 // Undefined
-typeof undefined === "undefined";
-typeof declaredButUndefinedVariable === "undefined";
-typeof undeclaredVariable === "undefined";
+typeof undefined === 'undefined'
+typeof declaredButUndefinedVariable === 'undefined'
+typeof undeclaredVariable === 'undefined'
 
 // Objects
-typeof { a: 1 } === "object";
+typeof { a: 1 } === 'object'
 
 // use Array.isArray or Object.prototype.toString.call
 // to differentiate regular objects from arrays
-typeof [1, 2, 4] === "object";
+typeof [1, 2, 4] === 'object'
 
-typeof new Date() === "object";
-typeof /regex/ === "object"; // See Regular expressions section for historical results
+typeof new Date() === 'object'
+typeof /regex/ === 'object' // See Regular expressions section for historical results
 
 // The following are confusing, dangerous, and wasteful. Avoid them.
-typeof new Boolean(true) === "object";
-typeof new Number(1) === "object";
-typeof new String("abc") === "object";
+typeof new Boolean(true) === 'object'
+typeof new Number(1) === 'object'
+typeof new String('abc') === 'object'
 
 // Functions
-typeof function() {} === "function";
-typeof class C {} === "function";
-typeof Math.sin === "function";
+typeof function () {} === 'function'
+typeof class C {} === 'function'
+typeof Math.sin === 'function'
 ```
 
 > **Undefined vs Null**: Undefined is the absence of definition, it has yet to be defined, and null is the absence of value, there is no value there.
@@ -1363,39 +1363,39 @@ Objects are one of the broadest types in JavaScript, almost "everything" is an o
 ```javascript
 // objects are passed by reference
 let obj = {
-  name: "object 1"
-};
-let newObj = obj; // points to same place in memory as obj
-newObj.name = "newObj"; // modifies the memory
+  name: 'object 1'
+}
+let newObj = obj // points to same place in memory as obj
+newObj.name = 'newObj' // modifies the memory
 // Since both point to the same place...
-console.log(obj); // {name: newObj}
-console.log(newObj); // {name: newObj}
+console.log(obj) // {name: newObj}
+console.log(newObj) // {name: newObj}
 // They are both modified.
 
-let arr = [1, 2, 3];
-let newArr = arr;
-newArr.push(4);
-console.log(arr); // [1, 2, 3, 4]
-console.log(newArr); // [1, 2, 3, 4]
+let arr = [1, 2, 3]
+let newArr = arr
+newArr.push(4)
+console.log(arr) // [1, 2, 3, 4]
+console.log(newArr) // [1, 2, 3, 4]
 ```
 
 There are two ways to get around this, _Object.assign()_ or use the spread operator {...} to "spread" or expand the object into a new variable. By doing this, it will allow the new variable to be modified without changing the original. However, these only create a "shallow copy".
 
-> **Shallow copy**: Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.<br/> >**Deep copy**: A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.<br/> > [Understanding Deep and Shallow Copy](https://we-are.bookmyshow.com/understanding-deep-and-shallow-copy-in-javascript-13438bad941c)
+> **Shallow copy**: Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.<br/> **Deep copy**: A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.<br/> [Understanding Deep and Shallow Copy](https://we-are.bookmyshow.com/understanding-deep-and-shallow-copy-in-javascript-13438bad941c)
 
 ```javascript
 const originalObj = {
   nested: {
-    nestedKey: "nestedValue"
+    nestedKey: 'nestedValue'
   },
-  key: "value"
-};
+  key: 'value'
+}
 // originalObj points to location 1 in memory
-const assignObj = originalObj;
+const assignObj = originalObj
 // assignObj will point to 1 in memory
-const shallowObj = { ...originalObj };
+const shallowObj = { ...originalObj }
 // shallowObj points to a new location 2, but references location 1 for the nested object
-const deepObj = JSON.parse(JSON.stringify(originalObj));
+const deepObj = JSON.parse(JSON.stringify(originalObj))
 // deepObj clones all parts of the object to a new memory address
 ```
 
@@ -1406,18 +1406,18 @@ const deepObj = JSON.parse(JSON.stringify(originalObj));
 ```javascript
 const originalObj = {
   nested: {
-    nestedKey: "nestedValue"
+    nestedKey: 'nestedValue'
   },
-  key: "value"
-};
-const assignObj = originalObj;
-const shallowObj = { ...originalObj };
-const deepObj = JSON.parse(JSON.stringify(originalObj));
+  key: 'value'
+}
+const assignObj = originalObj
+const shallowObj = { ...originalObj }
+const deepObj = JSON.parse(JSON.stringify(originalObj))
 
-console.log("originalObj: ", originalObj);
-console.log("assignObj: ", assignObj);
-console.log("shallowObj: ", shallowObj);
-console.log("deepObj: ", deepObj);
+console.log('originalObj: ', originalObj)
+console.log('assignObj: ', assignObj)
+console.log('shallowObj: ', shallowObj)
+console.log('deepObj: ', deepObj)
 
 /*
 originalObj: {nested: {
@@ -1445,7 +1445,7 @@ deepObj: {nested: {
 > **Nifty Snippet**: If you try to check if 2 objects with the same properties are equal with _obj1 = obj2_, it will return _false_. It does this because each object has its own address in memory as we learned about. The easiest way to check the contents of the objects for equality is this.
 >
 > ```javascript
-> JSON.stringify(obj1) === JSON.stringify(obj2);
+> JSON.stringify(obj1) === JSON.stringify(obj2)
 > ```
 >
 > This will return _true_ if all the properties are the same.
@@ -1459,9 +1459,9 @@ Type cooercion is the process of converting one type of value into another. Ther
 - &#x25FE; to number
 
 ```javascript
-let num = 1;
-let str = "1";
-num == str; // true
+let num = 1
+let str = '1'
+num == str // true
 // notice loose equality ==, not ===
 // double equals (==) will perform a type conversion
 // one or both sides may undergo conversions
@@ -1491,35 +1491,35 @@ Closures and Prototypal Inheritance are two things that make JavaScript special 
 Functions are objects in JavaScript, which is not true for other languages. Because of that, they can be called multiple ways, but they can also be constructors. A **function constructor** creates a new object and returns it. Every JavaScript function, is actually a function object itself.
 
 ```javascript
-(function() {}.contructor === Function);
+;(function () {}.contructor === Function)
 // true
 
 // function constructor
-new Function("optionalArguments", "functionBody");
+new Function('optionalArguments', 'functionBody')
 
-const four = new Function("return four"); // 4
-const sum = new Function("x", "y", "return x + y");
-console.log(sum(2, 3)); // 5
+const four = new Function('return four') // 4
+const sum = new Function('x', 'y', 'return x + y')
+console.log(sum(2, 3)) // 5
 ```
 
 Almost everything in JavaScript can be created with a constructor. Even basic JavaScript types like numbers and strings can be created using a constructor.
 
 ```javascript
 // examples of constructor functions in JavaScript
-const five = new Number(5);
-const assignFive = 5;
+const five = new Number(5)
+const assignFive = 5
 
 // this is different than using regular assignment
-const newString = new String(`I am a new string`);
-const assignString = `I am an assigned string`;
+const newString = new String(`I am a new string`)
+const assignString = `I am an assigned string`
 
-typeof five; // object
-typeof assignFive; // number
-typeof newString; //object
-typeof assignString; // string
+typeof five // object
+typeof assignFive // number
+typeof newString //object
+typeof assignString // string
 
-five === assignFive; // false
-five == assignFive; // true - types are coerced
+five === assignFive // false
+five == assignFive // true - types are coerced
 
 // Notice how the types are different
 // depending on how they are created.
@@ -1533,24 +1533,24 @@ five == assignFive; // true - types are coerced
 Almost all objects in Javascript pass down properties through a prototype chain. We call this chain, prototypal inheritance. The child of the object "inherits" properties from its parent. All objects in JavaScript are descended from the Object constructor unless deliberately created or altered to not do so. The objects inherit methods and properties from **Object.prototype**. The prototype property also has an accessor property called **\_\_proto\_\_** that creates a link between the current object and points to the object it was created from, the "prototype". <br/>
 
 ```javascript
-Object.prototype.__proto__;
+Object.prototype.__proto__
 // null
 
-Object.prototype;
+Object.prototype
 {
-  __proto__: null;
+  __proto__: null
   // ...more methods and properties
 }
 
-Object;
+Object
 // function Object()
 // This is the object constructor function
 
-Object.prototype.constructor;
+Object.prototype.constructor
 // function Object()
 // Points to the constructor
 
-Object.__proto__;
+Object.__proto__
 // function () {...}
 // Because it is created with a constructor function
 ```
@@ -1641,26 +1641,26 @@ A Higher Order Function (HOF) is a function that either takes a function as an a
 Instead of writing multiple functions that do the same thing, remember DRY (don't repeat yourself). Imagine in the example below, if you separated each code out into individual functions how much more code you would be writing and how much code would be repeated.
 
 ```javascript
-const giveAccessTo = name => `Access granted to ${name}`;
+const giveAccessTo = name => `Access granted to ${name}`
 
 function auth(roleAmt) {
-  let array = [];
+  let array = []
   for (let i = 0; i < roleAmt; i++) {
-    array.push(i);
+    array.push(i)
   }
-  return true;
+  return true
 }
 
 function checkPerson(person, fn) {
-  if (person.level === "admin") {
-    fn(100000);
-  } else if (person.level === "user") {
-    fn(500000);
+  if (person.level === 'admin') {
+    fn(100000)
+  } else if (person.level === 'user') {
+    fn(500000)
   }
-  return giveAccessTo(person.name);
+  return giveAccessTo(person.name)
 }
 
-checkPerson({ level: "admin", name: "Brittney" }, auth);
+checkPerson({ level: 'admin', name: 'Brittney' }, auth)
 // "Access granted to Brittney"
 ```
 
@@ -1668,19 +1668,19 @@ Take the example below of how you can separate code out and break it down to mak
 
 ```javascript
 function multBy(a) {
-  return function(b) {
-    return a * b;
-  };
+  return function (b) {
+    return a * b
+  }
 }
 
 // can also be an arrow function
-const multiplyBy = a => b => a * b;
+const multiplyBy = a => b => a * b
 
-const multByTwo = multiplyBy(2);
-const multByTen = multiplyByTen(10);
+const multByTwo = multiplyBy(2)
+const multByTen = multiplyByTen(10)
 
-multByTwo(4); // 8
-multByTen(5); // 50
+multByTwo(4) // 8
+multByTen(5) // 50
 ```
 
 ### Closures
@@ -1734,28 +1734,28 @@ Using closures makes your code more memory efficient. Take the example below.
 
 ```javascript
 function inefficient(idx) {
-  const bigArray = new Array(7000).fill("😄");
-  console.log("created!");
-  return bigArray[idx];
+  const bigArray = new Array(7000).fill('😄')
+  console.log('created!')
+  return bigArray[idx]
 }
 
 function efficient() {
-  const bigArray = new Array(7000).fill("😄");
-  console.log("created again!");
-  return function(idx) {
-    return bigArray[idx];
-  };
+  const bigArray = new Array(7000).fill('😄')
+  console.log('created again!')
+  return function (idx) {
+    return bigArray[idx]
+  }
 }
 
-inefficient(688);
-inefficient(1000);
-inefficient(6500);
+inefficient(688)
+inefficient(1000)
+inefficient(6500)
 
-const getEfficient = efficient();
+const getEfficient = efficient()
 
-efficient(688);
-efficient(1000);
-efficient(6500);
+efficient(688)
+efficient(1000)
+efficient(6500)
 
 // created!
 // created!
@@ -1777,20 +1777,20 @@ Encapsulation means the restriction of direct access to some of an object's comp
 
 ```javascript
 const encapsulation = () => {
-  let people = [];
-  const setName = name => people.push(name);
-  const getName = idx => people[idx];
-  const rmName = idx => people.splice(idx, 1);
+  let people = []
+  const setName = name => people.push(name)
+  const getName = idx => people[idx]
+  const rmName = idx => people.splice(idx, 1)
   return {
     setName,
     getName,
     rmName
-  };
-};
-const data = encapsulation();
-data.setName("Brittney"); // 0
-data.getName(0); // 'Brittney'
-data.rmName(0); // ['Brittney']
+  }
+}
+const data = encapsulation()
+data.setName('Brittney') // 0
+data.getName(0) // 'Brittney'
+data.rmName(0) // ['Brittney']
 // you have no access to the array people
 // can only change it via methods provided
 ```
@@ -1847,21 +1847,21 @@ function createElf(name, type, weapon) {
     type: type,
     weapon: weapon,
     say() {
-      return `Hi, my name is ${name}, I am a ${type} elf.`;
+      return `Hi, my name is ${name}, I am a ${type} elf.`
     },
     attack() {
-      return `${name} attacks with ${weapon}`;
+      return `${name} attacks with ${weapon}`
     }
-  };
+  }
 }
 
-const dobby = createElf("Dobby", "house", "cloth");
-const legolas = createElf("Legolas", "high", "bow");
+const dobby = createElf('Dobby', 'house', 'cloth')
+const legolas = createElf('Legolas', 'high', 'bow')
 
-dobby.say(); // Hi, my name is Dobby, I am a house elf.
-legolas.say(); // Hi, my name is Legolas, I am a high elf.
-dobby.attack(); // Dobby attacks with cloth.
-legolas.attack(); // Legolas attacks with bow.
+dobby.say() // Hi, my name is Dobby, I am a house elf.
+legolas.say() // Hi, my name is Legolas, I am a high elf.
+dobby.attack() // Dobby attacks with cloth.
+legolas.attack() // Legolas attacks with bow.
 ```
 
 ### Stores
@@ -1871,30 +1871,30 @@ This is a step in the right direction, but if we added more characters, we would
 ```javascript
 const elfMethodsStore = {
   attack() {
-    return `attack with ${this.weapon}`;
+    return `attack with ${this.weapon}`
   },
   say() {
-    return `Hi, my name is ${this.name}, I am a ${this.type} elf.`;
+    return `Hi, my name is ${this.name}, I am a ${this.type} elf.`
   }
-};
+}
 
 function createElf(name, type, weapon) {
   return {
     name: name, // old way
     type, // with ES6 assignment, if they are the same name
     weapon
-  };
+  }
 }
 
 // each method has to be assigned to the store method to
 // create the __proto__ chain
-const dobby = createElf("Dobby", "house", "cloth");
-dobby.attack = elfMethodsStore.attack;
-dobby.say = elfMethodsStore.say;
+const dobby = createElf('Dobby', 'house', 'cloth')
+dobby.attack = elfMethodsStore.attack
+dobby.say = elfMethodsStore.say
 
-const legolas = createElf("Legolas", "high", "bow");
-legolas.attack = elfMethodsStore.attack;
-legolas.say = elfMethodsStore.say;
+const legolas = createElf('Legolas', 'high', 'bow')
+legolas.attack = elfMethodsStore.attack
+legolas.say = elfMethodsStore.say
 ```
 
 ### Object.create
@@ -1904,29 +1904,29 @@ Having a store saved us some efficiency in memory, but this was a lot of manual 
 ```javascript
 const elfMethodsStore = {
   attack() {
-    return `attack with ${this.weapon}`;
+    return `attack with ${this.weapon}`
   },
   say() {
-    return `Hi, my name is ${this.name}, I am a ${this.type} elf.`;
+    return `Hi, my name is ${this.name}, I am a ${this.type} elf.`
   }
-};
+}
 
 function createElf(name, type, weapon) {
   // this creates the __proto__ chain to the store
-  let newElf = Object.create(elfMethodsStore);
-  console.log(newElf.__proto__); // { attack: [Function], say: [Function] }
+  let newElf = Object.create(elfMethodsStore)
+  console.log(newElf.__proto__) // { attack: [Function], say: [Function] }
   // this assigns all the methods
-  newElf.name = name;
-  newElf.type = type;
-  newElf.weapon = weapon;
+  newElf.name = name
+  newElf.type = type
+  newElf.weapon = weapon
   // this returns the new Elf with everything attached
-  return newElf;
+  return newElf
 }
 
-const dobby = createElf("Dobby", "house", "cloth");
-const legolas = createElf("Legolas", "high", "bow");
-dobby.attack; // attack with cloth
-legolas.attack; // attack with bow
+const dobby = createElf('Dobby', 'house', 'cloth')
+const legolas = createElf('Legolas', 'high', 'bow')
+dobby.attack // attack with cloth
+legolas.attack // attack with bow
 ```
 
 ### Constructor Functions
@@ -1938,26 +1938,26 @@ Using Object.create is true prototypal inheritance, the code is cleaner and easi
 function Elf(name, type, weapon) {
   // not returning anything
   // "constructing" a new elf
-  this.name = name;
-  this.type = type;
-  this.weapon = weapon;
+  this.name = name
+  this.type = type
+  this.weapon = weapon
 }
 
 // to use a constructor function
 // the "new" keyword must be used
-const dobby = new Elf("Dobby", "house", "cloth");
-const legolas = new Elf("Legolas", "high", "bow");
+const dobby = new Elf('Dobby', 'house', 'cloth')
+const legolas = new Elf('Legolas', 'high', 'bow')
 
 // To add methods we need to add
-Elf.prototype.attack = function() {
+Elf.prototype.attack = function () {
   // cannot be an arrow function
   // this would be scoped to the window obj
-  return `attack with ${this.weapon}`;
-};
+  return `attack with ${this.weapon}`
+}
 // This would need to be repeated for each method.
 
-dobby.attack(); // attack with cloth
-legolas.attack(); // attack with bow
+dobby.attack() // attack with cloth
+legolas.attack() // attack with bow
 ```
 
 > **Nifty Snippet**: A constructor function in JavaScript is actually just a constructor itself.
@@ -1986,41 +1986,41 @@ Confused yet? Prototype is a little weird and hard to read unless you really und
 ```javascript
 class Character {
   constructor(name, weapon) {
-    this.name = name;
-    this.weapon = weapon;
+    this.name = name
+    this.weapon = weapon
   }
   attack() {
-    return `attack with ${this.weapon}`;
+    return `attack with ${this.weapon}`
   }
 }
 
 class Elf extends Character {
   constructor(name, weapon, type) {
-    super(name, weapon);
+    super(name, weapon)
     // pulls in name and weapon from Character
-    this.type = type;
+    this.type = type
   }
 }
 
 class Ogre extends Character {
   constructor(name, weapon, color) {
-    super(name, weapon);
-    this.color = color;
+    super(name, weapon)
+    this.color = color
   }
   enrage() {
-    return `double attack power`;
+    return `double attack power`
   }
 }
 
-const legolas = new Elf("Legolas", "high", "bow");
-const gruul = new Ogre("Gruul", "club", "gray");
+const legolas = new Elf('Legolas', 'high', 'bow')
+const gruul = new Ogre('Gruul', 'club', 'gray')
 
-legolas.attack(); // attack with bow
-gruul.enrage(); // double attack power
-gruul.attack(); // attack with club
+legolas.attack() // attack with bow
+gruul.enrage() // double attack power
+gruul.attack() // attack with club
 
-legolas instanceof Elf; //true
-gruul instanceof Ogre; //true
+legolas instanceof Elf //true
+gruul instanceof Ogre //true
 ```
 
 ### Private and public fields
@@ -2030,21 +2030,21 @@ Most class based languages have the ability to create either public or private f
 ```javascript
 // public declarations
 class Rectangle {
-  height = 0;
-  width;
+  height = 0
+  width
   constructor(height, width) {
-    this.height = height;
-    this.width = width;
+    this.height = height
+    this.width = width
   }
 }
 
 // private declarations
 class Rectangle {
-  #height = 0;
-  #width;
+  #height = 0
+  #width
   constructor(height, width) {
-    this.#height = height;
-    this.#width = width;
+    this.#height = height
+    this.#width = width
   }
 }
 ```
@@ -2078,17 +2078,17 @@ One important concept of functional programming is **referential transparency**,
 
 ```javascript
 function a(num1, num2) {
-  return num1 + num2;
+  return num1 + num2
 }
 
 function b(num) {
-  return num * 2;
+  return num * 2
 }
 
-b(a(3, 4)); // 14
+b(a(3, 4)) // 14
 // a should always return 7
 // so it could be changed to
-b(7); // 14
+b(7) // 14
 // and the output is the same
 ```
 
@@ -2107,12 +2107,12 @@ Imperitive programming tells the computer what to do and how to complete it. Dec
 ```javascript
 // more imperative
 for (let i = 0; i < 10; i++) {
-  console.log(i);
+  console.log(i)
 }
 
 // more declarative
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-arr.forEach(item => console.log(item));
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+arr.forEach(item => console.log(item))
 ```
 
 ### Immutability
@@ -2152,10 +2152,10 @@ You may be thinking that this could get really expensive, memory wise, to just c
 Partial application is expanding on the idea of currying and taking it a step farther by separating a parameter out. If you have more than 2 arguments in a functions, then you can **bind** one of them to a value to be used later.
 
 ```javascript
-const multiply = (a, b, c) => a * b * c;
-const curriedMultiplyBy5 = multiply.bind(null, 5); // this is null
+const multiply = (a, b, c) => a * b * c
+const curriedMultiplyBy5 = multiply.bind(null, 5) // this is null
 
-curriedMultiplyBy5(4, 10); // 200
+curriedMultiplyBy5(4, 10) // 200
 ```
 
 ### Pipe and Compose
@@ -2164,16 +2164,16 @@ In JavaScript it is best for speed and efficiency to keep functions small and re
 
 ```javascript
 // create our own COMPOSE function
-const compose = (fn1, fn2) => data => fn1(fn2(data));
+const compose = (fn1, fn2) => data => fn1(fn2(data))
 // create our own PIPE function
-const pipe = (fn1, fn2) => data => fn2(fn1(data));
-const multiplyBy3 = num => num * 3;
-const makePositive = num => Math.abs(num);
+const pipe = (fn1, fn2) => data => fn2(fn1(data))
+const multiplyBy3 = num => num * 3
+const makePositive = num => Math.abs(num)
 // use compose to combine multiple functions
-const composeFn = compose(multiplyBy3, makePositive);
-const pipeFn = pipe(multiplyBy3, makePositive);
-composeFn(-50); // 150
-pipeFn(-50); // 150
+const composeFn = compose(multiplyBy3, makePositive)
+const pipeFn = pipe(multiplyBy3, makePositive)
+composeFn(-50) // 150
+pipeFn(-50) // 150
 
 // essentially we are doing this
 // fn1(fn2(fn3(50)))
@@ -2184,12 +2184,12 @@ pipeFn(-50); // 150
 > **Nifty Snippet**: The **Pipeline Operator** is in the experimental stage 1 of being introduced to JavaScript. Stage 1 means that it has only started the process and could be years before it is a part of the language. The pipeline operator, **|>**, would be syntactic sugar for composing and piping functions the long way. This would improve readability when chaining multiple functions.
 >
 > ```javascript
-> const double = n => n * 2;
-> const increment = n => n + 1;
+> const double = n => n * 2
+> const increment = n => n + 1
 > // without pipeline operator
-> double(increment(double(double(5)))); // 42
+> double(increment(double(double(5)))) // 42
 > // with pipeline operator
-> 5 |> double |> double |> increment |> double; // 42
+> 5 |> double |> double |> increment |> double // 42
 > ```
 
 ### Arity
@@ -2202,73 +2202,73 @@ So, is functional programming the answer to everything? No, but it is great in s
 
 ```javascript
 const user = {
-  name: "Kim",
+  name: 'Kim',
   active: true,
   cart: [],
   purchases: []
-};
+}
 
-const userHistory = [];
+const userHistory = []
 
 function addToCart(user, item) {
   userHistory.push(
     Object.assign({}, user, { cart: user.cart, purchases: user.purchases })
-  );
-  const updateCart = user.cart.concat(item);
-  return Object.assign({}, user, { cart: updateCart });
+  )
+  const updateCart = user.cart.concat(item)
+  return Object.assign({}, user, { cart: updateCart })
 }
 
 function taxItems(user) {
   userHistory.push(
     Object.assign({}, user, { cart: user.cart, purchases: user.purchases })
-  );
-  const { cart } = user;
-  const taxRate = 1.4;
+  )
+  const { cart } = user
+  const taxRate = 1.4
   const updatedCart = cart.map(item => {
     return {
       name: item.name,
       price: item.price * taxRate
-    };
-  });
-  return Object.assign({}, user, { cart: updatedCart });
+    }
+  })
+  return Object.assign({}, user, { cart: updatedCart })
 }
 
 function buyItems(user) {
   userHistory.push(
     Object.assign({}, user, { cart: user.cart, purchases: user.purchases })
-  );
-  return Object.assign({}, user, { purchases: user.cart });
+  )
+  return Object.assign({}, user, { purchases: user.cart })
 }
 
 function emptyCart(user) {
   userHistory.push(
     Object.assign({}, user, { cart: user.cart, purchases: user.purchases })
-  );
-  return Object.assign({}, user, { cart: [] });
+  )
+  return Object.assign({}, user, { cart: [] })
 }
 
 function refundItem(user, item) {
   userHistory.push(
     Object.assign({}, user, { cart: user.cart, purchases: user.purchases })
-  );
-  const { purchases } = user;
-  const refundItem = purchases.splice(item);
-  return Object.assign({}, user, { purchases: refundItem });
+  )
+  const { purchases } = user
+  const refundItem = purchases.splice(item)
+  return Object.assign({}, user, { purchases: refundItem })
 }
-const compose = (fn1, fn2) => (...args) => fn1(fn2(...args));
+const compose = (fn1, fn2) => (...args) => fn1(fn2(...args))
 
-const purchaseItems = (...fns) => fns.reduce(compose);
+const purchaseItems = (...fns) => fns.reduce(compose)
 
 purchaseItems(
   emptyCart,
   buyItems,
   taxItems,
   addToCart
-)(user, { name: "laptop", price: 200 });
+)(user, { name: 'laptop', price: 200 })
 
-refundItem(user, { name: "laptop", price: 200 });
+refundItem(user, { name: 'laptop', price: 200 })
 
-console.log(userHistory);
+console.log(userHistory)
 ```
 
 ---
@@ -2296,23 +2296,23 @@ Modules are pieces of code, grouped together, that can be combined together to c
 Originally in JavaScript, we had the **module pattern**. Before block scope came around, there was only global scope and function scope. To create this idea of modules, a **module scope** was implemented just above the function scope. This allowed variables to be shared, by exporting and importing, between the functions without having to go through the global scope. A function as a module is essentially just an immediately invoked function expression, IIFE.
 
 ```javascript
-var globalScopeVar = "I can be accessed anywhere";
+var globalScopeVar = 'I can be accessed anywhere'
 
-var moduleName = (function(globalScopeVar) {
+var moduleName = (function (globalScopeVar) {
   // add private variables here
-  var privateVar = "I cannot be accessed outside";
+  var privateVar = 'I cannot be accessed outside'
   // create the function
   function say(msg1, msg2) {
-    var say1 = Math.floor(Math.random() * msg1.length);
-    var say2 = Math.floor(Math.random() * msg2.length);
-    return say1 > say2 ? say1 : say2;
+    var say1 = Math.floor(Math.random() * msg1.length)
+    var say2 = Math.floor(Math.random() * msg2.length)
+    return say1 > say2 ? say1 : say2
   }
-  globalScopeVar = `I don't change the outside scope`;
+  globalScopeVar = `I don't change the outside scope`
   // return only what you want the outside to access
   return {
     say: say
-  };
-})(globalScopeVar);
+  }
+})(globalScopeVar)
 ```
 
 #### Issues with Modules
@@ -2328,8 +2328,8 @@ Even though modules help us to contain and organize code, there are still proble
 After ES6 came out, pretty much everything above was thrown out the window with 2 new keywords. We can now use the **import** and **export** keywords in our files to implement modules. This again may look familiar from popluar frameworks like React.
 
 ```javascript
-import module1 from "module1";
-import module2 from "module2";
+import module1 from 'module1'
+import module2 from 'module2'
 
 export function name() {}
 ```
@@ -2337,28 +2337,28 @@ export function name() {}
 Here is our module code from above in the new ES6 syntax.
 
 ```javascript
-const privateVar = "I cannot be accessed outside this file";
+const privateVar = 'I cannot be accessed outside this file'
 
 export function name(msg1, msg2) {
-  const say1 = Math.floor(Math.random() * msg1.length);
-  const say2 = Math.floor(Math.random() * msg2.length);
-  return say1 > say2 ? say1 : say2;
+  const say1 = Math.floor(Math.random() * msg1.length)
+  const say2 = Math.floor(Math.random() * msg2.length)
+  return say1 > say2 ? say1 : say2
 }
 ```
 
 There are 2 types of exports, named and default. A named export is imported using curly braces (**{ importFnName }**) and a default function is added in created like this:
 
 ```javascript
-import { importFnName } from "./script.js";
+import { importFnName } from './script.js'
 // with a default function the {} are not needed
-import name from "./script.js";
+import name from './script.js'
 // both default and named function import
-import name, { importFnName } from "./script.js";
+import name, { importFnName } from './script.js'
 
 export default function name(msg1, msg2) {
-  const say1 = Math.floor(Math.random() * msg1.length);
-  const say2 = Math.floor(Math.random() * msg2.length);
-  return say1 > say2 ? say1 : say2;
+  const say1 = Math.floor(Math.random() * msg1.length)
+  const say2 = Math.floor(Math.random() * msg2.length)
+  return say1 > say2 ? say1 : say2
 }
 ```
 
@@ -2375,44 +2375,44 @@ Trying to run this in the browser there is still 2 more things that have to be d
 One of the most important things to learn in being a developer is how to solve errors. Learning to handle errors makes you a better programmer. Writing your programs you have the ability to use the **throw** keyword to stop the program and handle an error by using a **try/catch** block that has an optional **finally** block or the **.catch()** method for asynchronous code. Throwing a new error in asynchronous code gets what is called a silent fail if there is no catch block present. In synchronous code, if there is no catch statement placed in the code, the runtime will create _catch: onerror()_ and we see the built in JavaScript error message in red.
 
 ```javascript
-throw new Error();
+throw new Error()
 
 // synchronous try/catch/finally block
 function fail() {
   try {
-    console.log("this works");
-    throw new Error("oopsie!!!");
+    console.log('this works')
+    throw new Error('oopsie!!!')
   } catch (error) {
-    console.log("we have made an oopsie", error);
+    console.log('we have made an oopsie', error)
   } finally {
-    console.log("still good");
+    console.log('still good')
   }
 }
 
-fail();
+fail()
 // this works // because it goes line by line
 // we have made an oopsie Error: oopsie at fail
 // still good
 
 // asynchronous .catch()
-Promise.resolve("asyncfail")
+Promise.resolve('asyncfail')
   .then(response => {
-    console.log(response);
-    return response;
+    console.log(response)
+    return response
   })
   .catch(error => {
-    console.log(err);
-  });
+    console.log(err)
+  })
 
-(async function() {
+;(async function () {
   try {
-    await Promise.resolve("oopsie #1");
-    await Promise.reject("oopsie #2");
+    await Promise.resolve('oopsie #1')
+    await Promise.reject('oopsie #2')
   } catch (err) {
-    console.log(err);
+    console.log(err)
   }
-  console.log("is this still good?");
-})();
+  console.log('is this still good?')
+})()
 
 // Promise {} // Promise resolved
 // ooopsie #2
@@ -2444,18 +2444,18 @@ Errors created using the new keyword come with 3 properties.
 - &#x25FE; **stack** - the stack trace or callback queue when the error occurred that also includes the line and character number where the error happened.
 
 ```javascript
-const myError = new Error("oopsie");
+const myError = new Error('oopsie')
 
-myError.name; // "Error"
-myError.message; // "oopsie"
-myError.stack; // "Error: oopsie at <anonymous>:1:17
+myError.name // "Error"
+myError.message // "oopsie"
+myError.stack // "Error: oopsie at <anonymous>:1:17
 
 function a() {
-  const b = new Error("uh oh");
-  return b;
+  const b = new Error('uh oh')
+  return b
 }
 
-b(); // b().stack
+b() // b().stack
 // Error: uh oh
 // at a (<anonymous>:2:12)
 // at <anonymous>:1:1
@@ -2466,16 +2466,16 @@ Because Error is a constructor function, we can use that to extend it and add to
 ```javascript
 class AuthenticationError extends Error {
   constructor(message) {
-    super(message);
-    this.name = "AuthenticationError";
-    this.message = "authentication problem";
-    this.fix = "please log in";
+    super(message)
+    this.name = 'AuthenticationError'
+    this.message = 'authentication problem'
+    this.fix = 'please log in'
   }
 }
 
-const err = new AuthenticationError("oopsie");
-err; // authenticationError: "authentication problem" stack trace
-err.fix; // please log in
+const err = new AuthenticationError('oopsie')
+err // authenticationError: "authentication problem" stack trace
+err.fix // please log in
 ```
 
 ---
@@ -2519,15 +2519,15 @@ There are many implementations of data structures out there but there are only 2
 Arrays order items sequentially with an index. Arrays are probably the simplest and the most widely used data structure because the are fast and take up the least amount of space. They also have the least amount of rules. Array methods have different time complexities, called Big-Order or Big-O notations. \_O(1) is constant time, meaning the time does not change with the data input. The \_O(n) is linear time, meaning time changes or goes up the more operations that need to be performed. \_O(1) can end up as \_O(n) in languages like JavaScript if it needs to allocate more memory for the array. There is also, Big-Omega or Big-&Omega; notation that give the best possible time for your program. If a program has the same time complexity in Big-O and in Big-&Omega;, then you can use &theta; as shorthand for both combined.
 
 ```javascript
-const strings = ["a", "b", "c", "d"];
+const strings = ['a', 'b', 'c', 'd']
 // 4 * 4 = 16 bytes of storage
 
-strings[2]; // c // O(1)
-strings.push("e"); // O(1)
+strings[2] // c // O(1)
+strings.push('e') // O(1)
 // ['a', 'b', 'c', 'd', 'e']
-strings.pop(); // O(1)
+strings.pop() // O(1)
 // ['a', 'b', 'c', 'd']
-strings.unshift("z"); // O(n)
+strings.unshift('z') // O(n)
 // ['z', 'a', 'b', 'c', 'd']
 // unshift took 5 operations to complete.
 // ['a', 'b', 'c', 'd']
@@ -2544,41 +2544,41 @@ Arrays can be declared easily in JavaScript, but what if we built our own...
 ```javascript
 class MyArray {
   constructor() {
-    this.length = 0;
-    this.data = {};
+    this.length = 0
+    this.data = {}
   }
   get(index) {
-    return this.data[index];
+    return this.data[index]
   }
   push(item) {
-    this.data[this.length] = item;
-    this.length++;
-    return this.length;
+    this.data[this.length] = item
+    this.length++
+    return this.length
   }
   pop() {
-    const lastItem = this.data[this.length - 1];
-    delete this.data[this.length - 1];
-    this.length--;
-    return lastItem;
+    const lastItem = this.data[this.length - 1]
+    delete this.data[this.length - 1]
+    this.length--
+    return lastItem
   }
   delete(index) {
-    const item = this.data[index];
-    this.shiftItems(index);
-    return item;
+    const item = this.data[index]
+    this.shiftItems(index)
+    return item
   }
   shiftItems(index) {
     for (let i = index; i < this.length; i++) {
-      this.data[i] = this.data[i + 1];
+      this.data[i] = this.data[i + 1]
     }
-    delete this.data[this.length - 1];
-    this.length--;
+    delete this.data[this.length - 1]
+    this.length--
   }
 }
 
-const newArray = new MyArray();
-newArray.push("hi");
+const newArray = new MyArray()
+newArray.push('hi')
 // MyArray { length: 1, data: { 0: 'hi'}}
-newArray.pop();
+newArray.pop()
 // MyArray { length: 0, data: { }}
 ```
 
@@ -2593,16 +2593,16 @@ A hash function takes a key and maps it to a value of fixed length for every inp
 ```javascript
 let character = {
   age: 20,
-  name: "Harry Potter",
+  name: 'Harry Potter',
   muggle: false,
-  patronus: function() {
-    console.log("Expecto Patronum!");
+  patronus: function () {
+    console.log('Expecto Patronum!')
   }
-};
+}
 
-character.age; // 20 // O(1)
-character.levitate = "Wingardium Leviosa!"; // O(1)
-character.patronus(); // Expecto Patronum! // O(1)
+character.age // 20 // O(1)
+character.levitate = 'Wingardium Leviosa!' // O(1)
+character.patronus() // Expecto Patronum! // O(1)
 ```
 
 #### Hash Collisions
@@ -2618,58 +2618,57 @@ JavaScript came out with 2 ways to help prevent hash collisions when implenting 
 ```javascript
 class HashTable {
   constructor(size) {
-    this.data = new Array(size);
+    this.data = new Array(size)
     // this.data = [];
   }
 
   _hash(key) {
-    let hash = 0;
+    let hash = 0
     for (let i = 0; i < key.length; i++) {
-      hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+      hash = (hash + key.charCodeAt(i) * i) % this.data.length
     }
-    return hash;
+    return hash
   }
 
   set(key, value) {
-    let address = this._hash(key);
+    let address = this._hash(key)
     if (!this.data[address]) {
-      this.data[address] = [];
+      this.data[address] = []
     }
-    this.data[address].push([key, value]);
-    return this.data;
+    this.data[address].push([key, value])
+    return this.data
   }
 
   get(key) {
-    const address = this._hash(key);
-    const currentBucket = this.data[address];
+    const address = this._hash(key)
+    const currentBucket = this.data[address]
     if (currentBucket) {
       for (let i = 0; i < currentBucket.length; i++) {
         if (currentBucket[i][0] === key) {
-          return currentBucket[i][1];
+          return currentBucket[i][1]
         }
       }
     }
-    return undefined;
+    return undefined
   }
 
   keys() {
-    const keysArray = [];
+    const keysArray = []
     for (let i = 0; i < this.data.length; i++) {
       if (this.data[i]) {
-        keysArray.push(this.data[i][0][0]);
+        keysArray.push(this.data[i][0][0])
       }
     }
-    return keysArray;
+    return keysArray
   }
 }
 
-const myHashTable = new HashTable(50);
-myHashTable.set("grapes", 10000);
-myHashTable.get("grapes");
-myHashTable.set("apples", 9);
-myHashTable.get("apples");
-myHashTable.keys();
+const myHashTable = new HashTable(50)
+myHashTable.set('grapes', 10000)
+myHashTable.get('grapes')
+myHashTable.set('apples', 9)
+myHashTable.get('apples')
+myHashTable.keys()
 ```
 
 ---
-

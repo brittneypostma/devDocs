@@ -35,6 +35,7 @@ title: Jr to Sr Dev
 - [Progressive Web Apps - PWAs](#progressive-web-apps---pwas)
   - [Service Workers](#service-workers)
 - [Testing](#testing)
+  - [Writing Tests](#writing-tests)
 
 ---
 
@@ -700,4 +701,12 @@ To actually write tests, we could just write JavaScript files to test out each t
 - &diams; **Mock, Spies, and Stubs** - Mock fakes a function or a behavior in order to test it. Spies provide information about functions like how many times they are called. Stubbing replaces functions to ensure they output the correct data.
 - &diams; **Code Coverage** - an output that shows what percentage of your app is covered by tests.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As of writing, **Jest** and **Mocha** are two of the most popular testing libraries. Jest, created and maintained by Facebook, provides a zero-configuration testing experience. Unlike Jest, Mocha provides flexibility in choosing which packages you want in your testing suite. Other libraries to consider are **Jasmine**, **Karma**, and **Puppeteer**.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As of writing, **Jest** and **Mocha** are two of the most popular testing libraries. Jest, created and maintained by Facebook, provides a zero-configuration testing experience. Unlike Jest, Mocha provides flexibility in choosing which packages you want in your testing suite. Other libraries to consider are **Jasmine**, **Karma**, and **Puppeteer**. Here is a [Jest Cheat Sheet](https://github.com/sapegin/jest-cheat-sheet). Going forward, I will be using [Jest](https://jestjs.io/) with the [React-testing-library](https://testing-library.com/docs/react-testing-library/intro)
+
+### Writing Tests
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now lets start writing some tests. I like to create a _tests_ folder to hold all of my tests. Running coverage will tell you what parts of your application have tests and which need tests.
+
+```
+npm test -- --coverage
+```
