@@ -244,5 +244,5 @@ Finally, our app is fully connected to Redux! This is our final folder structure
 package.json
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can find the code for the rest of the components <a href="https://github.com/sballgirl11/robofriends-redux/tree/master/src" target="_blank" rel="noopener noreferrer">here</a> or checkout the
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can find the code for the rest of the components <a href="https://github.com/brittneypostma/robofriends-redux/tree/master/src" target="_blank" rel="noopener noreferrer">here</a> or checkout the
 [Code Sandbox](https://codesandbox.io/s/robofriends-jmyy7?fontsize=14&hidenavigation=1&theme=dark&file=/src/App.js).

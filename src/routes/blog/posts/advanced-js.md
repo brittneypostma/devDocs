@@ -1677,7 +1677,7 @@ function multBy(a) {
 const multiplyBy = a => b => a * b
 
 const multByTwo = multiplyBy(2)
-const multByTen = multiplyByTen(10)
+const multByTen = multiplyBy(10)
 
 multByTwo(4) // 8
 multByTen(5) // 50
