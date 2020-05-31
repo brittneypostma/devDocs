@@ -169,12 +169,10 @@
     .content :global(.post){
       width: 100%;
       max-width: 100vw;
-      display: grid;
-      grid-template-columns: 1fr;
+      display: inline-block;
     }
     
     .content :global(#toc)  {
-      grid-column: 1/-1;
       box-shadow: 0 0 0 0 transparent;
       position: relative;
       width: 100%;
@@ -182,11 +180,13 @@
       top: 0;
       bottom: 0;
       border-right: none;
+      border-bottom: 2px dotted rgb(155, 50, 43);
     }
       
     .content :global(#main)  {
+      margin-top: 8px;
       width: 95%;
-      grid-column: 1/-1;
+      left: 0;
     }
       
 
