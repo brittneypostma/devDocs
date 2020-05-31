@@ -14,6 +14,26 @@
   --heading-color: rgb(155, 50, 43);
 }
 
+   /* width */
+   ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #777;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(155, 50, 43, 0.75);
+  } 
+
 hr {
   height: 2px;
   border: 0;

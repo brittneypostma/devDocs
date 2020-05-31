@@ -52,14 +52,32 @@
   }
 
   .content :global(#toc)  {
+    scrollbar-color: rgb(155, 50, 43, 0.75) #333;
+    scrollbar-width: thin;
     width: 300px;
     padding: 10px;
     position: fixed;
     overflow-y: auto;
     top: 224px;
     bottom: 0;
-    box-shadow:  inset 0 0 10px #000000;
+    box-shadow:  inset 0 0 10px #333;
   }
+
+  .content :global(#toc::-webkit-scrollbar)  {
+    background-color: #777;
+    width: 8px;
+  }
+  .content :global(#toc::-webkit-scrollbar-track)  {
+    background-color: #333;
+  }
+  .content :global(#toc::-webkit-scrollbar-thumb)  {
+    background-color: rgb(155, 50, 43, 0.75);
+  }
+  .content :global(#toc::-webkit-scrollbar-thumb:hover)  {
+    background-color: rgb(155, 50, 43);
+  }
+
+
 
   .content :global(#main) {
     width: calc(100% - 350px);
