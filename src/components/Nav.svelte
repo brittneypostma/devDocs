@@ -1,7 +1,7 @@
 <script>
   export let segment;
 
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte';
 
   onMount(() => {
     const toggleSwitch = document.querySelector(
@@ -10,15 +10,51 @@
 
     function switchTheme(e) {
       if (e.target.checked) {
-        document.documentElement.setAttribute("data-theme", "dark");
+        document.documentElement.setAttribute('data-theme', 'dark');
       } else {
-        document.documentElement.setAttribute("data-theme", "light");
+        document.documentElement.setAttribute('data-theme', 'light');
       }
     }
 
-    toggleSwitch.addEventListener("change", switchTheme, false);
+    toggleSwitch.addEventListener('change', switchTheme, false);
   });
 </script>
+
+<nav>
+
+  <div class="links">
+    <a class="a-logo" href=".">
+      <img src="favicon.png" alt="logo" class="logo" />
+    </a>
+    <div class="nav-links">
+      <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
+
+      <a
+        rel="prefetch"
+        class={segment === 'logs' ? 'selected' : ''}
+        href="logs">
+        logs
+      </a>
+    </div>
+  </div>
+  <div class="theme-switch-wrapper">
+    <img
+      class="slider-img"
+      src="sun.png"
+      alt="light-mode"
+      style="margin-right: 0.5em;" />
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider round" />
+    </label>
+    <img
+      class="slider-img"
+      src="moon.png"
+      alt="dark-mode"
+      style="margin-left: 0.5em;" />
+  </div>
+
+</nav>
 
 <style>
   nav {
@@ -65,7 +101,7 @@
   }
 
   a::before {
-    content: "";
+    content: '';
     position: absolute;
     transition: transform 0.3s ease;
     left: 12%;
@@ -122,7 +158,7 @@
   .slider:before {
     background-color: #fff;
     bottom: 4px;
-    content: "";
+    content: '';
     height: 26px;
     left: 4px;
     position: absolute;
@@ -188,7 +224,7 @@
     .slider:before {
       background-color: #fff;
       bottom: 3px;
-      content: "";
+      content: '';
       height: 15px;
       left: 4px;
       position: absolute;
@@ -201,39 +237,3 @@
     }
   }
 </style>
-
-<nav>
-
-  <div class="links">
-    <a class="a-logo" href=".">
-      <img src="favicon.png" alt="logo" class="logo" />
-    </a>
-    <div class="nav-links">
-      <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
-
-      <a
-        rel="prefetch"
-        class={segment === 'logs' ? 'selected' : ''}
-        href="logs">
-        logs
-      </a>
-    </div>
-  </div>
-  <div class="theme-switch-wrapper">
-    <img
-      class="slider-img"
-      src="sun.png"
-      alt="light-mode"
-      style="margin-right: 0.5em;" />
-    <label class="theme-switch" for="checkbox">
-      <input type="checkbox" id="checkbox" />
-      <div class="slider round" />
-    </label>
-    <img
-      class="slider-img"
-      src="moon.png"
-      alt="dark-mode"
-      style="margin-left: 0.5em;" />
-  </div>
-
-</nav>

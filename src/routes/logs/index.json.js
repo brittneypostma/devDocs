@@ -1,3 +1,9 @@
+// import { getAllMDIn } from "../../utilities";
+
+// export function get(_, res) {
+//   getAllMDIn(res, "src/routes/logs/posts");
+// }
+
 import posts from './_posts.js';
 
 const contents = JSON.stringify(
