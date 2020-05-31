@@ -2,6 +2,9 @@
 title: Redux
 ---
 
+<div class="post">
+<div id="toc">
+
 ### Table of Contents
 
 - [Redux.js.org](#reduxjsorg)
@@ -13,7 +16,9 @@ title: Redux
 
 **This is also available on Dev.to. Please, go give it some 💖 [Explain Redux like I'm 5!](https://dev.to/bdesigned/explain-redux-like-i-m-5-18kn)!**
 
----
+  </div>
+
+<div id="main">
 
 <p align="center">
   <img src="react/redux.svg" alt="Redux Logo" width="25%">
@@ -246,3 +251,5 @@ package.json
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can find the code for the rest of the components <a href="https://github.com/brittneypostma/robofriends-redux/tree/master/src" target="_blank" rel="noopener noreferrer">here</a> or checkout the
 [Code Sandbox](https://codesandbox.io/s/robofriends-jmyy7?fontsize=14&hidenavigation=1&theme=dark&file=/src/App.js).
+
+</div>

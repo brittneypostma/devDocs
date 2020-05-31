@@ -3,9 +3,9 @@ title: CSS
 date: 09/15/2019
 ---
 
-<div style="max-width: 86vw">
 
-<iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="CSS" src="//codepen.io/sballgirl11/embed/GRKYPpw/?height=265&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/sballgirl11/pen/GRKYPpw/'>CSS</a> by Brittney <a href='https://codepen.io/sballgirl11'>@sballgirl11</a> on <a href='https://codepen.io'>CodePen</a></iframe>
+<div class="post">
+<div id="toc">
 
 ### Table of Contents
 
@@ -20,7 +20,11 @@ date: 09/15/2019
     - [Flexbox](#flexbox)
     - [Grid](#grid)
 
----
+  </div>
+
+<div id="main">
+
+<iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="CSS" src="//codepen.io/sballgirl11/embed/GRKYPpw/?height=265&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/sballgirl11/pen/GRKYPpw/'>CSS</a> by Brittney <a href='https://codepen.io/sballgirl11'>@sballgirl11</a> on <a href='https://codepen.io'>CodePen</a></iframe>
 
 [MDN CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)  
 [CSS Tricks](https://css-tricks.com/)
@@ -103,9 +107,6 @@ h1::before {content: "-"; *styles before the h1 with a -*} h1::after{content: "-
 
 5.  5\. Attribute selectors (an element with an attribute)
 
-</div>
-
-<div>
 
 ---
 
@@ -120,9 +121,6 @@ There are 4 categories that define the level of specificity for selectors rangin
 3.  3\. Classes, attributes, and psuedo-classes
 4.  4\. Elements and pseudo-elements
 
-</div>
-
-<div>
 
 ---
 
@@ -132,9 +130,6 @@ CSS Grid Layout is a two-dimensional system, meaning it can handle both columns 
 
 ### Where to learn and practice Flexbox and Grid
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));align-content: center;">
-
-<div>
 
 #### Flexbox
 
@@ -153,11 +148,5 @@ CSS Grid Layout is a two-dimensional system, meaning it can handle both columns 
 [CSS Grid Garden](https://cssgridgarden.com/)<br/>
 [Grid by Example by Rachel Andrew](https://gridbyexample.com/)<br/>
 [A Complete Guide to Grid by CSS Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
-
-</div>
-
-</div>
-
-</div>
 
 </div>

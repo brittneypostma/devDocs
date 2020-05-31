@@ -36,16 +36,61 @@
 
 <style>
   .post-page {
-    width: 75%;
     margin: 0 auto;
   }
 
   h1 {
-    text-align: center;
+    margin: 0;
+  }
+
+  .content {
+    margin-top: 10px;
+  }
+
+  .content :global(.post) {
+    display: flex;
+  }
+
+  .content :global(#toc)  {
+    scrollbar-color: rgb(155, 50, 43, 0.75) #333;
+    scrollbar-width: thin;
+    width: 300px;
+    padding: 10px;
+    position: fixed;
+    overflow-y: auto;
+    top: 224px;
+    bottom: 0;
+    box-shadow:  inset 0 0 10px #333;
+  }
+
+  .content :global(#toc::-webkit-scrollbar)  {
+    background-color: #777;
+    width: 8px;
+  }
+  .content :global(#toc::-webkit-scrollbar-track)  {
+    background-color: #333;
+  }
+  .content :global(#toc::-webkit-scrollbar-thumb)  {
+    background-color: rgb(155, 50, 43, 0.75);
+  }
+  .content :global(#toc::-webkit-scrollbar-thumb:hover)  {
+    background-color: rgb(155, 50, 43);
+  }
+
+
+
+  .content :global(#main) {
+    width: calc(100% - 350px);
+    position: relative;
+    left: 350px;
+  }
+
+  .content :global(hr:first-child) {
+    clear: both;
   }
 
   .content :global(p) {
-    margin: 5px auto;
+    margin: 0 auto;
   }
 
   .content :global(h1, h3, h4, h5, h6) {
@@ -134,13 +179,34 @@
       width: 95%;
       margin: 0 auto;
     }
-    .content {
-      width: 100%;
-    }
 
     .post-header {
       width: 100%;
     }
+
+    .content :global(.post){
+      width: 100%;
+      max-width: 100vw;
+      display: inline-block;
+    }
+    
+    .content :global(#toc)  {
+      box-shadow: 0 0 0 0 transparent;
+      position: relative;
+      width: 100%;
+      overflow-y: hidden;
+      top: 0;
+      bottom: 0;
+      border-right: none;
+      border-bottom: 2px dotted rgb(155, 50, 43);
+    }
+      
+    .content :global(#main)  {
+      margin-top: 8px;
+      width: 95%;
+      left: 0;
+    }
+      
 
     .content :global(pre) {
       width: 100%;

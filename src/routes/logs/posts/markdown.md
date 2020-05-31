@@ -2,27 +2,16 @@
 title: Markdown
 ---
 
-### Table of Contents
+<div class="post">
 
-- [Heading 1](#heading-1)
-      - [Heading 2](#heading-2)
-    - [Heading 3](#heading-3)
-      - [Heading 4](#heading-4)
-        - [Heading 5](#heading-5)
-          - [Heading 6](#heading-6)
-      - [Lists](#lists)
-      - [Code](#code)
-      - [Emphasis](#emphasis)
-      - [Horizontal Rule](#horizontal-rule)
-      - [URLs and Email Addresses](#urls-and-email-addresses)
-      - [Blockquotes](#blockquotes)
-
----
+<div id="main" style="left: 0; width: 100%; border-top: 1px solid black;">
+<br/>
 
 [Markdown Guide](https://www.markdownguide.org/basic-syntax/)   
 [Markdown Cheetsheet](https://www.code2bits.com/assets/cheat-sheets/cheatsheet-markdown.pdf)
 
 ---
+
 
 #### Links
 
@@ -153,3 +142,5 @@ Can be styled with css list-style-type.
     >
     > span multiple paragraphs
     >> blockquote in a blockquote
+
+</div>

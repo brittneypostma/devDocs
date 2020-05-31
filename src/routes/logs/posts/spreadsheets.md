@@ -1,7 +1,9 @@
 ---
 title: Spreadsheets
 ---
-<div style="max-width: 86vw">
+
+<div class="post">
+<div id="toc">
 
 ### Table of Contents
 
@@ -15,7 +17,9 @@ title: Spreadsheets
   - [Lookup Formulas](#lookup-formulas)
   - [Math & Operator Formulas](#math--operator-formulas)
 
----
+  </div>
+
+<div id="main">
 
 [Google Sheets Function List](https://support.google.com/docs/table/25273?hl=en)
 

@@ -2,6 +2,9 @@
 title: React
 ---
 
+<div class="post">
+<div id="toc">
+
 ### Table of Contents
 
 - [The Complete React Developer](#the-complete-react-developer)
@@ -23,7 +26,9 @@ title: React
   - [Binding](#binding)
   - [Hooks](#hooks)
 
----
+  </div>
+
+<div id="main">
 
 ## The Complete React Developer
 
@@ -525,4 +530,4 @@ Additional hooks are:
 
 [Hooks API Docs](https://reactjs.org/docs/hooks-reference.html)
 
----
+</div>
