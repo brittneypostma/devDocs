@@ -36,16 +36,43 @@
 
 <style>
   .post-page {
-    width: 75%;
     margin: 0 auto;
   }
 
   h1 {
-    text-align: center;
+    margin: 0;
+  }
+
+  .content {
+    margin-top: 10px;
+  }
+
+  .content :global(.post) {
+    display: flex;
+  }
+
+  .content :global(#toc)  {
+    width: 300px;
+    padding: 10px;
+    position: fixed;
+    overflow-y: auto;
+    top: 224px;
+    bottom: 0;
+    box-shadow:  inset 0 0 10px #000000;
+  }
+
+  .content :global(#main) {
+    width: calc(100% - 350px);
+    position: relative;
+    left: 350px;
+  }
+
+  .content :global(hr:first-child) {
+    clear: both;
   }
 
   .content :global(p) {
-    margin: 5px auto;
+    margin: 0 auto;
   }
 
   .content :global(h1, h3, h4, h5, h6) {
@@ -134,13 +161,34 @@
       width: 95%;
       margin: 0 auto;
     }
-    .content {
-      width: 100%;
-    }
 
     .post-header {
       width: 100%;
     }
+
+    .content :global(.post){
+      width: 100%;
+      max-width: 100vw;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    
+    .content :global(#toc)  {
+      grid-column: 1/-1;
+      box-shadow: 0 0 0 0 transparent;
+      position: relative;
+      width: 100%;
+      overflow-y: hidden;
+      top: 0;
+      bottom: 0;
+      border-right: none;
+    }
+      
+    .content :global(#main)  {
+      width: 95%;
+      grid-column: 1/-1;
+    }
+      
 
     .content :global(pre) {
       width: 100%;

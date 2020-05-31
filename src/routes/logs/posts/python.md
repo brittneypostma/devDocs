@@ -3,6 +3,9 @@ title: Python
 date: 01/17/2019
 ---
 
+<div class="post">
+<div id="toc">
+
 ### Table of Contents
 
 - [Syntax](#syntax)
@@ -14,7 +17,9 @@ date: 01/17/2019
 - [Types](#types)
 - [Keywords](#keywords)
 
----
+ </div>
+
+<div id="main">
 
 <p align="center">
 <img src="python.png" alt="python logo"/>
@@ -346,3 +351,5 @@ Python has many different types that are able to do different things based on th
 		</tr>
 	</tbody>
 </table>
+
+</div>

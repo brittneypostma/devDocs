@@ -2,6 +2,9 @@
 title: VSCode Setup
 ---
 
+<div class="post">
+<div id="toc">
+
 ### Table of Contents
 
 - [Visual Studio Code](#visual-studio-code)
@@ -16,7 +19,9 @@ title: VSCode Setup
 
 **This is also available on Dev.to. Please, go give it some 💖 [VSCode Setup with ESLint and Prettier](https://dev.to/bdesigned/vscode-setup-with-eslint-and-prettier-1gek)!**
 
----
+  </div>
+
+<div id="main">
 
 ## Visual Studio Code
 
@@ -172,3 +177,5 @@ Font family will be whatever font you want to use. [Victor Mono](https://rubjo.g
 ## The End
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can now develop with consistent, clean code and the linter will tell you when there are any errors you should correct!
+
+</div>

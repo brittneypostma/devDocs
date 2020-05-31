@@ -1,12 +1,9 @@
 ---
 title: HTML
 ---
-<div style="max-width: 86vw">
 
-<iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="yLBxMNg" src="//codepen.io/sballgirl11/embed/yLBxMNg/?height=464&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/sballgirl11/pen/yLBxMNg/'>yLBxMNg</a> by Brittney
-  (<a href='https://codepen.io/sballgirl11'>@sballgirl11</a>) on <a href='https://codepen.io'>CodePen</a>
-</iframe>
+<div class="post">
+<div id="toc">
 
 ### Table of Contents
 
@@ -18,7 +15,14 @@ title: HTML
 - [Image and multimedia Tags](#image-and-multimedia-tags)
 - [Form Tags](#form-tags)
 
----
+  </div>
+
+<div id="main">
+
+<iframe height="450" style="width: 100%; resize: both;" scrolling="no" title="yLBxMNg" src="//codepen.io/sballgirl11/embed/yLBxMNg/?height=464&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/sballgirl11/pen/yLBxMNg/'>yLBxMNg</a> by Brittney
+  (<a href='https://codepen.io/sballgirl11'>@sballgirl11</a>) on <a href='https://codepen.io'>CodePen</a>
+</iframe>
 
 
 ## Getting started with a HTML document

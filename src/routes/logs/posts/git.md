@@ -3,7 +3,8 @@ title: GIT
 date: 12/14/2019
 ---
 
-<div style="max-width: 86vw">
+<div class="post">
+<div id="toc">
 
 ### Table of Contents
 
@@ -15,7 +16,9 @@ date: 12/14/2019
 - [Make a change](#make-a-change)
 - [Sync changes](#sync-changes)
 
----
+  </div>
+
+<div id="main">
 
 Git is a version-control system that is used for tracking changes in source code.  It can be used to track changes, coordinate work with others, and test branches before publishing. Git commands are ran from the command line inside of 
 

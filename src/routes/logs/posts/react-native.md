@@ -2,6 +2,9 @@
 title: React Native
 ---
 
+<div class="post">
+<div id="toc">
+
 ### Table of Contents
 
 - [ReactNative.dev](#reactnativedev)
@@ -19,7 +22,9 @@ title: React Native
 - [Button](#button)
 - [Transforms](#transforms)
 
----
+  </div>
+
+<div id="main">
 
 <p align="center">
   <img src="react/react-native.png" alt="React Native" width="50%">
@@ -377,3 +382,5 @@ const styles = StyleSheet.create({
         ]
       }]}>
 ```
+
+</div>

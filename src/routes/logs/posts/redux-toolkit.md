@@ -2,11 +2,8 @@
 title: Redux Toolkit
 ---
 
-<p align="center">
-  <img src="./rtk/logo.png" alt="Redux Toolkit Logo" width="75%">
-</p>
-
----
+<div class="post">
+<div id="toc">
 
 #### Table of Contents
 
@@ -16,7 +13,14 @@ title: Redux Toolkit
 
 **This is also available on Dev.to. Please, go give it some 💖 [Redux Toolkit Basic Intro](https://dev.to/bdesigned/redux-toolkit-basic-intro-57g4)!**
 
----
+  </div>
+
+<div id="main">
+
+<p align="center">
+  <img src="./rtk/logo.png" alt="Redux Toolkit Logo" width="75%">
+</p>
+
 
 ## What is Redux Toolkit?
 
@@ -254,3 +258,5 @@ export default App
 ```
 
 That's it! Redux Toolkit is now set up and connected to our application. This is a basic tutorial, next time we will dive deeper into RTK! Thanks for the 💖!
+
+</div>

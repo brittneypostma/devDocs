@@ -2,15 +2,11 @@
 title: Advanced JS
 ---
 
+<div class="post">
+<div id="toc">
+
 ### Table of Contents
 
-- [Advanced Javascript Concepts](#advanced-javascript-concepts)
-  - [JavaScript Engine](#javascript-engine)
-  - [The Parser](#the-parser)
-  - [The AST](#the-ast)
-  - [The Interpreter](#the-interpreter)
-  - [The Compiler](#the-compiler)
-  - [The Combo](#the-combo)
 - [Writing Optimized Code](#writing-optimized-code)
     - [Memoization](#memoization)
     - [Inline Caching](#inline-caching)
@@ -95,12 +91,9 @@ title: Advanced JS
     - [Hashing in JavaScript](#hashing-in-javascript)
 - [Create a Hash Table](#create-a-hash-table)
 
----
+  </div>
 
-</div>
-<div>
-
-## Advanced Javascript Concepts
+<div id="main">
 
 <p align="center">
   <img src="Advanced_Javascript.png" alt="Advanced Javascript Course Map" width="100%">
@@ -144,7 +137,7 @@ The compiler works ahead of time to convert instructions into a machine-code or 
 
 In modern engines, the interpreter starts reading the code line by line while the **profiler** watches for frequently used code and flags then passes is to the compiler to be optimized. In the end, the JavaScript engine takes the bytecode the interpreter outputs and mixes in the optimized code the compiler outputs and then gives that to the computer. This is called "Just in Time" or **JIT** Compiler.
 
-> **Nifty Snippet**: Back in 1995 we had no standard between the browsers for compiling JavaScript. Compiling code on the browser or even ahead of time was not feasible because all the browsers were competing against each other and could not agree on an executible format. Even now, different browsers have different approaches on doing things. Enter **WebAssembly** a standard for binary instruction (executible) format. Keep your eye on WebAssembly to help standardize browsers abilities to exectute JavaScript in the future! [WebAssemby](https://webassembly.org/)
+> **Nifty Snippet**: Back in 1995 we had no standard between the browsers for compiling JavaScript. Compiling code on the browser or even ahead of time was not feasible because all the browsers were competing against each other and could not agree on an executable format. Even now, different browsers have different approaches on doing things. Enter **WebAssembly** a standard for binary instruction (executable) format. Keep your eye on WebAssembly to help standardize browsers abilities to execute JavaScript in the future! [WebAssembly](https://webassembly.org/)
 
 ---
 
@@ -2672,3 +2665,6 @@ myHashTable.keys()
 ```
 
 ---
+
+</div>
+</div>

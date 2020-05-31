@@ -2,17 +2,8 @@
 title: JavaScript
 ---
 
-<iframe
-		height="525"
-		style="width: 100%; resize: both;"
-		scrolling="no"
-		title="Javascript"
-		src="https://codepen.io/sballgirl11/embed/rNBoKrd?height=265&theme-id=dark&default-tab=result">
-		See the Pen <a href="https://codepen.io/sballgirl11/pen/GRKYPpw/">Javascript</a> by Brittney (<a
-			href="https://codepen.io/sballgirl11"
-			>@sballgirl11</a
-		>) on <a href="https://codepen.io">CodePen</a>. 
-</iframe><br />
+<div class="post">
+<div id="toc">
 
 ### Table of Contents
 
@@ -53,7 +44,22 @@ title: JavaScript
 - [Async await](#async-await)
 - [Debugger](#debugger)
 
----
+
+  </div>
+
+<div id="main">
+
+<iframe
+		height="525"
+		style="width: 100%; resize: both;"
+		scrolling="no"
+		title="Javascript"
+		src="https://codepen.io/sballgirl11/embed/rNBoKrd?height=265&theme-id=dark&default-tab=result">
+		See the Pen <a href="https://codepen.io/sballgirl11/pen/GRKYPpw/">Javascript</a> by Brittney (<a
+			href="https://codepen.io/sballgirl11"
+			>@sballgirl11</a
+		>) on <a href="https://codepen.io">CodePen</a>. 
+</iframe><br />
 
 [MDN JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 

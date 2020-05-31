@@ -2,11 +2,8 @@
 title: Jr to Sr Dev
 ---
 
-<p align="center">
-  <img src="./jr2sr/roadmap.png" alt="Jr to Sr Course map" width="65%">
-</p>
-
----
+<div class="post">
+<div id="toc">
 
 ### Table of Contents
 
@@ -37,7 +34,13 @@ title: Jr to Sr Dev
 - [Testing](#testing)
   - [Writing Tests](#writing-tests)
 
----
+  </div>
+
+<div id="main">
+
+<p align="center">
+  <img src="./jr2sr/roadmap.png" alt="Jr to Sr Course map" width="50%">
+</p>
 
 ## SSH
 
