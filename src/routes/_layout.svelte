@@ -1,13 +1,36 @@
 <script>
-  import { onMount } from "svelte";
-  import Nav from "../components/Nav.svelte";
+  import { onMount } from 'svelte';
+  import Nav from '../components/Nav.svelte';
 
   export let segment;
 
   onMount(() => {
-    document.getElementById("year").innerHTML = new Date().getFullYear();
+    document.getElementById('year').innerHTML = new Date().getFullYear();
   });
 </script>
+
+<Nav {segment} />
+
+<main>
+  <slot />
+</main>
+
+<footer>
+  &copy;
+  <span id="year" />
+  <a href="https://bdesigned.netlify.com/" rel="noreferrer" target="_blank">
+    b.Designed
+  </a>
+  Find me on GitHub
+  <a href="https://github.com/brittneypostma" rel="noreferrer" target="_blank">
+    <img alt="github" src="octocat.png" style="width: 30px;" />
+  </a>
+  Powered by
+  <img alt="svelte" src="svelte-logo.png" />
+  and
+  <img alt="sapper" src="sapper.png" />
+
+</footer>
 
 <style>
   main {
@@ -45,7 +68,7 @@
   }
 
   a::before {
-    content: "";
+    content: '';
     position: absolute;
     transition: transform 0.3s ease;
     left: 0;
@@ -60,25 +83,3 @@
     transform: scaleX(1);
   }
 </style>
-
-<Nav {segment} />
-
-<main>
-  <slot />
-</main>
-
-<footer>
-  &copy;
-  <span id="year" />
-  <a href="https://bdesigned.netlify.com/" rel="noreferrer" target="_blank">
-    b.Designed
-  </a>
-  Find me on GitHub
-  <a href="https://github.com/brittneypostma" rel="noreferrer" target="_blank">
-  <img alt="github" src="octocat.png" style="width: 30px;"/></a>
-  Powered by
-  <img alt="svelte" src="svelte-logo.png" />
-  and
-  <img alt="sapper" src="sapper.png" />
-
-</footer>

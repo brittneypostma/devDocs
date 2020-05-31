@@ -17,6 +17,23 @@
   export let post;
 </script>
 
+<svelte:head>
+  <title>{post.title}</title>
+</svelte:head>
+
+<div class="post-page">
+
+  <div class="post-header">
+    <a rel="prefetch" href="logs">go back</a>
+    <h1>{post.title}</h1>
+  </div>
+
+  <div class="content">
+    {@html post.html}
+  </div>
+
+</div>
+
 <style>
   .post-page {
     width: 75%;
@@ -131,20 +148,3 @@
     }
   }
 </style>
-
-<svelte:head>
-  <title>{post.title}</title>
-</svelte:head>
-
-<div class="post-page">
-
-  <div class="post-header">
-    <a rel="prefetch" href="logs">go back</a>
-    <h1>{post.title}</h1>
-  </div>
-
-  <div class="content">
-    {@html post.html}
-  </div>
-
-</div>

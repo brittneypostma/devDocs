@@ -1,8 +1,8 @@
 <script context="module">
   export function preload({ params, query }) {
     return this.fetch(`logs.json`)
-      .then(r => r.json())
-      .then(posts => {
+      .then((r) => r.json())
+      .then((posts) => {
         return { posts };
       });
   }
@@ -11,6 +11,24 @@
 <script>
   export let posts;
 </script>
+
+<svelte:head>
+  <title>Logs</title>
+</svelte:head>
+
+<h1>Logs</h1>
+
+<div class="grid-logs">
+  {#each posts as post}
+    <div>
+      <a rel="prefetch" href="logs/{post.slug}">
+        <div class="list">
+          <h2>{post.title}</h2>
+        </div>
+      </a>
+    </div>
+  {/each}
+</div>
 
 <style>
   .grid-logs {
@@ -50,21 +68,3 @@
     margin: 0;
   }
 </style>
-
-<svelte:head>
-  <title>Logs</title>
-</svelte:head>
-
-<h1>Logs</h1>
-
-<div class="grid-logs">
-  {#each posts as post}
-    <div>
-      <a rel="prefetch" href="logs/{post.slug}">
-        <div class="list">
-          <h2>{post.title}</h2>
-        </div>
-      </a>
-    </div>
-  {/each}
-</div>

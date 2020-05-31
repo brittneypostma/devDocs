@@ -1,3 +1,12 @@
+<svelte:head>
+  <title>Console Logs</title>
+</svelte:head>
+<div class="cont">
+  <h1>Welcome to console logs!</h1>
+  <p>A site for all my bytes of programming related knowledge.</p>
+  <img alt="dev" src="dev.png" />
+</div>
+
 <style>
   .cont {
     display: grid;
@@ -25,12 +34,3 @@
     }
   }
 </style>
-
-<svelte:head>
-  <title>Console Logs</title>
-</svelte:head>
-<div class="cont">
-  <h1>Welcome to console logs!</h1>
-  <p>A site for all my bytes of programming related knowledge.</p>
-  <img alt="dev" src="dev.png" />
-</div>
