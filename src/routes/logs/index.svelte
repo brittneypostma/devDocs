@@ -1,6 +1,6 @@
 <script context="module">
   export function preload({ params, query }) {
-    return this.fetch(`blog.json`)
+    return this.fetch(`logs.json`)
       .then(r => r.json())
       .then(posts => {
         return { posts };
@@ -60,7 +60,7 @@
 <div class="grid-logs">
   {#each posts as post}
     <div>
-      <a rel="prefetch" href="blog/{post.slug}">
+      <a rel="prefetch" href="logs/{post.slug}">
         <div class="list">
           <h2>{post.title}</h2>
         </div>

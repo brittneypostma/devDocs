@@ -213,8 +213,8 @@
 
       <a
         rel="prefetch"
-        class={segment === 'blog' ? 'selected' : ''}
-        href="blog">
+        class={segment === 'logs' ? 'selected' : ''}
+        href="logs">
         logs
       </a>
     </div>

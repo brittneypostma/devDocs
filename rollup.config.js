@@ -42,6 +42,7 @@ export default {
       }),
       resolve(),
       commonjs(),
+      markdown(),
 
       legacy &&
         babel({

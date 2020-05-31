@@ -9,7 +9,7 @@ const matter = require('gray-matter')
 require('prismjs/components/prism-jsx.min')
 
 const cwd = process.cwd()
-const POSTS_DIR = path.join(cwd, 'src/routes/blog/posts/')
+const POSTS_DIR = path.join(cwd, 'src/routes/logs/posts/')
 // const EXCERPT_SEPARATOR = '<!-- more -->';
 const renderer = new marked.Renderer()
 const linkRenderer = renderer.link
@@ -66,8 +66,8 @@ const posts = fs
     return {
       title: title || slug,
       slug,
-      html,
-      date
+      html
+      // date
       // excerpt,
       // printDate,
       // printReadingTime,
