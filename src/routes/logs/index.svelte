@@ -9,6 +9,7 @@
 </script>
 
 <script>
+import { fly } from 'svelte/transition';
   export let posts;
 </script>
 
@@ -18,7 +19,7 @@
 
 <h1>Logs</h1>
 
-<div class="grid-logs">
+<div class="grid-logs" in:fly="{{ y: 200, duration: 1000 }}">
   {#each posts as post}
     <div>
       <a rel="prefetch" href="logs/{post.slug}">

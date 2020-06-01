@@ -15,20 +15,19 @@
 
 <script>
   export let post;
+  import { fade } from 'svelte/transition'
 </script>
 
 <svelte:head>
   <title>{post.title}</title>
 </svelte:head>
 
-<div class="post-page">
-
-  <div class="post-header">
+<div class="post-page" in:fade={{duration: 1000}}>
+  <div class="content">
+  <div class="header">
     <a rel="prefetch" href="logs">go back</a>
     <h1>{post.title}</h1>
   </div>
-
-  <div class="content">
     {@html post.html}
   </div>
 
@@ -41,6 +40,10 @@
 
   h1 {
     margin: 0;
+  }
+
+  .header {
+    position: fixed;
   }
 
   .content {
@@ -83,6 +86,7 @@
     width: calc(100% - 350px);
     position: relative;
     left: 350px;
+    top: 77px;
   }
 
   .content :global(hr:first-child) {
@@ -179,9 +183,9 @@
       width: 95%;
       margin: 0 auto;
     }
-
-    .post-header {
-      width: 100%;
+      
+    .header {
+      position: relative;
     }
 
     .content :global(.post){
@@ -205,6 +209,7 @@
       margin-top: 8px;
       width: 95%;
       left: 0;
+      top: 0;
     }
       
 
