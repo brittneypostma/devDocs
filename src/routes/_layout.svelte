@@ -34,9 +34,11 @@
 
 <style>
   main {
+    height: calc(100vh - 118px);
     position: relative;
+    top: 88px;
     background-color: var(--bg-color);
-    padding: 2em;
+    padding: 0 2em;
     margin: 0 auto;
     box-sizing: border-box;
     width: 100%;
@@ -45,6 +47,8 @@
   }
 
   footer {
+    position: relative;
+    top: 5px;
     grid-row-start: 3;
     grid-row-end: -1;
     font-size: 14px;

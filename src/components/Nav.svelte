@@ -60,12 +60,16 @@
   nav {
     border-bottom: 1px solid rgb(155, 50, 43);
     font-weight: 700;
-    padding: 1em;
+    padding: 10px 0 0;
     display: grid;
     grid-template-columns: 1fr auto;
     justify-content: space-between;
     font-size: 16px;
-    margin-bottom: 2em;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
   }
 
   .links {
