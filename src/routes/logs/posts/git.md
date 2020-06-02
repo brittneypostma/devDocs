@@ -23,7 +23,7 @@ date: 12/14/2019
 Git is a version-control system that is used for tracking changes in source code.  It can be used to track changes, coordinate work with others, and test branches before publishing. Git commands are ran from the command line inside of 
 
 <p align="center">
-  <img src="git_areas.png" alt="git areas">
+  <img src="git_areas.png" alt="git areas" width="100%">
 </p>
 
 ## Getting started with Git
