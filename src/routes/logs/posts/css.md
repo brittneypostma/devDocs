@@ -3,7 +3,6 @@ title: CSS
 date: 09/15/2019
 ---
 
-
 <div class="post">
 <div id="toc">
 
@@ -138,9 +137,6 @@ CSS Grid Layout is a two-dimensional system, meaning it can handle both columns 
 [Flexbox Defense](http://www.flexboxdefense.com/)<br/>
 [A Complete Guide to Flexbox by CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
-</div>
-
-<div>
 
 #### Grid
 
