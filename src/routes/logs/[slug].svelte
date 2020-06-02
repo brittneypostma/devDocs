@@ -15,19 +15,19 @@
 
 <script>
   export let post;
-  import { fade } from 'svelte/transition'
+  import { fade } from 'svelte/transition';
 </script>
 
 <svelte:head>
   <title>{post.title}</title>
 </svelte:head>
 
-<div class="post-page" in:fade={{duration: 1000}}>
+<div class="post-page" in:fade={{ duration: 1000 }}>
   <div class="content">
-  <div class="header">
-    <a rel="prefetch" href="logs">go back</a>
-    <h1>{post.title}</h1>
-  </div>
+    <div class="header">
+      <a rel="prefetch" href="logs">go back</a>
+      <h1>{post.title}</h1>
+    </div>
     {@html post.html}
   </div>
 
@@ -54,33 +54,31 @@
     display: flex;
   }
 
-  .content :global(#toc)  {
+  .content :global(#toc) {
     scrollbar-color: rgb(155, 50, 43, 0.75) #333;
     scrollbar-width: thin;
     width: 300px;
     padding: 10px;
     position: fixed;
     overflow-y: auto;
-    top: 224px;
+    top: 175px;
     bottom: 0;
-    box-shadow:  inset 0 0 10px #333;
+    box-shadow: inset 0 0 10px #333;
   }
 
-  .content :global(#toc::-webkit-scrollbar)  {
+  .content :global(#toc::-webkit-scrollbar) {
     background-color: #777;
     width: 8px;
   }
-  .content :global(#toc::-webkit-scrollbar-track)  {
+  .content :global(#toc::-webkit-scrollbar-track) {
     background-color: #333;
   }
-  .content :global(#toc::-webkit-scrollbar-thumb)  {
+  .content :global(#toc::-webkit-scrollbar-thumb) {
     background-color: rgb(155, 50, 43, 0.75);
   }
-  .content :global(#toc::-webkit-scrollbar-thumb:hover)  {
+  .content :global(#toc::-webkit-scrollbar-thumb:hover) {
     background-color: rgb(155, 50, 43);
   }
-
-
 
   .content :global(#main) {
     width: calc(100% - 350px);
@@ -183,18 +181,18 @@
       width: 95%;
       margin: 0 auto;
     }
-      
+
     .header {
       position: relative;
     }
 
-    .content :global(.post){
+    .content :global(.post) {
       width: 100%;
       max-width: 100vw;
       display: inline-block;
     }
-    
-    .content :global(#toc)  {
+
+    .content :global(#toc) {
       box-shadow: 0 0 0 0 transparent;
       position: relative;
       width: 100%;
@@ -204,14 +202,13 @@
       border-right: none;
       border-bottom: 2px dotted rgb(155, 50, 43);
     }
-      
-    .content :global(#main)  {
+
+    .content :global(#main) {
       margin-top: 8px;
       width: 95%;
       left: 0;
       top: 0;
     }
-      
 
     .content :global(pre) {
       width: 100%;
