@@ -3,5 +3,6 @@
         "color",
         "msapplication",
         "tile"
-    ]
+    ],
+    "deno.enable": false
 }
