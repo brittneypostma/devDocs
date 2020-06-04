@@ -10,8 +10,9 @@ title: Deno
   - [Deno vs Node.js](#deno-vs-nodejs)
   - [How to Install Deno](#how-to-install-deno)
   - [Pick Your IDE](#pick-your-ide)
+**This is also available on Dev.to. Please, go give it some 💖 [Deno Park, Getting Started With Deno](https://dev.to/bdesigned/deno-park-getting-started-with-deno-48gj)!**
 
-  </div>
+</div>
 
 <div id="main">
 
@@ -65,6 +66,6 @@ If you run into other issues with different shells, then usually a quick Google 
 
 ### Pick Your IDE
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unfortunately, since Deno is so new a lot of editors will throw errors when trying to import modules because they don't natively support it. There are a few community developed extensions for a some popular editors to solve this issue. These are [CoC](https://github.com/neoclide/coc.nvim) for **Vim** and **NeoVim**, [Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno) for **JetBrains IDEs**, [tide](https://github.com/ananthakumaran/tide) and [typescript-deno-plugin](https://github.com/justjavac/typescript-deno-plugin) for **Emacs**, and finally, [Deno](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno) for VS Code. Don't see your editor? Develop and extension or check the [Discord group](https://discord.gg/TGMHGv6) on how to get started.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unfortunately, since Deno is so new a lot of editors will throw errors when trying to import modules because they don't natively support it. There are a few community developed extensions for a some popular editors to solve this issue. These are [CoC](https://github.com/neoclide/coc.nvim) for **Vim** and **NeoVim**, [Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno) for **JetBrains IDEs**, [tide](https://github.com/ananthakumaran/tide) and [typescript-deno-plugin](https://github.com/justjavac/typescript-deno-plugin) for **Emacs**, and finally, [Deno](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno) for VS Code. Don't see your editor? Develop an extension or check the [Discord group](https://discord.gg/TGMHGv6) on how to get started.
 
 </div>

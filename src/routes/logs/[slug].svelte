@@ -83,6 +83,7 @@
   .content :global(#main) {
     width: calc(100% - 350px);
     position: relative;
+    padding-bottom: 20px;
     left: 350px;
     top: 77px;
   }
@@ -206,6 +207,7 @@
     .content :global(#main) {
       margin-top: 8px;
       width: 95%;
+      padding-bottom: 30px;
       left: 0;
       top: 0;
     }

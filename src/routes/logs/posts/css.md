@@ -140,7 +140,7 @@ CSS Grid Layout is a two-dimensional system, meaning it can handle both columns 
 
 #### Grid
 
-[CSS Grid by Wes Box](https://cssgrid.io/)<br/>
+[CSS Grid by Wes Bos](https://cssgrid.io/)<br/>
 [CSS Grid Garden](https://cssgridgarden.com/)<br/>
 [Grid by Example by Rachel Andrew](https://gridbyexample.com/)<br/>
 [A Complete Guide to Grid by CSS Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
