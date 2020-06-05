@@ -36,6 +36,8 @@
 
 <style>
   .cont {
+    font-family: 'Space Mono', monospace;
+    line-height: 1.65;
     display: grid;
     justify-content: center;
     justify-items: center;

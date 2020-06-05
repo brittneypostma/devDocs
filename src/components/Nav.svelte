@@ -58,6 +58,9 @@
 
 <style>
   nav {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.65;
     border-bottom: 1px solid rgb(155, 50, 43);
     font-weight: 700;
     padding: 10px 0 0;

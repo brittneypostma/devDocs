@@ -34,15 +34,6 @@
 </div>
 
 <style>
-  @font-face {
-    font-family: 'Space Mono', monospace;
-    src: url('./fonts/SpaceMono-Regular.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Work Sans', sans-serif;
-    src: url('./fonts/WorkSans-Regular.ttf') format('truetype');
-  }
   .post-page {
     margin: 0 auto;
   }
@@ -111,12 +102,10 @@
 
   .content :global(h1, h3, h4, h5, h6) {
     font-weight: bold;
-    font-family: 'Space Mono', monospace;
     line-height: 1.65;
   }
 
   .content :global(h2) {
-    font-family: 'Space Mono', monospace;
     font-size: 39.06px;
     font-weight: 700;
     text-align: center;

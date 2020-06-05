@@ -47,6 +47,9 @@
   }
 
   footer {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.65;
     position: relative;
     top: 5px;
     grid-row-start: 3;

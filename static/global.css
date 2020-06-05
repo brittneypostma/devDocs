@@ -14,6 +14,16 @@
   --heading-color: rgb(155, 50, 43);
 }
 
+@font-face {
+  font-family: 'Space Mono', monospace;
+  src: url('./fonts/SpaceMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Work Sans', sans-serif;
+  src: url('./fonts/WorkSans-Regular.ttf') format('truetype');
+}
+
 hr {
   height: 2px;
   border: 0;
@@ -36,10 +46,8 @@ body {
   height: 100%;
   width: 100vw;
   margin: 0;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: 1.2em;
-  line-height: 1.5;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.65;
   color: var(--font-color);
 }
 
@@ -58,9 +66,10 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: 'Space Mono', monospace;
   color: var(--heading-color);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.65;
 }
 
 h1 {
