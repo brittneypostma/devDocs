@@ -5,7 +5,7 @@ title: Redux
 <div class="post">
 <div id="toc">
 
-### Table of Contents
+<p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
 - [Redux.js.org](#reduxjsorg)
 - [What is Redux?](#what-is-redux)

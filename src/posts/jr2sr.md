@@ -5,7 +5,7 @@ title: Jr to Sr Dev
 <div class="post">
 <div id="toc">
 
-### Table of Contents
+<p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
 - [SSH](#ssh)
   - [Install SSH on Windows](#install-ssh-on-windows)

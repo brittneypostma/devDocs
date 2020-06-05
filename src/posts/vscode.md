@@ -5,7 +5,7 @@ title: VSCode Setup
 <div class="post">
 <div id="toc">
 
-### Table of Contents
+<p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
 - [Visual Studio Code](#visual-studio-code)
 - [Installing VS Code](#installing-vs-code)

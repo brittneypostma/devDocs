@@ -5,7 +5,7 @@ title: JavaScript
 <div class="post">
 <div id="toc">
 
-### Table of Contents
+<p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
 - [Types](#types)
 	- [Primitive Data Types](#primitive-data-types)

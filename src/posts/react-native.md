@@ -5,7 +5,7 @@ title: React Native
 <div class="post">
 <div id="toc">
 
-### Table of Contents
+<p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
 - [ReactNative.dev](#reactnativedev)
 - [What is React Native?](#what-is-react-native)

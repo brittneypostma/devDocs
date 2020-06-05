@@ -5,7 +5,7 @@ title: React
 <div class="post">
 <div id="toc">
 
-### Table of Contents
+<p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
 - [The Complete React Developer](#the-complete-react-developer)
 - [What is React?](#what-is-react)

@@ -5,7 +5,7 @@ title: Advanced JS
 <div class="post">
 <div id="toc">
 
-### Table of Contents
+<p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
 - [Writing Optimized Code](#writing-optimized-code)
     - [Memoization](#memoization)

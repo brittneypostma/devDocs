@@ -5,7 +5,8 @@ title: Deno
 <div class="post">
   <div id="toc">
 
-### Table of Contents
+<p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
+
 - [What is Deno?](#what-is-deno)
   - [Deno vs Node.js](#deno-vs-nodejs)
   - [Will Deno replace Node.js?](#will-deno-replace-nodejs)

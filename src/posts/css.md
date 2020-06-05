@@ -6,7 +6,7 @@ date: 09/15/2019
 <div class="post">
 <div id="toc">
 
-### Table of Contents
+<p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
 - [Identify Elements](#identify-elements)
   - [Element Names](#element-names)

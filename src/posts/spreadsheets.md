@@ -5,9 +5,8 @@ title: Spreadsheets
 <div class="post">
 <div id="toc">
 
-### Table of Contents
+<p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
-- [Table of Contents](#table-of-contents)
 - [Abbreviations](#abbreviations)
 - [Formulas](#formulas)
   - [Date & Time Formulas](#date--time-formulas)

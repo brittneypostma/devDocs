@@ -6,7 +6,7 @@ date: 12/14/2019
 <div class="post">
 <div id="toc">
 
-### Table of Contents
+<p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
 - [Getting started with Git](#getting-started-with-git)
 - [Configure Git Information](#configure-git-information)

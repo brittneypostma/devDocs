@@ -5,7 +5,7 @@ title: HTML
 <div class="post">
 <div id="toc">
 
-### Table of Contents
+<p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
 - [Getting started with a HTML document](#getting-started-with-a-html-document)
 - [Basic Tags](#basic-tags)

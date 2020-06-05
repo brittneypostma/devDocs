@@ -59,7 +59,6 @@ h4,
 h5,
 h6 {
   color: var(--heading-color);
-  margin: 0 0 0.5em 0;
   font-weight: 400;
   line-height: 1.2;
 }

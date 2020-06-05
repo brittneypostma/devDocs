@@ -34,12 +34,22 @@
 </div>
 
 <style>
+  @font-face {
+    font-family: 'Space Mono', monospace;
+    src: url('./fonts/SpaceMono-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Work Sans', sans-serif;
+    src: url('./fonts/WorkSans-Regular.ttf') format('truetype');
+  }
   .post-page {
     margin: 0 auto;
   }
 
   h1 {
     margin: 0;
+    font-size: 36px;
   }
 
   .header {
@@ -48,6 +58,9 @@
 
   .content {
     margin-top: 10px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.65;
   }
 
   .content :global(.post) {
@@ -61,7 +74,7 @@
     padding: 10px;
     position: fixed;
     overflow-y: auto;
-    top: 175px;
+    top: 185px;
     bottom: 0;
     box-shadow: inset 0 0 10px #333;
   }
@@ -85,7 +98,7 @@
     position: relative;
     padding-bottom: 20px;
     left: 350px;
-    top: 77px;
+    top: 87px;
   }
 
   .content :global(hr:first-child) {
@@ -98,16 +111,20 @@
 
   .content :global(h1, h3, h4, h5, h6) {
     font-weight: bold;
-  }
-
-  .content :global(h3) {
-    margin: 1em auto 0;
+    font-family: 'Space Mono', monospace;
+    line-height: 1.65;
   }
 
   .content :global(h2) {
-    font-size: 1.5em;
-    font-weight: 500;
+    font-family: 'Space Mono', monospace;
+    font-size: 39.06px;
+    font-weight: 700;
     text-align: center;
+    line-height: 1.65;
+  }
+
+  .content :global(h3) {
+    font-size: 25px;
   }
 
   .content :global(blockquote) {
