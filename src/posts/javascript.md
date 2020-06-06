@@ -51,7 +51,7 @@ title: JavaScript
 
 <iframe
 		height="525"
-		style="width: 100%; resize: both;"
+		style="width: 100%; resize: both; border: 1px solid #333;"
 		scrolling="no"
 		title="Javascript"
 		src="https://codepen.io/sballgirl11/embed/rNBoKrd?height=265&theme-id=dark&default-tab=result">
