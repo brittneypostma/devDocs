@@ -1,5 +1,5 @@
 ---
-title: UX/UI Principles
+title: UX/UI Design
 ---
 
 <div class="post">

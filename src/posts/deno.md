@@ -21,7 +21,7 @@ title: Deno
 <div id="main">
 
 <p align="center">
-  <img src="deno/deno.gif" alt="deno logo" />
+  <img src="deno/Deno.jpg" alt="deno park" width="100%"/>
 </p>
 
 ## What is Deno?
@@ -31,6 +31,11 @@ title: Deno
 ### Deno vs Node.js
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node has its own package manager, **npm**, and that will be the first thing you notice that is missing from Deno. Deno instead uses modules referenced as URLs, just like browsers. Deno also uses the ES Modules and does not support **`require()`**, modules are imported by **`import * as log from "https://deno.lan/std/log/mod.ts"`**. This allows for Deno packages to be distributed without an additional registry to download from. Package maintainers can host their code where they want and we can use it while also automatically updating the package unless a version number is specified. There is no **`package.json`** file and no more **`node_modules`**. When the application starts, Deno will download all imported modules and cache them so they can be used offline. Once they are cached, Deno doesn't need to download them again unless we ask them to be with the **`--reload`** flag. The Deno creators recommend adding the caches of the modules to your version control system (i.e. git) in case the website the module is hosted on goes down. Importing modules by the URL can become tedious if doing so multiple times in an application. The Deno creators thought of this too and gave us an alternative. We can re-export the imported module from a file like this **`export { test, runTests } from "https://deno.land/std@v0.32.0/testing/mod.ts"`**. It can then be imported by name inside the files you need them like this **`import { test, runTests } from './pathToFile.ts"`**. 
+
+<p align="center">
+  <img src="deno/deno.gif" alt="deno logo" />
+</p>
+
 
 ### Will Deno replace Node.js?
 
