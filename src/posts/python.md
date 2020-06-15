@@ -25,6 +25,10 @@ date: 01/17/2019
 <img src="python.png" alt="python logo"/>
 </p>
 
+<p style="text-align: center;"><strong>
+These are my notes while taking the <a href="https://academy.zerotomastery.io/p/complete-python-developer-zero-to-mastery?affcode=441520_gjue7n-1">Complete Python Developer</a> course by Andrei Neagoie on ZTM Academy.</strong>
+</p><br/>
+
 Right away, I am impressed with the Python site by giving you up front details and tutorials on how to learn the language.
 
 [Python.org](https://www.python.org/)

@@ -7,6 +7,7 @@ title: JavaScript
 
 <p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
+- [Basic JavaScript Concepts](#basic-javascript-concepts)
 - [Types](#types)
 	- [Primitive Data Types](#primitive-data-types)
 	- [Object Data Type](#object-data-type)
@@ -44,10 +45,16 @@ title: JavaScript
 - [Async await](#async-await)
 - [Debugger](#debugger)
 
-
   </div>
 
 <div id="main">
+
+## Basic JavaScript Concepts
+
+<p style="text-align: center;"><strong>
+These are my notes while taking the <a href="https://academy.zerotomastery.io/p/complete-web-developer-zero-to-mastery?affcode=441520_gjue7n-1">The Complete Web Developer Zero to Mastery</a> course by Andrei Neagoie on ZTM Academy.</strong>
+</p>
+
 
 <iframe
 		height="525"

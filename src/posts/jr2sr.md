@@ -7,6 +7,7 @@ title: Jr to Sr Dev
 
 <p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
+- [Junior to Senior Developer](#junior-to-senior-developer)
 - [SSH](#ssh)
   - [Install SSH on Windows](#install-ssh-on-windows)
   - [SSH Service](#ssh-service)
@@ -38,8 +39,14 @@ title: Jr to Sr Dev
 
 <div id="main">
 
+## Junior to Senior Developer
+
+<p style="text-align: center;"><strong>
+These are my notes while taking the <a href="https://academy.zerotomastery.io/p/the-complete-junior-to-senior-web-developer-roadmap?affcode=441520_gjue7n-1">Junior to Senior Developer</a> course by Andrei Neagoie on ZTM Academy.</strong>
+</p>
+
 <p align="center">
-  <img src="./jr2sr/roadmap.png" alt="Jr to Sr Course map" width="50%">
+  <img src="./jr2sr/roadmap.png" alt="Jr to Sr Course map" width="75%">
 </p>
 
 ## SSH

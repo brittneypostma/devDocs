@@ -7,6 +7,7 @@ title: HTML
 
 <p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
+- [HTML](#html)
 - [Getting started with a HTML document](#getting-started-with-a-html-document)
 - [Basic Tags](#basic-tags)
 - [Sectioning Tags](#sectioning-tags)
@@ -18,6 +19,12 @@ title: HTML
   </div>
 
 <div id="main">
+
+## HTML
+
+<p style="text-align: center;"><strong>
+These are my notes while taking the <a href="https://academy.zerotomastery.io/p/complete-web-developer-zero-to-mastery?affcode=441520_gjue7n-1">The Complete Web Developer Zero to Mastery</a> course by Andrei Neagoie on ZTM Academy.</strong>
+</p>
 
 <iframe height="450" style="width: 100%; resize: both; border: 1px solid #333;" scrolling="no" title="yLBxMNg" src="//codepen.io/sballgirl11/embed/yLBxMNg/?height=464&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/sballgirl11/pen/yLBxMNg/'>yLBxMNg</a> by Brittney

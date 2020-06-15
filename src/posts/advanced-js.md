@@ -7,6 +7,13 @@ title: Advanced JS
 
 <p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
+- [Advanced JavaScript Concepts](#advanced-javascript-concepts)
+  - [JavaScript Engine](#javascript-engine)
+  - [The Parser](#the-parser)
+  - [The AST](#the-ast)
+  - [The Interpreter](#the-interpreter)
+  - [The Compiler](#the-compiler)
+  - [The Combo](#the-combo)
 - [Writing Optimized Code](#writing-optimized-code)
     - [Memoization](#memoization)
     - [Inline Caching](#inline-caching)
@@ -94,6 +101,12 @@ title: Advanced JS
   </div>
 
 <div id="main">
+
+## Advanced JavaScript Concepts
+
+<p style="text-align: center;"><strong>
+These are my notes while taking the <a href="https://academy.zerotomastery.io/p/advanced-javascript-concepts?affcode=441520_gjue7n-1">Advanced JavaScript Concepts</a> course by Andrei Neagoie on ZTM Academy.</strong>
+</p>
 
 <p align="center">
   <img src="Advanced_Javascript.png" alt="Advanced Javascript Course Map" width="100%">

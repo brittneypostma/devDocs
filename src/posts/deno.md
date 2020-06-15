@@ -7,6 +7,7 @@ title: Deno
 
 <p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
+- [Deno: An Intro](#deno-an-intro)
 - [What is Deno?](#what-is-deno)
   - [Deno vs Node.js](#deno-vs-nodejs)
   - [Will Deno replace Node.js?](#will-deno-replace-nodejs)
@@ -19,6 +20,12 @@ title: Deno
   </div>
 
 <div id="main">
+
+## Deno: An Intro
+
+<p style="text-align: center;"><strong>
+These are my notes while taking the <a href="https://academy.zerotomastery.io/p/deno-the-complete-guide-zero-to-mastery?affcode=441520_gjue7n-1">Deno: The Complete Guide</a> course by Andrei Neagoie and Adam Odziemkowski on ZTM Academy.</strong>
+</p>
 
 <p align="center">
   <img src="deno/Deno.jpg" alt="deno park" width="100%"/>
