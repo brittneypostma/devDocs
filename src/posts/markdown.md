@@ -25,8 +25,12 @@ title: Markdown
 
 <img src="https://image.flaticon.com/icons/png/512/23/23765.png" alt="image alt text" style="width: 50px;"/><br/>
 
-    ![Image Alt Text]{link to image}
+    ![Image Alt Text](link to image)
     
+or
+
+    [![Image Alt Text](link to image)](link to redirect to)
+
 ---
 
 #### Headers
