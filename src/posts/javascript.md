@@ -1,5 +1,6 @@
 ---
 title: JavaScript
+image: ./logos/js.svg
 ---
 
 <div class="post">

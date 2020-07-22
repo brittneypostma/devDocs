@@ -1,5 +1,6 @@
 ---
 title: HTML
+image: ./logos/html.svg
 ---
 
 <div class="post">

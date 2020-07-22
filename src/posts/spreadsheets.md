@@ -1,5 +1,6 @@
 ---
 title: Spreadsheets
+image: ./logos/sheets.png
 ---
 
 <div class="post">

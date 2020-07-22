@@ -1,6 +1,6 @@
 ---
 title: Python
-date: 01/17/2019
+image: ./logos/python.svg
 ---
 
 <div class="post">

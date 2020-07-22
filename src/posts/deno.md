@@ -1,5 +1,6 @@
 ---
 title: Deno
+image: ./logos/deno.svg
 ---
 
 <div class="post">

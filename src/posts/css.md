@@ -1,6 +1,6 @@
 ---
 title: CSS
-date: 09/15/2019
+image: ./logos/css.svg
 ---
 
 <div class="post">

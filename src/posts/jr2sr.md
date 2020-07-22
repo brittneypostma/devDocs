@@ -1,5 +1,6 @@
 ---
 title: Jr to Sr Dev
+image: ./logos/js.svg
 ---
 
 <div class="post">

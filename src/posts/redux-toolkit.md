@@ -1,5 +1,6 @@
 ---
 title: Redux Toolkit
+image: ./logos/redux.svg
 ---
 
 <div class="post">

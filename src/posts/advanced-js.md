@@ -1,5 +1,6 @@
 ---
 title: Advanced JS
+image: ./logos/js.svg
 ---
 
 <div class="post">

@@ -1,5 +1,6 @@
 ---
 title: React
+image: ./logos/react.svg
 ---
 
 <div class="post">

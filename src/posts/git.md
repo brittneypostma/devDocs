@@ -1,6 +1,6 @@
 ---
 title: GIT
-date: 12/14/2019
+image: ./logos/git.svg
 ---
 
 <div class="post">

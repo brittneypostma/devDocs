@@ -22,7 +22,13 @@
 <div class="grid-logs" in:fly={{ y: 200, duration: 1000 }}>
   {#each posts as post}
     <a rel="prefetch" href="logs/{post.slug}">
-      <p class="title">{post.title}</p>
+      <div class="title">
+        <img
+          src={post.image || null}
+          alt={post.slug}
+          style={{ width: '100px', height: '100px' }} />
+        <p>{post.title}</p>
+      </div>
     </a>
   {/each}
 </div>
@@ -38,6 +44,7 @@
   }
 
   .title {
+    position: relative;
     padding: 10px 15px;
     list-style-type: none;
     background: #fff;
@@ -57,7 +64,7 @@
     color: #333;
   }
   .title:hover {
-    transform: scale(1.05);
+    top: -5px;
   }
   .title:active {
     transform: scale(0.95);

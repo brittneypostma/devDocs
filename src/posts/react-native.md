@@ -1,5 +1,6 @@
 ---
 title: React Native
+image: ./logos/react.svg
 ---
 
 <div class="post">

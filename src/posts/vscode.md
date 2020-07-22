@@ -1,5 +1,6 @@
 ---
 title: VSCode Setup
+image: ./logos/vscode.svg
 ---
 
 <div class="post">

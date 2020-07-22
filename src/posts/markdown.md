@@ -1,5 +1,6 @@
 ---
 title: Markdown
+image: ./logos/md.svg
 ---
 
 <div class="post">

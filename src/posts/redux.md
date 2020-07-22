@@ -1,5 +1,6 @@
 ---
 title: Redux
+image: ./logos/redux.svg
 ---
 
 <div class="post">
