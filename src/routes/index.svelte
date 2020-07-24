@@ -17,7 +17,7 @@
 
     return {
       duration,
-      tick: t => {
+      tick: (t) => {
         const i = ~~(text.length * t);
         node.textContent = text.slice(0, i);
       }
@@ -51,12 +51,6 @@
     margin: 0 auto;
     font-weight: 600;
   }
-
-  img {
-    width: 100%;
-    max-width: 400px;
-  }
-
   @media (min-width: 480px) {
     h1 {
       font-size: 4em;

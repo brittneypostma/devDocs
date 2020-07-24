@@ -20,8 +20,8 @@
 
   onMount(() => {
     [...document.querySelectorAll('a')]
-      .filter(a => !!a.hash)
-      .forEach(a => {
+      .filter((a) => !!a.hash)
+      .forEach((a) => {
         try {
           if (!a.hash || !document.querySelectorAll(a.hash).length)
             throw new Error("Anchor isn't valid");
