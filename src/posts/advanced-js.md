@@ -643,7 +643,7 @@ showArgs2('hello', 'world')
 
 > ## Arrow Functions
 >
-> Some people think of arrow functions as just being syntactic sugar for a reguar function, but arrow functions work a bit differently than a regular function. They are a compact alternative to a regular function, but also without its own bindings to **this**, **arguments**, **super**, or **new.target** keywords. Arrow functions cannot be used as constuctors and are not the best option for methods.
+> Some people think of arrow functions as just being syntactic sugar for a regular function, but arrow functions work a bit differently than a regular function. They are a compact alternative to a regular function, but also without its own bindings to **this**, **arguments**, **super**, or **new.target** keywords. Arrow functions cannot be used as constructors and are not the best option for methods.
 >
 > ````javascript
 > var obj = {
@@ -1124,6 +1124,10 @@ d.say()() // d {name: 'jay', say()...}
 ```
 
 After everything is said and done, using **this** can still be a bit confusing. If you aren't sure what it's referencing, just console.log(this) and see where it's pointing.
+
+> **Nifty Snippet**: Context and Scope can sometimes be confusing terms in JavaScript.<br/>
+>**Context** refers to the value of the *this* keyword.<br/>
+>**Scope** refers to the current context and visibility of variables.
 
 ---
 
