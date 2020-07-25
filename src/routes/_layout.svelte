@@ -18,8 +18,8 @@
 <footer>
   &copy;
   <span id="year" />
-  <a href="https://bdesigned.netlify.com/" rel="noreferrer" target="_blank">
-    b.Designed
+  <a href="https://www.bdesigned.dev/" rel="noreferrer" target="_blank">
+    bDesigned
   </a>
   Find me on GitHub
   <a href="https://github.com/brittneypostma" rel="noreferrer" target="_blank">
