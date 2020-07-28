@@ -35,6 +35,7 @@
 
 <style>
   .grid-logs {
+    padding-bottom: 10px;
     font-family: 'Work Sans', sans-serif;
     font-size: 25px;
     line-height: 1.65;

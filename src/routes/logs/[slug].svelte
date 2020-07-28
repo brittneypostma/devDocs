@@ -51,6 +51,7 @@
 <style>
   .post-page {
     margin: 0 auto;
+    padding-bottom: 10px;
   }
 
   h1 {

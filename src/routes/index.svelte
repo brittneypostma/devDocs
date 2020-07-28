@@ -36,6 +36,7 @@
 
 <style>
   .cont {
+    padding-bottom: 10px;
     font-family: 'Space Mono', monospace;
     line-height: 1.65;
     display: grid;
