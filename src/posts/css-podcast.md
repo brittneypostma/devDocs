@@ -12,6 +12,7 @@ image: ./logos/css-podcast.png
   - [Boxes Everywhere](#boxes-everywhere)
   - [User Agent Stylesheet](#user-agent-stylesheet)
   - [Scrollbars](#scrollbars)
+- [Episode Two: Selectors](#episode-two-selectors)
 </div>
 
 <div id="main">
@@ -62,3 +63,10 @@ Scrollbars are interesting in CSS. They live in the same box as the **padding bo
   <img src="css-podcast/gallery.svg" alt="Photo gallery of box model" width="50%">
 </p>
 </div>
+
+---
+
+## Episode Two: Selectors
+
+[CSS Tricks Selectors](https://css-tricks.com/how-css-selectors-work/)<br/>
+[W3C Selectors](https://www.w3.org/TR/selectors-3/)<br/>
