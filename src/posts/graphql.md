@@ -6,7 +6,7 @@ image: ./logos/gql.svg
 <div class="post">
     <div id="toc">
     <p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
-    - [What is GraphQL?](#what-is-graphql)
+- [What is GraphQL?](#what-is-graphql)
 
 </div>
 
@@ -29,7 +29,6 @@ GraphQL was created to combat these issues. It is open-source, so anyone can con
 - 2\. 1 endpoint, instead of many.
 - 3\. Strongly-typed, to validate data.
 
-## Why GraphQL?
 
 
 
