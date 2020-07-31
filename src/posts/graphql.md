@@ -6,6 +6,7 @@ image: ./logos/gql.svg
 <div class="post">
     <div id="toc">
     <p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
+    
 - [What is GraphQL?](#what-is-graphql)
 
 </div>
