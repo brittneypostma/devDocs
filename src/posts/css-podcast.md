@@ -12,7 +12,9 @@ image: ./logos/css-podcast.png
   - [Boxes Everywhere](#boxes-everywhere)
   - [User Agent Stylesheet](#user-agent-stylesheet)
   - [Scrollbars](#scrollbars)
+- [</p>](#p)
 - [Episode Two: Selectors](#episode-two-selectors)
+  - [Simple Selectors](#simple-selectors)
 </div>
 
 <div id="main">
@@ -62,11 +64,25 @@ Scrollbars are interesting in CSS. They live in the same box as the **padding bo
 <p align="center">
   <img src="css-podcast/gallery.svg" alt="Photo gallery of box model" width="50%">
 </p>
-</div>
-
 ---
 
 ## Episode Two: Selectors
 
 [CSS Tricks Selectors](https://css-tricks.com/how-css-selectors-work/)<br/>
 [W3C Selectors](https://www.w3.org/TR/selectors-3/)<br/>
+
+<p align="center">
+  <img src="css-podcast/skeletor.gif" alt="Skeletor laughing" width="50%">
+</p>
+<h4 style="text-align: center;">Selec-tors</h4>
+
+Selectors are a syntax used to find elements (aka subjects)in the DOM tree. CSS then uses the selector to bind the styles to subjects. A CSS **rule** consists of the selector and all the style declarations applied to it. They can be combined together with commas or be defined singularly.
+
+### Simple Selectors
+
+- **Universal Selector** - The most general selector will add styles to every element in a document. It is represented by an asterisk `(*)`. 
+- **Type Selectors** - A base element in the DOM is considered a type selector. Eg. `div, p, img`
+- **Class Selectors** - The most versatile selector because they are well supported, can be added to any element, and can have each element can have multiple classes. Most commonly used with period notation or full stop `(.)`.
+- **ID Selector** - There should be only one id selector per document and is the strongest, most specific selector. It is represented by 
+
+</div>
