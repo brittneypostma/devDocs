@@ -12,7 +12,6 @@ image: ./logos/css-podcast.png
   - [Boxes Everywhere](#boxes-everywhere)
   - [User Agent Stylesheet](#user-agent-stylesheet)
   - [Scrollbars](#scrollbars)
-- [</p>](#p)
 - [Episode Two: Selectors](#episode-two-selectors)
   - [Simple Selectors](#simple-selectors)
 </div>
@@ -64,6 +63,7 @@ Scrollbars are interesting in CSS. They live in the same box as the **padding bo
 <p align="center">
   <img src="css-podcast/gallery.svg" alt="Photo gallery of box model" width="50%">
 </p>
+
 ---
 
 ## Episode Two: Selectors
@@ -76,13 +76,29 @@ Scrollbars are interesting in CSS. They live in the same box as the **padding bo
 </p>
 <h4 style="text-align: center;">Selec-tors</h4>
 
-Selectors are a syntax used to find elements (aka subjects)in the DOM tree. CSS then uses the selector to bind the styles to subjects. A CSS **rule** consists of the selector and all the style declarations applied to it. They can be combined together with commas or be defined singularly.
+Selectors are a syntax used to find elements (aka subjects)in the DOM tree. CSS then uses the selector to bind the styles to subjects. A CSS **rule** consists of the selector and all the style declarations applied to it. They can be combined together into **compound selectors** to create more specific rules or be defined singularly.
 
 ### Simple Selectors
 
 - **Universal Selector** - The most general selector will add styles to every element in a document. It is represented by an asterisk `(*)`. 
 - **Type Selectors** - A base element in the DOM is considered a type selector. Eg. `div, p, img`
 - **Class Selectors** - The most versatile selector because they are well supported, can be added to any element, and can have each element can have multiple classes. Most commonly used with period notation or full stop `(.)`.
-- **ID Selector** - There should be only one id selector per document and is the strongest, most specific selector. It is represented by 
+- **ID Selector** - There should be only one id selector per document and is the strongest, most specific selector. It is represented by the hashtag or pound `(#)`. An element can have stacked or multiple ids on it and the same id can also be repeated on an element for a quirky specificity hack.
+- **Attribute Selectors** - Have the same specificity value as classes, but add functionality by having the attribute plus a value you can select by. These attributes can be elements, classes, data, languages, or even with regex, plus many more.
+- **Pseudo Selectors** - These come in 2 forms pseudo-elements and pseudo-classes. A **pseudo-element** is a structural selector, targeting things around a DOM element usually with `::before` or `::after`. A **pseudo-class** targets more dynamically or states based on the DOM, but cannot be expressed with simple selectors. Some examples are `:nth-child()`, `last-child`, `:hover`, `:active`.
+- **Complex Selectors** - Look for a relationship between elements. It has a cascade downward, descendant, relationship where the parent cannot be styled, but the children and siblings can. Different types of **combinators** describe the relationship between the selectors. 
+  - **Descendent combinator** - These can look like `ul li` which would apply the styles only to list items in an unordered list. This also gets applied recursively or on top of one another. So, if an unordered list with an indentation had another unordered list inside of it, then it would be indented twice as much.
+  - **Child combinator** - This type of combinator breaks up the recursive nature of the descendent relationship. It is made with a greater than `(>)`, like `ul>li` and this will only target the first unordered list.
+  - **Sibling combinator** - Also known as the next sibling combinator, applies to the next sibling of the first element. It is made with a plus `(+)`, like `div+p` would target a paragraph tag next to a div, not within in. They are adjacent to each other under the same parent. A popular use of this is the **lobotomized owl** created by [Heydon Pickering](https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/), and it only selects elements that have a sibling adjacent to them skipping the first of that type.
+
+  - ```css
+    * + * {
+      margin-top: 1.5em;
+    }
+    ```
+  - **Subsequent-sibling combinator** - Often used to target the state of a check box. It is made with a tilde `(~)`, like `input[type=checkbox]:checked ~ div` would target the div adjacent and under the same parent as the check box.
+
+---
+
 
 </div>
