@@ -54,7 +54,7 @@ image: ./logos/js.svg
 - [The 2 Pillars: Closures and Prototypes](#the-2-pillars-closures-and-prototypes)
   - [Function Constructor](#function-constructor)
   - [Prototypal Inheritance](#prototypal-inheritance)
-  - [Prototype vs \_\_proto\_\_](#prototype-vs-proto)
+  - [Prototype vs \_\_proto\_\_](#prototype-vs-__proto__)
   - [Callable Object](#callable-object)
   - [Higher Order Functions](#higher-order-functions)
   - [Closures](#closures)
@@ -583,18 +583,18 @@ this === window
 
 ### Function Execution Context
 
-Only when a function is invoked, does a function execution context get created.
+A function context is created by the JavaScript engine when it sees a function call. Each function gets its own execution context. 
 
 - #### Creation Phase
 - 1\. argument object created with any arguments
-- 2\. initializes _this_ keyword to point called or to the global object if not specified
+- 2\. sets _this_ to the global object unless in strict mode, where its undefined
 
 - #### Executing Phase
 - 3\. Variable Environment created - _memory space for variable and functions created_
 - 4\. initializes all variables to _undefined_ and places them into memory with any new functions
 
 ```javascript
-// Function Execution Context creates arguments object and points 'this' to the function
+// Function Execution Context creates arguments object
 function showArgs(arg1, arg2) {
   console.log('arguments: ', arguments)
   return `argument 1 is: ${arg1} and argument 2 is: ${arg2}`
