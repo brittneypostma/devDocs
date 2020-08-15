@@ -91,12 +91,15 @@ Selectors are a syntax used to find elements (aka subjects)in the DOM tree. CSS 
   - **Child combinator** - This type of combinator breaks up the recursive nature of the descendent relationship. It is made with a greater than `(>)`, like `ul>li` and this will only target the first unordered list.
   - **Sibling combinator** - Also known as the next sibling combinator, applies to the next sibling of the first element. It is made with a plus `(+)`, like `div+p` would target a paragraph tag next to a div, not within in. They are adjacent to each other under the same parent. A popular use of this is the **lobotomized owl** created by [Heydon Pickering](https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/), and it only selects elements that have a sibling adjacent to them skipping the first of that type.
 
-  - ```css
+   ```css
     * + * {
       margin-top: 1.5em;
     }
     ```
+ 
   - **Subsequent-sibling combinator** - Often used to target the state of a check box. It is made with a tilde `(~)`, like `input[type=checkbox]:checked ~ div` would target the div adjacent and under the same parent as the check box.
+ 
+  
 
 ---
 
