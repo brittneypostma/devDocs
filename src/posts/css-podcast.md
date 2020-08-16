@@ -8,12 +8,17 @@ image: ./logos/css-podcast.png
 <p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
 - [Episode One: The Box Model](#episode-one-the-box-model)
+    - [Episode Links](#episode-links)
   - [Intrinsic vs Extrinsic Sizing](#intrinsic-vs-extrinsic-sizing)
   - [Boxes Everywhere](#boxes-everywhere)
   - [User Agent Stylesheet](#user-agent-stylesheet)
   - [Scrollbars](#scrollbars)
 - [Episode Two: Selectors](#episode-two-selectors)
+    - [Episode Links](#episode-links-1)
   - [Simple Selectors](#simple-selectors)
+- [Episode Three: Specificity](#episode-three-specificity)
+    - [Episode Links](#episode-links-2)
+  - [Game Time](#game-time)
 </div>
 
 <div id="main">
@@ -25,10 +30,11 @@ image: ./logos/css-podcast.png
 
 ## Episode One: The Box Model
 
+#### Episode Links
 [CSS Tricks Box Model](https://css-tricks.com/the-css-box-model/)<br/>
 [W3C Box Model Module](https://www.w3.org/TR/css-box-3/)<br/>
+[Adam's Box Model Codepen](https://codepen.io/argyleink/pen/bGNmgGW)<br/><br/>
 
-[Adam's Box Model Codepen](https://codepen.io/argyleink/pen/bGNmgGW)<br/>
 <iframe height="500" style="width: 100%;" scrolling="no" title="Box Model" src="https://codepen.io/argyleink/embed/bGNmgGW?height=500&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/argyleink/pen/bGNmgGW'>Box Model</a> by Adam Argyle
   (<a href='https://codepen.io/argyleink'>@argyleink</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -68,8 +74,9 @@ Scrollbars are interesting in CSS. They live in the same box as the **padding bo
 
 ## Episode Two: Selectors
 
+#### Episode Links
 [CSS Tricks Selectors](https://css-tricks.com/how-css-selectors-work/)<br/>
-[W3C Selectors](https://www.w3.org/TR/selectors-3/)<br/>
+[W3C Selectors](https://www.w3.org/TR/selectors-3/)<br/><br/>
 
 <p align="center">
   <img src="css-podcast/skeletor.gif" alt="Skeletor laughing" width="50%">
@@ -102,6 +109,42 @@ Selectors are a syntax used to find elements (aka subjects)in the DOM tree. CSS 
   
 
 ---
+
+## Episode Three: Specificity
+
+<p align="center">
+  <img src="css-podcast/specificity.jpg" alt="specificity meme">
+</p>
+
+#### Episode Links
+[Diagram by Estelle Weyl](http://specifishity.com)<br/>
+[Specificity Calculator](https://specificity.keegan.st)<br/><br/>
+
+What happens when a subject is being targeted by multiple rules? The rule with the highest amount of points, or specificity, wins out. Specificity is how the browser decides which styles should be applied to an item. A weight or in this example points are given to each selector based on their ranking of least to most specific. Here's the game, we start at 0 and add up the number of points for each selector. If there is a tie, the last rule in the stylesheet wins. And no cheating by duplicating extra classes to your css 😜!
+
+| Points   |   Selectors   |
+|----------|---------------|
+| 0        |  Universal/Not **`*`**/**`:not`**  |
+| 1        | Element/Pseudo-element **`h1`**/**`::before`** |
+| 10       |   Class/Pseudo-class **``.**/**`:focus`**   |
+| 100      | ID **`#`** |
+| 1000     |   Inline **`style`**   |
+
+### Game Time
+
+- 1\. *
+- 2\. p
+- 3\. main .header
+- 4\. #nav ul li
+- 5\. a:active
+- 6\. a:not(:active)
+- 7\. article a.outbound:not(:visited)
+- 8\. a.lol.lol.lol.lol
+
+Check your scores in the [specificity calculator](https://specificity.keegan.st). How did you do? Hopefully, this article helped you learn a little more about how to calculate specificity and apply it in your CSS!
+
+
+
 
 
 </div>
