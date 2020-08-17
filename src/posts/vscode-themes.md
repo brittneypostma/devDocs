@@ -129,10 +129,10 @@ You may already have things inside your `settings.json`, but the areas we need t
 I separated the italic and the colors into individual scopes to keep them apart in case I want to change or remove something, I only need to go to that place. After, figuring out a color pallette, you can add a **scope** with a `"name"` field for each color. To add rules to each of these scopes, we need to figure out what VSCode calls what we want to color. I used the built in **Developer: Inspect Editor Tokens and Scopes** to figure out what each individual item was called. You can find it with the Command Pallette again by searching for the **developer inspect editor** and it should come up with a box that looks similar to the ones below.
 
 <p align="center">
-  <img src="vscode-theme/search.png" alt="Command pallette in VSCode" width="100%">
+  <img src="vscode-theme/search.png" alt="Command pallette in VSCode" width="50%">
 </p>
 <p align="center">
-  <img src="vscode-theme/inspect.png" alt="inspect editor in VSCode" width="100%">
+  <img src="vscode-theme/inspect.png" alt="inspect editor in VSCode" width="50%">
 </p>
 
 On the left side of the bottom image, you can see textmate scopes and on the right are the scopes that fit the currently selected item. The image has the **function** in JavaScript selected. You will use those scopes to add to a color inside your `settings.json`. Usually these are very specific to the language, but just using the base should work in most cases. Here is an example:
