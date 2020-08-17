@@ -1765,9 +1765,9 @@ inefficient(6500)
 
 const getEfficient = efficient()
 
-efficient(688)
-efficient(1000)
-efficient(6500)
+getEfficient(688)
+getEfficient(1000)
+getEfficient(6500)
 
 // created!
 // created!
