@@ -10,6 +10,8 @@ image: ./logos/gql.svg
 - [What is GraphQL?](#what-is-graphql)
   - [Key Points](#key-points)
 - [When Not to GraphQL](#when-not-to-graphql)
+  - [Key Points](#key-points-1)
+- [Fetching Data](#fetching-data)
 
 </div>
 
@@ -48,10 +50,37 @@ The API landscape has changed so much over the last few years. With increased mo
 
 Okay, so why use REST at all if GraphQL is so much better? Well, there are still cases where it is not as efficient to use GraphQL. The main problem with GraphQL is the a lack of built-in cache support. You can setup your own middleware to deal with this, but it adds complexity and size to your API. Another problem, is that queries always return a status code of **`200`**, meaning OK all good, even if the query was unsuccessful. The error may be difficult to find and leads to additional complexity and monitoring. In the end, GraphQL adds a layer of complexity that may not be needed. If your API is simple and relatively consistent over time, REST is probably a better option. But, if your data is rapidly-changing, GraphQL may just be your solution.
 
+### Key Points
+
+> &#x25FE; Lack of cache support.<br/>
+> &#x25FE; No status code errors.<br/>
+> &#x25FE; Added complexity and refactoring.<br/>
+
+---
+
+## Fetching Data
+
+Let's say we have a users endpoint. From each user, we want to grab their posts and followers through their id. Using a REST API, we would hit the id endpoint, then grab the posts from that, then add a separate call through the id to the followers endpoint. That's 3 requests to different endpoints just to get out data back. With GraphQL, we can write **one** query request and get our data back in a useable format. It might look like this:
+
+```
+{
+  "data": {
+    "User": {
+      "name": "Mary",
+      "posts": [
+        { title: "Learn GraphQL today" }
+      ],
+      "followers": [
+        { name: "John" },
+        { name: "Alice" },
+        { name: "Sarah" }
+      ]
+    }
+  }
+}
+```
+
+We tell structure our query to say, we only want to get Mary's posts and followers. With just a single request, we got the data back, specifically the way we asked for it.
 
 
-
-
-
-</div>
 </div>
