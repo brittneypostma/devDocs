@@ -6,7 +6,8 @@ image: ./logos/redux.svg
 <div class="post">
 <div id="toc">
 
-#### Table of Contents<p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
+<p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
+
 - [What is Redux Toolkit?](#what-is-redux-toolkit)
 - [Why Redux Toolkit?](#why-redux-toolkit)
 - [Using Redux Toolkit](#using-redux-toolkit)

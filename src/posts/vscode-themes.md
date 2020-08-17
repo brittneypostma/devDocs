@@ -1,5 +1,5 @@
 ---
-title: VSCode Themes
+title: VSCode Theme
 image: ./logos/vscode.svg
 ---
 
@@ -8,7 +8,7 @@ image: ./logos/vscode.svg
 
 <p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
-- [Creating a VSCode Theme Extension](#creating-a-vscode-theme-extension)
+- [Build a VSCode Theme](#build-a-vscode-theme)
   - [Create Files](#create-files)
   - [Package.json](#packagejson)
   - [Edit Colors](#edit-colors)
@@ -18,18 +18,21 @@ image: ./logos/vscode.svg
   - [Publish Theme](#publish-theme)
   - [Updating](#updating)
 
-</div>
-
-<div id="main">
-
-## Creating a VSCode Theme Extension
-
 <p align="center">
   <img src="vscode-theme/header.png" alt="vscode theme header" width="100%">
 </p>
 
-[Deep Water Theme](https://marketplace.visualstudio.com/items?itemName=bDesigned.deep-water)<br/>
-[Deep Water Repo](https://github.com/brittneypostma/deep-water)<br/><br/>
+- [Deep Water Theme](https://marketplace.visualstudio.com/items?itemName=bDesigned.deep-water)<br/>
+- [Deep Water Repo](https://github.com/brittneypostma/deep-water)<br/><br/>
+
+**This is also available on Dev.to. Please, go give it some 💖 [Build a VSCode Theme](https://dev.to/bdesigned/build-a-vscode-theme-3f4i)!**
+
+</div>
+
+<div id="main">
+
+
+## Build a VSCode Theme
 
 Themes and extensions are a great part of what makes [Visual Studio Code (VSCode)](https://code.visualstudio.com/) so amazing to use. I love changing my colors ever so often, just to get a new look and feel when I code. Creating your own VSCode theme can be a learning and sometimes challenging experience, so I wanted to write this post on my journey in creating my first theme. From editing a theme to publishing on the marketplace, I want to take you step by step through the process. Let's get started!
 
@@ -60,7 +63,7 @@ touch themes/Test Theme-color.theme.json
 For our `package.json` file, there are some required fields for the VSCode extension. After running the `npm init -y`, we should have a file that looks similar to the one below.
 
 <p align="center">
-  <img src="vscode-theme/json1.png" alt="package.json file starter" width="100%">
+  <img src="vscode-theme/json1.png" alt="package.json file starter" width="50%">
 </p>
 
 We can rip out the scripts section and the other fields can be modified to fit your theme. There are additional fields needed for the VSCode extension inside the `package.json` file, these are `publisher`, `engines`, `categories`, and `contributes`, a `displayName` field is also nice. After editing the initial `package.json`, let's add the required fields in.
