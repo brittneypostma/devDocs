@@ -9,10 +9,14 @@ image: ./logos/vscode.svg
 <p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
 - [Creating a VSCode Theme Extension](#creating-a-vscode-theme-extension)
-- [Create Files](#create-files)
-- [Edit Colors](#edit-colors)
-- [In Progress](#in-progress)
-- [Becoming a Publisher](#becoming-a-publisher)
+  - [Create Files](#create-files)
+  - [Package.json](#packagejson)
+  - [Edit Colors](#edit-colors)
+  - [Images](#images)
+  - [Readme](#readme)
+  - [Becoming a Publisher](#becoming-a-publisher)
+  - [Publish Theme](#publish-theme)
+  - [Updating](#updating)
 
 </div>
 
@@ -24,9 +28,12 @@ image: ./logos/vscode.svg
   <img src="vscode-theme/header.png" alt="vscode theme header" width="100%">
 </p>
 
-Color themes are a great part of what makes [Visual Studio Code](https://code.visualstudio.com/), from here on VSCode, awesome. I love changing my colors ever so often, just to get a new look and feel when I code. Creating your own VSCode theme can be a learning experience, so I wanted to write this post on my journey in creating my first theme. From editing a theme to publishing on the marketplace, I want to take you step by step through the process. Let's get started!
+[Deep Water Theme](https://marketplace.visualstudio.com/items?itemName=bDesigned.deep-water)<br/>
+[Deep Water Repo](https://github.com/brittneypostma/deep-water)<br/><br/>
 
-## Create Files
+Themes and extensions are a great part of what makes [Visual Studio Code (VSCode)](https://code.visualstudio.com/) so amazing to use. I love changing my colors ever so often, just to get a new look and feel when I code. Creating your own VSCode theme can be a learning and sometimes challenging experience, so I wanted to write this post on my journey in creating my first theme. From editing a theme to publishing on the marketplace, I want to take you step by step through the process. Let's get started!
+
+### Create Files
 
 <br/>
 To begin, we need to create a directory to hold our theme files.
@@ -35,18 +42,20 @@ To begin, we need to create a directory to hold our theme files.
 
 ```bash
 mkdir theme-name
+cd theme-name
 ```
 
-There are only 2 required components of a color theme in VSCode, a `package.json` file and a theme file in `json` format. A `readme` file and a logo is always a nice addition, so we will be creating those as well. Let's create the required files. Either use the terminal or the integrated VSCode options to create the following files and folders, `npm init -y` to create the `package.json`, themes folder, `themes/theme-name`, images folder. Here are the commands in order.
+There are only 2 required components of a color theme in VSCode, a `package.json` file and a theme file in `json` format. A `readme` file and a logo is always a nice addition, so we will be creating those as well. Let's create the required files. Run `npm init -y` in the directory you made to create the `package.json`. Create a folder called themes or run `mkdir themes` in the terminal. The next step caused me a lot of trouble when first publishing my theme. It is not documented, but the `json` file for the theme, needs to be named a specific way in order for it to show up within the vscode preferences. Inside of your themes folder, create a file named the displayName of your theme followed by `-color-theme.json`. It should look like this if your name is Test Theme, its `Test Theme-color-theme.json`. Here are the commands in order.
 
 ```bash
 npm init -y
 mkdir themes
-touch themes/theme-name
-mkdir images
+touch themes/Test Theme-color.theme.json
 ```
 
-<br/>
+---
+
+### Package.json
 
 For our `package.json` file, there are some required fields for the VSCode extension. After running the `npm init -y`, we should have a file that looks similar to the one below.
 
@@ -54,11 +63,36 @@ For our `package.json` file, there are some required fields for the VSCode exten
   <img src="vscode-theme/json1.png" alt="package.json file starter" width="100%">
 </p>
 
-These fields can be modified to fit your theme. Now, we can start working on our theme. VSCode uses a `settings.json` file to edit your workspace. To see the colors as you add them, I edited my  `settings.json` and then added to my `theme/theme-name.json` to ensure they were the correct colors. In VSCode, open `settings.json` by clicking `CTRL+SHIFT+P` in Windows, or `CMD+SHIFT+P` in Mac and then type `settings.json` in the box that pops up. This will open the file.
+We can rip out the scripts section and the other fields can be modified to fit your theme. There are additional fields needed for the VSCode extension inside the `package.json` file, these are `publisher`, `engines`, `categories`, and `contributes`, a `displayName` field is also nice. After editing the initial `package.json`, let's add the required fields in.
+
+```js
+{
+  "publisher": "bDesigned",
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "test-theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/theme-name.json"
+      }
+    ]
+  },
+  "displayName": "Theme Name"
+```
+
+---
+
+### Edit Colors
+
+Now, we can start working on our theme. VSCode uses a `settings.json` file to edit your workspace. To see the colors as you add them, I edited my  `settings.json` and then added to my `theme/theme-name.json` to ensure they were the correct colors. In VSCode, open `settings.json` by clicking `CTRL+SHIFT+P` in Windows, or `CMD+SHIFT+P` in Mac and then type `settings.json` in the box that pops up. This will open the file.
 
 <br/>
-
-## Edit Colors
 
 You may already have things inside your `settings.json`, but the areas we need to edit are under `"workbench.colorCustomizations"` and `"editor.tokenColorCustomizations": {"textMateRules":[]}`. To ease the confusion of adding these **scopes**, VSCodes term for the rules used, I created a color pallette and then added a "name" field to all of my `"textMateRules"` that says the color or what the rule is setting. Below is a sample of my `settings.json`.
 
@@ -119,7 +153,7 @@ On the left side of the bottom image, you can see textmate scopes and on the rig
 }
 ```
 
-Now you can go through each thing you want to colorize and add a scope for that item to the correct color. Once it is where you like it, we can copy the rules over into our `theme.json` file. Everything inside `"workbench.colorCustomizations": { ...copyEverythingHere }` and inside `"textMateRules": [ ...copyEverythingHere ]` need to be copied over to the `theme.json` file like this:
+Now you can go through each thing you want to colorize and add a scope for that item to the correct color. Once it is where you like it, we can copy the rules over into our `theme.json` file. Everything inside `"workbench.colorCustomizations": { ...copyEverythingHere }` and inside `"textMateRules": [ ...copyEverythingHere ]` needs to be copied over to the `theme.json` file like this:
 
 ```js
 {
@@ -134,39 +168,23 @@ Now you can go through each thing you want to colorize and add a scope for that 
 }
 ```
 
-## In Progress
+### Images
 
-After this is done, the theme is technically ready to publish. But, if you want it to look nice, you can add an icon and a readme file. Create an icon and place it in an images folder.
+After this is done, the theme is technically ready to publish. But, if you want it to look nice, you can add an icon and a readme file. Create an `images` folder in the root directory or `mkdir images` in the terminal. Create an icon and any screenshots in `png` format (SVGs are not supported) and place them in the images folder. We need to update the `package.json` to accept the icon. Add an `"icon"` key followed by the image path `"icon": "images/logo.png"`.
 
+---
 
-<br/>
+### Readme
 
-## Becoming a Publisher
+Now we can add a `readme.md` file to the root directory. Write up info about your theme and add any screenshots of your theme to make it stand out. You can also add some badges to it for some flair from [Badgen.net](https://badgen.net/). Making sure to specify the language the themes support and screenshots showing the theme off are always helpful.
 
-There are additional fields needed for the VSCode extension inside the `package.json` file, these are `publisher`, `engines`, `categories`, and ``contributes`, a `displayName` field is also nice. After editing the initial `package.json`, let's add the required fields in.
+---
 
-```js
-{
-  "publisher": "bDesigned",
-  "engines": {
-    "vscode": "^1.0.0"
-  },
-  "categories": [
-    "Themes"
-  ],
-  "contributes": {
-    "themes": [
-      {
-        "label": "test-theme",
-        "uiTheme": "vs-dark",
-        "path": "./themes/theme-name.json"
-      }
-    ]
-  },
-  "displayName": "Theme Name"
-```
+### Becoming a Publisher
 
-The `publisher` field is the username used on the VSCode marketplace. You can create this account by going to [dev.azure.com/vscode](https://dev.azure.com/vscode). Once it is created, we need to get a personal access token. This is a detailed process to get right, so make sure to follow all the directions in the images below. Things to note, in **Organization**, make sure to select **All accessible organizations**. Then, to open the Marketplace option, click on **Custom defined** and **show all scopes**. You can then find the **Marketplace** and click all the check boxes (**read**, **acquire**, **publish**, and **manage**). Once all of this is done, click **Create** and make sure to **save your access token** somewhere as Azure does not save it on their end. Also, copy the access token to the clipboard, because we will use it in the next step.
+[VSCode Docs](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)<br/><br/>
+
+To publish a file in the marketplace, you need to have an access token from Azure. You can create this account by going to [dev.azure.com/vscode](https://dev.azure.com/vscode). Once it is created, we need to get a personal access token. This is a detailed process to get right, so make sure to follow all the directions in the images below. Things to note, in **Organization**, make sure to select **All accessible organizations**. Then, to open the Marketplace option, click on **Custom defined** and **show all scopes**. You can then find the **Marketplace** and click all the check boxes (**read**, **acquire**, **publish**, and **manage**). Once all of this is done, click **Create** and make sure to **save your access token** somewhere as Azure does not save it on their end. Also, copy the access token to the clipboard, because we will use it in the next step.
 
 <p align="center">
   <img src="vscode-theme/token1.png" alt="Azure access token images" width="100%">
@@ -181,6 +199,54 @@ The `publisher` field is the username used on the VSCode marketplace. You can cr
   <img src="vscode-theme/token4.png" alt="Azure access token images" width="100%">
 </p>
 
-Now that we have an Azure account set up to publish on the Marketplace, we can install the `vsce` package and login.
+---
+
+### Publish Theme
+
+ Now that we have an Azure account set up to publish on the Marketplace, we can install the `vsce` package and create a publisher. If you already have a publisher name under the account section of [VSCode Marketplace](https://marketplace.visualstudio.com/), you can skip the creation part and use the name you have already created.
+
+```bash
+npm i -g vsce
+vsce create-publisher your-name 
+```
+
+Here it should prompt you for the access token you copied when creating your account. You can use `CTRL+V` on Windows or `CMD+V` on Mac to paste the token. After the publisher is set, we should then be able to login.
+
+```bash
+vsce login your-publisher-name
+```
+
+In the `package.json` file the `publisher` field is the username used in the vsce login as well. Double check you have copied all of your `settings.json` rules into the correct sections of your themes `json` file and we can move onto packaging and publishing the extension.
+
+```bash
+vsce package
+vsce publish
+```
+
+As long as there were no errors, you should now have a package published in the Marketplace. It will show you a link to the themes page that will take approximately 5 minutes to work. But wait, what if we try to update? VSCode does not automatically track the repo for changes. 
+
+### Updating
+
+If you make any changes to your theme, to update we first need to up our version number in the `package.json` from `1.0.0` to `1.0.1`. After updating the version, push the changes to GitHub.
+
+```bash
+git add .
+git commit -m 'commit message'
+git push
+```
+
+When the changes are pushed, we need to **tag** the version with git.
+
+```bash
+git tag v1.0.1
+```
+
+Once the version is tagged, we can then republish the updated extensions.
+
+```bash
+vsce publish
+```
+
+Now you should have a fully functional theme on the Marketplace! Hopefully you enjoyed reading through and learned a thing or two along the way!
 
 </div>
