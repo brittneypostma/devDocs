@@ -12,6 +12,7 @@ image: ./logos/gql.svg
 - [When Not to GraphQL](#when-not-to-graphql)
   - [Key Points](#key-points-1)
 - [Fetching Data](#fetching-data)
+- [The Schema Definition Language (SDL)](#the-schema-definition-language-sdl)
 
 </div>
 
@@ -60,27 +61,30 @@ Okay, so why use REST at all if GraphQL is so much better? Well, there are still
 
 ## Fetching Data
 
-Let's say we have a users endpoint. From each user, we want to grab their posts and followers through their id. Using a REST API, we would hit the id endpoint, then grab the posts from that, then add a separate call through the id to the followers endpoint. That's 3 requests to different endpoints just to get out data back. With GraphQL, we can write **one** query request and get our data back in a useable format. It might look like this:
+Let's say we have a users endpoint. From each user, we want to grab their posts and followers through their id. Using a REST API, we would hit the id endpoint, then grab the posts from that, then add yet another call to the followers endpoint. That's 3 requests to different endpoints just to get our data back. With GraphQL, we can write **one** query request and get our data back in a useable format. It might look like this:
 
-```
-{
-  "data": {
-    "User": {
-      "name": "Mary",
-      "posts": [
-        { title: "Learn GraphQL today" }
-      ],
-      "followers": [
-        { name: "John" },
-        { name: "Alice" },
-        { name: "Sarah" }
-      ]
+```graphql
+query {
+  User (id: "er3tg439frjw") {
+    name
+    posts {
+      title
+    }
+    follower(last: 3) {
+      name
     }
   }
 }
 ```
 
-We tell structure our query to say, we only want to get Mary's posts and followers. With just a single request, we got the data back, specifically the way we asked for it.
+We structure our query to say, we only want to get Mary's posts and followers. With just a single request, we got the data back, specifically the way we asked for it.
 
+
+## The Schema Definition Language (SDL)
+
+GraphQL uses a type system to define the schema of an API. The syntax for writing these schemas is called **Schema Definition Language** or **SDL** for short. SDL can be used to define a **type**.
+```
+
+```
 
 </div>
