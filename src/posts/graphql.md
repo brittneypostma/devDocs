@@ -107,33 +107,33 @@ We structure our query to say, we only want to get Brittney's courses and studen
 GraphQL uses a type system to define the schema of an API. The syntax for writing these schemas is called **Schema Definition Language** or **SDL** for short. SDL can be used to define a **type** in the creation of an API.
 
 ```graphql
-type Instructor {
+type Student {
   id: ID!
   name: String!
   age: Int!
 }
 ```
 
-Here we are saying give us a type called Instructor that has three **fields**, name and age which are of types **String** and **Int**, and an id field of type **ID** which will automatically generate an id when an new instructor is created. The **!** or bang operator means that the field is required on that type. Multiple types can be created and combined by creating relations between the types.
+Here we are saying give us a type called Student that has three **fields**, name and age which are of types **String** and **Int**, and an id field of type **ID** which will automatically generate an id when an new Student is created. The **!** or bang operator means that the field is required on that type. Multiple types can be created and combined by creating relations between the types.
 
 ```graphql
 type Course {
   title: String!
-  author: Person!
+  author: Student!
 }
 
-type Instructor {
+type Student {
   name: String!
   age: Int!
   courses: [Course!]!
 }
 ```
 
-Here there is a one-to-many relationship between the Instructor type and the Course type because the courses field is an array of multiple courses. A query for this might look like this.
+Here there is a one-to-many relationship between the Student type and the Course type because the courses field is an array of multiple courses. A query for this might look like this.
 
 ```graphql
 query {
-  allInstructors {
+  allStudents {
     name
     age
     courses {
@@ -143,23 +143,23 @@ query {
 }
 ```
 
-This would return us all Instructors listed in database, their age, as well as the title of all their courses.
+This would return us all Students listed in database, their age, as well as the title of all their courses.
 
 ---
 
 ## Mutations
 
-You may have heard the term **CRUD** operations before. This stands for Create, Read, Update, and Delete. These are the 4 basic functions that APIs should be able to perform. In GraphQL, the Read function is from the query and we get all the others through **Mutations**. If you think about it, the name makes sense, because we are mutating data by creating, updating, or deleting. Let's create a new instructor.
+You may have heard the term **CRUD** operations before. This stands for Create, Read, Update, and Delete. These are the 4 basic functions that APIs should be able to perform. In GraphQL, the Read function is from the query and we get all the others through **Mutations**. If you think about it, the name makes sense, because we are mutating data by creating, updating, or deleting. Let's create a new student.
 
 ```graphql
 mutation {
-  createInstructor(name: "Tom", age: 35) {
+  createStudent(name: "Tom", age: 35) {
     id
   }
 }
 ```
 
-This createInstructor field takes the 2 **arguments** that are required on that type, the name and age. It then returns as a **payload** the id that is automatically generated in a query back to us. It would be the same syntax for deleting or updating. These are created by **resolvers** on the server side, which is a topic we cover later.
+This createStudent field takes the 2 **arguments** that are required on that type, the name and age. It then returns as a **payload** the id that is automatically generated in a query back to us. It would be the same syntax for deleting or updating. These are created by **resolvers** on the server side, which is a topic we cover later.
 
 ---
 
@@ -169,28 +169,53 @@ Having a realtime connection to the database is important in many applications. 
 
 ```graphql
 subscription {
-  newInstructor {
+  newStudent {
     name
     age
   }
 }
 ```
 
-In this Subscription, anytime a new Instructor is created, the name and age will get sent from the server to the client.
+In this Subscription, anytime a new Student is created, the name and age will get sent from the server to the client.
 
 ---
 
 ## Schema
 
-Now that we have covered the basic foundations of GraphQL, we can cover how it all comes together. Each **entry point**, **Query**, **Mutation**, and **Subscription** are defined in a **Schema**. A schema described the capabilities of the API and defines how clients can request data from it. It is sometimes referred to as a *contract* between the server and the client. To create the allInstructors query we used before, we would need to specify that inside the schema.
+Now that we have covered the basic foundations of GraphQL, we can cover how it all comes together. Each **entry point**, **Query**, **Mutation**, and **Subscription** are defined in a **Schema**. A schema described the capabilities of the API and defines how clients can request data from it. It is sometimes referred to as a *contract* between the server and the client. To create the allStudents query we used before, we would need to specify that inside the schema.
 
 ```graphql
 type Query {
-  allInstructors: [Instructor!]!
+  allStudents: [Student!]!
 }
 ```
 
-Here the allInstructors field is called the **root field** of the API. Any argument we want to use in the base functions, we need to specify in the schema. So before, when we added the argument `(last: 3)` to get the last 3 students, that would need to defined in our schema.
+Here the allStudents field is called the **root field** of the API. Any argument we want to use in the base functions, we need to specify in the schema. So before, when we added the argument `(last: 3)` to get the last 3 students, that would need to defined in our schema. Putting all of it together would look something like this.
+
+```graphql
+type Query {
+  allStudents(last: Int): [Student!]!
+}
+
+type Mutation {
+  createStudent(name: String!, age: Int!, id: ID!): Student!
+}
+
+type Subscription {
+  newStudent: Student!
+}
+
+type Student {
+  name: String!
+  age: Int!
+  courses: [Course!]!
+}
+
+type Course {
+  title: String!
+  author: Student!
+}
+```
 
 --- 
 
