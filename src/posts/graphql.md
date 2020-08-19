@@ -16,6 +16,7 @@ image: ./logos/gql.svg
 - [Mutations](#mutations)
 - [Subscriptions](#subscriptions)
 - [Schema](#schema)
+- [Resolvers](#resolvers)
 
 </div>
 
@@ -82,7 +83,7 @@ query {
 
 We structure our query to say, we only want to get Brittney's courses and students. Using the **id** and **last** arguments, we can specify which Instructor and how many students to return. With just a single request, we got the data back, specifically the way we asked for it. Here is the data returned from the GraphQL query.
 
-```json
+```js
 {
   "data": {
     "Instructor": {
@@ -118,11 +119,12 @@ Here we are saying give us a type called Student that has three **fields**, name
 
 ```graphql
 type Course {
+  id: ID!
   title: String!
-  author: Student!
 }
 
 type Student {
+  id: ID!
   name: String!
   age: Int!
   courses: [Course!]!
@@ -159,7 +161,7 @@ mutation {
 }
 ```
 
-This createStudent field takes the 2 **arguments** that are required on that type, the name and age. It then returns as a **payload** the id that is automatically generated in a query back to us. It would be the same syntax for deleting or updating. These are created by **resolvers** on the server side, which is a topic we cover later.
+This createStudent field takes the 2 **arguments** that are required on that type, the name and age. It then returns as a **payload** the id that is automatically generated in a query back to us. It would be the same syntax for deleting or updating. These are created by [**resolvers**](#resolvers) on the server side, which is a topic we cover later.
 
 ---
 
@@ -218,5 +220,30 @@ type Course {
 ```
 
 --- 
+
+## Resolvers
+
+GraphQL is extremely versatile and can be used with different types of data architecture. The way it gains this flexibility is through **resolvers**. Each query or mutation above had a set of **fields** in the payload, these all correspond to one function called a **resolver**. When the server receives a request, it calls all the functions for the specified fields in the request. It then resolves the request and is able to retrieve the correct data for each field. When all the resolvers are returned, the server packages the data and sends it back to the client in json format. A resolver object for our fields might look similar to this, but it would need to be connected to a data source to get the data from. 
+
+```js
+const resolvers = {
+  Query: {
+    allStudents: (root, args, context, info) => {
+      return students.get()
+    }
+  },
+  Student: {
+    courses: (root, args, context, info) => {
+      return courses.getByStudentId(root.id)
+    }
+  },
+  Course: {
+    author: (root, args, context, info) => {
+      const course = getCourse(root.id)
+      return course.getAuthor()
+    }  
+  }
+}
+```
 
 </div>
