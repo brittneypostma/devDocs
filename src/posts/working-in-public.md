@@ -13,4 +13,8 @@ image: ./logos/open-source-logo.png
 
 <div id="main">
 
+## Notes on the book Working In Public
+
+<p align="center"><caption>The Making and Maintenance of Open Source Software by Nadia Eghbal</caption></p>
+
 </div>
