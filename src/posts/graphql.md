@@ -19,6 +19,8 @@ image: ./logos/gql.svg
   - [Into the code](#into-the-code)
     - [index.js](#indexjs)
     - [Server](#server)
+    - [Frontend](#frontend)
+    - [GraphQL Query](#graphql-query)
 
 </div>
 
@@ -393,14 +395,7 @@ const client = new ApolloClient({
 
 #### Server
 
-Now we need to download the code for the backend server.
-
-```bash
-curl https://codeload.github.com/howtographql/react-apollo/tar.gz/starter | tar -xz --strip=1 react-apollo-starter/server
-
-```
-
-This will add a directory called server to your application. Inside there are prisma files to connect to the database and inside the src folder is the GraphQL server files. We now need to deploy the Prisma database so the GraphQL server can access it.
+The code to download the backend of the server was not correct on the tutorial. In order to get the correct version, I cloned the [React-Apollo Tutorial Repo](https://github.com/howtographql/react-apollo). Then, I copied the **server** folder and pasted it into the root of my project. This will add a directory called server to your application. Inside there are prisma files to connect to the database and inside the src folder is the GraphQL server files. We now need to deploy the Prisma database so the GraphQL server can access it.
 
 ```bash
 cd server
@@ -409,8 +404,162 @@ yarn install
 prisma1 deploy
 ```
 
-After running `prisma1 deploy` navigate to Demo server + MySQL database, hit enter and then choose the location closest to  you.
+After running **`prisma1 deploy`** navigate to Demo server + MySQL database, hit enter and then choose the location closest to you to create your database. Next, we need to run our backend locally. While still in the server directory run **`yarn start`** and leave it running. Now we can run two mutations to check our connection to the database. Navigate to [http://localhost:4000/](http://localhost:4000/) and paste in the following mutations.
 
+```graphql
+mutation CreatePrismaLink {
+  post(
+    description: "Prisma turns your database into a GraphQL API 😎",
+    url: "https://www.prismagraphql.com"
+  ) {
+    id
+  }
+}
 
+mutation CreateApolloLink {
+  post(
+    description: "The best GraphQL client for React",
+    url: "https://www.apollographql.com/docs/react/"
+  ) {
+    id
+  }
+}
+```
+
+Press the play button and select each mutation once. It should return an id. If this worked, we can verify the links were added by running the following query.
+
+```graphql
+{
+  feed {
+    links {
+      id
+      description
+      url
+    }
+  }
+}
+```
+
+It should return the json data with the id, description, and url of the 2 links.
+
+#### Frontend
+
+Now that the backend is working, we can implement the client side of the application. First, we are going to display a list of **Link** elements. Inside of the components directory, create a file named **`Link.js`** and add the following code to it.
+
+```jsx
+import React from 'react'
+
+const Link = (props) => {
+  const link = props.link
+  return (
+    <div>
+      {link.description} ({link.url})
+    </div>
+  )
+}
+
+export default Link
+```
+
+This is a React component that is being passed **props** and then displaying the links from those props. Now we can create the component that will list the links. Add a new file in the components directory called **`LinkList.js`** and put the following code inside. For now, we will just hard-code some data do display.
+
+```jsx
+import React from 'react'
+import Link from './Link'
+
+const ListLinks = () => {
+  const links = [
+    {
+      id: '1',
+      description: 'Prisma turns your database into a GraphQL API 😎',
+      url: 'https://www.prismagraphql.com',
+    },
+    {
+      id: '2',
+      description: 'The best GraphQL client',
+      url: 'https://www.apollographql.com/docs/react/',
+    },
+  ]
+  return (
+    <div>
+      {links.map(link => <Link key={link.id} link={link} />)}
+    </div>
+  )
+}
+
+export default ListLinks
+```
+
+Now to see the changes, we need to go to **`App.js`** and change the contents to the following.
+
+```jsx
+import React from 'react';
+import ListLinks from './ListLinks'
+import '../styles/App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <ListLinks />
+    </div>
+  );
+}
+
+export default App;
+```
+
+Now if we run **`yarn start`** from the root directory, we should see the 2 links displayed on the screen.
+
+#### GraphQL Query
+
+Next, we'll need to actually query the database for the links stored so they are dynamic instead of hard-coded in. Head to **`LinkList.js`** and we are going to change a few things.
+
+- 1\. Import new packages
+- 
+```jsx
+import gql from 'graphql-tag'
+import { useQuery } from '@apollo/client'
+```
+
+- 2\. Underneath the imports add in **LINK_QUERY** and remove hard-coded links.
+- 
+```jsx
+const LINK_QUERY = gql`
+{
+  feed {
+    links {
+      id
+      url
+      description
+    }
+  }
+}
+`
+```
+
+- 3\. Destructure off the **useQuery** hook and update the return statement.
+- 
+```jsx
+const ListLinks = () => {
+  const { loading, error, data } = useQuery(LINK_QUERY)
+  return (
+    <>
+    {/* IF LOADING */}
+      {loading && <div>Fetching...</div>}
+    {/* IF ERROR */}
+      {error && <div>There was an error fetching the data.</div>}
+    {/* ELSE RETURN DATA FROM QUERY */}
+      {data && (
+        <div>{data.feed.links.map(link =>
+          <Link key={link.id} link={link} />
+        )}
+        </div>
+      )}
+    </>
+  )
+}
+```
+
+If this worked correctly, we should now have a page that has different states able to be seen on the screen. One while loading, one if there is an error, and the list of links being returned.
 
 </div>
