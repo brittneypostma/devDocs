@@ -21,6 +21,7 @@ image: ./logos/gql.svg
     - [Server](#server)
     - [Frontend](#frontend)
     - [GraphQL Query](#graphql-query)
+    - [Mutations](#mutations-1)
 
 </div>
 
@@ -561,5 +562,88 @@ const ListLinks = () => {
 ```
 
 If this worked correctly, we should now have a page that has different states able to be seen on the screen. One while loading, one if there is an error, and the list of links being returned.
+
+#### Mutations
+
+To add new links to our list we need to add a new file in our components folder called **`CreateLink.js`** that includes the following code.
+
+```jsx
+import React, { useState } from 'react'
+import { gql, useMutation } from "@apollo/client";
+
+const LINK_MUTATION = gql`
+  mutation PostMutation($description: String!, $url: String!) {
+    post(description: $description, url: $url) {
+      id
+      url
+      description
+    }
+  }
+`
+
+const CreateLink = (props) => {
+  const [description, setDescription] = useState("")
+  const [url, setUrl] = useState("")
+
+  const [createLink] = useMutation(LINK_MUTATION)
+
+  return (
+    <div>
+      <div className="flex flex-column mt3">
+        <input
+          className="mb2"
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+          type="text"
+          placeholder="A description for the link"
+        />
+        <input
+          className="mb2"
+          value={url}
+          onChange={e => setUrl(e.target.value)}
+          type="text"
+          placeholder="The URL for the link"
+        />
+      </div>
+      <button
+        onClick={() => {
+          createLink({
+            variables: {
+              description,
+              url
+            }
+          })
+        }}
+      >
+        Submit
+        </button>
+    </div>
+  )
+}
+
+export default CreateLink
+```
+
+This file includes the import to use gql and the useMutation hook, the GraphQL mutation, and some state to handle updating the url and description of the link. This can be tested by adding the component into **`App.js`** below **`<ListLinks />`** component.
+
+```jsx
+import React from 'react';
+import ListLinks from './ListLinks'
+import CreateLink from './CreateLink';
+import '../styles/App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <ListLinks />
+      <CreateLink />
+    </div>
+  );
+}
+
+export default App;
+```
+
+To actually see the update, the page needs to be refreshed. To avoid this, we can add in React Router to the application.
 
 </div>
