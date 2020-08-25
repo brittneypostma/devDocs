@@ -17,6 +17,8 @@ image: ./logos/gql.svg
   - [Resolvers](#resolvers)
 - [Frontend Tutorial](#frontend-tutorial)
   - [Into the code](#into-the-code)
+    - [index.js](#indexjs)
+    - [Server](#server)
 
 </div>
 
@@ -343,7 +345,7 @@ input {
 
 - 
  ```bash
-yarn add apollo-boost react-apollo graphql
+yarn add @apollo/client graphql
 ```
 
 That's it for the setup, we are now ready to start writing some code.
@@ -352,14 +354,18 @@ That's it for the setup, we are now ready to start writing some code.
 
 ### Into the code
 
-- 1\. Add packages to `index.js` under other packages.
+#### index.js
+
+- 1\. Add packages to `index.js`.
 
 - 
 ```js
-import { ApolloProvider } from 'react-apollo'
-import { ApolloClient } from 'apollo-client'
-import { createHttpLink } from 'apollo-link-http'
-import { InMemoryCache } from 'apollo-cache-inmemory'
+import {
+  createHttpLink,
+  InMemoryCache,
+  ApolloClient,
+  ApolloProvider,
+} from "@apollo/client";
 ```
 
 - 2\. Create variables to connect ApolloClient.
@@ -384,5 +390,27 @@ const client = new ApolloClient({
   </ApolloProvider>,
   document.getElementById('root')
 ```
+
+#### Server
+
+Now we need to download the code for the backend server.
+
+```bash
+curl https://codeload.github.com/howtographql/react-apollo/tar.gz/starter | tar -xz --strip=1 react-apollo-starter/server
+
+```
+
+This will add a directory called server to your application. Inside there are prisma files to connect to the database and inside the src folder is the GraphQL server files. We now need to deploy the Prisma database so the GraphQL server can access it.
+
+```bash
+cd server
+yarn install prisma1 global
+yarn install
+prisma1 deploy
+```
+
+After running `prisma1 deploy` navigate to Demo server + MySQL database, hit enter and then choose the location closest to  you.
+
+
 
 </div>
