@@ -24,6 +24,7 @@ image: ./logos/gql.svg
     - [Mutations](#mutations-1)
     - [React Router](#react-router)
     - [Header](#header)
+    - [Authentication](#authentication)
 
 </div>
 
@@ -527,7 +528,8 @@ import { useQuery } from '@apollo/client'
 - 2\. Underneath the imports add in **LINK_QUERY** and remove hard-coded links.
 - 
 ```jsx
-const LINK_QUERY = gql`
+// export to be used later and create query for links
+export const LINK_QUERY = gql`
 {
   feed {
     links {
@@ -725,16 +727,37 @@ function App() {
 Last, we need to update the **`CreateLink`** component so the browser will go back to the list after submitting a new link.
 
 ```jsx
-// add useHistory import
+// add useHistory import and query to imports
+import { LINK_QUERY } from './ListLinks'
 import { useHistory } from "react-router-dom";
 
 // initiate useHistory inside component
 let history = useHistory();
 
+// update cached links
+  const updateCache = (cache, { data }) => {
+    const currentLinksList = cache.readQuery({
+      query: LINK_QUERY
+    })
+    const updatedLinksList = [...currentLinksList.feed.links, data.post]
+
+    cache.writeQuery({
+      query: LINK_QUERY,
+      data: {
+        feed: {
+          __typename: "Feed",
+          links: updatedLinksList,
+          count: updatedLinksList.length
+        }
+      }
+    })
+  }
+
 // update createLink variable
   const [createLink] = useMutation(LINK_MUTATION, {
     onCompleted: () => history.push("/"),
     onError: () => history.push("/"),
+    update: updateCache
   });
 ```
 
@@ -743,5 +766,9 @@ Now, the list of links and the create new link are on separate pages. You should
 <p align="center">
 <img alt="Hackernews Clone Page" src="gql/page1.png" width="100%">
 </p>
+
+#### Authentication
+
+For the last piece, we are going to add in authentication to our application.
 
 </div>
