@@ -22,6 +22,8 @@ image: ./logos/gql.svg
     - [Frontend](#frontend)
     - [GraphQL Query](#graphql-query)
     - [Mutations](#mutations-1)
+    - [React Router](#react-router)
+    - [Header](#header)
 
 </div>
 
@@ -581,7 +583,7 @@ const LINK_MUTATION = gql`
   }
 `
 
-const CreateLink = (props) => {
+const CreateLink = () => {
   const [description, setDescription] = useState("")
   const [url, setUrl] = useState("")
 
@@ -644,6 +646,102 @@ function App() {
 export default App;
 ```
 
-To actually see the update, the page needs to be refreshed. To avoid this, we can add in React Router to the application.
+To actually see the update, the page needs to be refreshed or queried in the playground. To avoid this, we can add in React Router to the application to refresh the page.
+
+#### React Router
+
+Make sure you are in the root directory of the application and run the following command.
+
+```bash
+yarn add react-router react-router-dom
+```
+
+Now we need to add it to the application in **`index.js`**.Import **`react-router-dom`** and wrap the **`ApolloProvider`** in the router. 
+
+```jsx
+import { BrowserRouter as Router } from 'react-router-dom'
+
+ReactDOM.render(
+  <Router>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </Router>,
+  document.getElementById('root')
+);
+```
+
+#### Header
+
+Now, lets create a Header component to hold the links. In the components folder create a new file called **`Header.js`**. The following code will import React and the Link component from react-router-dom and display a title and two links.
+
+```jsx
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+const Header = () => {
+  return (
+    <div className="flex pa3 justify-between nowrap orange">
+      <div className="fw7 mr1 black">Hacker News</div>
+      <div className='flex'>
+        <Link to="/" className="ml1 no-underline black">
+          new
+          </Link>
+        <div className="ml1 white">|</div>
+        <Link to="/create" className="ml1 no-underline black">
+          submit
+          </Link>
+      </div>
+    </div>
+  )
+}
+
+export default Header
+```
+
+To see the header, we need to add it into **`App.js`**. We need to import the `Header` and the `Switch` and `Route` components from `react-router-dom`.
+
+```jsx
+// add these imports
+import { Switch, Route } from 'react-router-dom'
+import Header from './Header'
+
+// update App component to the following
+function App() {
+  return (
+    <div className="center w85">
+      <Header />
+      <div className="ph3 pv1 background-gray">
+        <Switch>
+          <Route exact path="/" component={ListLinks} />
+          <Route exact path="/create" component={CreateLink} />
+        </Switch>
+      </div>
+    </div>
+  );
+}
+```
+
+Last, we need to update the **`CreateLink`** component so the browser will go back to the list after submitting a new link.
+
+```jsx
+// add useHistory import
+import { useHistory } from "react-router-dom";
+
+// initiate useHistory inside component
+let history = useHistory();
+
+// update createLink variable
+  const [createLink] = useMutation(LINK_MUTATION, {
+    onCompleted: () => history.push("/"),
+    onError: () => history.push("/"),
+  });
+```
+
+Now, the list of links and the create new link are on separate pages. You should have a page that looks similar to this.
+
+<p align="center">
+<img alt="Hackernews Clone Page" src="gql/page1.png" width="100%">
+</p>
 
 </div>
