@@ -25,16 +25,11 @@
   <a href="https://github.com/brittneypostma" rel="noreferrer" target="_blank">
     <img alt="github" src="octocat.png" style="width: 30px;" />
   </a>
-  Powered by
-  <img alt="svelte" src="svelte-logo.png" />
-  and
-  <img alt="sapper" src="sapper.png" />
-
 </footer>
 
 <style>
   main {
-    height: calc(100vh - 118px);
+    height: calc(100vh - 115px);
     position: relative;
     top: 88px;
     background-color: var(--bg-color);
@@ -57,7 +52,9 @@
     font-size: 14px;
     text-align: center;
     width: 100%;
-    margin-bottom: 1em;
+    margin-bottom: 5px;
+    background: #222222;
+    color: white;
   }
 
   img {

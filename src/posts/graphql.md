@@ -769,6 +769,231 @@ Now, the list of links and the create new link are on separate pages. You should
 
 #### Authentication
 
-For the last piece, we are going to add in authentication to our application.
+For the last piece, we are going to add in authentication to our application. Create a new file inside the components folder named **`Forms.js`** and lets add to it step by step.
+
+- 1\. Add imports, AUTH_TOKEN will be created later.
+
+- 
+```jsx
+import React, {useState} from 'react'
+import { AUTH_TOKEN } from '../constants'
+import { gql, useMutation } from '@apollo/client'
+import { useHistory } from 'react-router-dom'
+```
+
+- 2\. Add mutations for login and signup.
+
+- 
+```js
+// signup gql mutation
+const SIGNUP_MUTATION = gql`
+  mutation SignupMutation($email: String!, $password: String!, $name: String!) {
+    signup(email: $email, password: $password, name: $name) {
+      token
+    }
+  }
+`
+// login gql mutation
+const LOGIN_MUTATION = gql`
+  mutation LoginMutation($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+    }
+  }
+`
+```
+
+- 3\. Create the component with states for each field.
+
+- 
+```jsx
+function Forms() {
+  // setup useHistory hook from react-router
+  let history = useHistory();
+  // states for signup/login form
+  const [showLoginForm, setShowLoginForm] = useState(true)
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [name, setName] = useState("")
+  // set localStorage login token
+  const _saveUserData = (token) => {
+    localStorage.setItem(AUTH_TOKEN, token);
+  };
+  // confirm token matches 
+  const _confirm = async (data) => {
+    const { token } = showLoginForm ? data.login : data.signup;
+    _saveUserData(token);
+    history.push(`/`);
+  };
+  // destructure signup mutation
+  const [signupMutation, { signupData }] = useMutation(SIGNUP_MUTATION, {
+    onCompleted: (data) => _confirm(data),
+    onError: () => {},
+  });
+  console.log("signupData", signupData);
+  // destructure login mutation
+  const [loginMutation, { loginData }] = useMutation(LOGIN_MUTATION, {
+    onCompleted: (data) => _confirm(data),
+    onError: () => {},
+  });
+  console.log("loginData", loginData);
+  // return jsx
+  return (
+    <div>
+      {/* if showLoginForm is true display Login form, else display Sign Up form*/}
+      <h4 className="mv3">{showLoginForm ? "Login" : "Sign Up"}</h4>
+      <div className="flex flex-column">
+        {!showLoginForm && (
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+            placeholder="Your name"
+          />
+        )}
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          placeholder="Your email address"
+        />
+        <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          type="password"
+          placeholder="Choose a safe password"
+        />
+      </div>
+      <div className="flex mt3">
+        <button
+          className="pointer mr2 button"
+          onClick={() => {
+            showLoginForm
+              ? loginMutation({
+                  variables: {
+                    email,
+                    password,
+                    name,
+                  },
+                })
+              : signupMutation({
+                  variables: {
+                    email,
+                    password,
+                    name,
+                  },
+                });
+          }}
+        >
+          {showLoginForm ? "login" : "create account"}
+        </button>
+        <button className="pointer button" onClick={() => setShowLoginForm(!showLoginForm)}>
+          {showLoginForm ? "need to create an account?" : "already have an account?"}
+        </button>
+      </div>
+    </div>
+  )
+}
+export default Forms
+```
+
+- 4\. Create **`constants.js`** file in the `src` folder and add this line.
+
+- 
+```js
+export const AUTH_TOKEN = 'auth-token'
+```
+
+- 5\. Add and setup **useContext** in **`index.js`**.
+
+- 
+```js
+// add AUTH_TOKEN and setContext import
+import { AUTH_TOKEN } from './constants'
+import { setContext } from "@apollo/client/link/context";
+// setup setContext
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem(AUTH_TOKEN);
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  }
+})
+// update client variable to use authLink
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
+})
+```
+
+- 6\. Add login link to **Header**.
+
+- 
+```jsx
+// add import for AUTH_TOKEN
+import { AUTH_TOKEN } from '../constants'
+// update Header
+const Header = () => {
+  // get token from localStorage
+  const authToken = localStorage.getItem(AUTH_TOKEN)
+  return (
+    <div className="flex pa3 justify-between nowrap orange">
+      <div className="fw7 mr1 white">Hacker News</div>
+      <div className='flex'>
+        <Link to="/" className="ml1 no-underline black link dim black">
+          new
+          </Link>
+        <div className="ml1 white">|</div>
+        <Link to="/create" className="ml1 no-underline black link dim black">
+          submit
+          </Link>
+      </div>
+      {/* add div containing login/logout link */}
+      <div className="flex flex-fixed">
+        {authToken ? (
+          <div
+            className="ml1 pointer white link dim"
+            onClick={() => {
+              localStorage.removeItem(AUTH_TOKEN);
+              this.props.history.push(`/`);
+            }}
+          >
+            logout
+          </div>
+        ) : (
+            <Link to="/forms" className="ml1 no-underline white link dim">
+              login
+            </Link>
+          )}
+      </div>
+    </div>
+  )
+}
+export default Header
+```
+
+- 7\. Update **`App.js`** to include **Forms route**.
+
+```jsx
+// add Form import
+import Forms from './Forms'
+// add in new Route with Forms
+function App() {
+  return (
+    <div className="center w85">
+      <Header />
+      <div className="ph3 pv1 background-gray">
+        <Switch>
+          <Route exact path="/" component={ListLinks} />
+          <Route exact path="/create" component={CreateLink} />
+          <Route exact path="/forms" component={Forms} />
+        </Switch>
+      </div>
+    </div>
+  )
+}
+```
 
 </div>
