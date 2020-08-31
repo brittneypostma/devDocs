@@ -19,6 +19,7 @@ image: ./logos/css-podcast.png
 - [Episode Three: Specificity](#episode-three-specificity)
     - [Episode Links](#episode-links-2)
   - [Game Time](#game-time)
+- [Episode Three: The Cascade](#episode-three-the-cascade)
 </div>
 
 <div id="main">
@@ -143,6 +144,11 @@ What happens when a subject is being targeted by multiple rules? The rule with t
 
 Check your scores in the [specificity calculator](https://specificity.keegan.st). How did you do? Hopefully, this article helped you learn a little more about how to calculate specificity and apply it in your CSS!
 
+---
+
+## Episode Three: The Cascade
+
+The "C" in 
 
 
 
