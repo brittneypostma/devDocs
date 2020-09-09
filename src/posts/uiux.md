@@ -11,6 +11,9 @@ image: ./logos/uiux.png
 - [Graphic Design: UI and UX](#graphic-design-ui-and-ux)
 - [Sketching](#sketching)
   - [Sketching Process](#sketching-process)
+  - [User Flows](#user-flows)
+    - [Screen Flows](#screen-flows)
+    - [Structure](#structure)
 
 
 </div>
@@ -38,6 +41,24 @@ Sketching is the first part of the design process. It is where you generate as m
 
 ### Sketching Process
 
-Every process in design has multiple steps you should take to create a successful work environment. Step one is **be prepared**! Gather any tools you may need before you start working. These tools could be rulers, markers, pens or pencils, or even a tablet. This way you don't forget a great idea because you didn't have a tool you needed to create it. Step two is to understand your **goals** and what **audience** you will need to reach with this design. Step three, always **time yourself**. Keeping yourself within a time limit helps you to focus your time and energy on the things that matter most and not get bogged down by the details while sketching. Step four is to create a **frame** for your design. Something like a mobile screen for an app, or a desktop frame for a website, anything that will help you guide the placement of your design. Start with the simple, repeating elements and then fill in more and more details and interactions. Step five, **annotate**, **document**, and make **notes** on your sketches. Once you are ready, **share your sketches** with anyone that will listen. Everyone has valuable insight and feedback about the flow of the design that you can build off of and modify with. Step 6, the final step, is to **refine** your sketches. Add titles to your sketches and add more notes about elements that may be too hard to draw. Also, numbering and adding arrows to your sketches can help to label and add a visual flow that will help others give better feedback. Gestures such as pressing or swiping can be added to those sketches that reflect an action. These can be hard to draw, but using arrows for swiping or dragging and circles for tapping can be enough to get the point across.
+Every process in design has multiple steps you should take to create a successful work environment. Step one is **be prepared**! Gather any tools you may need before you start working. These tools could be rulers, markers, pens or pencils, or even a tablet. This way you don't forget a great idea because you didn't have a tool you needed to create it. Step two is to understand your **goals** and what **audience** you will need to reach with this design. Step three, always **time yourself**. Keeping yourself within a time limit helps you to focus your time and energy on the things that matter most and not get bogged down by the details while sketching. Step four is to create a **frame** for your design. Something like a mobile screen for an app or a desktop frame for a website, anything that will help you guide the placement of your design. Start with the simple, repeating elements and then fill in more and more details and interactions. Step five, **annotate**, **document**, and make **notes** on your sketches. Once you are ready, **share your sketches** with anyone that will listen. Everyone has valuable insight and feedback about the flow of the design that you can build off of and modify with. Step 6, the final step, is to **refine** your sketches. Add titles to your sketches and add more notes about elements that may be too hard to draw. Also, numbering and adding arrows to your sketches can help to label and add a visual flow that will help others give better feedback. Gestures such as pressing or swiping can be added to those sketches that reflect an action. These can be hard to draw, but using arrows for swiping or dragging and circles for tapping can be enough to get the point across.
+
+### User Flows
+
+To start creating your first sketch, you should first understand what you need to draw. Ask yourself, what part of the project do you want to start with and decide where you want to begin. It doesn't matter what you choose, but having a clear understanding of where you want to start will help formulate your ideas. Then, you want to decide where you want to lead the users and what they need to do to get there. As you are sketching, continue asking yourself what would happen if a user clicked here or what do I want this thing to do. Think about this as the users **journey** through the product, from the time they enter, to the time they leave. Always be on the lookout for **user misery** pain-points and ways you can improve their experience.
+
+<br/>
+<p align="center">
+<img src="uiux/flow.jpg" alt="sketch user flow" width="75%">
+</p>
+<br/>
+
+#### Screen Flows
+
+After building out your first draft, start breaking down each page and thinking about what flow will happen from it. Say you have a search bar that when a user searches, does the user need to click search or will it automatically search for results? Once the user clicks on a product, think of where the button might be to add it to the cart. In the cart, there may be another button to go to checkout. Start pulling out these similar elements and noticing where they are placed. These become your components and the groupings are where you could place your navigation or activities. Also, always think about more than one way a user could flow through the product. In this example, a categories page could be another way a user finds the item, rather than searching. 
+
+#### Structure
+
+
 
 </div>
