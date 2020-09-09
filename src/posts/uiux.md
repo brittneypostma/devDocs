@@ -14,6 +14,7 @@ image: ./logos/uiux.png
   - [User Flows](#user-flows)
     - [Screen Flows](#screen-flows)
     - [Structure](#structure)
+    - [States](#states)
 
 
 </div>
@@ -49,7 +50,7 @@ To start creating your first sketch, you should first understand what you need t
 
 <br/>
 <p align="center">
-<img src="uiux/flow.jpg" alt="sketch user flow" width="75%">
+<img src="uiux/flow.jpg" alt="sketch user flow" style="width: 100%; max-width: 650px;">
 </p>
 <br/>
 
@@ -59,6 +60,16 @@ After building out your first draft, start breaking down each page and thinking 
 
 #### Structure
 
+Now we need to start thinking about the navigation patterns or the **structure** flow of the product. In our example, we determined there was a **home screen** that the users would land on. Try sketching it out with more details this time and then add a home button to the navigation bar. We also created a search page that should be on the navigation bar. One thing we didn't add yet, is a way for the users to save the products that they liked. Maybe we can add a **favorites** page and add a heart button to the navigation. We also want the **cart** page to be a prominent feature so that users can find their way to checkout and purchase items. Especially on mobile, make sure its easy for the users to checkout. Maybe we can switch our navigation bar to be the checkout button and make a way to go back at the top of the page. Another thing we might need is a way for users to track their orders. After the structure is determined, we can start building out a **site map**, a listing of the main pages and all the branch pages that can be accessed from it.
 
+<br/>
+<p align="center">
+<img src="uiux/sitemap.jpg" alt="site map" width="75%">
+</p>
+<br/>
+
+#### States
+
+At this point we have the general flow of the entire product down, but we haven't really focused on the individual pages yet. Here is when we should start thinking about the **states**, **or actions**, that might happen on each page.  Take the home page, how does the search bar appear, is there a profile image, maybe a heart to favorite an item. This is where we really start to add the details to the page.
 
 </div>
