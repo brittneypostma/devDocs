@@ -78,7 +78,7 @@
     text-align: center;
     width: 100%;
     margin-bottom: 5px;
-    background: #222222;
+    background: var(--heading-color);
     color: white;
     display: flex;
     padding: 5px;
@@ -93,7 +93,7 @@
 
   footer span + a {
     /* border-radius: 90% 90% 0 0 / 50% 50% 0 0; */
-    background: rgb(155, 50, 43);
+    background: var(--accent-color);
     height: 5px;
     line-height: 0;
     margin-left: -5px;
@@ -116,18 +116,18 @@
     text-decoration: none;
     display: inline-block;
     position: relative;
-    color: rgb(255, 255, 255);
+    color: white;
   }
 
   a::before {
     content: '';
     position: absolute;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s linear;
     left: 0;
     bottom: 0;
     width: 100%;
     height: 3px;
-    background: rgb(255, 255, 255);
+    background: var(--bg-color);
     transform: scaleX(0);
   }
 

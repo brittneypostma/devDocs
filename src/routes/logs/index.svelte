@@ -36,7 +36,7 @@
 <style>
   .grid-logs {
     background: var(--bg-color);
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     font-family: 'Work Sans', sans-serif;
     font-size: 25px;
     line-height: 1.65;
@@ -71,6 +71,6 @@
   }
 
   a:visited {
-    color: #333;
+    color: var(--font-color);
   }
 </style>
