@@ -18,6 +18,7 @@ image: ./logos/uiux.png
   - [Tips for Sketching](#tips-for-sketching)
 - [Inspiration](#inspiration)
     - [Websites for Inspiration](#websites-for-inspiration)
+- [User Flows](#user-flows)
 
 
 </div>
@@ -106,7 +107,20 @@ Seeing a great design can create some momentary inspiration, but it doesn't alwa
 
 ---
 
+## User Flows
 
+A user flow is the steps a user takes to achieve a goal. A sketch of user flows is intended to communicate the steps the user takes through different pages and actions. They should include a name, step number, and type of user for each flow. The current flow you are on is what the user sees and does and then after is what they see and do next. User flows go in **one** direction, they don't go backwards, that is [prototyping](#prototypes). Name each flow and label each screen descriptively based on its purpose.
 
+<br/>
+<p align="center">
+<img src="uiux/user-flow.png" alt="user flow" style="width: 100%; max-width: 1000px;">
+</p>
+<br/>
+
+<br/>
+<p align="center">
+<img src="uiux/flow.png" alt="wrong and right flows" style="width: 100%; max-width: 1000px;">
+</p>
+<br/>
 
 </div>
