@@ -144,6 +144,6 @@
   }
 
   .links:hover {
-    filter: grayscale(90%);
+    filter: brightness(50%);
   }
 </style>
