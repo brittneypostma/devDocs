@@ -54,6 +54,8 @@
 
 <style>
   main {
+    display: grid;
+    align-items: center;
     height: calc(100vh - 115px);
     position: relative;
     top: 88px;
