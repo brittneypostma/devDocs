@@ -92,13 +92,13 @@
   }
 
   footer span + a {
-    /* border-radius: 90% 90% 0 0 / 50% 50% 0 0; */
-    background: var(--accent-color);
+    color: white;
+    font-weight: 700;
     height: 5px;
-    line-height: 0;
+    line-height: 0.5;
     margin-left: -5px;
     margin-top: -1px;
-    padding: 10px 3px 3px;
+    padding: 10px 3px;
   }
 
   footer span + a::before {
