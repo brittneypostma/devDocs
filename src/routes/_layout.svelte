@@ -19,11 +19,16 @@
   <a
     href="https://www.linkedin.com/in/brittney-postma-868928178/"
     rel="noreferrer"
-    target="_blank">
-    <img alt="linkedin" src="in.png" style="width: 30px; height: 25px;" />
+    target="_blank"
+    class="links">
+    <img alt="linkedin" src="in.svg" style="width: 30px; height: 30px;" />
   </a>
-  <a href="https://twitter.com/brittneypostma" rel="noreferrer" target="_blank">
-    <img alt="twitter" src="twitter.png" style="width: 30px; height: 25px;" />
+  <a
+    href="https://twitter.com/brittneypostma"
+    rel="noreferrer"
+    target="_blank"
+    class="links">
+    <img alt="twitter" src="twitter.svg" style="width: 30px; height: 30px;" />
   </a>
   &copy;
   <span id="year" />
@@ -31,14 +36,19 @@
     bDesigned
   </a>
 
-  <a href="https://github.com/brittneypostma" rel="noreferrer" target="_blank">
-    <img alt="github" src="github.png" style="width: 30px; height: 25px;" />
+  <a
+    href="https://github.com/brittneypostma"
+    rel="noreferrer"
+    target="_blank"
+    class="links">
+    <img alt="github" src="github.svg" style="width: 30px; height: 30px;" />
   </a>
   <a
     href="https://www.youtube.com/channel/UCyvOaBoW3Jti69U4Gw1ci9Q?view_as=subscriber"
     rel="noreferrer"
-    target="_blank">
-    <img alt="youtube" src="youtube.png" style="width: 30px; height: 25px;" />
+    target="_blank"
+    class="links">
+    <img alt="youtube" src="youtube.svg" style="width: 30px; height: 30px;" />
   </a>
 </footer>
 
@@ -70,6 +80,29 @@
     margin-bottom: 5px;
     background: #222222;
     color: white;
+    display: flex;
+    padding: 5px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer span {
+    margin-left: -10px;
+  }
+
+  footer span + a {
+    /* border-radius: 90% 90% 0 0 / 50% 50% 0 0; */
+    background: rgb(155, 50, 43);
+    height: 5px;
+    line-height: 0;
+    margin-left: -5px;
+    margin-top: -1px;
+    padding: 10px 3px 3px;
+  }
+
+  footer span + a::before {
+    bottom: -3px;
   }
 
   img {
@@ -83,7 +116,7 @@
     text-decoration: none;
     display: inline-block;
     position: relative;
-    color: rgb(155, 50, 43);
+    color: rgb(255, 255, 255);
   }
 
   a::before {
@@ -93,12 +126,24 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 2px;
-    background: rgb(155, 50, 43);
+    height: 3px;
+    background: rgb(255, 255, 255);
     transform: scaleX(0);
   }
 
   a:hover::before {
     transform: scaleX(1);
+  }
+
+  .links::before {
+    background: transparent;
+  }
+
+  .links {
+    transition: 0.2s linear all;
+  }
+
+  .links:hover {
+    filter: grayscale(90%);
   }
 </style>
