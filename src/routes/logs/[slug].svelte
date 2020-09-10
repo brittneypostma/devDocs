@@ -70,6 +70,29 @@
     line-height: 1.65;
   }
 
+  .content :global(a) {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    color: rgb(155, 50, 43);
+  }
+
+  .content :global(a::before) {
+    content: '';
+    position: absolute;
+    transition: transform 0.3s ease;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: rgb(155, 50, 43);
+    transform: scaleX(0);
+  }
+
+  .content :global(a:hover::before) {
+    transform: scaleX(1);
+  }
+
   .content :global(.post) {
     display: flex;
   }

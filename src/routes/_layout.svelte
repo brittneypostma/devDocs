@@ -16,14 +16,29 @@
 </main>
 
 <footer>
+  <a
+    href="https://www.linkedin.com/in/brittney-postma-868928178/"
+    rel="noreferrer"
+    target="_blank">
+    <img alt="linkedin" src="in.png" style="width: 30px; height: 25px;" />
+  </a>
+  <a href="https://twitter.com/brittneypostma" rel="noreferrer" target="_blank">
+    <img alt="twitter" src="twitter.png" style="width: 30px; height: 25px;" />
+  </a>
   &copy;
   <span id="year" />
   <a href="https://www.bdesigned.dev/" rel="noreferrer" target="_blank">
     bDesigned
   </a>
-  Find me on GitHub
+
   <a href="https://github.com/brittneypostma" rel="noreferrer" target="_blank">
-    <img alt="github" src="octocat.png" style="width: 30px;" />
+    <img alt="github" src="github.png" style="width: 30px; height: 25px;" />
+  </a>
+  <a
+    href="https://www.youtube.com/channel/UCyvOaBoW3Jti69U4Gw1ci9Q?view_as=subscriber"
+    rel="noreferrer"
+    target="_blank">
+    <img alt="youtube" src="youtube.png" style="width: 30px; height: 25px;" />
   </a>
 </footer>
 
