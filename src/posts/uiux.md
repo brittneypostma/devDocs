@@ -15,6 +15,9 @@ image: ./logos/uiux.png
     - [Screen Flows](#screen-flows)
     - [Structure](#structure)
     - [States](#states)
+    - [Tips for Sketching](#tips-for-sketching)
+  - [Inspiration](#inspiration)
+    - [Websites for Inspiration](#websites-for-inspiration)
 
 
 </div>
@@ -50,7 +53,7 @@ To start creating your first sketch, you should first understand what you need t
 
 <br/>
 <p align="center">
-<img src="uiux/flow.jpg" alt="sketch user flow" style="width: 100%; max-width: 650px;">
+<img src="uiux/flow.jpg" alt="sketch user flow" style="width: 100%; max-width: 500px;">
 </p>
 <br/>
 
@@ -64,12 +67,46 @@ Now we need to start thinking about the navigation patterns or the **structure**
 
 <br/>
 <p align="center">
-<img src="uiux/sitemap.jpg" alt="site map" width="75%">
+<img src="uiux/sitemap.jpg" alt="site map" style="width: 75%; max-width: 500px">
 </p>
 <br/>
 
 #### States
 
-At this point we have the general flow of the entire product down, but we haven't really focused on the individual pages yet. Here is when we should start thinking about the **states**, **or actions**, that might happen on each page.  Take the home page, how does the search bar appear, is there a profile image, maybe a heart to favorite an item. This is where we really start to add the details to the page.
+At this point we have the general flow of the entire product down, but we haven't really focused on the individual pages yet. Here is when we should start thinking about the **states**, **or actions**, that might happen on each page. Take the home page, how does the search bar appear, is there a profile image, maybe a heart to favorite an item. This is where we really start to add the details to the page.
+
+<br/>
+<p align="center">
+<img src="uiux/states.jpg" alt="states" style="width: 100%; max-width: 650px;">
+</p>
+<br/>
+
+
+#### Tips for Sketching
+
+- &#x25FE; Don't worry about being messy.
+- &#x25FE; The more you practice, the easier it is. Use building blocks.
+- &#x25FE; Keep the sketches safe, especially paper ones. Scan or take a picture and store in a folder.
+- &#x25FE; Always be prepared. Keep something near you to jot down ideas as much as possible.
+- &#x25FE; Communicate and share your sketches.
+
+---
+
+### Inspiration
+
+Seeing a great design can create some momentary inspiration, but it doesn't always last. Creativity is like a muscle, use it or it gets weaker. **"You need to constantly stimulate your creativity." - Daniel Schifano** Talking to your peers and people you work with can spark ideas and help figure out design challenges. Study how other designers work and get to their solutions. Start a collection of great techniques to build your projects off of. Keep inspiration around you by surrounding yourself with great design. Your desk and computer screen can help or hurt your work flow depending on how you have it set up, make it work best for you. Read a variety of topics to keep educated in your field. Knowing about other areas can sometimes help you to approach a problem in a different light. If designing is your job, take time to design for yourself too. As much as you can, try to immerse yourself in other cultures. Whether by traveling or inside your community, finding ways to meet new people can always help expand your design inspiration. Sometimes just taking a walk can help as well.
+
+#### Websites for Inspiration
+
+- &#x25FE; [Dribbble](https://dribbble.com/) - Create collections of design patterns.
+- &#x25FE; [Pinterest](https://www.pinterest.com/) - Create boards to organize your ideas.
+- &#x25FE; [Behance](https://www.behance.net/) - More details about how the product came together.
+- &#x25FE; [Pttrns](https://pttrns.com/) - Some free ui patterns, premium for more content.
+- &#x25FE; [Awwwards](https://www.awwwards.com/) - Gives a strict grade for great designed websites.
+
+---
+
+
+
 
 </div>
