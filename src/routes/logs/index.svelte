@@ -35,7 +35,8 @@
 
 <style>
   .grid-logs {
-    padding-bottom: 10px;
+    background: var(--bg-color);
+    padding-bottom: 20px;
     font-family: 'Work Sans', sans-serif;
     font-size: 25px;
     line-height: 1.65;
@@ -48,27 +49,28 @@
     position: relative;
     padding: 10px 15px;
     list-style-type: none;
-    background: #fff;
+    background: var(--bg-color);
+    color: var(--font-color);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    -webkit-transition: all 0.1s linear; /* Safari */
-    transition: all 0.1s linear;
     text-align: center;
     margin: 0;
   }
 
+  .title:hover {
+    top: -5px;
+  }
+
+  .title:active {
+    transform: scale(0.95);
+  }
+
   a {
     text-decoration: none;
-    background: #fff;
+    background: var(--accent-color);
     display: block;
   }
 
   a:visited {
     color: #333;
-  }
-  .title:hover {
-    top: -5px;
-  }
-  .title:active {
-    transform: scale(0.95);
   }
 </style>

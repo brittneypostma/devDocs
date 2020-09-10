@@ -4,6 +4,7 @@
   --font-color: #424242;
   --bg-color: #fff;
   --heading-color: #292922;
+  --accent-color: rgb(155, 50, 43);
 }
 
 [data-theme="dark"] {
