@@ -1,6 +1,6 @@
 ---
 title: UI/UX
-image: ./logos/uiux.png
+image: ./logos/uiux.svg
 ---
 
 
