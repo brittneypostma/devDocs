@@ -45,16 +45,24 @@
     text-align: center;
   }
 
+  img {
+    width: 300px;
+  }
+
   h1 {
-    font-size: 2.8em;
+    font-size: 2em;
     text-transform: uppercase;
     text-align: center;
     margin: 0 auto;
     font-weight: 600;
   }
-  @media (min-width: 480px) {
+  @media (min-width: 800px) {
     h1 {
       font-size: 4em;
+    }
+
+    img {
+      width: 670px;
     }
   }
 </style>

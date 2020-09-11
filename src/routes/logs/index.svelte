@@ -61,7 +61,7 @@
   }
 
   .title:active {
-    transform: scale(0.95);
+    top: -2px;
   }
 
   a {

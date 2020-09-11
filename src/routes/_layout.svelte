@@ -83,7 +83,6 @@
     background: var(--heading-color);
     color: white;
     display: flex;
-    padding: 5px;
     gap: 10px;
     justify-content: center;
     align-items: center;
