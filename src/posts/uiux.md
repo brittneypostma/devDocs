@@ -113,13 +113,13 @@ A user flow is the steps a user takes to achieve a goal. A sketch of user flows 
 
 <br/>
 <p align="center">
-<img src="uiux/user-flow.png" alt="user flow" style="width: 100%; max-width: 1000px;">
+<img src="uiux/user-flow.png" alt="user flow" style="width: 100%; max-width: 800px;">
 </p>
 <br/>
 
 <br/>
 <p align="center">
-<img src="uiux/flow.png" alt="wrong and right flows" style="width: 100%; max-width: 1000px;">
+<img src="uiux/flow.png" alt="wrong and right flows" style="width: 100%; max-width: 800px;">
 </p>
 <br/>
 
