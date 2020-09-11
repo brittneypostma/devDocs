@@ -123,4 +123,6 @@ A user flow is the steps a user takes to achieve a goal. A sketch of user flows 
 </p>
 <br/>
 
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F2b45tvu1UdrZWfRw6sx7UN%2FUser-Flows%3Fnode-id%3D242%253A286&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
 </div>

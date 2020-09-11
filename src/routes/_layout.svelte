@@ -56,7 +56,7 @@
   main {
     display: grid;
     align-items: center;
-    height: calc(100vh - 115px);
+    height: calc(100vh - 200px);
     position: relative;
     top: 88px;
     background-color: var(--bg-color);
@@ -73,13 +73,11 @@
     font-size: 18px;
     line-height: 1.65;
     position: relative;
-    top: 5px;
     grid-row-start: 3;
     grid-row-end: -1;
     font-size: 14px;
     text-align: center;
     width: 100%;
-    margin-bottom: 5px;
     background: var(--heading-color);
     color: white;
     display: flex;

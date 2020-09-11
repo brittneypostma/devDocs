@@ -41,7 +41,7 @@
     font-size: 25px;
     line-height: 1.65;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     grid-gap: 2em;
   }
 
