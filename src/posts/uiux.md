@@ -17,8 +17,10 @@ image: ./logos/uiux.svg
   - [States](#states)
   - [Tips for Sketching](#tips-for-sketching)
 - [Inspiration](#inspiration)
-    - [Websites for Inspiration](#websites-for-inspiration)
+  - [Websites for Inspiration](#websites-for-inspiration)
 - [User Flows](#user-flows)
+- [Sitemaps](#sitemaps)
+  - [Creating a Sitemap](#creating-a-sitemap)
 
 
 </div>
@@ -97,7 +99,7 @@ At this point we have the general flow of the entire product down, but we haven'
 
 Seeing a great design can create some momentary inspiration, but it doesn't always last. Creativity is like a muscle, use it or it gets weaker. **"You need to constantly stimulate your creativity." - Daniel Schifano** Talking to your peers and people you work with can spark ideas and help figure out design challenges. Study how other designers work and get to their solutions. Start a collection of great techniques to build your projects off of. Keep inspiration around you by surrounding yourself with great design. Your desk and computer screen can help or hurt your work flow depending on how you have it set up, make it work best for you. Read a variety of topics to keep educated in your field. Knowing about other areas can sometimes help you to approach a problem in a different light. If designing is your job, take time to design for yourself too. As much as you can, try to immerse yourself in other cultures. Whether by traveling or inside your community, finding ways to meet new people can always help expand your design inspiration. Sometimes just taking a walk can help as well.
 
-#### Websites for Inspiration
+### Websites for Inspiration
 
 - &#x25FE; [Dribbble](https://dribbble.com/) - Create collections of design patterns.
 - &#x25FE; [Pinterest](https://www.pinterest.com/) - Create boards to organize your ideas.
@@ -125,5 +127,17 @@ A user flow is the steps a user takes to achieve a goal. A sketch of user flows 
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F2b45tvu1UdrZWfRw6sx7UN%2FUser-Flows%3Fnode-id%3D83%253A0&chrome=DOCUMENTATION" allowfullscreen></iframe>
 
+---
+
+## Sitemaps
+
+Sitemaps provide the structure for your product, they are especially useful for designers. They can help you plan out all the different navigation patterns in your product. So what is a sitemap? Sitemaps are diagrams in a specific order that show how pages are organized. Sitemaps should be created pretty early in the design process, to get a better understanding of components that are needed to build up the product.
+
+### Creating a Sitemap
+
+A sitemap will consists of all the pages a site will have. Start with the **anatomy** of your product and list out all the individual pages. Once you have a list, we can start creating the sitemap. Start with the home page at the top. Each piece of the sitemap should have a **label** of the page it's about and a **reference number** for what step in the process it is. Color coding or creating a **legend** for your map may be useful if it particularly difficult to describe something on the map. It really is your preference on how you want to lay out the sitemap, left to right or top to bottom, anything works. **Flat Sitemaps** are for smaller sites because there are fewer levels to the map. **Deep Sitemaps** would be for a site with hundreds of pages where they go greater than 3 levels deep. Sitemaps are a valuable step because it helps strategically place content where users can find it and aids in the navigation of your product. Use the sketches and user flows you created to help you build out your sitemap.
+
+<br/>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F5R3W8VrMt3uinkfdE3SbYX%2FSitemaps%3Fnode-id%3D0%253A1&chrome=DOCUMENTATION" allowfullscreen></iframe>
 
 </div>
