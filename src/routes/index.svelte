@@ -44,6 +44,7 @@
     justify-content: center;
     justify-items: center;
     text-align: center;
+    max-width: 100vw;
   }
 
   img {
@@ -57,22 +58,14 @@
     margin: 0 auto;
     font-weight: 600;
   }
-  @media (min-width: 800px) {
-    h1 {
-      font-size: 4em;
-    }
 
-    img {
-      width: 670px;
-    }
-  }
   a{
     position: relative;
     margin-top: 10px;
     border-radius: 2px;
     background: var(--accent-color);
-    box-shadow: 0 0 0 2px #424242, 0 8px 0 0 #424242;    
-    padding: 25px 304px;
+    box-shadow: 0 0 0 2px #424242, 0 8px 0 0 #424242;
+    padding: 25px 170px;    
   }
 
   button {
@@ -87,7 +80,7 @@
     border: 0;
     text-decoration: none;
     font-weight: 600;
-    padding: 0px 264px;
+    padding: 0px 130px;
     background: var(--accent-color);
     border-radius: 2px;
     transform-style: preserve-3d;
@@ -100,5 +93,25 @@
 
   button:active {
     transform: translate3d(0, 2px, 0);
+  }
+
+  @media (min-width: 800px) {
+    h1 {
+      font-size: 4em;
+    }
+
+    img {
+      width: 670px;
+    }
+
+    a {
+      
+    padding: 25px 304px;
+    }
+
+    button {
+      
+    padding: 0px 264px;
+    }
   }
 </style>
