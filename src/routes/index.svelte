@@ -32,6 +32,7 @@
   <h1>Welcome to console logs!</h1>
   <p in:typewriter>A site for all my bytes of programming related knowledge.</p>
   <img alt="dev" src="dev.png" />
+  <a href="/logs"><button>LOGS</button></a>
 </div>
 
 <style>
@@ -64,5 +65,40 @@
     img {
       width: 670px;
     }
+  }
+  a{
+    position: relative;
+    margin-top: 10px;
+    border-radius: 2px;
+    background: var(--accent-color);
+    box-shadow: 0 0 0 2px #424242, 0 8px 0 0 #424242;    
+    padding: 25px 304px;
+  }
+
+  button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: var(--heading-font);
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0px 264px;
+    background: var(--accent-color);
+    border-radius: 2px;
+    transform-style: preserve-3d;
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+  }
+
+  button:hover {
+    filter: brightness(1.15);
+  }
+
+  button:active {
+    transform: translate3d(0, 2px, 0);
   }
 </style>
