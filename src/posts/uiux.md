@@ -9,6 +9,8 @@ image: ./logos/uiux.svg
   <p style="font-weight: bold; font-size: 25px;">Table of Contents</p>
 
 - [Graphic Design: UI and UX](#graphic-design-ui-and-ux)
+  - [Resources](#resources)
+- [Fidelity in Design](#fidelity-in-design)
 - [Sketching](#sketching)
   - [Sketching Process](#sketching-process)
   - [Sketching User Flows](#sketching-user-flows)
@@ -21,19 +23,47 @@ image: ./logos/uiux.svg
 - [User Flows](#user-flows)
 - [Sitemaps](#sitemaps)
   - [Creating a Sitemap](#creating-a-sitemap)
+- [Wireframes](#wireframes)
 
 
 </div>
 
 <div id="main">
 
+## Graphic Design: UI and UX
+
+<p style="text-align: center;"><strong>
+These are my notes while taking the <a href="https://academy.zerotomastery.io/courses/enrolled/1073485?affcode=441520_gjue7n-1">Complete Web & Mobile Designer</a> course by Daniel Schifano and Andrei Neagoie on ZTM Academy.</strong>
+</p>
+
 <p align="center">
     <img src="logos/uiuxfull.svg" alt="UI UX Logo" width="100%">
     </p>
 
-## Graphic Design: UI and UX
-
 User experience and user interface are two of the key components that make up the total flow and design of a project, but so much more go into creating a great design. Having a solid foundation in graphic design, goal conversion, and platform development can give you an edge to be a top designer. Before I get into more detail on some of the advanced topics, we are going to start with the basics and build that foundation we need to be great designers.
+
+### Resources
+
+- [Figma](https://www.figma.com/downloads/)
+
+The main program used throughout the course, is Figma. Figma is a free design and prototyping tool that makes it easy to collaborate on projects. It is primarily web-based, but has an app that can be downloaded on mac and Windows. Below you can find the full list of resources for the course.
+
+<br/>
+<p align="center">
+<object data="resources.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="resources.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="resources.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+</p>
+
+---
+
+## Fidelity in Design
+
+[Understanding Design Fidelity for Creating a Great Product Experience](https://cantina.co/understanding-design-fidelity-for-creating-a-great-product-experience/)
+
+Fidelity is a word that in design refers to the amount of detail and functionality in the design process. There are three levels: low, mid, and high fidelity. Low is going to be our sketches and user flows, then move into mid for wireframes, and finally, high fidelity for the prototypes of our product. Getting the low-to-mid range fidelity right, can build up a strong and effective base for your product. It allows the design to develop and change as each process is tested. By not focusing on the visual aspects of the site, the users can focus on the functional aspects in your product.
 
 ---
 
@@ -139,5 +169,15 @@ A sitemap will consists of all the pages a site will have. Start with the **anat
 
 <br/>
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F5R3W8VrMt3uinkfdE3SbYX%2FSitemaps%3Fnode-id%3D0%253A1&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+---
+
+## Wireframes
+
+Wireframes provide a **blueprint** to our product by detailing information that is displayed on each page, providing an outline and structure to the product, and describing the direction and message of your product. It is a way to use everything you've created up to this point to really start putting the site together. Wireframes will help you better understand how users will navigate through your product and make sure their are efficient pathways. Build off of them and learn from the feedback you get to better the product. Failing can be good if you learn from the mistakes and fix the problems. If you are working on a team, wireframes can help everyone get on the same page with the layout. Even if you aren't on a team, get users to test your product. This always uncovers pain points and places where you can improve the user experience of your product. Wireframes are also a great way to get feedback from clients. The earlier you can find and fix issues, the easier it will be once we get to the final product. Remember to keep it simple, more detailed than the sketch, but not the final design. Start with pencil and paper and then move your sketches to a program like Figma to allow for easier sharing. If you are sharing with a client, add a little more polish to the product to make it look presentable and make sure to explain that this is to showcase the interactions, not the visual design of the product.
+
+> ### Test Early, Test Often
+
+
 
 </div>
