@@ -45,6 +45,9 @@
     justify-items: center;
     text-align: center;
     max-width: 100vw;
+    height: 100%;
+    align-items: center;
+    align-content: center;
   }
 
   img {
