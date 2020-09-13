@@ -54,9 +54,9 @@
 
 <style>
   main {
-    height: calc(100vh - 200px);;
+    height: calc(100vh - 105px);;
     position: relative;
-    top: 88px;
+    top: 68px;
     background-color: var(--bg-color);
     padding: 0 2em;
     margin: 0 auto;
