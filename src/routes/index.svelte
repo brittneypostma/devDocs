@@ -72,9 +72,11 @@
   }
 
   button {
+    width: 100%;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
     font-family: var(--heading-font);
     color: white;
     font-size: 2rem;
@@ -83,11 +85,11 @@
     border: 0;
     text-decoration: none;
     font-weight: 600;
-    padding: 0px 110px;
+    /* padding: 0px 110px; */
     background: var(--accent-color);
     border-radius: 2px;
     transform-style: preserve-3d;
-    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+    transition: transform 0.2s cubic-bezier(0, 0, 0.58, 1), background 0.2s cubic-bezier(0, 0, 0.58, 1);
   }
 
   button:hover {
@@ -95,7 +97,8 @@
   }
 
   button:active {
-    transform: translate3d(0, 2px, 0);
+    top: 5px;
+    /* transform: translate3d(0, 2px, 0); */
   }
 
   @media (min-width: 800px) {
