@@ -45,9 +45,9 @@
     justify-items: center;
     text-align: center;
     max-width: 100vw;
-    height: 100%;
+    /* height: 100%;
     align-items: center;
-    align-content: center;
+    align-content: center; */
   }
 
   img {
@@ -68,7 +68,7 @@
     border-radius: 2px;
     background: var(--accent-color);
     box-shadow: 0 0 0 2px #424242, 0 8px 0 0 #424242;
-    padding: 25px 170px;    
+    padding: 25px 150px;    
   }
 
   button {
@@ -83,7 +83,7 @@
     border: 0;
     text-decoration: none;
     font-weight: 600;
-    padding: 0px 130px;
+    padding: 0px 110px;
     background: var(--accent-color);
     border-radius: 2px;
     transform-style: preserve-3d;
