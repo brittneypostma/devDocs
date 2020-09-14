@@ -50,7 +50,7 @@ The main program used throughout the course, is Figma. Figma is a free design an
 
 <br/>
 <p align="center">
-<object data="resources.pdf" type="application/pdf" width="700px" height="700px">
+<object data="resources.pdf" type="application/pdf" width="100%" height="700px">
     <embed src="resources.pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="resources.pdf">Download PDF</a>.</p>
     </embed>
@@ -157,6 +157,8 @@ A user flow is the steps a user takes to achieve a goal. A sketch of user flows 
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F2b45tvu1UdrZWfRw6sx7UN%2FUser-Flows%3Fnode-id%3D83%253A0&chrome=DOCUMENTATION" allowfullscreen></iframe>
 
+> ### Test Early, Test Often
+
 ---
 
 ## Sitemaps
@@ -176,7 +178,7 @@ A sitemap will consists of all the pages a site will have. Start with the **anat
 
 Wireframes provide a **blueprint** to our product by detailing information that is displayed on each page, providing an outline and structure to the product, and describing the direction and message of your product. It is a way to use everything you've created up to this point to really start putting the site together. Wireframes will help you better understand how users will navigate through your product and make sure their are efficient pathways. Build off of them and learn from the feedback you get to better the product. Failing can be good if you learn from the mistakes and fix the problems. If you are working on a team, wireframes can help everyone get on the same page with the layout. Even if you aren't on a team, get users to test your product. This always uncovers pain points and places where you can improve the user experience of your product. Wireframes are also a great way to get feedback from clients. The earlier you can find and fix issues, the easier it will be once we get to the final product. Remember to keep it simple, more detailed than the sketch, but not the final design. Start with pencil and paper and then move your sketches to a program like Figma to allow for easier sharing. If you are sharing with a client, add a little more polish to the product to make it look presentable and make sure to explain that this is to showcase the interactions, not the visual design of the product.
 
-> ### Test Early, Test Often
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FT33WQXoQZIo2JUv0AM6PaK%2FWireframes%3Fnode-id%3D29619%253A6327&chrome=DOCUMENTATION" allowfullscreen></iframe>
 
 
 
