@@ -24,7 +24,7 @@
 
   <div class="links">
     <a class="a-logo" href=".">
-      <img src="favicon.png" alt="logo" class="logo" />
+      <img src="logo.svg" alt="logo" class="logo" />
     </a>
     <div class="nav-links">
       <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
@@ -85,14 +85,18 @@
     padding: 0;
   }
 
+  .a-logo::before {
+    background: transparent;
+  }
+
   .logo {
-    width: 40px;
-    transition: all 0.5s linear;
+    width: 50px;
+    transition: all 0.2s linear;
     cursor: pointer;
   }
 
   .logo:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
   }
 
   .nav-links {

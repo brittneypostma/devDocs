@@ -32,7 +32,9 @@
   <h1>Welcome to console logs!</h1>
   <p in:typewriter>A site for all my bytes of programming related knowledge.</p>
   <img alt="dev" src="dev.png" />
-  <a href="/logs"><button>LOGS</button></a>
+  <a href="/logs">
+    <button>LOGS</button>
+  </a>
 </div>
 
 <style>
@@ -45,9 +47,6 @@
     justify-items: center;
     text-align: center;
     max-width: 100vw;
-    /* height: 100%;
-    align-items: center;
-    align-content: center; */
   }
 
   img {
@@ -62,13 +61,14 @@
     font-weight: 600;
   }
 
-  a{
+  a {
     position: relative;
     margin-top: 10px;
     border-radius: 2px;
     background: var(--accent-color);
-    box-shadow: 0 0 0 2px #424242, 0 8px 0 0 #424242;
-    padding: 25px 150px;    
+    box-shadow: 0 0 0 4px #424242, 0 8px 0 0 #424242;
+    padding: 25px 150px;
+    transition: transform 0.2s cubic-bezier(0, 0, 0.58, 1);
   }
 
   button {
@@ -89,7 +89,8 @@
     background: var(--accent-color);
     border-radius: 2px;
     transform-style: preserve-3d;
-    transition: transform 0.2s cubic-bezier(0, 0, 0.58, 1), background 0.2s cubic-bezier(0, 0, 0.58, 1);
+    transition: transform 0.2s cubic-bezier(0, 0, 0.58, 1),
+      background 0.2s cubic-bezier(0, 0, 0.58, 1);
   }
 
   button:hover {
@@ -97,7 +98,7 @@
   }
 
   button:active {
-    top: 5px;
+    top: 2px;
     /* transform: translate3d(0, 2px, 0); */
   }
 
@@ -111,13 +112,11 @@
     }
 
     a {
-      
-    padding: 25px 304px;
+      padding: 25px 304px;
     }
 
     button {
-      
-    padding: 0px 264px;
+      padding: 0px 264px;
     }
   }
 </style>
