@@ -24,6 +24,8 @@ image: ./logos/uiux.svg
 - [Sitemaps](#sitemaps)
   - [Creating a Sitemap](#creating-a-sitemap)
 - [Wireframes](#wireframes)
+  - [Prototyping](#prototyping)
+- [Feedback](#feedback)
 
 
 </div>
@@ -178,7 +180,19 @@ A sitemap will consists of all the pages a site will have. Start with the **anat
 
 Wireframes provide a **blueprint** to our product by detailing information that is displayed on each page, providing an outline and structure to the product, and describing the direction and message of your product. It is a way to use everything you've created up to this point to really start putting the site together. Wireframes will help you better understand how users will navigate through your product and make sure their are efficient pathways. Build off of them and learn from the feedback you get to better the product. Failing can be good if you learn from the mistakes and fix the problems. If you are working on a team, wireframes can help everyone get on the same page with the layout. Even if you aren't on a team, get users to test your product. This always uncovers pain points and places where you can improve the user experience of your product. Wireframes are also a great way to get feedback from clients. The earlier you can find and fix issues, the easier it will be once we get to the final product. Remember to keep it simple, more detailed than the sketch, but not the final design. Start with pencil and paper and then move your sketches to a program like Figma to allow for easier sharing. If you are sharing with a client, add a little more polish to the product to make it look presentable and make sure to explain that this is to showcase the interactions, not the visual design of the product.
 
+### Prototyping
+
+
+
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FT33WQXoQZIo2JUv0AM6PaK%2FWireframes%3Fnode-id%3D29619%253A6327&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+---
+
+## Feedback
+
+Getting feedback throughout the design process is a great way to help see issues, but it may not always feel easy to get feedback or nice to get critiqued. However, finding the issues earlier in the process can make the whole project be more efficient and better in the long run. There are two types of feedback that can impact your design, **constructive** and **destructive**. Constructive feedback can still be positive or negative, but will still aid in the design process. Destructive feedback impedes the design moving forward. It is mostly caused by asking users the wrong questions or misleading them. Clients can even get off on a topic that is not relevant to the current stage of the design process. You need to be the one that gets others to give constructive feedback. Be as clear as possible when explaining the context of what you want feedback on. You can send a message ahead of time to inform them of what you need. Another thing you can do is set goals that you want to accomplish at each stage. Break down which aspects need to be focused on and what questions need to be answered. Make sure to explain what stage of the design process you are in so that they know what to expect. In a meeting format, it can be overwhelming to have too many people giving feedback at one time. Only invite the people you need to, think about who would have the answers to your questions. Try to get the group involved by generating, voting, and then discussing all of the ideas. Make sure to stay focused and keep on track. If good feedback is off topic, remember to bookmark it for a later time.
+
+---
 
 
 
