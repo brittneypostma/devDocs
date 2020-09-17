@@ -27,6 +27,8 @@ image: ./logos/uiux.svg
   - [Prototyping](#prototyping)
 - [Feedback](#feedback)
 - [Grids](#grids)
+  - [Grid Basics](#grid-basics)
+  - [Responsive Grids and Breakpoints](#responsive-grids-and-breakpoints)
 
 
 </div>
@@ -199,12 +201,30 @@ Getting feedback throughout the design process is a great way to help see issues
 
 [History of the Golden Ratio](https://www.goldennumber.net/golden-ratio-history/)
 
-A grid is a structure that divides a page into a series of rows and columns. But the history behind them is so much more than that. The **golden ratio** is a mathematical equation that can be traced back in design as far as the Egyptians pyramids. The mathematical calculation states, the ratio of 2 sides are the same as the ratio of the sum of the 2 largest numbers. It is approximately `1.6180339887`.  In the beginning, grids were always linked to print or typography. However, in the Renaissance period artists started using grids with the golden ratio to add balance to artworks, sculptures, and architecture. With newspapers came even more grids to align content so they could fit more content while still optimizing reading.
+A grid is a structure that divides a page into a series of rows and columns. But the history behind them is so much more than that. The **golden ratio** is a mathematical equation that can be traced back in design as far as the Egyptian pyramids. The mathematical calculation states, if the ratio of 2 sides is the same as the ratio of the sum of the 2 largest numbers. It is approximately `1.618`.  In the beginning, grids were always linked to print or typography. However, in the Renaissance period artists started using grids with the golden ratio to add balance to artworks, sculptures, and architecture. With newspapers came even more grids to align columns, so they could fit more content while still allowing natural reading behavior. Our modern grid started emerging after WWI in Europe, it was further developed in Switzerland during the 1950s to become the **International Typographic Style** or **Swiss Style**. Some key components of Swiss Style are grids, sans-serif typeface, and the use of white space.
 
  
 > <p align="center">
 <img src="uiux/ratio.png" alt="the golden ratio calculation" style="width: 50%; min-width: 300px;">
 </p>
+
+### Grid Basics
+
+Always start with the basics. In this case, **base units**. The base units are going to define what every other unit is based off of. They make the whole design easier to scale and handoff. The base unit that is the most recommended is **`8px`** because most screen sizes are divisible by 8 and its divisible itself. All other UI elements should be in increments of the base unit. Grids are made up of 3 pieces, columns, gutters, and margins. **Columns** are the vertical sections that go from left to right. **Gutters** are the white space between the columns. **Margins** are the outside edges of the columns that separate the grid from the edge of the screen. The gutter and margin size are going to be a multiple of the base unit. Here are a few different types of grids.
+<br/><br/>
+
+- &#x25FE; Manuscript Grid - Used for defining margins and large blocks of text.
+- &#x25FE; Column Grid - The grid most used in web design, columns spaced evenly across a page.
+- &#x25FE; Modular Grid - This grid has both vertical columns and horizontal rows covering a page.
+- &#x25FE; Baseline Grid - Horizontal rows going top to bottom across a page, similar to a notebook you write in.
+
+
+### Responsive Grids and Breakpoints
+
+Using multiple types of grids together can help balance and visually enhance your design, but once you get your grids on a page, there are still more choices to make. The responsive part of the grid comes with choosing between fixed, fluid, and adaptive grids. **Fixed** layouts will stay the same no matter what the screen size. **Fluid** layouts will stretch and shrink with your content. **Adaptive** layouts will change to use different grids depending on the screen size it is at. By using breakpoints, you are able to change the design of the page for different screen sizes. There are far too many screen sizes out there now to worry about specific breakpoint numbers. Using just small (600px), medium (768px), large (1024px), and extra-large (1280px) sizes will be a good starting off point to get an idea of what the layouts should be. 
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F633Am2Ut3uw75qZs8a1crv%2FGrids%3Fnode-id%3D0%253A1&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
 
 
 </div>
