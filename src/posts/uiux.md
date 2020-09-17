@@ -26,6 +26,7 @@ image: ./logos/uiux.svg
 - [Wireframes](#wireframes)
   - [Prototyping](#prototyping)
 - [Feedback](#feedback)
+- [Grids](#grids)
 
 
 </div>
@@ -194,6 +195,16 @@ Getting feedback throughout the design process is a great way to help see issues
 
 ---
 
+## Grids
+
+[History of the Golden Ratio](https://www.goldennumber.net/golden-ratio-history/)
+
+A grid is a structure that divides a page into a series of rows and columns. But the history behind them is so much more than that. The **golden ratio** is a mathematical equation that can be traced back in design as far as the Egyptians pyramids. The mathematical calculation states, the ratio of 2 sides are the same as the ratio of the sum of the 2 largest numbers. It is approximately `1.6180339887`.  In the beginning, grids were always linked to print or typography. However, in the Renaissance period artists started using grids with the golden ratio to add balance to artworks, sculptures, and architecture. With newspapers came even more grids to align content so they could fit more content while still optimizing reading.
+
+ 
+> <p align="center">
+<img src="uiux/ratio.png" alt="the golden ratio calculation" style="width: 50%; min-width: 300px;">
+</p>
 
 
 </div>
