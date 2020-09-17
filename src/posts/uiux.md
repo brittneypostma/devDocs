@@ -28,7 +28,8 @@ image: ./logos/uiux.svg
 - [Feedback](#feedback)
 - [Grids](#grids)
   - [Grid Basics](#grid-basics)
-  - [Responsive Grids and Breakpoints](#responsive-grids-and-breakpoints)
+  - [Layouts](#layouts)
+- [Typography](#typography)
 
 
 </div>
@@ -219,12 +220,32 @@ Always start with the basics. In this case, **base units**. The base units are g
 - &#x25FE; Baseline Grid - Horizontal rows going top to bottom across a page, similar to a notebook you write in.
 
 
-### Responsive Grids and Breakpoints
+### Layouts
 
 Using multiple types of grids together can help balance and visually enhance your design, but once you get your grids on a page, there are still more choices to make. The responsive part of the grid comes with choosing between fixed, fluid, and adaptive grids. **Fixed** layouts will stay the same no matter what the screen size. **Fluid** layouts will stretch and shrink with your content. **Adaptive** layouts will change to use different grids depending on the screen size it is at. By using breakpoints, you are able to change the design of the page for different screen sizes. There are far too many screen sizes out there now to worry about specific breakpoint numbers. Using just small (600px), medium (768px), large (1024px), and extra-large (1280px) sizes will be a good starting off point to get an idea of what the layouts should be. 
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F633Am2Ut3uw75qZs8a1crv%2FGrids%3Fnode-id%3D0%253A1&chrome=DOCUMENTATION" allowfullscreen></iframe>
 
+---
 
+## Typography
+
+Typography means the style and appearance of our text. There are a few types to choose from and combining these together correctly can be a great way to enhance your design. **Serif** is a traditional typeface with serifs, or tails, at the edges of the letters. Serifs have 4 different types just within that style.
+
+> <p align="center">
+<img src="uiux/serif.png" alt="serif types" style="width: 100% min-width: 300px;">
+</p>
+
+**Sans Serif** is a typeface that may come as no surprise to you means without serifs, those little tails on the edges. It is one of the popular typefaces used today and was popularized by the [Swiss Style](#grids). They also have 4 types within it.
+
+> <p align="center">
+<img src="uiux/sans-serif.png" alt="sans serif types" style="width: 100% min-width: 300px;">
+</p>
+
+**Display** typefaces are the broadest and include the most variation between them. They are typically used only in headlines or shorter copy to draw attention to it.
+
+<br/>
+
+**Mono** is the final typeface styles. It is a fixed-pitch, or fixed-width, font where each letter is takes up the same amount of space. Typically used for code blocks or places where the content needs to look more technical.
 
 </div>

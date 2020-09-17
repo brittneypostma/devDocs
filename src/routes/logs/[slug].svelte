@@ -109,7 +109,7 @@
     position: fixed;
     overflow-y: auto;
     top: 185px;
-    bottom: 0;
+    bottom: 35px;
     box-shadow: inset 0 0 10px #333;
   }
 
