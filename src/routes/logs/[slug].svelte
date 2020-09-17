@@ -93,6 +93,10 @@
     transform: scaleX(1);
   }
 
+  .content :global(img) {
+    max-width: 100%;
+  }
+
   .content :global(.post) {
     display: flex;
   }
