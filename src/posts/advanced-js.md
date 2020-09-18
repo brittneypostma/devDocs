@@ -229,7 +229,7 @@ function findUser(user) {
 
 const userData = {
   firstName: 'Brittney',
-  lastName: 'Postma
+  lastName: 'Postma'
 }
 
 findUser(userData)
