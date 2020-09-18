@@ -30,6 +30,7 @@ image: ./logos/uiux.svg
   - [Grid Basics](#grid-basics)
   - [Layouts](#layouts)
 - [Typography](#typography)
+  - [Choosing a Typeface](#choosing-a-typeface)
 
 
 </div>
@@ -230,13 +231,13 @@ Using multiple types of grids together can help balance and visually enhance you
 
 ## Typography
 
-Typography means the style and appearance of our text. There are a few types to choose from and combining these together correctly can be a great way to enhance your design. **Serif** is a traditional typeface with serifs, or tails, at the edges of the letters. Serifs have 4 different types just within that style.
+Typography means the style and appearance of our text. There are a few types to choose from and combining these together correctly can be a great way to enhance your design. **Serif** is a traditional typeface with serifs, or tails, at the edges of the letters. Serifs have many different types just within that style. Here are just 4 of them.
 
 > <p align="center">
 <img src="uiux/serif.png" alt="serif types" style="width: 100% min-width: 300px;">
 </p>
 
-**Sans Serif** is a typeface that may come as no surprise to you means without serifs, those little tails on the edges. It is one of the popular typefaces used today and was popularized by the [Swiss Style](#grids). They also have 4 types within it.
+**Sans Serif** is a typeface that may come as no surprise to you means without serifs, those little tails on the edges. It is one of the popular typefaces used today and was popularized by the [Swiss Style](#grids). They has 4 types within it.
 
 > <p align="center">
 <img src="uiux/sans-serif.png" alt="sans serif types" style="width: 100% min-width: 300px;">
@@ -246,6 +247,27 @@ Typography means the style and appearance of our text. There are a few types to 
 
 <br/>
 
+**Script** typefaces can resemble handwriting in the cursive style. They are very fluid and have 2 basic classifications, formal and casual.
+<br/>
+
 **Mono** is the final typeface styles. It is a fixed-pitch, or fixed-width, font where each letter is takes up the same amount of space. Typically used for code blocks or places where the content needs to look more technical.
+
+### Choosing a Typeface
+
+When working for a client, you may have a limited choice of fonts you can use. Thinking about adjusting the line height, increasing the spacing of the letters, or using different font weights can really change the look and feel of a single font. Another scenario, is the possibility of too many choices. When presented with lots of options, try to narrow down your options by thinking about the brand it is representing. What are the goals of the product? Are they more traditional or more modern? What platform is it centered on? Another tip is to go to [Google Fonts](https://fonts.google.com/) and type in a heading and just visually see what looks the best. Choose a few that you think look good, download them, and try them out with some mockups. 
+
+> <p align="center">
+<img src="uiux/fonts.png" alt="google fonts" style="width: 100% min-width: 300px;">
+</p>
+
+[FontPair](https://fontpair.co/) is a great site to see which fonts go well together, and [Type Scale](https://type-scale.com/) allows you to see all of the google fonts at different scales. You can find 2 fonts on FontPair and then jump over to Type Scale and have your whole type system ready to go!
+
+<br/>
+<p align="center">
+<img src="uiux/typescale.png" alt="font pair and type scale" style="width: 100%; min-width: 300px;">
+</p>
+<br/>
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fwx10Hh4zqzjdBvFASMOPh0%2FTypography%3Fnode-id%3D0%253A1&chrome=DOCUMENTATION" allowfullscreen></iframe>
 
 </div>
