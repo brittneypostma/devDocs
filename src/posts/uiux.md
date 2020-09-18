@@ -31,6 +31,7 @@ image: ./logos/uiux.svg
   - [Layouts](#layouts)
 - [Typography](#typography)
   - [Choosing a Typeface](#choosing-a-typeface)
+- [Color](#color)
 
 
 </div>
@@ -269,5 +270,13 @@ When working for a client, you may have a limited choice of fonts you can use. T
 <br/>
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fwx10Hh4zqzjdBvFASMOPh0%2FTypography%3Fnode-id%3D0%253A1&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+---
+
+## Color
+
+Color schemes help us to create harmony and evoke feeling in our design. **Monochromatic** schemes pull from 1 primary color and uses different shades of that color. It is the simplest and least distracting color scheme. **Analogous** takes 3 adjacent colors from the color wheel to comprise it. This creates a very blended, simple color pallette. **Complementary** schemes use colors that are directly across from each other on the color wheel. This gives high contrast and can make a design feel brighter and more prominent. **Split-Complementary** which uses 1 color and the 2 colors adjacent to the color opposite the first. It's similar to complimentary in that its bright, but gives more versatility. **Triadic** creates a triangle on the color wheel where each color is exactly 120° from each other. It is a little less contrast than complementary, making is more versatile. The pallets are bold and vibrant. **Tetradic** is the last color scheme. It uses four colors that are evenly spaced on the color wheel, but can be difficult to get right. More colors makes it harder to balance, sticking with 3 or less is usually the best option.
+
+
 
 </div>
