@@ -36,6 +36,7 @@ hr {
 }
 
 html {
+  scroll-behavior: smooth;
   height: 100%;
   width: 100vw;
   overflow-y: auto;

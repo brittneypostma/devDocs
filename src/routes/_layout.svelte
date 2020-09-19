@@ -54,7 +54,8 @@
 
 <style>
   main {
-    height: calc(100vh - 105px);;
+    scroll-behavior: smooth;
+    height: calc(100vh - 105px);
     position: relative;
     top: 68px;
     background-color: var(--bg-color);
