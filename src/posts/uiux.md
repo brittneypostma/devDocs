@@ -48,6 +48,7 @@ image: ./logos/uiux.svg
 <p style="text-align: center;"><strong>
 These are my notes while taking the <a href="https://academy.zerotomastery.io/courses/enrolled/1073485?affcode=441520_gjue7n-1">Complete Web & Mobile Designer</a> course by Daniel Schifano and Andrei Neagoie on ZTM Academy.</strong>
 </p>
+<br/>
 
 <p align="center">
     <img src="logos/uiuxfull.svg" alt="UI UX Logo" width="100%">
@@ -218,7 +219,7 @@ A grid is a structure that divides a page into a series of rows and columns. But
 
 ### Grid Basics
 
-Always start with the basics. In this case, **base units**. The base units are going to define what every other unit is based off of. They make the whole design easier to scale and handoff. The base unit that is the most recommended is **`8px`** because most screen sizes are divisible by 8 and its divisible itself. Personally, I like to start with `16px` base because 8 is so small to read. All other UI elements should be in increments of the base unit. Grids are made up of 3 pieces, columns, gutters, and margins. **Columns** are the vertical sections that go from left to right. Typically a 12 column grid is used, because it can be divided in so many ways it makes it more versatile. **Gutters** are the white space between the columns. **Margins** are the outside edges of the columns that separate the grid from the edge of the screen. The gutter and margin size are going to be a multiple of the base unit. Here are a few different types of grids.
+Always start with the basics. In this case, **base units**. The base units are going to define what every other unit is based off of. They make the whole design easier to scale and handoff. The base unit that is the most recommended is **`8px`** because most screen sizes are divisible by 8 and its divisible itself. Personally, I like to start with `16px` base because 8 is so small to read. All other UI elements should be in increments of the base unit. Grids are made up of 3 pieces, columns, gutters, and margins. **Columns** are the vertical sections that go from left to right. Typically a 12 column grid is used, because it can be divided in so many ways it makes it more versatile. Keep in mind, most desktops today are extremely wide. Use `max-width` to contain your grid so users don't have to turn left to right to view all of your content. **Gutters** are the white space between the columns. **Margins** are the outside edges of the columns that separate the grid from the edge of the screen. The gutter and margin size are going to be a multiple of the base unit. Here are a few different types of grids.
 <br/><br/>
 
 - &#x25FE; Manuscript Grid - Used for defining margins and large blocks of text.

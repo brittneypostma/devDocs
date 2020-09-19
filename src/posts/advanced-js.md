@@ -108,6 +108,7 @@ image: ./logos/js.svg
 <p style="text-align: center;"><strong>
 These are my notes while taking the <a href="https://academy.zerotomastery.io/p/advanced-javascript-concepts?affcode=441520_gjue7n-1">Advanced JavaScript Concepts</a> course by Andrei Neagoie on ZTM Academy.</strong>
 </p>
+<br/>
 
 <p align="center">
   <img src="Advanced_Javascript.png" alt="Advanced Javascript Course Map" width="100%">

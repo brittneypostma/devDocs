@@ -27,6 +27,7 @@ image: ./logos/deno.svg
 <p style="text-align: center;"><strong>
 These are my notes while taking the <a href="https://academy.zerotomastery.io/p/deno-the-complete-guide-zero-to-mastery?affcode=441520_gjue7n-1">Deno: The Complete Guide</a> course by Andrei Neagoie and Adam Odziemkowski on ZTM Academy.</strong>
 </p>
+<br/>
 
 <p align="center">
   <img src="deno/Deno.jpg" alt="deno park" width="100%"/>

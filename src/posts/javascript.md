@@ -55,7 +55,7 @@ image: ./logos/js.svg
 <p style="text-align: center;"><strong>
 These are my notes while taking the <a href="https://academy.zerotomastery.io/p/complete-web-developer-zero-to-mastery?affcode=441520_gjue7n-1">The Complete Web Developer Zero to Mastery</a> course by Andrei Neagoie on ZTM Academy.</strong>
 </p>
-
+<br/>
 
 <iframe
 		height="525"

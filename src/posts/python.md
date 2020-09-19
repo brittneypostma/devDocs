@@ -28,6 +28,7 @@ image: ./logos/python.svg
 <p style="text-align: center;"><strong>
 These are my notes while taking the <a href="https://academy.zerotomastery.io/p/complete-python-developer-zero-to-mastery?affcode=441520_gjue7n-1">Complete Python Developer</a> course by Andrei Neagoie on ZTM Academy.</strong>
 </p><br/>
+<br/>
 
 Right away, I am impressed with the Python site by giving you up front details and tutorials on how to learn the language.
 

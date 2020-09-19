@@ -26,6 +26,7 @@ image: ./logos/html.svg
 <p style="text-align: center;"><strong>
 These are my notes while taking the <a href="https://academy.zerotomastery.io/p/complete-web-developer-zero-to-mastery?affcode=441520_gjue7n-1">The Complete Web Developer Zero to Mastery</a> course by Andrei Neagoie on ZTM Academy.</strong>
 </p>
+<br/>
 
 <iframe height="450" style="width: 100%; resize: both; border: 1px solid #333;" scrolling="no" title="yLBxMNg" src="//codepen.io/sballgirl11/embed/yLBxMNg/?height=464&theme-id=dark&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/sballgirl11/pen/yLBxMNg/'>yLBxMNg</a> by Brittney

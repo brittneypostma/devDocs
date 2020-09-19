@@ -36,6 +36,7 @@ image: ./logos/react.svg
 <p style="text-align: center;"><strong>
 These are my notes while taking the <a href="https://academy.zerotomastery.io/p/complete-react-developer-redux-hooks-graphql-zero-to-mastery?affcode=441520_gjue7n-1">The Complete React Developer</a> course by Andrei Neagoie and Yihua Zhang on ZTM Academy.</strong>
 </p>
+<br/>
 
 <p align="center">
   <img src="./react/react.svg" alt="React Logo" width="25%" style="padding: 20px;">
