@@ -218,7 +218,7 @@ A grid is a structure that divides a page into a series of rows and columns. But
 
 ### Grid Basics
 
-Always start with the basics. In this case, **base units**. The base units are going to define what every other unit is based off of. They make the whole design easier to scale and handoff. The base unit that is the most recommended is **`8px`** because most screen sizes are divisible by 8 and its divisible itself. All other UI elements should be in increments of the base unit. Grids are made up of 3 pieces, columns, gutters, and margins. **Columns** are the vertical sections that go from left to right. **Gutters** are the white space between the columns. **Margins** are the outside edges of the columns that separate the grid from the edge of the screen. The gutter and margin size are going to be a multiple of the base unit. Here are a few different types of grids.
+Always start with the basics. In this case, **base units**. The base units are going to define what every other unit is based off of. They make the whole design easier to scale and handoff. The base unit that is the most recommended is **`8px`** because most screen sizes are divisible by 8 and its divisible itself. Personally, I like to start with `16px` base because 8 is so small to read. All other UI elements should be in increments of the base unit. Grids are made up of 3 pieces, columns, gutters, and margins. **Columns** are the vertical sections that go from left to right. Typically a 12 column grid is used, because it can be divided in so many ways it makes it more versatile. **Gutters** are the white space between the columns. **Margins** are the outside edges of the columns that separate the grid from the edge of the screen. The gutter and margin size are going to be a multiple of the base unit. Here are a few different types of grids.
 <br/><br/>
 
 - &#x25FE; Manuscript Grid - Used for defining margins and large blocks of text.
@@ -266,11 +266,11 @@ When working for a client, you may have a limited choice of fonts you can use. T
 <img src="uiux/fonts.png" alt="google fonts" style="width: 100% min-width: 300px;">
 </p>
 
-[FontPair](https://fontpair.co/) is a great site to see which fonts go well together, and [Type Scale](https://type-scale.com/) allows you to see all of the google fonts at different scales. You can find 2 fonts on FontPair and then jump over to Type Scale and have your whole type system ready to go!
+By taking a base font size of say `16px`, you can multiply that by the golden ratio of `1.618` and get multiples for your heading sizes. You would end up with `10px` or `0.618em`, `16px` or `1em`, `26px` or `1.6118em`, `42px`  or `2.618em`,  and `68px` or `4.236em`. Here's a [pixel to rem converter](https://www.ninjaunits.com/converters/pixels/pixels-rem/) too, if you want to use `rem` instead of `em`. These are along that golden ratio curve and are appealing to the eye. Perhaps an even easier option is to head to [fontPair.co](https://fontpair.co/) and find 2 fonts which go well together. Then, head to  [Type-Scale.com](https://type-scale.com/) and set the 2 fonts you found. On the left on type-scale, you can choose the heading font and use the drop-down to select the golden ratio. If you picked a second font, you can pull out arrow from the right to get the body font and see them together. Now your whole type system is ready to go!
 
 <br/>
 <p align="center">
-<img src="uiux/typescale.png" alt="font pair and type scale" style="width: 100%; min-width: 300px;">
+<img src="/uiux/typescale.png" alt="type-scale" style="min-width: 300px">
 </p>
 <br/>
 
