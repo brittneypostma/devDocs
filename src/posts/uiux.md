@@ -32,6 +32,11 @@ image: ./logos/uiux.svg
 - [Typography](#typography)
   - [Choosing a Typeface](#choosing-a-typeface)
 - [Color](#color)
+  - [Color Schemes](#color-schemes)
+- [Forms](#forms)
+  - [Form Demo](#form-demo)
+  - [Input Demo](#input-demo)
+  - [Button Demo](#button-demo)
 
 
 </div>
@@ -275,8 +280,30 @@ When working for a client, you may have a limited choice of fonts you can use. T
 
 ## Color
 
-Color schemes help us to create harmony and evoke feeling in our design. **Monochromatic** schemes pull from 1 primary color and uses different shades of that color. It is the simplest and least distracting color scheme. **Analogous** takes 3 adjacent colors from the color wheel to comprise it. This creates a very blended, simple color pallette. **Complementary** schemes use colors that are directly across from each other on the color wheel. This gives high contrast and can make a design feel brighter and more prominent. **Split-Complementary** which uses 1 color and the 2 colors adjacent to the color opposite the first. It's similar to complimentary in that its bright, but gives more versatility. **Triadic** creates a triangle on the color wheel where each color is exactly 120° from each other. It is a little less contrast than complementary, making is more versatile. The pallets are bold and vibrant. **Tetradic** is the last color scheme. It uses four colors that are evenly spaced on the color wheel, but can be difficult to get right. More colors makes it harder to balance, sticking with 3 or less is usually the best option.
+ Before choosing colors, ask yourself what message does the brand want to communicate or what problem is it trying to solve. Colors can really influence the personality of the brand. Another thing to look at is who the target users are. Knowing the demographic of the users and if there are cultural influences can really help in choosing the right colors. Think about what the colors mean to you as well. The psychology of color is a powerful tool that shapes how we perceive the world. Colors should be able to be scaled or added to, by having a mini monochromatic pallette within each color. You can add depth to your blacks and grays by adding in hints of the brand colors. Sometimes black comes off as too harsh if left untouched. The most important thing when choosing colors, it to test for accessibility. Make sure there is enough contrast between backgrounds and foregrounds to ensure it is readable for everyone. [Colorable](https://colorable.jxnblk.com/) allows you to test 2 colors for accessibility on the web as well as plugins within Figma like [Able](https://www.figma.com/community/plugin/734693888346260052/Able-%E2%80%93-Friction-free-accessibility).
 
+### Color Schemes
 
+Color schemes help us to create harmony and evoke feeling in our design. **Monochromatic** schemes pull from 1 primary color and uses different shades of that color. It is the simplest and least distracting color scheme. **Analogous** takes 3 adjacent colors from the color wheel to comprise it. This creates a very blended, simple color pallette. **Complementary** schemes use colors that are directly across from each other on the color wheel. This gives high contrast and can make a design feel brighter and more prominent. **Split-Complementary** which uses 1 color and the 2 colors adjacent to the color opposite the first. It's similar to complimentary in that its bright, but gives more versatility. **Triadic** creates a triangle on the color wheel where each color is exactly 120° from each other. It is a little less contrast than complementary, making is more versatile. The pallets are bold and vibrant. **Tetradic** is the last color scheme. It uses four colors that are evenly spaced on the color wheel, but can be difficult to get right. More colors makes it harder to balance, sticking with 3 or less is usually the best option. [Coolors.co](https://coolors.co/) is a great site to help you find color pallettes as a starting point.
+
+---
+
+## Forms
+
+A form is one of the most common UI elements. Search bars, login or signin areas, text inputs, and payment info when purchasing online, they are everywhere! Getting the forms right in a product is crucial to its success. Start by planning out the forms that will be needed within the product, just like a wireframe. Ask what types of questions you need the user to answer and narrow down what is really needed for each specific form. They should flow like a natural conversation with the user. The placement of the inputs inside a form should flow as well. Keep lines aligned in a column and broken up into categories to allow space between long groups of inputs. Buttons within a form should be clearly labeled and styled appropriately. Keep the height of inputs and buttons the same to maintain the visual consistency. Labels should contrast the text in the input and be kept concise. Placeholders are generally a bad idea. Screen readers don't read them and they disappear as soon as the user starts typing. If hints are helpful for a particular input, lay it out opposite the label or elsewhere appropriate to the design. Visual feedback and icons can help improve accessibility when used correctly. Always put feedback to an input inline with the form.
+
+### Form Demo
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FpPLJNXpA41yked5dtGJcmz%2FForm-UI-Elements-Resource%3Fnode-id%3D0%253A1&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+### Input Demo
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FpPLJNXpA41yked5dtGJcmz%2FForm-UI-Elements-Resource%3Fnode-id%3D19%253A8&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+### Button Demo
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FpPLJNXpA41yked5dtGJcmz%2FForm-UI-Elements-Resource%3Fnode-id%3D24%253A203&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+---
 
 </div>
