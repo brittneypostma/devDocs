@@ -37,6 +37,11 @@ image: ./logos/uiux.svg
   - [Form Demo](#form-demo)
   - [Input Demo](#input-demo)
   - [Button Demo](#button-demo)
+- [Demos](#demos)
+  - [Imagery](#imagery)
+  - [Illustrations](#illustrations)
+  - [Icons](#icons)
+- [Accessibility](#accessibility)
 
 
 </div>
@@ -287,6 +292,8 @@ By taking a base font size of say `16px`, you can multiply that by the golden ra
 
 Color schemes help us to create harmony and evoke feeling in our design. **Monochromatic** schemes pull from 1 primary color and uses different shades of that color. It is the simplest and least distracting color scheme. **Analogous** takes 3 adjacent colors from the color wheel to comprise it. This creates a very blended, simple color pallette. **Complementary** schemes use colors that are directly across from each other on the color wheel. This gives high contrast and can make a design feel brighter and more prominent. **Split-Complementary** which uses 1 color and the 2 colors adjacent to the color opposite the first. It's similar to complimentary in that its bright, but gives more versatility. **Triadic** creates a triangle on the color wheel where each color is exactly 120° from each other. It is a little less contrast than complementary, making is more versatile. The pallets are bold and vibrant. **Tetradic** is the last color scheme. It uses four colors that are evenly spaced on the color wheel, but can be difficult to get right. More colors makes it harder to balance, sticking with 3 or less is usually the best option. [Coolors.co](https://coolors.co/) is a great site to help you find color pallettes as a starting point.
 
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FyeVDZjPKwWkS0Xayt6Lnzy%2FColor-Resource%3Fnode-id%3D60%253A2&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
 ---
 
 ## Forms
@@ -297,6 +304,7 @@ A form is one of the most common UI elements. Search bars, login or signin areas
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FpPLJNXpA41yked5dtGJcmz%2FForm-UI-Elements-Resource%3Fnode-id%3D0%253A1&chrome=DOCUMENTATION" allowfullscreen></iframe>
 
+
 ### Input Demo
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FpPLJNXpA41yked5dtGJcmz%2FForm-UI-Elements-Resource%3Fnode-id%3D19%253A8&chrome=DOCUMENTATION" allowfullscreen></iframe>
@@ -305,6 +313,28 @@ A form is one of the most common UI elements. Search bars, login or signin areas
 
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FpPLJNXpA41yked5dtGJcmz%2FForm-UI-Elements-Resource%3Fnode-id%3D24%253A203&chrome=DOCUMENTATION" allowfullscreen></iframe>
 
+
 ---
+
+## Demos
+
+The Visual Assets section is mostly visual explanation and working in Figma. I have embedded the resources below, but I am not going to have any notes until the [accessibility](#accessibility) section.
+
+### Imagery
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FmYrPpZaHK4l2akhePM95Xw%2FImagery-Iconography-Resource%3Fnode-id%3D46%253A2&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+### Illustrations
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FmYrPpZaHK4l2akhePM95Xw%2FImagery-Iconography-Resource%3Fnode-id%3D28%253A140&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+### Icons
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FmYrPpZaHK4l2akhePM95Xw%2FImagery-Iconography-Resource%3Fnode-id%3D0%253A1&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+---
+
+## Accessibility
+
 
 </div>
