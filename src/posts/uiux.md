@@ -42,6 +42,9 @@ image: ./logos/uiux.svg
   - [Illustrations](#illustrations)
   - [Icons](#icons)
 - [Accessibility](#accessibility)
+  - [Assistive Technologies](#assistive-technologies)
+  - [Visual Patterns](#visual-patterns)
+- [Design Patterns](#design-patterns)
 
 
 </div>
@@ -227,10 +230,10 @@ A grid is a structure that divides a page into a series of rows and columns. But
 Always start with the basics. In this case, **base units**. The base units are going to define what every other unit is based off of. They make the whole design easier to scale and handoff. The base unit that is the most recommended is **`8px`** because most screen sizes are divisible by 8 and its divisible itself. Personally, I like to start with `16px` base because 8 is so small to read. All other UI elements should be in increments of the base unit. Grids are made up of 3 pieces, columns, gutters, and margins. **Columns** are the vertical sections that go from left to right. Typically a 12 column grid is used, because it can be divided in so many ways it makes it more versatile. Keep in mind, most desktops today are extremely wide. Use `max-width` to contain your grid so users don't have to turn left to right to view all of your content. **Gutters** are the white space between the columns. **Margins** are the outside edges of the columns that separate the grid from the edge of the screen. The gutter and margin size are going to be a multiple of the base unit. Here are a few different types of grids.
 <br/><br/>
 
-- &#x25FE; Manuscript Grid - Used for defining margins and large blocks of text.
-- &#x25FE; Column Grid - The grid most used in web design, columns spaced evenly across a page.
-- &#x25FE; Modular Grid - This grid has both vertical columns and horizontal rows covering a page.
-- &#x25FE; Baseline Grid - Horizontal rows going top to bottom across a page, similar to a notebook you write in.
+- &#x25FE; **Manuscript Grid** - Used for defining margins and large blocks of text.
+- &#x25FE; **Column Grid** - The grid most used in web design, columns spaced evenly across a page.
+- &#x25FE; **Modular Grid** - This grid has both vertical columns and horizontal rows covering a page.
+- &#x25FE; **Baseline Grid** - Horizontal rows going top to bottom across a page, similar to a notebook you write in.
 
 
 ### Layouts
@@ -336,5 +339,42 @@ The Visual Assets section is mostly visual explanation and working in Figma. I h
 
 ## Accessibility
 
+We want our products that we design and create to be usable by people with a wide range of abilities. If just one person can't use your design, then you have failed them in a sense. This is the process of **accessibility**, making things accessible to all people, disabled or not. In fact, thinking about creating an experience that works for all users, actually makes the experience better for everyone. **"Accessibility is not a checklist. It should be ingrained in the way we design." - Daniel Schifano** 
+
+### Assistive Technologies
+
+- &#x25FE; **Screen Readers** - A program that reads the content of a web page created for visually impaired users.
+- &#x25FE; **Braille Terminals** - A keyboard created for the blind or visually impaired users to navigate a computer and the internet.
+- &#x25FE; **Screen Magnifier** - Enlargers a portion of the screen that the user hovers over.
+- &#x25FE; **Alternate Input Devices & Software** - These include voice and push buttons the control the actions on the computer.
+
+### Visual Patterns
+
+Lots of things play into creating accessible content on the web, but let's look at a few of them. **Color contrast** is a big one that is really easy to get wrong. [Color Safe](http://colorsafe.co/) is a great place to start for picking accessible colors if you have not chosen a color pallette. However, if you already have brand colors you need to work with, [Colorable](https://colorable.jxnblk.com/) is a great site to ensure they are compliant to the contrast ratios. Google has a tool as well called the [Color Contrast Analyzer](https://ace.accessibe.com/?gclid=CjwKCAjw-5v7BRAmEiwAJ3DpuJX0jvy0E1xlHL54h_BVZRPZHd4G0FeQvgI1Pi0WLHTHhvpyZrOMQxoC4GIQAvD_BwE) that you can run the website through to test. 
+
+<br/>
+<p align="center">
+<img src="/uiux/contrast.png" alt="contrast ratios" style="min-width: 300px">
+</p>
+<br/>
+
+**Focus state** on form elements and buttons is a must for screen readers. Make sure to have something there that is also contrast compliant, even if you remove the default styling. **Off screen content** can sometimes be picked up by screen readers as well. Make sure to keep that in mind and make the necessary changes in the code. **Modals**, **hover states**, and **click targets** are all areas of concern for accessibility. The size of clickable content needs to be large enough to be clicked easily, but doesn't always have to increase the size of the design. The clickable area can be larger than the item itself, which can help a user with motor impairments. As with testing, start thinking about how to make your products accessible earlier in the process. Collaborate with the developers or make sure to include code to make the design accessible.
+
+---
+
+## Design Patterns
+
+A design pattern is a general solution that can be repeated to commonly occurring problems. The first step is to **analyze the problem** and then to find ways to eliminate or aid in the **pain points**. Detect usability issues with **real data** from testing and feedback. Next, look at how **other brands** and products have **solved** this problem. Having **multiple examples** of how a solution is implemented can give you more **insight** if this is something that will work for your product. Finally, choose the **one solution** that will work best for your product. This is why lots of designs look the same across varying sites, because these patterns are **standards** that are proven to **help users**. You don't always need to create **innovative** ways of doing things, but always seeing the same thing can get **boring** too. It's a delicate balance of **good design** with **good user experience**. Design patterns can be put into 6 categories.
+
+- &#x25FE; **Data + Input** - Products that give feedback and response to data they receive, like a drag and drop ui.
+- &#x25FE; **Content Structure** - The structure of the content on a page that streamlines the flow and ensures accessibility of product.
+- &#x25FE; **Navigation** - Ensure the ease of navigation through the product, includes sidebars, hamburger menus, and nav bars.
+- &#x25FE; **Incentivization** - Provides the user with positive feedback to get the user to keep using your product.
+- &#x25FE; **Hierarchy** - Gives a flow to the product to visually establish important or primary elements.
+- &#x25FE; **Social Media** - Encourages users to share the product with members of their social networks.
+
+Our minds are wired to always look for patterns in the things we do repeatedly. We are looking for efficiency and easier access to things constantly. Using these standards creates less cognitive strain, or brain power, to use a product. Design patterns provide the solution to a lot of problems that are out there.
+
+---
 
 </div>
