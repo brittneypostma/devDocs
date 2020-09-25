@@ -68,6 +68,7 @@ image: ./logos/js.svg
   - [Constructor Functions](#constructor-functions)
   - [Class](#class)
   - [Private and public fields](#private-and-public-fields)
+  - [4 Pillars of OOP](#4-pillars-of-oop)
 - [Functional Programming](#functional-programming)
   - [Pure Functions](#pure-functions)
   - [Referential transparency](#referential-transparency)
@@ -2066,11 +2067,18 @@ So, did we obtain perfect object oriented programming? Well, that is up for deba
 
 > **Nifty Snippet**: Why didn't Eich just add classes to JavaScript in the beginning?<br/> _"If I had done classes in JavaScript back in May 1995, I would have been told that it was too much like Java or the JavaScript was competing with Java ... I was under marketing orders to make it look like Java but not make it too big for its britches ... [it] needed to be a silly little brother language." &#8212;Brendan Eich_
 
+### 4 Pillars of OOP
+
+- &#x25FE; Encapsulation - Organizes code into containers that relate to each other and makes it easier to maintain and reuse.
+- &#x25FE; Abstraction - Hides the complexity from the user by doing the method calculations behind the scenes.
+- &#x25FE; Inheritance - Give the properties of a class to another class keeping code DRY and saving on memory space.
+- &#x25FE; Polymorphism - The ability of an object to take on many forms allowing methods to be used differently by different classes.
+
 ---
 
 ## Functional Programming
 
-Functional programming has the same goals in mind as object oriented programming, to keep your code understanable, easy to extend, easy to maintain, memory efficient, and DRY. Instead of objects, it uses reusable functions to create and act on data. Functional program is based on a seperation of concerns similar to object oriented programming. However, in functional programming there is a complete seperation between the data and the behaviors of a program. There is also an idea that once something is created, it should not be changed, being **immutable**. Unlike OOP, shared state is avoided functional programming works on the idea of **pure functions**.
+Functional programming has the same goals in mind as object oriented programming, to keep your code understandable, easy to extend, easy to maintain, memory efficient, and DRY. Instead of objects, it uses reusable functions to create and act on data. Functional program is based on a separation of concerns similar to object oriented programming. However, in functional programming there is a complete separation between the data and the behaviors of a program. There is also an idea that once something is created, it should not be changed, being **immutable**. Unlike OOP, shared state is avoided functional programming works on the idea of **pure functions**.
 
 ### Pure Functions
 
