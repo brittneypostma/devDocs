@@ -45,6 +45,7 @@ image: ./logos/uiux.svg
   - [Assistive Technologies](#assistive-technologies)
   - [Visual Patterns](#visual-patterns)
 - [Design Patterns](#design-patterns)
+- [Mobile Design](#mobile-design)
 
 
 </div>
@@ -376,5 +377,9 @@ A design pattern is a general solution that can be repeated to commonly occurrin
 Our minds are wired to always look for patterns in the things we do repeatedly. We are looking for efficiency and easier access to things constantly. Using these standards creates less cognitive strain, or brain power, to use a product. Design patterns provide the solution to a lot of problems that are out there.
 
 ---
+
+## Mobile Design
+
+Having a great user experience in an app is key to having a successful product. Make sure users don't have to **think** too much to use the product. If areas of the app are too hard to use or understand, customers may give up. One way to accomplish this is to **unclutter** the unnecessary pieces and make sure only the important information remains. Keep the interface clean and minimal and break longer tasks into chunks. Also, with forms pre-formatting input fields for better readability, auto-completion, and correctly placed hints will go a long way in helping a user. Make sure the design has **consistency** throughout. Using the same colors, typefaces, and interactions make the app more cohesive and easier to use. Providing **predictability** in the design patterns allows users to feel they already know how to use the app. Probably the most important thing to remember, is to make the app easy to **navigate**. Users should be able to go where they want within the app easily and get back to the previous screen. Don't mix different navigation patterns, find one that works well with the app and keep it consistent. Start thinking about **animations** and **interactions** early in the design process to refine them, they let the user know what's happening.
 
 </div>
