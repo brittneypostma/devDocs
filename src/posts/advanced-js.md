@@ -2071,7 +2071,7 @@ So, did we obtain perfect object oriented programming? Well, that is up for deba
 
 - &#x25FE; Encapsulation - Organizes code into containers that relate to each other and makes it easier to maintain and reuse.
 - &#x25FE; Abstraction - Hides the complexity from the user by doing the method calculations behind the scenes.
-- &#x25FE; Inheritance - Give the properties of a class to another class keeping code DRY and saving on memory space.
+- &#x25FE; Inheritance - Gives the properties of a class to another class, keeping code DRY and saving on memory space.
 - &#x25FE; Polymorphism - The ability of an object to take on many forms allowing methods to be used differently by different classes.
 
 ---
