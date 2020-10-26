@@ -26,6 +26,11 @@ image: ./logos/react.svg
   - [Class Methods](#class-methods)
   - [Binding](#binding)
   - [Hooks](#hooks)
+- [Create React App from Scratch](#create-react-app-from-scratch)
+  - [Webpack](#webpack)
+  - [Part 2 - Build Webpack with React from Scratch](#part-2---build-webpack-with-react-from-scratch)
+  - [Part 3 - Build Webpack with React from Scratch](#part-3---build-webpack-with-react-from-scratch)
+  - [Connect React](#connect-react)
 
   </div>
 
@@ -535,5 +540,242 @@ Additional hooks are:
 - **useDebugValue** - can display a label for custom hooks.
 
 [Hooks API Docs](https://reactjs.org/docs/hooks-reference.html)
+
+---
+
+## Create React App from Scratch
+
+### Webpack
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Webpack is probably the most widely used module bundler. Webpack requires a lot of setup, but that also comes with a lot of control over what and how you want to use things. There are 4 main concepts in Webpack. **Entry** is a JavaScript file where Webpack will enter your project, typically **`index.js`**. **Output** is where you tell Webpack to output all of the files in bundles together, typically a **`build`** folder. **Loaders** are what you put your code through to compile or transpile your code, a popular tool for this is **Babel**. Lastly, **Plugins** play a vital role in outputting your code. Webpack has a rich plugin interface you can explore here: [Webpack Plugins](https://webpack.js.org/plugins/).
+<br/>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create React App comes with Webpack already pre-configured for you. This is going to teach you how it is done. Go to the directory of your choice and follow these steps to create a new project and setup Webpack.
+
+- 1\. **`mkdir webpack-project`** and then **`cd webpack-project`**
+- 2\. **`npm init`** - this will walk you through the steps of creating a basic package.json file.
+- 3\. **`npm i --save-dev webpack webpack-dev-server webpack-cli`** - install webpack.
+- 4\. **`mkdir build`** then **`cd build`** then **`touch index.html`** and **`touch bundle.js`**- create our build folder, html entry point, and js bundle file.
+- 5\. **`cd ..`** to go back to the root directory of your project.
+- 6\. **`touch webpack.config.js`** to create the webpack configuration file we will use next.
+
+- 7\. Open up the project in your favorite editor. Mine is VS Code and I wrote a whole article on getting it setup with a good developer environment here [VS Code Setup](https://dev.to/bdesigned/vscode-setup-with-eslint-and-prettier-1gek). In your package.json file we are going to edit the "scripts" section. Make sure your file looks like this unless you customized the package.json setup. Change the "scripts" section to include **`"start": "webpack-dev-server --config ./webpack.config.js --mode development"`** so we can run our server with Webpack using **`npm start`**.
+
+```javascript
+{
+  "name": "webpack-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+  },
+  "author": "",
+  "license": "ISC",
+    "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
+```
+
+- 8\. **`mkdir src`** - in your **root** directory create a src folder.
+- 9\. **`cd src`** then **`touch index.js`** to change into src folder and create our js entry point. Add **`console.log('Webpack wizard!')`** to the index.js file.
+- 10\. Next, open up the **`webpack.config.js`** file and add the following code.
+
+```javascript
+module.exports = {
+  entry: [
+    './src/index.js' // The entry point
+  ],
+  output: {
+    path: (__dirname = '/build'), // folder webpack should output files to
+    publicPath: '/', // path to build directory
+    filename: 'bundle.js' // file to output js to
+  },
+  devServer: {
+    contentBase: './build' // dev server folder to use
+  }
+}
+```
+
+- 11\. Now, open up the index.html file and add the following code. We will inject React into the `div` with `id="app"` and Webpack will bundle our js into the bundle.js file.
+
+```html
+<!-- index.html file -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webpack Wizard</title>
+  </head>
+  <body>
+    <h1>Webpack Wizard</h1>
+    <div id="app"></div>
+    <script src="/bundle.js"></script>
+  </body>
+</html>
+```
+
+- 12\. At this step, we should check to ensure Webpack is configured correctly. Run **`npm start`** from the root directory. This will output some information to the terminal, but if you visit **`http://localhost:8080/`** in your browser, you should see something like this.
+
+<p align="center">
+  <img src="https://console-logs.netlify.app/jr2sr/webpack.png" alt="webpack output" width="100%" style="border: 1px solid black">
+</p>
+
+### Part 2 - Build Webpack with React from Scratch
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yay! Part 1 is done. Now, we move onto **Babel** to transpile our code back to ES5 so we have full browser support.
+
+- 1\. **`npm i --save-dev babel-core babel-loader babel-preset-env babel-preset-react`** - in your root directory, install babel core, babel loader, and babel preset env.
+- 2\. Open package.json and add **`"babel": { "presets": [ "env", "react" ]}`** to it. It should now look like this.
+
+```javascript
+{
+	"name": "webpack-project",
+	"version": "1.0.0",
+	"description": "building webpack from scratch",
+	"main": "index.js",
+	"scripts": {
+		"start": "webpack-dev-server --config ./webpack.config.js --mode development"
+	},
+	"babel": {
+		"presets": [
+			"env",
+			"react"
+		]
+	},
+	"author": "Brittney Postma",
+	"license": "ISC",
+	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-loader": "^8.1.0",
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-react": "^6.24.1",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.11",
+		"webpack-dev-server": "^3.11.0"
+	}
+}
+```
+
+- 3\. In **`webpack.config.js`** add **`module: { rules: [{ test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] }]}, resolve: { extensions: ['js', 'jsx'] }`**. It now should look like this.
+
+```javascript
+module.exports = {
+  entry: ['./src/index.js'],
+  output: {
+    path: (__dirname = '/build'),
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  devServer: {
+    contentBase: './build'
+  },
+  module: {
+    rules: [
+      {
+        // test for all js and jsx files
+        test: /\.(js|jsx)$/,
+        // exclude node modules folder
+        exclude: /node_modules/,
+        // run all js and jsx through babel-loader
+        use: ['babel-loader']
+      }
+    ]
+  },
+  resolve: {
+    // makes it so you don't have to
+    // write .js and .jsx at the end of imports
+    extensions: ['js', 'jsx']
+  }
+}
+```
+
+### Part 3 - Build Webpack with React from Scratch
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Finally, Webpack and Babel are setup. The last step is to install React and ESLint.
+
+- 1\. **`npm i react react-dom`** then **`npm i --save-dev eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks @babel/core @babel/preset-env @babel/preset-react babel-eslint babel-loader`** to install React and ESLint from your root directory.
+- 2\. Now edit webpack.config.js to include **`{ test: /\.(js|jsx)$/, exclude: /node_modules, use: ['eslint-loader'] }`** in the rules section.
+
+```javascript
+module.exports = {
+  entry: ['./src/index.js'],
+  output: {
+    path: (__dirname = '/build'),
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  devServer: {
+    contentBase: './build'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['eslint-loader']
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
+}
+```
+
+- 3\. **`touch .eslintrc.json`** to create the ESLint configuration file.
+- 4\. Open .eslintrc and input the following code to configure ESLint, and Babel.
+
+```javascript
+// .eslintrc
+{
+	"extends": ["airbnb-base"],
+	"env": {
+		"node": true,
+		"es6": true,
+		"browser": true
+	},
+	"parser": "babel-eslint",
+	"rules": {
+		"no-console": "off"
+	}
+}
+
+```
+
+- 5\. Open package.json and add **`"babel": { "presets": ["@babel/preset-env","@babel/preset-react"] },`** to configure babel.
+- 6\. Finally, it is time to test our configuration. Run **`npm start`** 🍀 and fingers crossed it is working.
+
+**Warning** - If you run into errors or issues when running **`npm start`**, which you probably will, then first try fully reading the error and then Googling the error. I spent an hour looking for the reason babel-core was missing and nothing worked. I looked down and saw this error and the answer was staring me in the face. I was using a deprecated version of babel and had to redo my entire setup.
+
+### Connect React
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The last thing to do is connect React and insert it into our `div` with the `id="app"` we created earlier. Remove the console log from `src/index.js` and we are going to build our React component.
+
+```javascript
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+const WebpackWizard = () => {
+  return (
+    <div>
+      <h1>Webpack Wizard</h1>
+    </div>
+  )
+}
+
+ReactDOM.render(<WebpackWizard />, document.getElementById('app'))
+```
+
+Congratulations! If you are still with me, we now have a working version of basically create-react-app, but we built it from scratch. 🎉
 
 </div>

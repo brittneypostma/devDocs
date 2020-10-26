@@ -19,7 +19,8 @@ image: ./logos/css-podcast.png
 - [Episode Three: Specificity](#episode-three-specificity)
     - [Episode Links](#episode-links-2)
   - [Game Time](#game-time)
-- [Episode Three: The Cascade](#episode-three-the-cascade)
+- [Episode Four: The Cascade](#episode-four-the-cascade)
+- [Episode Five: Inheritance](#episode-five-inheritance)
 </div>
 
 <div id="main">
@@ -147,7 +148,7 @@ Check your scores in the [specificity calculator](https://specificity.keegan.st)
 
 ---
 
-## Episode Three: The Cascade
+## Episode Four: The Cascade
 
 [MDN on Cascade and Inheritance](https://goo.gle/39jAEES)<br/>
 [CSS Cascade Interactive Article](https://goo.gle/2UhqIHV)<br/><br/>
@@ -162,6 +163,9 @@ The "C" in CSS stands for cascade. Basically, this means that location and order
 <p align="center">
   <img src="css-podcast/una_doodle.png" alt="CSS: Cascade Origin user agent, client styles, your styles, your !important, client !important, user-agent !important">
 </p>
+
+## Episode Five: Inheritance
+
 
 
 </div>
