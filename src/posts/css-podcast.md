@@ -122,6 +122,7 @@ Selectors are a syntax used to find elements (aka subjects)in the DOM tree. CSS 
 [Specificity Calculator](https://specificity.keegan.st)<br/><br/>
 
 What happens when a subject is being targeted by multiple rules? The rule with the highest amount of points, or specificity, wins out. Specificity is how the browser decides which styles should be applied to an item. A weight or in this example points are given to each selector based on their ranking of least to most specific. Here's the game, we start at 0 and add up the number of points for each selector. If there is a tie, the last rule in the stylesheet wins. And no cheating by duplicating extra classes to your css 😜!
+<br/><br/>
 
 | Points   |   Selectors   |
 |----------|---------------|
@@ -148,9 +149,19 @@ Check your scores in the [specificity calculator](https://specificity.keegan.st)
 
 ## Episode Three: The Cascade
 
-The "C" in 
+[MDN on Cascade and Inheritance](https://goo.gle/39jAEES)<br/>
+[CSS Cascade Interactive Article](https://goo.gle/2UhqIHV)<br/><br/>
 
+The "C" in CSS stands for cascade. Basically, this means that location and order matter when you are writing CSS rules. If rules have the same specificity, the one that is used last in the stylesheet will be used. The cascade is made up of 4 phases:
 
+- 1\. **Position** - The position of a rule with the same specificity in a stylesheet or where it is linked in the html matters. The one that appears last with the most specificity wins. An embedded style tag in the html and inline style are more specific than the stylesheets. You can think about their proximity to the code they are affecting; inline is the closest, then style tag, then linked styles, then browser.
+- 2\. **Origin** - Where the rules are coming from, 1st link tags, 3rd party link tags, embedded styles, inline-styles, browser (user-agent styles), client set styles
+- 3\. **Specificity** - user agent, client styles, your styles, your !important, client !important, user-agent !important
+- 4\. **Importance** - Depends on the type of rule and is in order from least to most specific; normal, animation, !important, transitions.
+
+<p align="center">
+  <img src="css-podcast/una_doodle.png" alt="CSS: Cascade Origin user agent, client styles, your styles, your !important, client !important, user-agent !important">
+</p>
 
 
 </div>
