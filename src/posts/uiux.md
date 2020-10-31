@@ -51,6 +51,7 @@ image: ./logos/uiux.svg
 - [Design Systems](#design-systems)
 - [Product Alignment Canvas](#product-alignment-canvas)
 - [Product Handoff](#product-handoff)
+  - [Landing Page](#landing-page)
 
 
 </div>
@@ -422,5 +423,8 @@ Something that makes working through a project easier is a product alignment can
 
 Historically, a designer would work on a project, by themselves, and just hand off to a developer once they were finished. This left the developer to create a *pixel perfect* design with no communication on how a design might work in development. The designer usually communicates with the client and the developer may be left in the dark. In newer systems, companies are finding that working in teams and concurrently along with developers, products can be developed more cohesively. The idea of mutual collaboration and respect creates a better work environment and better products for the user in the end.
 
+### Landing Page
+
+[Landing page for Habitual](https://brittneypostma.github.io/habitual-landing-page/)
 
 </div>
