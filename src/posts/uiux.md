@@ -48,6 +48,9 @@ image: ./logos/uiux.svg
 - [Mobile Design](#mobile-design)
   - [Motion](#motion)
   - [Microinteractions](#microinteractions)
+- [Design Systems](#design-systems)
+- [Product Alignment Canvas](#product-alignment-canvas)
+- [Product Handoff](#product-handoff)
 
 
 </div>
@@ -396,5 +399,28 @@ Microinteractions are the small interactive reactions that happen when triggered
 - &#x25FE; **Rules** - defines what happens during an interaction, the steps that need to happen.
 - &#x25FE; **Feedback** - tells the user something is happening, like an input being correctly filled out or not.
 - &#x25FE; **Loops & Modes** - the loop will determine the length of the interaction and whether it repeats, modes will change the way interactions normally happen.
+
+---
+
+## Design Systems
+
+A design system is a single place where all the elements needed to design a product live. It creates a single source of truth for each individual piece in the design where anyone on a team can see and use easily any part of the design. A common methodology for design systems is **atomic design**. It is based on the book of the same name by Brad Frost and breaks a design system up into atoms, molecules, organisms, templates, and pages that work together to create an entire system for a product. Each piece builds on the piece before it and adds more to the design. In the course, Daniel uses a foundation, components, and recipes which is a similar methodology to build upon pieces to build out an entire product. The foundation has colors, typography, icons, and other individual items that may be used in the application. Components is where pieces from the foundation are put together to make reusable items such as buttons, inputs, and cards. The recipes section is where all the components come together to make even bigger groupings of what will make up sections of an app or page. The biggest thing to remember is that design systems are ever evolving.
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FJwXCPzX8PCTIhujzSK2Wgh%2FDesign-System-Resource%3Fnode-id%3D317%253A0" allowfullscreen></iframe>
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FmZPdnVXKCsyk1XPDp7vYYe%2FFinal-Compositions-Resource%3Fnode-id%3D579%253A7978" allowfullscreen></iframe>
+
+---
+
+## Product Alignment Canvas
+
+Something that makes working through a project easier is a product alignment canvas. The goal is to explore, understand, and move forward. You can use figma remotely or in a meeting with everyone that is working on the project. Ideally, you would have someone to take notes so you can focus your attention on what is being said. Create a graph that shows the risk level of certain ideas and get feedback on where each piece would lie. Such as, if we don't know who our users are, this is a high risk and high priority item to take care of. Try to get a good understanding of what the project goals are and who the target users are. The next piece is to make a user journey map. The user has been identified and the primary goal is set. Define all the steps the user would have to complete to primary goal on the map. Finally, all of these pieces can be brought together to create a user story map to define the details of how tasks happen within the app. 
+
+---
+
+## Product Handoff
+
+Historically, a designer would work on a project, by themselves, and just hand off to a developer once they were finished. This left the developer to create a *pixel perfect* design with no communication on how a design might work in development. The designer usually communicates with the client and the developer may be left in the dark. In newer systems, companies are finding that working in teams and concurrently along with developers, products can be developed more cohesively. The idea of mutual collaboration and respect creates a better work environment and better products for the user in the end.
+
 
 </div>
