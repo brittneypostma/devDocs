@@ -28,7 +28,7 @@ image: ./logos/js.svg
   - [Synchronous](#synchronous)
   - [Event Loop and Callback Queue](#event-loop-and-callback-queue)
   - [Job Queue](#job-queue)
-  - [3 Ways to Promise](#3-ways-to-promise)
+  - [Three Ways to Promise](#three-ways-to-promise)
   - [Threads, Concurrency, and Parallelism](#threads-concurrency-and-parallelism)
 - [Execution Context](#execution-context)
   - [Global Execution Context](#global-execution-context)
@@ -68,7 +68,7 @@ image: ./logos/js.svg
   - [Constructor Functions](#constructor-functions)
   - [Class](#class)
   - [Private and public fields](#private-and-public-fields)
-  - [4 Pillars of OOP](#4-pillars-of-oop)
+  - [Four Pillars of OOP](#four-pillars-of-oop)
 - [Functional Programming](#functional-programming)
   - [Pure Functions](#pure-functions)
   - [Referential transparency](#referential-transparency)
@@ -220,7 +220,7 @@ Here are a few things you should avoid when writing your code if possible:
 There are a few main reasons these should be avoided.
 
 [JavaScript Hidden Classes and Inline Caching in V8](https://richardartoul.github.io/jekyll/update/2015/04/26/hidden-classes.html)<br/>
-[Managing Arguments](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments)
+[Managing Arguments](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#user-content-3-managing-arguments)
 
 #### Inline Caching
 
@@ -502,7 +502,7 @@ console.log('3', 'is a crowd')
 // 2 can be as bad as one
 ```
 
-### 3 Ways to Promise
+### Three Ways to Promise
 
 There are 3 ways you could want promises to resolve, parallel (all together), sequential (1 after another), or a race (doesn't matter who wins).
 
@@ -2067,7 +2067,7 @@ So, did we obtain perfect object oriented programming? Well, that is up for deba
 
 > **Nifty Snippet**: Why didn't Eich just add classes to JavaScript in the beginning?<br/> _"If I had done classes in JavaScript back in May 1995, I would have been told that it was too much like Java or the JavaScript was competing with Java ... I was under marketing orders to make it look like Java but not make it too big for its britches ... [it] needed to be a silly little brother language." &#8212;Brendan Eich_
 
-### 4 Pillars of OOP
+### Four Pillars of OOP
 
 - &#x25FE; Encapsulation - Organizes code into containers that relate to each other and makes it easier to maintain and reuse.
 - &#x25FE; Abstraction - Hides the complexity from the user by doing the method calculations behind the scenes.
