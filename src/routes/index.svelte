@@ -1,5 +1,9 @@
 <script>
+  import { onMount } from 'svelte'
   import { fade } from 'svelte/transition';
+
+  let ready = false
+  onMount(() => ready = true)
 
   function typewriter(node, { speed = 100 }) {
     const valid =
@@ -28,6 +32,7 @@
 <svelte:head>
   <title>Console Logs</title>
 </svelte:head>
+{#if ready}
 <div class="cont" in:fade={{ duration: 1000 }}>
   <h1>Welcome to console logs!</h1>
   <p in:typewriter>A site for all my bytes of programming related knowledge.</p>
@@ -36,7 +41,7 @@
     <button>LOGS</button>
   </a>
 </div>
-
+{/if}
 <style>
   .cont {
     padding-bottom: 10px;
