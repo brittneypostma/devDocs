@@ -104,7 +104,7 @@
   .content :global(#toc) {
     scrollbar-color: rgb(155, 50, 43, 0.75) #333;
     scrollbar-width: thin;
-    width: 300px;
+    width: 320px;
     padding: 10px;
     position: fixed;
     overflow-y: auto;

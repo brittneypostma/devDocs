@@ -35,6 +35,9 @@
         href="logs">
         logs
       </a>
+      <a href="https://dev.to/bdesigned" class="dev" target="_blank" rel="noopener noreferrer">
+        <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Brittney Postma's DEV Profile" height="30" width="30">
+      </a>
     </div>
   </div>
   <div class="theme-switch-wrapper">
@@ -131,6 +134,14 @@
 
   .selected::before {
     background: rgb(155, 50, 43);
+  }
+
+  .dev::before {
+    background: transparent;
+  }
+
+  .dev:hover::before {
+    background: transparent;
   }
 
   .slider-img {
