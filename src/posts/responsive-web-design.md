@@ -17,6 +17,8 @@ image: ./logos/css.svg
 - [Grid Basics](#grid-basics)
   - [Gap](#gap)
   - [Placement](#placement)
+  - [Self](#self)
+  - [Explicit Grid](#explicit-grid)
 
 </div>
 
@@ -83,6 +85,61 @@ Gap allows us to define the spacing or gutters between the items. The `gap` prop
 
 ### Placement
 
-The placement of items is defined with the `justify` and `align` properties. There are two types for each, `content` and `items`.
+Placement in grid at first glance can seem complicated, but let's break it down. There are two base properties for each axis, `justify` and `align`, then `content` places the container, and `items` places each grid item. The `justify` property is along the inline axis, or horizontal in grid. The `align` property is along the block axis, or vertical in grid. We can then combine `justify-content` and `justify-items` to place either the grid container or each item along the horizontal axis. Also, `align-content` and `align-items` can be used to place the container or each item along the vertical axis. Here's a list to visualize it.
+
+- &#x25FE; **`justify-content`** - places the container along the inline axis, horizontal in grid. Options are start, end, center, stretch, or space-around.
+- &#x25FE; **`justify-item`** - places each item/child along the inline axis, horizontal in grid. Options are start, end, center, or stretch.
+- &#x25FE; **`align-content`** - places the container along the block axis, vertical in grid. Options are start, end, center, stretch, or space-around.
+- &#x25FE; **`align-items`** - places each item/child along the block axis, vertical in grid. Options are start, end, center, or stretch.
+
+If you want to place the container or items into the same place along both axes, the shortcut `place-content` or `place-items` can be used. For example, putting `place-items: center` on the grid will perfectly center each grid item and `place-content: center` would center the container based on the width and the height.
+
+### Self
+
+Along with placing the entire grid container or the items as a whole, each child or grid item can define where it should be placed in the grid with `justify-self` or `align-self`.
+
+```css
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-item {
+  /* place at the end of the inline/horizontal axis */
+  justify-self: end;
+  /* place at the end of the block/vertical axis */
+  align-self: end;
+}
+```
+
+There is also the ability to span a grid item across grid columns or rows. 
+
+```css
+.col12 {
+  /* span across 12 columns */
+  grid-column: span 12;
+  /* span down 2 rows */
+  grid-row: span 2;
+}
+
+.col6 {
+  grid-column: span 6;
+}
+
+.col4 {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+
+.col2 {
+  grid-column: span 2;
+}
+```
+
+### Explicit Grid
+
+Everything we have talked about so far has fallen into the **implicit** grid, we never defined what we wanted our grid to look like. The properties that do this are `grid-template-columns` and `grid-template-rows`.
+
+
 
 </div>
