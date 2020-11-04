@@ -20,6 +20,8 @@ image: ./logos/css.svg
   - [Self](#self)
   - [Explicit Grid](#explicit-grid)
     - [FR Unit](#fr-unit)
+    - [Functions](#functions)
+    - [Fill vs Fit](#fill-vs-fit)
 
 </div>
 
@@ -139,11 +141,33 @@ There is also the ability to span a grid item across grid columns or rows.
 
 ### Explicit Grid
 
-Everything we have talked about so far has fallen into the **implicit** grid, we never defined what we wanted our grid to look like. The properties that do this are `grid-template-columns` and `grid-template-rows`, or `grid-template` is the shortcut with rows / columns as the value. These are declared on the grid container and define what size and how many columns and rows wanted. Any unit can be used to define the size of each column and row. 
+Everything we have talked about so far has fallen into the **implicit** grid, we never defined what we wanted our grid to look like. The properties that do this are `grid-template-columns` and `grid-template-rows`, or `grid-template` is the shortcut with rows / columns as the value. These are declared on the grid container and define what size of and how many columns and rows are wanted. Any unit can be used to define the size of each column and row. These create **tracks**, the space between two grid lines, 
 
 #### FR Unit
 
-Grid also gives us access to another unit only useable in grid, the fr unit. The fr unit is short for fractional unit. Each fr unit defined is a fraction of the total size of the parent container. So if we had `grid-template-columns: 1fr 2fr 1fr`, the first column is 1/4, the middle column would be 2/4 (or 1/2 reduced), and the last column would be 1/4. The first and last column would be the same size and the middle column would be double the size of those.
+Grid also gives us access to another unit only useable in a grid container, the fr unit. The fr unit is short for fractional unit. Each fr unit defined is a fraction of the total size of the parent container. So if we had `grid-template-columns: 1fr 2fr 1fr`, the first column is 1/4, the middle column would be 2/4 (or 1/2 reduced), and the last column would be 1/4 of the size. The first and last column would be the same size and the middle column would be double the size of those. 
+
+#### Functions
+
+There are functions that are only accessible in grid as well, the `repeat()` and `minmax()` functions are useable while defining the columns and rows. The `repeat(quantity, size)` function takes 2 arguments, the quantity and size for either grid columns or rows. The `minmax(min-value, max-value)` function also takes 2 arguments, but allows a minimum value and a maximum value to be defined for the columns and rows. 
+
+#### Fill vs Fit
+
+Another concept used only in grid is `auto-fill` and `auto-fit`. These are used with the `repeat()` function and tell the grid algorithm to either automatically fill in more tracks or fit all the grid items across the container. Below we can see an example of this.
+
+<p align="center">
+  <img src="rwd/fill-fit.jpg" alt="tracks shown for auto-fit and auto-fill" />
+</p>
+
+In fact, all of these things can be combined and used together into what is commonly referred to as the **"ram"** function. That allows us to say either `grid-template-columns: repeat(auto-fill, minmax(min-size, max-size))` or `grid-template-columns: repeat(auto-fit, minmax(min-size, max-size))` depending on which layout method you want. This can be an extremely powerful function in making a layout responsive in one line of code. Here is a codepen showing auto-fill, auto-fit, and the ram function with auto-fit.
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="fit, fill, ram" src="https://codepen.io/bdesigned/embed/NWrrOpJ?height=265&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/bdesigned/pen/NWrrOpJ'>fit, fill, ram</a> by bDesigned
+  (<a href='https://codepen.io/bdesigned'>@bdesigned</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+---
+
 
 
 
