@@ -19,6 +19,7 @@ image: ./logos/css.svg
   - [Placement](#placement)
   - [Self](#self)
   - [Explicit Grid](#explicit-grid)
+    - [FR Unit](#fr-unit)
 
 </div>
 
@@ -138,7 +139,11 @@ There is also the ability to span a grid item across grid columns or rows.
 
 ### Explicit Grid
 
-Everything we have talked about so far has fallen into the **implicit** grid, we never defined what we wanted our grid to look like. The properties that do this are `grid-template-columns` and `grid-template-rows`.
+Everything we have talked about so far has fallen into the **implicit** grid, we never defined what we wanted our grid to look like. The properties that do this are `grid-template-columns` and `grid-template-rows`, or `grid-template` is the shortcut with rows / columns as the value. These are declared on the grid container and define what size and how many columns and rows wanted. Any unit can be used to define the size of each column and row. 
+
+#### FR Unit
+
+Grid also gives us access to another unit only useable in grid, the fr unit. The fr unit is short for fractional unit. Each fr unit defined is a fraction of the total size of the parent container. So if we had `grid-template-columns: 1fr 2fr 1fr`, the first column is 1/4, the middle column would be 2/4 (or 1/2 reduced), and the last column would be 1/4. The first and last column would be the same size and the middle column would be double the size of those.
 
 
 
