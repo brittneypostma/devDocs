@@ -154,18 +154,77 @@ There are functions that are only accessible in grid as well, the `repeat()` and
 
 #### Fill vs Fit
 
-Another concept used only in grid is `auto-fill` and `auto-fit`. These are used with the `repeat()` function and tell the grid algorithm to either automatically fill in more tracks or fit all the grid items across the container. Below we can see an example of this.
+Another concept used only in grid is `auto-fill` and `auto-fit`. These are used with the `repeat()` function and tell the grid algorithm to either automatically fill in more tracks or fit all the grid items across the container. This image shows what happens to the tracks between auto-fit and auto-fill.
 
 <p align="center">
   <img src="rwd/fill-fit.jpg" alt="tracks shown for auto-fit and auto-fill" />
 </p>
 
-In fact, all of these things can be combined and used together into what is commonly referred to as the **"ram"** function. That allows us to say either `grid-template-columns: repeat(auto-fill, minmax(min-size, max-size))` or `grid-template-columns: repeat(auto-fit, minmax(min-size, max-size))` depending on which layout method you want. This can be an extremely powerful function in making a layout responsive in one line of code. Here is a codepen showing auto-fill, auto-fit, and the ram function with auto-fit.
+In fact, all of these things can be combined and used together into what is commonly referred to as the **"ram"** function. That allows us to say either `grid-template-columns: repeat(auto-fill, minmax(min-size, max-size))` or `grid-template-columns: repeat(auto-fit, minmax(min-size, max-size))` depending on which layout method you want. This can be an extremely powerful function in making a layout responsive in one line of code. Here is a codepen showing auto-fill, auto-fit, and the ram function with auto-fit. Try resizing the container below to see the difference between ram with auto-fit and auto-fill. <br/><br/>
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="fit, fill, ram" src="https://codepen.io/bdesigned/embed/NWrrOpJ?height=265&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/bdesigned/pen/NWrrOpJ'>fit, fill, ram</a> by bDesigned
-  (<a href='https://codepen.io/bdesigned'>@bdesigned</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<article style="resize: horizontal; overflow: auto; border: 5px solid black;">
+      <h2>Fit vs Fill</h2>
+      <h3>AUTO-FIT</h3>
+      <hr />
+      <section style="
+        display: grid;
+        min-height: 200px;
+        font-weight: bold;
+        font-size: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        color: white;">
+        <section style="
+  min-height: 200px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background: #78b63c;
+        ">1</section>
+        <section style="
+  min-height: 200px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background: #e30e76;
+        ">2</section>
+        <section style="
+  min-height: 200px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background: #78b63c;
+        ">3</section>
+      </section>
+      <h3>AUTO-FILL</h3>
+      <hr />
+       <section style="
+        display: grid;
+        min-height: 200px;
+        font-weight: bold;
+        font-size: 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        color: white;">
+        <section style="
+  min-height: 200px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background: #78b63c;
+        ">1</section>
+        <section style="
+  min-height: 200px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background: #e30e76;
+        ">2</section>
+        <section style="
+  min-height: 200px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background: #78b63c;
+        ">3</section>
+      </section>
+</article>
+
+
 
 ---
 
