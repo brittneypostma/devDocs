@@ -22,6 +22,7 @@ image: ./logos/css.svg
     - [FR Unit](#fr-unit)
     - [Functions](#functions)
     - [Fill vs Fit](#fill-vs-fit)
+  - [Workshop](#workshop)
 
 </div>
 
@@ -168,7 +169,9 @@ In fact, all of these things can be combined and used together into what is comm
 
 ---
 
+### Workshop
 
+Thank you for reading, I really hope this helped clear up any confusion with grid basics. There is so much more that we dive into in the <a href="">workshop</a>, creating a full responsive website using these concepts. It is focused on teaching you how to deliver a fluid, consistent design using modern CSS tools and responsive web design best practices. By the end of the workshop, you will be able to make that happen! 
 
 
 </div>
