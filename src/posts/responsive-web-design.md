@@ -166,61 +166,17 @@ In fact, all of these things can be combined and used together into what is comm
       <h2>Fit vs Fill</h2>
       <h3>AUTO-FIT</h3>
       <hr />
-      <section style="
-        display: grid;
-        min-height: 200px;
-        font-weight: bold;
-        font-size: 1.5rem;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        color: white;">
-        <section style="
-  min-height: 200px;
-  font-weight: bold;
-  font-size: 1.5rem;
-  background: #78b63c;
-        ">1</section>
-        <section style="
-  min-height: 200px;
-  font-weight: bold;
-  font-size: 1.5rem;
-  background: #e30e76;
-        ">2</section>
-        <section style="
-  min-height: 200px;
-  font-weight: bold;
-  font-size: 1.5rem;
-  background: #78b63c;
-        ">3</section>
+      <section style=" display: grid; min-height: 200px; font-weight: bold; font-size: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; color: white;">
+      <section style="min-height: 200px; font-weight: bold; font-size: 1.5rem; background: #78b63c;">1</section>
+      <section style="min-height: 200px; font-weight: bold; font-size: 1.5rem; background: #e30e76;">2</section>
+      <section style="min-height: 200px; font-weight: bold; font-size: 1.5rem; background: #78b63c;">3</section>
       </section>
       <h3>AUTO-FILL</h3>
       <hr />
-       <section style="
-        display: grid;
-        min-height: 200px;
-        font-weight: bold;
-        font-size: 1.5rem;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 1rem;
-        color: white;">
-        <section style="
-  min-height: 200px;
-  font-weight: bold;
-  font-size: 1.5rem;
-  background: #78b63c;
-        ">1</section>
-        <section style="
-  min-height: 200px;
-  font-weight: bold;
-  font-size: 1.5rem;
-  background: #e30e76;
-        ">2</section>
-        <section style="
-  min-height: 200px;
-  font-weight: bold;
-  font-size: 1.5rem;
-  background: #78b63c;
-        ">3</section>
+      <section style="display: grid; min-height: 200px; font-weight: bold; font-size: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; color: white;">
+        <section style="min-height: 200px; font-weight: bold; font-size: 1.5rem; background: #78b63c;">1</section>
+        <section style="min-height: 200px; font-weight: bold; font-size: 1.5rem; background: #e30e76;">2</section>
+        <section style="min-height: 200px; font-weight: bold; font-size: 1.5rem; background: #78b63c;">3</section>
       </section>
 </article>
 
