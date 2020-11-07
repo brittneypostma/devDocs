@@ -16,21 +16,21 @@
 <script>
   export let post;
   import { fade } from 'svelte/transition';
-  // import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
 
-  // onMount(() => {
-  //   [...document.querySelectorAll('a')]
-  //     .filter((a) => !!a.hash)
-  //     .forEach((a) => {
-  //       try {
-  //         if (!a.hash || !document.querySelectorAll(a.hash).length)
-  //           throw new Error("Anchor isn't valid");
-  //         a.href = window.location + a.hash;
-  //       } catch (e) {
-  //         console.error('Error: ', e);
-  //       }
-  //     });
-  // });
+  onMount(() => {
+    [...document.querySelectorAll('a')]
+      .filter((a) => !!a.hash)
+      .forEach((a) => {
+        try {
+          if (!a.hash || !document.querySelectorAll(a.hash).length)
+            throw new Error("Anchor isn't valid");
+          a.href = window.location + a.hash;
+        } catch (e) {
+          console.error('Error: ', e);
+        }
+      });
+  });
 </script>
 
 <svelte:head>
