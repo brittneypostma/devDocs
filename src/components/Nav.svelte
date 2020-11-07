@@ -61,6 +61,7 @@
 
 <style>
   nav {
+    background: #eee;
     font-family: 'Work Sans', sans-serif;
     font-size: 18px;
     line-height: 1.65;

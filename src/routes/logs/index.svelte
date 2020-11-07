@@ -25,8 +25,7 @@
       <div class="title">
         <img
           src={post.image || null}
-          alt={post.slug}
-          style={{ width: '100px', height: '100px' }} />
+          alt={post.slug} />
         <p>{post.title}</p>
       </div>
     </a>
@@ -34,11 +33,15 @@
 </div>
 
 <style>
+  img {
+    height: 50px;
+    width: 50px;
+  }
   .grid-logs {
     background: var(--bg-color);
     padding-bottom: 50px;
     font-family: 'Work Sans', sans-serif;
-    font-size: 25px;
+    font-size: 1.5rem;
     line-height: 1.65;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -47,21 +50,26 @@
 
   .title {
     position: relative;
-    padding: 10px 15px;
+    padding: 2.75rem 1rem;
     list-style-type: none;
     background: var(--bg-color);
     color: var(--font-color);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     text-align: center;
     margin: 0;
   }
 
   .title:hover {
     top: -5px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .title:active {
     top: -2px;
+  }
+
+  p {
+    margin: 0;
   }
 
   a {
