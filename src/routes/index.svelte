@@ -93,7 +93,6 @@
 
   button:active {
     top: 2px;
-    /* transform: translate3d(0, 2px, 0); */
   }
 
   button:hover {
