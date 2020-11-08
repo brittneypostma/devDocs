@@ -61,7 +61,7 @@
 
 <style>
   nav {
-    background: #eee;
+    background:var(--nav-color);
     font-family: 'Work Sans', sans-serif;
     font-size: 18px;
     line-height: 1.65;
@@ -108,7 +108,7 @@
   }
 
   a {
-    color: inherit;
+    color: #424242;
     text-decoration: none;
     padding: 1em;
     display: block;

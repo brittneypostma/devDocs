@@ -1,12 +1,7 @@
 <script>
-  import { onMount } from 'svelte';
   import Nav from '../components/Nav.svelte';
 
   export let segment;
-
-  onMount(() => {
-    document.getElementById('year').innerHTML = new Date().getFullYear();
-  });
 </script>
 
 <Nav {segment} />
@@ -21,19 +16,18 @@
     rel="noreferrer"
     target="_blank"
     class="links">
-    <img alt="linkedin" src="in.svg" style="width: 30px; height: 30px;" />
+    <img alt="linkedin" src="in.svg" />
   </a>
   <a
     href="https://twitter.com/brittneypostma"
     rel="noreferrer"
     target="_blank"
     class="links">
-    <img alt="twitter" src="twitter.svg" style="width: 30px; height: 30px;" />
+    <img alt="twitter" src="twitter.svg" />
   </a>
-  &copy;
-  <span id="year" />
-  <a href="https://www.bdesigned.dev/" rel="noreferrer" target="_blank">
-    bDesigned
+
+  <a href="https://www.bdesigned.dev/" rel="noreferrer" target="_blank" class="links">
+    <img alt="bdesigned" src="bdesigned.svg" />
   </a>
 
   <a
@@ -41,14 +35,14 @@
     rel="noreferrer"
     target="_blank"
     class="links">
-    <img alt="github" src="github.svg" style="width: 30px; height: 30px;" />
+    <img alt="github" src="github.svg" />
   </a>
   <a
     href="https://www.youtube.com/channel/UCyvOaBoW3Jti69U4Gw1ci9Q?view_as=subscriber"
     rel="noreferrer"
     target="_blank"
     class="links">
-    <img alt="youtube" src="youtube.svg" style="width: 30px; height: 30px;" />
+    <img alt="youtube" src="youtube.svg" />
   </a>
 </footer>
 
@@ -79,39 +73,21 @@
     background: var(--heading-color);
     color: white;
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
+    gap: 2rem;
+    place-content: center;
+    padding: 0.5rem;
   }
 
-  footer span {
-    margin-left: -10px;
-  }
-
-  footer span + a {
-    color: white;
-    font-weight: 700;
-    height: 5px;
-    line-height: 0.5;
-    margin-left: -5px;
-    margin-top: -1px;
-    padding: 10px 3px;
-  }
-
-  footer span + a::before {
-    bottom: -3px;
-  }
 
   img {
-    width: 75px;
-    height: 20px;
-    position: relative;
-    top: 5px;
+    width: 30px;
+    height: 30px;
   }
 
   a {
     text-decoration: none;
-    display: inline-block;
+    display: grid;
+    place-items: center;
     position: relative;
     color: white;
   }
