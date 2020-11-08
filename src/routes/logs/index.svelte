@@ -33,11 +33,7 @@
 </div>
 
 <style>
-<<<<<<< HEAD
   img {
-=======
-   img {
->>>>>>> b23a65e64fa66a8786461b02a9d7d1f327758c06
     height: 50px;
     width: 50px;
   }
