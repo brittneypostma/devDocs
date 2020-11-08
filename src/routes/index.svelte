@@ -5,7 +5,7 @@
   let ready = false
   onMount(() => ready = true)
 
-  function typewriter(node, { speed = 100 }) {
+  function typewriter(node, { speed = 75 }) {
     const valid =
       node.childNodes.length === 1 &&
       node.childNodes[0].nodeType === Node.TEXT_NODE;
@@ -34,7 +34,7 @@
 </svelte:head>
 {#if ready}
 <div class="cont" in:fade={{ duration: 1000 }}>
-  <h1>Welcome to console logs!</h1>
+  <h1>The Console Logs</h1>
   <p in:typewriter>A site for all my bytes of programming related knowledge.</p>
   <img alt="dev" src="dev.png" />
   <a href="/logs">
@@ -48,10 +48,11 @@
     font-family: 'Space Mono', monospace;
     line-height: 1.65;
     display: grid;
-    justify-content: center;
-    justify-items: center;
+    place-content: center;
+    place-items: center;
     text-align: center;
     max-width: 100vw;
+    height: calc(100vh - 115px);
   }
 
   img {
