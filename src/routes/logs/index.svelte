@@ -25,8 +25,7 @@
       <div class="title">
         <img
           src={post.image || null}
-          alt={post.slug}
-          style={{ width: '100px', height: '100px' }} />
+          alt={post.slug} />
         <p>{post.title}</p>
       </div>
     </a>
@@ -34,7 +33,7 @@
 </div>
 
 <style>
-   img {
+  img {
     height: 50px;
     width: 50px;
   }
