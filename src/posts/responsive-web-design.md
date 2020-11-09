@@ -31,7 +31,7 @@ image: ./logos/css.svg
 ## Responsive Layouts & Design
 
 <p style="text-align: center;"><strong>
-Hello, I'm Brittney Postma and I am happy to announce that I am joining the other amazing instructors at the <a href="https://academy.zerotomastery.io/p/complete-web-developer-zero-to-mastery?affcode=441520_gjue7n-1">ZTM Academy</a>! I did a live workshop on <a href="">Responsive Web Design</a> that is available to all Academy students now! You can view the preview on <a href="">YouTube</a> or this article walks through the workshop and how to create a beautiful and fluid web page.</strong>
+Hello, I'm Brittney Postma and I am happy to announce that I am joining the other amazing instructors at the <a href="https://academy.zerotomastery.io/p/complete-web-developer-zero-to-mastery?affcode=441520_gjue7n-1">ZTM Academy</a>! I did a live workshop on <a href="https://academy.zerotomastery.io/courses/workshops/lectures/26936743?affcode=441520_gjue7n-1">Responsive Web Design</a> that is available to all Academy students now! This article previews the workshop and gets you started on creating a beautiful and fluid web page.</strong>
 </p>
 <br/>
 
