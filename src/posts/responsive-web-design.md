@@ -163,6 +163,7 @@ Another concept used only in grid is `auto-fill` and `auto-fit`. These are used 
 In fact, all of these things can be combined and used together into what is commonly referred to as the **"ram"** function. That allows us to say either `grid-template-columns: repeat(auto-fill, minmax(min-size, max-size))` or `grid-template-columns: repeat(auto-fit, minmax(min-size, max-size))` depending on which layout method you want. This can be an extremely powerful function in making a layout responsive in one line of code. Here is a codepen showing auto-fill, auto-fit, and the ram function with auto-fit. Try resizing the container below to see the difference between ram with auto-fit and auto-fill. <br/><br/>
 
 <article style="resize: horizontal; overflow: auto; border: 5px solid black;">
+<p>This container is resizable, drag the bottom corner to view the differences.</p>
       <h2>Fit vs Fill</h2>
       <h3>AUTO-FIT</h3>
       <hr />
