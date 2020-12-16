@@ -36,7 +36,7 @@
 <div class="cont" in:fade={{ duration: 1000 }}>
   <h1>The Console Logs</h1>
   <p in:typewriter>A site for all my bytes of programming related knowledge.</p>
-  <img alt="dev" src="dev.png" />
+  <img alt="Brittney Postma animated sitting in front of computer filled with stickers." src="me.png" />
   <a href="/logs">
     <button>LOGS</button>
   </a>
