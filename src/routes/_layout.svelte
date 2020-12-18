@@ -49,7 +49,7 @@
 <style>
   main {
     scroll-behavior: smooth;
-    height: calc(100vh - 105px);
+    height: calc(100vh - 112px);
     position: relative;
     top: 68px;
     background-color: var(--bg-color);
@@ -70,7 +70,7 @@
     font-size: 14px;
     text-align: center;
     width: 100%;
-    background: var(--heading-color);
+    background: #333;
     color: white;
     display: flex;
     gap: 2rem;
@@ -89,7 +89,7 @@
     display: grid;
     place-items: center;
     position: relative;
-    color: white;
+    color: var(--font-color);
   }
 
   a::before {

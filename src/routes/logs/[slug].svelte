@@ -74,7 +74,7 @@
     text-decoration: none;
     display: inline-block;
     position: relative;
-    color: rgb(155, 50, 43);
+    color: var(--accent-color);
   }
 
   .content :global(a::before) {
@@ -85,7 +85,7 @@
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: rgb(155, 50, 43);
+    background: var(--accent-color);
     transform: scaleX(0);
   }
 
@@ -102,33 +102,20 @@
   }
 
   .content :global(#toc) {
-    scrollbar-color: rgb(155, 50, 43, 0.75) #333;
-    scrollbar-width: thin;
+    
     width: 320px;
     padding: 10px;
     position: fixed;
     overflow-y: auto;
     top: 185px;
-    bottom: 35px;
-    box-shadow: inset 0 0 10px #333;
+    bottom: 45px;
+    box-shadow: inset 0 0 10px black, 4px 0 8px 0 rgba(0, 0, 0, 0.25);
   }
 
-  .content :global(#toc::-webkit-scrollbar) {
-    background-color: #777;
-    width: 8px;
-  }
-  .content :global(#toc::-webkit-scrollbar-track) {
-    background-color: #333;
-  }
-  .content :global(#toc::-webkit-scrollbar-thumb) {
-    background-color: rgb(155, 50, 43, 0.75);
-  }
-  .content :global(#toc::-webkit-scrollbar-thumb:hover) {
-    background-color: rgb(155, 50, 43);
-  }
 
   .content :global(#main) {
-    width: calc(100% - 350px);
+    height: calc(100vh - 100px);
+    width: calc(100% - 330px);
     position: relative;
     padding-bottom: 20px;
     left: 350px;

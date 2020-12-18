@@ -86,7 +86,7 @@
     border: 0;
     text-decoration: none;
     font-weight: 600;
-    background: var(--accent-color);
+    background:  rgb(155, 50, 43);
     border-radius: 0.25rem;
     transform-style: preserve-3d;
     transition: transform 0.2s ease-in-out;
