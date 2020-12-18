@@ -49,11 +49,7 @@
 <style>
   main {
     scroll-behavior: smooth;
-    height: calc(100vh - 105px);
-    position: relative;
-    top: 68px;
     background-color: var(--bg-color);
-    padding: 0 2em;
     margin: 0 auto;
     box-sizing: border-box;
     width: 100%;
@@ -61,15 +57,7 @@
     overflow-x: hidden;
   }
 
-  footer {
-    font-size: 18px;
-    line-height: 1.65;
-    position: relative;
-    grid-row-start: 3;
-    grid-row-end: -1;
-    font-size: 14px;
-    text-align: center;
-    width: 100%;
+  footer {border-top: 1px solid rgb(155, 50, 43, 0.75);
     background: #333;
     color: white;
     display: flex;

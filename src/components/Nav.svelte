@@ -24,7 +24,7 @@
 
   <div class="links">
     <a class="a-logo" href=".">
-      <img src="logo.svg" alt="logo" class="logo" />
+      <img src="logo.svg" alt="logo" class="The Console Logs logo" />
     </a>
     <div class="nav-links">
       <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
@@ -46,7 +46,7 @@
       src="sun.png"
       alt="light-mode"
       style="margin-right: 0.5em;" />
-    <label class="theme-switch" for="checkbox">
+    <label class="theme-switch" for="checkbox" aria-label=" Light and Dark mode switch">
       <input type="checkbox" id="checkbox" />
       <div class="slider round" />
     </label>
@@ -62,26 +62,16 @@
 <style>
   nav {
     background:var(--nav-color);
-    font-family: 'Work Sans', sans-serif;
-    font-size: 18px;
-    line-height: 1.65;
     border-bottom: 1px solid rgb(155, 50, 43);
     font-weight: 700;
-    padding: 10px 0 0;
-    display: grid;
-    grid-template-columns: 1fr auto;
+    padding: 1rem;
+    display: flex;
     justify-content: space-between;
-    font-size: 16px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 2;
   }
 
   .links {
     display: flex;
-    margin-left: 10px;
+    align-items: center;
   }
 
   .a-logo {
@@ -153,7 +143,6 @@
   .theme-switch-wrapper {
     display: flex;
     align-items: center;
-    margin: 10px 2em auto auto;
   }
 
   .theme-switch {

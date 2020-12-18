@@ -49,11 +49,6 @@
 </div>
 
 <style>
-  .post-page {
-    margin: 0 auto;
-    padding-bottom: 10px;
-  }
-
   h1 {
     margin: 0;
     font-size: 36px;
@@ -61,13 +56,7 @@
 
   .header {
     position: fixed;
-  }
-
-  .content {
-    margin-top: 10px;
-    font-family: 'Work Sans', sans-serif;
-    font-size: 18px;
-    line-height: 1.65;
+    padding: 0 1rem;
   }
 
   .content :global(a) {
@@ -97,29 +86,26 @@
     max-width: 100%;
   }
 
-  .content :global(.post) {
-    display: flex;
-  }
-
   .content :global(#toc) {
-    
+    scrollbar-color: rgb(155, 50, 43, 0.75) #333;
+    scrollbar-width: thin;
     width: 320px;
     padding: 10px;
     position: fixed;
     overflow-y: auto;
     top: 185px;
-    bottom: 45px;
+    bottom: 47px;
     box-shadow: inset 0 0 10px black, 4px 0 8px 0 rgba(0, 0, 0, 0.25);
   }
 
 
   .content :global(#main) {
     height: calc(100vh - 100px);
-    width: calc(100% - 330px);
+    width: calc(100% - 375px);;
     position: relative;
     padding-bottom: 20px;
     left: 350px;
-    top: 87px;
+    top: 83px;
   }
 
   .content :global(hr:first-child) {
@@ -132,14 +118,13 @@
 
   .content :global(h1, h3, h4, h5, h6) {
     font-weight: bold;
-    line-height: 1.65;
+    line-height: 1.2;
   }
 
   .content :global(h2) {
     font-size: 39.06px;
     font-weight: 700;
     text-align: center;
-    line-height: 1.65;
   }
 
   .content :global(h3) {
@@ -147,9 +132,9 @@
   }
 
   .content :global(blockquote) {
-    background: #f9f9f9;
+    background: var(--nav-color);
     color: #111;
-    border-left: 10px solid#ccc;
+    border-left: 10px solid rgb(155, 50, 43, 0.75);
     margin: 1.5em 10px;
     padding: 0.1em 10px;
   }
@@ -175,7 +160,7 @@
     border-radius: 2px;
     position: relative;
     top: -0.9em;
-    line-height: 2em;
+    line-height: 2rem;
     font-style: normal;
   }
 
@@ -214,11 +199,6 @@
   }
 
   @media only screen and (max-width: 900px) {
-    .post-page {
-      width: 95%;
-      margin: 0 auto;
-    }
-
     .header {
       position: relative;
     }
@@ -241,11 +221,10 @@
     }
 
     .content :global(#main) {
-      margin-top: 8px;
-      width: 95%;
-      padding-bottom: 30px;
+      width: 100%;
       left: 0;
       top: 0;
+      padding: 0 1rem;
     }
 
     .content :global(pre) {
