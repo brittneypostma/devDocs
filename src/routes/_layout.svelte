@@ -49,7 +49,7 @@
 <style>
   main {
     scroll-behavior: smooth;
-    height: calc(100vh - 112px);
+    height: calc(100vh - 105px);
     position: relative;
     top: 68px;
     background-color: var(--bg-color);
