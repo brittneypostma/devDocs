@@ -88,6 +88,7 @@
     font-weight: 600;
     background:  rgb(155, 50, 43);
     border-radius: 0.25rem;
+    border: 1px solid rgb(155,50,43);
     transform-style: preserve-3d;
     transition: transform 0.2s ease-in-out;
   }

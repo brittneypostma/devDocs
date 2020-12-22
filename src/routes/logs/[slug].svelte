@@ -93,7 +93,7 @@
     padding: 10px;
     position: fixed;
     overflow-y: auto;
-    top: 185px;
+    top: 205px;
     bottom: 47px;
     box-shadow: inset 0 0 10px black, 4px 0 8px 0 rgba(0, 0, 0, 0.25);
   }
