@@ -37,16 +37,13 @@
   <title>{post.title}</title>
 </svelte:head>
 
-<div class="post-page" in:fade={{ duration: 1000 }}>
-  <div class="content">
-    <div class="header">
+<section class="post-page" in:fade={{ duration: 1000 }}>
+    <header>
       <a rel="prefetch" href="logs">go back</a>
       <h1>{post.title}</h1>
-    </div>
+    </header>
     {@html post.html}
-  </div>
-
-</div>
+</section>
 
 <style>
   h1 {
@@ -54,19 +51,19 @@
     font-size: 36px;
   }
 
-  .header {
+  header {
     position: fixed;
-    padding: 0 1rem;
+    padding: 1rem;
   }
 
-  .content :global(a) {
+  .post-page :global(a) {
     text-decoration: none;
     display: inline-block;
     position: relative;
     color: var(--accent-color);
   }
 
-  .content :global(a::before) {
+  .post-page :global(a::before) {
     content: '';
     position: absolute;
     transition: transform 0.3s ease;
@@ -78,15 +75,15 @@
     transform: scaleX(0);
   }
 
-  .content :global(a:hover::before) {
+  .post-page :global(a:hover::before) {
     transform: scaleX(1);
   }
 
-  .content :global(img) {
+  .post-page :global(img) {
     max-width: 100%;
   }
 
-  .content :global(#toc) {
+  .post-page :global(#toc) {
     scrollbar-color: rgb(155, 50, 43, 0.75) #333;
     scrollbar-width: thin;
     width: 320px;
@@ -99,39 +96,40 @@
   }
 
 
-  .content :global(#main) {
+  .post-page :global(#main) {
     height: calc(100vh - 100px);
     width: calc(100% - 375px);;
     position: relative;
     padding-bottom: 20px;
     left: 350px;
-    top: 83px;
+    top: 104px;
   }
 
-  .content :global(hr:first-child) {
+  .post-page :global(hr:first-child) {
     clear: both;
   }
 
-  .content :global(p) {
+  .post-page :global(p) {
     margin: 0 auto;
   }
 
-  .content :global(h1, h3, h4, h5, h6) {
+  .post-page :global(h1, h3, h4, h5, h6) {
     font-weight: bold;
     line-height: 1.2;
   }
 
-  .content :global(h2) {
+  .post-page :global(h2) {
     font-size: 39.06px;
     font-weight: 700;
     text-align: center;
+    margin: 0;
   }
 
-  .content :global(h3) {
+  .post-page :global(h3) {
     font-size: 25px;
   }
 
-  .content :global(blockquote) {
+  .post-page :global(blockquote) {
     background: var(--nav-color);
     color: #111;
     border-left: 10px solid rgb(155, 50, 43, 0.75);
@@ -139,24 +137,24 @@
     padding: 0.1em 10px;
   }
 
-  .content :global(ul) {
+  .post-page :global(ul) {
     line-height: 1.5;
     padding: 0;
     margin: 0 0 16px;
   }
 
-  .content :global(ol) {
+  .post-page :global(ol) {
     line-height: 1.5;
     padding: 0;
     margin: 0 0 16px;
   }
 
-  .content :global(li) {
+  .post-page :global(li) {
     list-style-type: none;
     margin-left: 2em;
   }
 
-  .content :global(dfn) {
+  .post-page :global(dfn) {
     border-radius: 2px;
     position: relative;
     top: -0.9em;
@@ -164,52 +162,49 @@
     font-style: normal;
   }
 
-  .content :global(table) {
+  .post-page :global(table) {
     width: 100%;
     color: black;
   }
 
-  .content :global(em) {
+  .post-page :global(em) {
     color: #888;
   }
 
-  .content :global(table tr:nth-child(even)) {
+  .post-page :global(table tr:nth-child(even)) {
     background-color: #eeeeee;
   }
-  .content :global(table tr:nth-child(odd)) {
+  .post-page :global(table tr:nth-child(odd)) {
     background-color: #ffffff;
   }
 
-  .content :global(table, th, td) {
+  .post-page :global(table, th, td) {
     border: 1px solid black;
     border-collapse: collapse;
   }
 
-  .content :global(th, td) {
+  .post-page :global(th, td) {
     padding: 15px;
     text-align: left;
   }
 
-  .content :global(th, tr, td) {
+  .post-page :global(th, tr, td) {
     word-break: normal;
   }
 
-  div {
-    font-weight: 400;
-  }
 
   @media only screen and (max-width: 900px) {
-    .header {
+    header {
       position: relative;
     }
 
-    .content :global(.post) {
+    .post-page :global(.post) {
       width: 100%;
       max-width: 100vw;
       display: inline-block;
     }
 
-    .content :global(#toc) {
+    .post-page :global(#toc) {
       box-shadow: 0 0 0 0 transparent;
       position: relative;
       width: 100%;
@@ -220,14 +215,14 @@
       border-bottom: 2px dotted rgb(155, 50, 43);
     }
 
-    .content :global(#main) {
+    .post-page :global(#main) {
       width: 100%;
       left: 0;
       top: 0;
       padding: 0 1rem;
     }
 
-    .content :global(pre) {
+    .post-page :global(pre) {
       width: 100%;
       display: grid;
     }
