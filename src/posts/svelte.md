@@ -1,6 +1,6 @@
 ---
-title: Advanced JS
-image: ./logos/js.svg
+title: Svelte
+image: ./logos/svelte.png
 ---
 
 <div class="post">
@@ -11,5 +11,9 @@ image: ./logos/js.svg
 </div>
 
 <div id="main">
+
+## Let's Learn Svelte
+
+
 
 </div>
