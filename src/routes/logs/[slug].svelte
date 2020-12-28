@@ -122,8 +122,12 @@
     font-size: 39.06px;
     font-weight: 700;
     text-align: center;
+  }
+  
+  .post-page :global(h2):first-child{
     margin: 0;
   }
+
 
   .post-page :global(h3) {
     font-size: 25px;
