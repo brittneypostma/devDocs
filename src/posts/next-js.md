@@ -10,6 +10,8 @@ image: ./logos/next.svg
 
 - [Creating a Next app](#creating-a-next-app)
   - [Folder structure](#folder-structure)
+  - [Rendering in NextJS](#rendering-in-nextjs)
+    - [Static Generation](#static-generation)
 
 </div>
 
@@ -29,6 +31,14 @@ To create a new Next project, make sure you have Node.js 10.13 or later and eith
 
 ### Folder structure
 
+NextJS uses a folder based routing system. Any js file created in the pages directory will create a new route in your site.
 
+### Rendering in NextJS
+
+By default, NextJS prerenders each file into HTML in advance instead of on the client side in a traditional React app. This provides better performance for end users and allows the use of React code without sending all the JavaScript to the browser. Next provides two ways pages can be pre-rendered **server side** or **staticly generated**. Unless absolutely needed, static generation is the recommended method to use for performance reasons. Pages in NextJS can also use client-side rendering alongside static or server rendered. This will allow some parts of the page to be rendered entirely in the browser by the client and would not be pre-rendered.
+
+#### Static Generation
+
+The NextJS API provides a `getStaticProps` function to fetch data needed for a staticly generated page.
 
 </div>
