@@ -77,6 +77,7 @@
   }
 
   button {
+    min-height: 40px;
     width: 100%;
     font-family: var(--heading-font);
     color: white;
