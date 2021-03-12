@@ -2165,7 +2165,7 @@ console.log(`obj = ${obj}`, `updatedNameObj = ${updatedNameObj})
 You may be thinking that this could get really expensive, memory wise, to just copy code over and over. However, there is something called **structural sharing** that allows the data to only copy new information and points to the original state for any commonalities.
 
 <p align="center">
-  <img src="structure_tree.svg" alt="structural sharing tree" width="50%">
+  <img src="structure_tree.png" alt="structural sharing tree" width="50%">
 </p>
 
 ### Partial Application
