@@ -21,52 +21,69 @@
 </script>
 
 <nav>
-
-  <div class="links">
-    <a class="a-logo" href=".">
-      <img src="logo.svg" alt="logo" class="The Console Logs logo" />
-    </a>
-    <div class="nav-links">
-      <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
-
-      <a
-        rel="prefetch"
-        class={segment === 'logs' ? 'selected' : ''}
-        href="logs">
-        logs
+  <div class="wrapper">
+    <section class="links">
+      <a class="a-logo" href=".">
+        <img src="logo.svg" alt="logo" class="The Console Logs logo" />
       </a>
-      <a href="https://dev.to/bdesigned" class="dev" target="_blank" rel="noopener noreferrer">
-        <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Brittney Postma's DEV Profile" height="30" width="30">
-      </a>
-    </div>
-  </div>
-  <div class="theme-switch-wrapper">
-    <img
-      class="slider-img"
-      src="sun.png"
-      alt="light-mode"
-      style="margin-right: 0.5em;" />
-    <label class="theme-switch" for="checkbox" aria-label=" Light and Dark mode switch">
-      <input type="checkbox" id="checkbox" />
-      <div class="slider round" />
-    </label>
-    <img
-      class="slider-img"
-      src="moon.png"
-      alt="dark-mode"
-      style="margin-left: 0.5em;" />
-  </div>
+      <div class="nav-links">
+        <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
 
+        <a
+          rel="prefetch"
+          class={segment === 'logs' ? 'selected' : ''}
+          href="logs">
+          logs
+        </a>
+        <a
+          href="https://dev.to/bdesigned"
+          class="dev"
+          target="_blank"
+          rel="noopener noreferrer">
+          <img
+            src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg"
+            alt="Brittney Postma's DEV Profile"
+            height="30"
+            width="30" />
+        </a>
+      </div>
+    </section>
+    <section class="theme-switch-wrapper">
+      <img
+        class="slider-img"
+        src="sun.png"
+        alt="light-mode"
+        style="margin-right: 0.5em;" />
+      <label
+        class="theme-switch"
+        for="checkbox"
+        aria-label=" Light and Dark mode switch">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round" />
+      </label>
+      <img
+        class="slider-img"
+        src="moon.png"
+        alt="dark-mode"
+        style="margin-left: 0.5em;" />
+    </section>
+  </div>
 </nav>
 
 <style>
   nav {
-    background:var(--nav-color);
+    background: var(--nav-color);
     border-bottom: 1px solid rgb(155, 50, 43);
+  }
+
+  .wrapper {
     font-weight: 700;
-    padding: 1rem;
+    padding: 1rem 0;
     display: flex;
     justify-content: space-between;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
   }
 
   .links {

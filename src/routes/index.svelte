@@ -43,7 +43,7 @@
 </div>
 {/if}
 <style>
-   .cont {
+  .cont {
     padding-bottom: 10px;
     font-family: 'Space Mono', monospace;
     line-height: 1.65;

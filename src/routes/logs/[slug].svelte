@@ -38,11 +38,11 @@
 </svelte:head>
 
 <section class="post-page" in:fade={{ duration: 1000 }}>
-    <header>
-      <a rel="prefetch" href="logs">go back</a>
-      <h1>{post.title}</h1>
-    </header>
-    {@html post.html}
+  <header>
+    <a rel="prefetch" href="logs">go back</a>
+    <h1>{post.title}</h1>
+  </header>
+  {@html post.html}
 </section>
 
 <style>
@@ -54,6 +54,11 @@
   header {
     position: fixed;
     padding: 1rem;
+  }
+
+  .post-page {
+    max-width: var(--max-width);
+    margin: 0 auto;
   }
 
   .post-page :global(a) {
@@ -95,14 +100,13 @@
     box-shadow: inset 0 0 10px black, 4px 0 8px 0 rgba(0, 0, 0, 0.25);
   }
 
-
   .post-page :global(#main) {
     height: calc(100vh - 100px);
-    width: calc(100% - 375px);;
+    width: calc(100% - 375px);
     position: relative;
-    padding-bottom: 20px;
+    padding: 2rem 0;
     left: 350px;
-    top: 104px;
+    top: 71px;
   }
 
   .post-page :global(hr:first-child) {
@@ -123,11 +127,10 @@
     font-weight: 700;
     text-align: center;
   }
-  
-  .post-page :global(h2):first-child{
+
+  .post-page :global(h2):first-child {
     margin: 0;
   }
-
 
   .post-page :global(h3) {
     font-size: 25px;
@@ -196,18 +199,10 @@
     word-break: normal;
   }
 
-
   @media only screen and (max-width: 900px) {
     header {
       position: relative;
     }
-
-    .post-page :global(.post) {
-      width: 100%;
-      max-width: 100vw;
-      display: inline-block;
-    }
-
     .post-page :global(#toc) {
       box-shadow: 0 0 0 0 transparent;
       position: relative;
