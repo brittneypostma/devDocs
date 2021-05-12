@@ -8,6 +8,8 @@
   --accent-color: rgb(116, 32, 26);
   --heading-font: 'Space Mono', sans-serif;
   --body-font: 'Work Sans', sans-serif;
+
+  --max-width: 1980px;
 }
 
 [data-theme="dark"] {
