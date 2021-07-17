@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto&display=swap');
+
+/** Define Variables */
+:root {
+  /** COLORS */
+  --black: #08131a;
+  --darkTeal: #08485c;
+  --accent: #78fade;
+  --red: #f14c4c;
+  --teal: #01779b;
+  --white: #d3f3fc;
+  --yellow: #f7f593;
+
+  /* *FONT SIZES */
+  --sm: 1.618rem; /* 12.94px */
+  --md: 2rem; /* 16 px */
+  --lg: 2.618rem; /* 20.94px */
+  --xl: 4.236rem; /* 33.89px*/
+  --xxl: 6.854rem; /* 54.83px */
+
+  /** FONTS */
+  --heading: 'Archivo Black', sans-serif;
+  --body: 'Roboto', sans-serif;
+
+  --headerHeight: 5rem;
+  --margin: 0 2rem;
+  --maxWidth: 960px;
+}
+
+/* * allows width and height values to apply to content, padding, and border. */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+* + * {
+  margin-top: 1.5rem;
+}
+
+html {
+  height: 100%;
+  font-size: 67.5%; /** 8px base */
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: var(--body);
+  font-size: var(--md);
+  background: var(--white);
+  color: var(--black);
+  display: grid;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading);
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: var(--body);
+  display: block;
+}
+
+a:visited {
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+header {
+  background: var(--black);
+  color: var(--white);
+}
+
+footer {
+  background: var(--black);
+}
+
+.wrapper {
+  max-width: 960px;
+  padding: 0 2rem;
+}

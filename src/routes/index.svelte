@@ -48,11 +48,11 @@
     font-family: 'Space Mono', monospace;
     line-height: 1.65;
     display: grid;
-    place-content: center;
-    place-items: center;
+    justify-items: center;
     text-align: center;
     max-width: 100vw;
     height: calc(100vh - 115px);
+    padding: 2rem;
   }
 
   img {

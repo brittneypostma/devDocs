@@ -1,16 +1,26 @@
 <script context="module">
-  export function preload({ params, query }) {
-    return this.fetch(`logs.json`)
-      .then((r) => r.json())
-      .then((posts) => {
-        return { posts };
-      });
+  export async function load({ fetch }) {
+    const res = await fetch(`logs.json`);
+    const data = await res.json();
+
+    try {
+      if(res.status === 200) {
+      return { post: data };
+    }
+  } catch {
+     console.error(res.status, data.message);
+    }
+    return {
+      props: {
+        data
+      }
+    }
   }
 </script>
 
 <script>
   import { fly } from 'svelte/transition';
-  export let posts;
+  export let data;
 </script>
 
 <svelte:head>
@@ -21,7 +31,7 @@
   <h1>Logs</h1>
 
   <div class="grid-logs" in:fly={{ y: 200, duration: 1000 }}>
-    {#each posts as post}
+    {#each data as post}
       <a rel="prefetch" href="logs/{post.slug}">
         <div class="title">
           <img src={post.image || null} alt={post.slug} />

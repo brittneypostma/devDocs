@@ -1,14 +1,21 @@
 <script context="module">
-  export async function preload({ params, query }) {
+  export async function load({ params, fetch }) {
     // the `slug` parameter is available because
     // this file is called [slug].svelte
-    const res = await this.fetch(`logs/${params.slug}.json`);
+    const res = await fetch(`logs/${params.slug}.json`);
     const data = await res.json();
 
-    if (res.status === 200) {
+    try {
+      if(res.status === 200) {
       return { post: data };
-    } else {
-      this.error(res.status, data.message);
+    }
+  } catch {
+     console.error(res.status, data.message);
+    }
+    return {
+      props: {
+        data
+      }
     }
   }
 </script>
@@ -117,7 +124,23 @@
     margin: 0 auto;
   }
 
-  .post-page :global(h1, h3, h4, h5, h6) {
+  .post-page :global(h16) {
+    font-weight: bold;
+    line-height: 1.2;
+  }
+  .post-page :global(h3) {
+    font-weight: bold;
+    line-height: 1.2;
+  }
+  .post-page :global(h4) {
+    font-weight: bold;
+    line-height: 1.2;
+  }
+  .post-page :global(h5) {
+    font-weight: bold;
+    line-height: 1.2;
+  }
+  .post-page :global(h6) {
     font-weight: bold;
     line-height: 1.2;
   }
@@ -185,18 +208,24 @@
     background-color: #ffffff;
   }
 
-  .post-page :global(table, th, td) {
+  .post-page :global(table) {
     border: 1px solid black;
     border-collapse: collapse;
+    word-break:normal;
   }
-
-  .post-page :global(th, td) {
+  .post-page :global(th) {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    word-break: normal;
+    text-align: left;
+  }  
+  .post-page :global(td) {
+    border: 1px solid black;
+    border-collapse: collapse;
+    word-break: normal;
     padding: 15px;
     text-align: left;
-  }
-
-  .post-page :global(th, tr, td) {
-    word-break: normal;
   }
 
   @media only screen and (max-width: 900px) {
