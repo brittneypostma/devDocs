@@ -1,20 +1,12 @@
 <script context="module">
-  export async function load({ params, fetch }) {
+  export async function load({ page, fetch }) {
     // the `slug` parameter is available because
     // this file is called [slug].svelte
-    const res = await fetch(`logs/${params.slug}.json`);
-    const data = await res.json();
-
-    try {
-      if(res.status === 200) {
-      return { post: data };
-    }
-  } catch {
-     console.error(res.status, data.message);
-    }
+    const res = await fetch(`logs/${page.params.slug}.json`);
+    const post = await res.json();
     return {
       props: {
-        data
+        post
       }
     }
   }

@@ -1,18 +1,10 @@
 <script context="module">
-  export async function load({ fetch }) {
-    const res = await fetch(`logs.json`);
-    const data = await res.json();
-
-    try {
-      if(res.status === 200) {
-      return { post: data };
-    }
-  } catch {
-     console.error(res.status, data.message);
-    }
+  export async function load({fetch}) {
+    const res = await fetch('./logs.json')
+    const posts = await res.json()
     return {
       props: {
-        data
+        posts
       }
     }
   }
@@ -20,7 +12,11 @@
 
 <script>
   import { fly } from 'svelte/transition';
-  export let data;
+  export let posts;
+
+  //! posts isn't coming out as array, figure out why
+  // console.log(posts.length)
+
 </script>
 
 <svelte:head>
@@ -31,8 +27,8 @@
   <h1>Logs</h1>
 
   <div class="grid-logs" in:fly={{ y: 200, duration: 1000 }}>
-    {#each data as post}
-      <a rel="prefetch" href="logs/{post.slug}">
+    {#each posts as post}
+      <a href="logs/{post.slug}">
         <div class="title">
           <img src={post.image || null} alt={post.slug} />
           <p>{post.title}</p>
