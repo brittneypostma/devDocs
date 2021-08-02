@@ -33,29 +33,4 @@ export function get(req, res) {
       posts
     }),
   }
-  // res.writeHead(200, {
-  //   'Content-Type': 'application/json'
-  // })
-
-  // res.end(JSON.stringify(posts))
 }
-
-// import pMap from 'p-map'
-// import { basename } from 'path'
-
-// export async function get() {
-//   const modules = import.meta.glob('./*.md')
-//   const posts = await pMap(
-//     Object.entries(modules),
-//     async function ([filename, module]) {
-//     const {metadata} = await module()
-//     return {
-//       title: metadata.title,
-//       slug: basename(filename, '.md')
-//     }
-//   }
-//   )
-//   return {
-//     body: { posts }
-//   }
-// }

@@ -1,10 +1,10 @@
 <script context="module">
   export async function load({fetch}) {
     const res = await fetch('./logs.json')
-    const posts = await res.json()
+    const data = await res.json()
     return {
       props: {
-        posts
+        posts: data.posts
       }
     }
   }
@@ -13,10 +13,6 @@
 <script>
   import { fly } from 'svelte/transition';
   export let posts;
-
-  //! posts isn't coming out as array, figure out why
-  // console.log(posts.length)
-
 </script>
 
 <svelte:head>

@@ -1,14 +1,17 @@
 <script context="module">
+ import { base } from '$app/paths';
   export async function load({ page, fetch }) {
     // the `slug` parameter is available because
     // this file is called [slug].svelte
-    const res = await fetch(`logs/${page.params.slug}.json`);
-    const post = await res.json();
-    return {
-      props: {
-        post
-      }
-    }
+    const data = await fetch(`./${base}/${page.params.slug}.json`)
+    console.log(data)
+
+  //! post isn't coming out as json, figure out why 404 status url undefined
+    // return {
+    //   props: {
+    //     post
+    //   }
+    // }
   }
 </script>
 
