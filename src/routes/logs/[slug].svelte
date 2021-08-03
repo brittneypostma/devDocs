@@ -1,17 +1,13 @@
 <script context="module">
- import { base } from '$app/paths';
-  export async function load({ page, fetch }) {
-    // the `slug` parameter is available because
-    // this file is called [slug].svelte
-    const data = await fetch(`./${base}/${page.params.slug}.json`)
-    console.log(data)
-
-  //! post isn't coming out as json, figure out why 404 status url undefined
-    // return {
-    //   props: {
-    //     post
-    //   }
-    // }
+  export async function load({page, fetch}) {
+    const slug = page.params.slug
+    const res = await fetch(`./logs/${slug}.json`)
+    const post = await res.json()
+    return {
+      props: {
+        post
+      }
+    }
   }
 </script>
 
@@ -19,7 +15,7 @@
   export let post;
   import { fade } from 'svelte/transition';
   import { onMount } from 'svelte';
-
+console.log(post)
   onMount(() => {
     [...document.querySelectorAll('a')]
       .filter((a) => !!a.hash)
@@ -34,7 +30,7 @@
       });
   });
 </script>
-
+<!-- 
 <svelte:head>
   <title>{post.title}</title>
 </svelte:head>
@@ -45,7 +41,7 @@
     <h1>{post.title}</h1>
   </header>
   {@html post.html}
-</section>
+</section> -->
 
 <style>
   h1 {

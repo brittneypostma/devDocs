@@ -1,6 +1,7 @@
 ---
 title: Advanced JS
 image: ./logos/js.svg
+slug: advanced-js
 ---
 
 <div class="post">
