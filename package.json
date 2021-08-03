@@ -17,18 +17,14 @@
 		"build": "svelte-kit build",
 		"preview": "svelte-kit preview"
 	},
-	"dependencies": {
-		"compression": "^1.7.1",
-		"gray-matter": "^4.0.2",
-		"marked": "^0.7.0",
-		"p-map": "^5.0.0",
-		"prismjs": "^1.24.1",
-		"rm": "^0.1.8"
-	},
 	"devDependencies": {
 		"@sveltejs/adapter-netlify": "^1.0.0-next.23",
 		"@sveltejs/kit": "^1.0.0-next.131",
 		"svelte": "^3.0.0",
-		"mdsvex": "^0.9.7"
+		"mdsvex": "^0.9.7",
+		"gray-matter": "^4.0.3",
+		"remark": "^13.0.0",
+		"remark-html": "^13.0.1",
+		"remark-external-links": "^8.0.0"
 	}
 }

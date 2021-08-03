@@ -14,7 +14,8 @@ const config = {
 		vite: {
 			resolve: {
 				alias: {
-					'@lib': path.resolve('./src/lib')
+					'@lib': path.resolve('./src/lib'),
+					'@utils': path.resolve('./src/lib/utils')
 				}
 			}
 		}

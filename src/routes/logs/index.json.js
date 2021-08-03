@@ -1,36 +1,10 @@
-import fs from 'fs'
-import path from 'path'
-import marked from 'marked'
-import grayMatter from 'gray-matter'
+import { getPosts } from '@utils/markdown'
 
-function getAllPosts(filesPath) {
-  const data = fs.readdirSync(filesPath).map(fileName => {
-    const post = fs.readFileSync(path.resolve(filesPath, fileName), 'utf-8')
+export async function get() {
+    const posts = await getPosts()
 
-    // Parse Front matter from string
-    const { data, content } = grayMatter(post)
-
-    // Turns markdown into html
-    // const renderer = new marked.Renderer()
-    // const html = marked(content, { renderer })
-
-    // Builds data
     return {
-      // html,
-      slug: fileName.substring(0, fileName.length - 3),
-      ...data
+        status: 200,
+        body: posts
     }
-  })
-  return data
-}
-
-export function get(req, res) {  
-  const posts = getAllPosts('src/posts')
-  // console.log(posts)
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      posts
-    }),
-  }
 }
