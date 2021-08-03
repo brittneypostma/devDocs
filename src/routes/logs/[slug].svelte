@@ -30,7 +30,7 @@ console.log(post)
       });
   });
 </script>
-<!-- 
+
 <svelte:head>
   <title>{post.title}</title>
 </svelte:head>
@@ -41,7 +41,7 @@ console.log(post)
     <h1>{post.title}</h1>
   </header>
   {@html post.html}
-</section> -->
+</section>
 
 <style>
   h1 {

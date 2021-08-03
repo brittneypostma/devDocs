@@ -1,6 +1,5 @@
-import { promises as fs } from 'fs'
-import  { resolve } from 'path'
-
+import  {path} from 'path'
+import fs from 'fs'
 import grayMatter from 'gray-matter'
 import remark from 'remark'
 import remarkHtml from 'remark-html'
@@ -19,11 +18,39 @@ export async function getPosts() {
         posts.push({
             ...file.data
         })
+      }
+
+      // const files = await fs.readdirSync(postsPath)
+      // const posts = files.map(file => {
+      //   const post = fs.readFileSync(path.resolve(postsPath, fileName), 'utf-8')
+      //   const {data} = grayMatter(post)
+      //   const slug = file.substring(0, fileName.length - 3)
+
+      //   return {
+      //     slug,
+      //     ...data
+      //   }
+      // })
+      return posts      
     }
-
-    return posts.sort((a,b) => a.date < b.date ? 1 : -1)
-}
-
+    
+    // export async function getPosts() {
+    //   const posts = await Promise.all(
+    //     Object.entries(import.meta.glob('/src/posts/*.md')).map(
+    //       async ([path, page]) => {
+    //         const { metadata } = await page()
+    //         const slug = path.split('/').pop()
+    //         return {
+    //           ...metadata,
+    //           slug
+    //         }
+    //       }
+    //     )
+    //     )
+    //     return {
+    //       posts
+    //     }
+    // }
 export async function getPost(slug) {
     const path = resolve('src/posts', slug + '.md')
     const src = await fs.readFile(path, 'utf-8')
