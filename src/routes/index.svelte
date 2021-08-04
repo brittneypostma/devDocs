@@ -33,26 +33,23 @@
   <title>Console Logs</title>
 </svelte:head>
 {#if ready}
-<div class="cont" in:fade={{ duration: 1000 }}>
+<section class="cont" in:fade={{ duration: 1000 }}>
   <h1>The Console Logs</h1>
   <p in:typewriter>A site for all my bytes of programming related knowledge.</p>
   <img alt="Brittney Postma animated sitting in front of computer filled with stickers." src="me.png" />
   <a href="/logs">
     <button>LOGS</button>
   </a>
-</div>
+</section>
 {/if}
 <style>
   .cont {
-    padding-bottom: 10px;
     font-family: 'Space Mono', monospace;
     line-height: 1.65;
     display: grid;
-    place-content: center;
-    place-items: center;
+    justify-content: center;
     text-align: center;
     max-width: 100vw;
-    height: calc(100vh - 115px);
   }
 
   img {
