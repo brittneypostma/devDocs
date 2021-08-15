@@ -36,7 +36,7 @@
           logs
         </a>
         <a
-          href="https://dev.to/bdesigned"
+          href="https://dev.to/brittneypostma"
           class="dev"
           target="_blank"
           rel="noopener noreferrer">
