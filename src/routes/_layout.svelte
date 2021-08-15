@@ -1,13 +1,16 @@
 <script>
   import Nav from '../components/Nav.svelte';
+  import { fade } from 'svelte/transition';
 
   export let segment;
 </script>
 
 <Nav {segment} />
 
-<main>
-  <slot />
+<main in:fade={{ duration: 1000 }}>
+  <section>
+    <slot />
+  </section>
 </main>
 
 <footer>
@@ -48,13 +51,21 @@
 
 <style>
   main {
+    padding: 0 1rem 1rem;
     scroll-behavior: smooth;
     background-color: var(--bg-color);
-    margin: 0 auto;
-    box-sizing: border-box;
     width: 100%;
     color: var(--font-color);
+    height: 100%;
+  }
+
+  section {
+    margin: 0 auto;
+    max-width: var(--max-width);
     overflow-x: hidden;
+    display: grid;
+    place-items: center;
+    align-content: start;
   }
 
   footer {border-top: 1px solid rgb(155, 50, 43, 0.75);

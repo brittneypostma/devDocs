@@ -17,7 +17,7 @@
   <title>Logs</title>
 </svelte:head>
 
-<section>
+
   <h1>Logs</h1>
 
   <div class="grid-logs" in:fly={{ y: 200, duration: 1000 }}>
@@ -30,28 +30,22 @@
       </a>
     {/each}
   </div>
-</section>
 
 <style>
-  section {
-    padding: 0 1rem;
-    max-width: var(--max-width);
-    margin: 0 auto;
-  }
-
   img {
     height: 50px;
     width: 50px;
   }
   .grid-logs {
+    justify-self: stretch;
+    width: 100%;
     background: var(--bg-color);
-    padding-bottom: 50px;
     font-family: 'Work Sans', sans-serif;
     font-size: 1.5rem;
     line-height: 1.65;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    grid-gap: 2em;
+    grid-gap: 2rem;
   }
 
   .title {

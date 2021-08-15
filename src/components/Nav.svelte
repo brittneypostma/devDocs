@@ -72,6 +72,7 @@
 
 <style>
   nav {
+    padding: 0 1rem;
     background: var(--nav-color);
     border-bottom: 1px solid rgb(155, 50, 43);
   }
@@ -226,6 +227,7 @@
 
   @media only screen and (max-width: 500px) {
     nav {
+      padding: 0 1rem;
       font-size: 14px;
     }
 

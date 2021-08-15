@@ -1,9 +1,8 @@
 <script>
-  import { onMount } from 'svelte'
-  import { fade } from 'svelte/transition';
+  import { onMount } from 'svelte';
 
-  let ready = false
-  onMount(() => ready = true)
+  let ready = false;
+  onMount(() => (ready = true));
 
   function typewriter(node, { speed = 75 }) {
     const valid =
@@ -32,26 +31,25 @@
 <svelte:head>
   <title>Console Logs</title>
 </svelte:head>
-{#if ready}
-<section class="cont" in:fade={{ duration: 1000 }}>
-  <h1>The Console Logs</h1>
-  <p in:typewriter>A site for all my bytes of programming related knowledge.</p>
-  <img alt="Brittney Postma animated sitting in front of computer filled with stickers." src="me.png" />
-  <a href="/logs">
-    <button>LOGS</button>
-  </a>
-</section>
-{/if}
+<div class="wrapper">
+  {#if ready}
+    <h1>The Console Logs</h1>
+    <p in:typewriter>
+      A site for all my bytes of programming related knowledge.
+    </p>
+    <img
+      alt="Brittney Postma animated sitting in front of computer filled with stickers."
+      src="me.png" />
+    <a href="/logs"> <button>LOGS</button> </a>
+  {/if}
+</div>
 <style>
-  .cont {
-    font-family: 'Space Mono', monospace;
-    line-height: 1.65;
+  .wrapper {
+    padding: 2rem;
     display: grid;
-    justify-content: center;
-    text-align: center;
-    max-width: 100vw;
+    place-items: center;
+    align-content: start;
   }
-
   img {
     width: 300px;
   }
@@ -84,9 +82,9 @@
     border: 0;
     text-decoration: none;
     font-weight: 600;
-    background:  rgb(155, 50, 43);
+    background: rgb(155, 50, 43);
     border-radius: 0.25rem;
-    border: 1px solid rgb(155,50,43);
+    border: 1px solid rgb(155, 50, 43);
     transform-style: preserve-3d;
     transition: transform 0.2s ease-in-out;
   }
