@@ -1,7 +1,7 @@
 <script context="module">
   export async function load({page, fetch}) {
     const slug = page.params.slug
-    const res = await fetch(`./logs/${slug}.json`)
+    const res = await fetch(`./${slug}.json`)
     const post = await res.json()
     return {
       props: {
@@ -15,10 +15,9 @@
   export let post;
   import { fade } from 'svelte/transition';
   import { onMount } from 'svelte';
-console.log(post)
   onMount(() => {
     [...document.querySelectorAll('a')]
-      .filter((a) => !!a.hash)
+      .filter((a) => a.hash)
       .forEach((a) => {
         try {
           if (!a.hash || !document.querySelectorAll(a.hash).length)
@@ -37,7 +36,7 @@ console.log(post)
 
 <section class="post-page" in:fade={{ duration: 1000 }}>
   <header>
-    <a rel="prefetch" href="logs">go back</a>
+    <a rel="prefetch" href="/logs">go back</a>
     <h1>{post.title}</h1>
   </header>
   {@html post.html}

@@ -27,12 +27,12 @@
         <img src="logo.svg" alt="logo" class="The Console Logs logo" />
       </a>
       <div class="nav-links">
-        <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
+        <a class={segment === undefined ? 'selected' : ''} href="/">home</a>
 
         <a
           rel="prefetch"
           class={segment === 'logs' ? 'selected' : ''}
-          href="logs">
+          href="/logs">
           logs
         </a>
         <a

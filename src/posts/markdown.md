@@ -5,8 +5,10 @@ image: ./logos/md.svg
 
 <div class="post">
 
-<div id="main" style="left: 0; width: 100%; border-top: 1px solid black;">
-<br/>
+
+<div id="toc">
+</div>
+<div id="main">
 
 [Markdown Guide](https://www.markdownguide.org/basic-syntax/)   
 [Markdown Cheetsheet](https://www.code2bits.com/assets/cheat-sheets/cheatsheet-markdown.pdf)
