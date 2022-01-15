@@ -24,7 +24,7 @@
 	"dependencies": {
 		"compression": "^1.7.1",
 		"gray-matter": "^4.0.2",
-		"marked": "^0.7.0",
+		"marked": "^4.0.10",
 		"polka": "^0.5.0",
 		"prismjs": "^1.24.1",
 		"rm": "^0.1.8",
